@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ICT4Events
 {
     //teun van der wijst
-    public class Borrow
+    public class Borrow 
     {
        // private static int idnumber = 0;
         private int iD_borrow;
