@@ -80,12 +80,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Listb_Events = new System.Windows.Forms.ListBox();
             this.gB_aanwezige_gebruikers = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.lb_show_user_on_event = new System.Windows.Forms.ListBox();
-            this.btn_show_users = new System.Windows.Forms.Button();
-            this.cb_showusersonevent = new System.Windows.Forms.ComboBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_printlistusers = new System.Windows.Forms.Button();
+            this.cb_showusersonevent = new System.Windows.Forms.ComboBox();
+            this.btn_show_users = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gb_gebruikercreatie.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -671,6 +671,14 @@
             this.gB_aanwezige_gebruikers.TabStop = false;
             this.gB_aanwezige_gebruikers.Text = "Show Users on Event";
             // 
+            // lb_show_user_on_event
+            // 
+            this.lb_show_user_on_event.FormattingEnabled = true;
+            this.lb_show_user_on_event.Location = new System.Drawing.Point(15, 64);
+            this.lb_show_user_on_event.Name = "lb_show_user_on_event";
+            this.lb_show_user_on_event.Size = new System.Drawing.Size(480, 420);
+            this.lb_show_user_on_event.TabIndex = 1;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.btn_printlistusers);
@@ -684,32 +692,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Show Users";
             // 
-            // label13
+            // btn_printlistusers
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 26);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(55, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Event_ID:";
-            // 
-            // lb_show_user_on_event
-            // 
-            this.lb_show_user_on_event.FormattingEnabled = true;
-            this.lb_show_user_on_event.Location = new System.Drawing.Point(15, 64);
-            this.lb_show_user_on_event.Name = "lb_show_user_on_event";
-            this.lb_show_user_on_event.Size = new System.Drawing.Size(480, 420);
-            this.lb_show_user_on_event.TabIndex = 1;
-            // 
-            // btn_show_users
-            // 
-            this.btn_show_users.Location = new System.Drawing.Point(414, 104);
-            this.btn_show_users.Name = "btn_show_users";
-            this.btn_show_users.Size = new System.Drawing.Size(75, 23);
-            this.btn_show_users.TabIndex = 2;
-            this.btn_show_users.Text = "Show users";
-            this.btn_show_users.UseVisualStyleBackColor = true;
-            this.btn_show_users.Click += new System.EventHandler(this.btn_show_users_Click);
+            this.btn_printlistusers.Location = new System.Drawing.Point(320, 104);
+            this.btn_printlistusers.Name = "btn_printlistusers";
+            this.btn_printlistusers.Size = new System.Drawing.Size(75, 23);
+            this.btn_printlistusers.TabIndex = 4;
+            this.btn_printlistusers.Text = "PrintList";
+            this.btn_printlistusers.UseVisualStyleBackColor = true;
+            this.btn_printlistusers.Click += new System.EventHandler(this.btn_printlistusers_Click);
             // 
             // cb_showusersonevent
             // 
@@ -722,15 +713,24 @@
             this.cb_showusersonevent.Size = new System.Drawing.Size(422, 21);
             this.cb_showusersonevent.TabIndex = 3;
             // 
-            // btn_printlistusers
+            // btn_show_users
             // 
-            this.btn_printlistusers.Location = new System.Drawing.Point(320, 104);
-            this.btn_printlistusers.Name = "btn_printlistusers";
-            this.btn_printlistusers.Size = new System.Drawing.Size(75, 23);
-            this.btn_printlistusers.TabIndex = 4;
-            this.btn_printlistusers.Text = "PrintList";
-            this.btn_printlistusers.UseVisualStyleBackColor = true;
-            this.btn_printlistusers.Click += new System.EventHandler(this.btn_printlistusers_Click);
+            this.btn_show_users.Location = new System.Drawing.Point(414, 104);
+            this.btn_show_users.Name = "btn_show_users";
+            this.btn_show_users.Size = new System.Drawing.Size(75, 23);
+            this.btn_show_users.TabIndex = 2;
+            this.btn_show_users.Text = "Show users";
+            this.btn_show_users.UseVisualStyleBackColor = true;
+            this.btn_show_users.Click += new System.EventHandler(this.btn_show_users_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 26);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(55, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Event_ID:";
             // 
             // EventBeheerReservering
             // 

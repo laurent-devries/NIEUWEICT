@@ -20,7 +20,7 @@ namespace ICT4Events
             reservations = new List<Reservation>();
 
             DatabaseConnection con = new DatabaseConnection();
-            string Querry = "SELECT id_reservation,id_eventFK,id_campingPlaceFK,startdate,endDate,PAYMENTSTATE FROM ICT4_RESERVATION WHERE id_EventFK = " + Convert.ToString(event_Id);
+            string Querry = "SELECT id_reservation,id_eventFK, PAYMENTSTATE FROM ICT4_RESERVATION WHERE id_EventFK = " + Convert.ToString(event_Id);
             Reservation reservation;
             OracleDataReader reader = con.SelectFromDatabase(Querry);
 
