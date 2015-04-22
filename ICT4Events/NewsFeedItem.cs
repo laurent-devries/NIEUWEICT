@@ -71,7 +71,7 @@ namespace ICT4Events
             Titel.BringToFront();
             Titel.Click += delegate
             {
-                CommentNewsfeedItem commentNFI = new CommentNewsfeedItem(media.Title, id, user);
+                CommentNewsfeedItem commentNFI = new CommentNewsfeedItem(media, user);
                 commentNFI.Show();
             };
 
@@ -145,11 +145,19 @@ namespace ICT4Events
             panel.Controls.Add(Like);
             Like.Click += delegate
             {
-                /*
+                
                 MediaManager m = new MediaManager();
-                m.UpdateLikes(media.Title);
-                 */
-                MessageBox.Show("This item will be likeable soon");
+                if (m.UpdateLikes(media, user))
+                {
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Er is al geliked");
+                }
+                 
+               // MessageBox.Show("This item will be likeable soon");
             };
 
             LinkLabel lblDownload = new LinkLabel();

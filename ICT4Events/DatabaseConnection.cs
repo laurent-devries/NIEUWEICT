@@ -68,9 +68,8 @@ namespace ICT4Events
                 oracleConn.Dispose();
                 return true;
             }
-            catch(Exception e)
+            catch
             {
-                MessageBox.Show(e.ToString());
                 return false;
             }
         }

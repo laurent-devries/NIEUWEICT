@@ -14,14 +14,16 @@ namespace ICT4Events
         int id_media;
         string comment;
         DateTime Date { get; set; }
+        User User { get; set; }
 
         //Constructor
-        public Comment(int id_Comment, DateTime date, string comment, int id_media)
+        public Comment(int id_Comment, DateTime date, string comment, int id_media, User user)
         {
             this.id_Comment = id_Comment;
             this.id_media = id_media;
             this.comment = comment;
             Date = date;
+            User = user;
         }
 
         public bool checkAbuse()
@@ -31,7 +33,7 @@ namespace ICT4Events
 
         public override string ToString()
         {
-            return comment;
+            return comment + " --- Written by: " + User.Username;
         }
     }
 }
