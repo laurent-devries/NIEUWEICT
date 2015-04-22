@@ -23,6 +23,7 @@ namespace ICT4Events
             OracleDataReader reader = con.SelectFromDatabase(Querry);
             Media media;
             UserManager userManager = new UserManager();
+            MediaManager mediaManager = new MediaManager();
             while (reader.Read())
             {
                 int aantalLikes;
@@ -39,7 +40,7 @@ namespace ICT4Events
                 }
 
 
-                media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), aantalLikes, aantalReports, reader.GetString(6), "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, reader.GetString(6), "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
                 mediaList.Add(media);
             }
 
@@ -49,7 +50,20 @@ namespace ICT4Events
         }
 
 
-        
+        public int CountLikes(int mediaId)
+        {
+            int count = 0;
+            DatabaseConnection con = new DatabaseConnection();
+            string Query = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId;
+
+            OracleDataReader reader = con.SelectFromDatabase(Query);
+            while (reader.Read()) 
+            {
+                count++;
+            }
+            return count;
+
+        }
 
         public bool InsertMedia(string title, string summaryMedia, string filePath, string typeMedia, DateTime currentDate)
         {
@@ -66,12 +80,12 @@ namespace ICT4Events
             return writer;
         }
 
-        public bool UpdateLikes(string title)
+        public bool UpdateLikes(Media media, User user)
         {
             DatabaseConnection con = new DatabaseConnection();
 
             //string Query = "UPDATE ICT4_MEDIA SET likes = likes + 1 WHERE title = '" + title + "'";
-            string Query = "INSERT INTO ICT4_NOTE(ID_NOTE, ID_USERFK, ID_COMMENTFK, LIKENOTE) VALUESVALUES (note_seq.nextval, 3, 1, 'Y')";
+            string Query = "INSERT INTO ICT4_NOTE(ID_NOTE, ID_USERFK, ID_MEDIAFK, LIKENOTE) VALUES (note_seq.nextval, " + user.ID_User +", " + media.ID_Media +", 'Y')";
             bool writer = con.InsertOrUpdate(Query);
             return writer;
         }

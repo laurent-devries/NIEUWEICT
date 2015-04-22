@@ -147,7 +147,15 @@ namespace ICT4Events
             {
                 
                 MediaManager m = new MediaManager();
-                m.UpdateLikes(media.Title);
+                if (m.UpdateLikes(media, user))
+                {
+
+                }
+
+                else
+                {
+                    MessageBox.Show("Er is al geliked");
+                }
                  
                // MessageBox.Show("This item will be likeable soon");
             };
