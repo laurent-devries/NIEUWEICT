@@ -15,57 +15,67 @@ namespace ICT4Events
         MediaManager mediaManager;
         CommentManager commentManager;
         Label lblOpenComment;
-        int i = 0;
-        int id;
         List<Media> medialist;
         List<Comment> commentList;
 
-        public User UserComment { get; set; }
-        public CommentNewsfeedItem(string titel, int id, User user)
+        Media mediaComment;
+        User userComment;
+        public CommentNewsfeedItem(Media media, User user)
         {
             InitializeComponent();
-            this.id = id;
+            //Maakt de managers aan
             mediaManager = new MediaManager();
             commentManager = new CommentManager();
-            UserComment = user;
-            medialist = mediaManager.RequestMedia();
-            commentList = mediaManager.RequestComments(id);
-            
+            //Vult die fields
+            userComment = user;
+            mediaComment = media;
+         
+            //Update de views
+            mediaManager.UpdateViews(media);
 
-            foreach (Media media in medialist)
+            //Vult het form met de eigenschappen van de media
+            lblTitel.Text = media.Title;
+            lblDatum.Text = media.Date;
+            lblLikes.Text = "Likes : " + media.Likes.ToString();
+            lblViews.Text = "Views : " + media.Views.ToString();
+            rtbSummary.Text = media.Summary;
+            try
             {
-                if (media.Title == titel)
-                {
-                    lblTitel.Text = media.Title;
-                    lblDatum.Text = media.Date;
-                    lblLikes.Text = "Likes : " + media.Likes.ToString();
-                    lblViews.Text = "Views : " + media.Views.ToString();
-                    rtbSummary.Text = media.Summary;
-                    try
-                    {
-                        pbMedia.Load(media.File_path);
-                    }
-                    catch
-                    {
+                pbMedia.Load(media.File_path);
+            }
+            catch
+            {
 
-                    }
-                }
             }
 
-            foreach (Comment c in commentList)
-            {
-                lblOpenComment = new Label();
-                
-                lblOpenComment.Location = new Point(0, lbCommentLoader.Height / 6 * i);
-                i++;
-                lbCommentLoader.Items.Add(c.ToString());
-            }          
+            RefreshComments();
             
         }
 
         private void btnUploadComment_Click(object sender, EventArgs e)
         {
-            commentManager.InsertComment(rtbComment.Text, id, UserComment);
+            //Voegt de comments toe
+            commentManager.InsertComment(rtbComment.Text, mediaComment.ID_Media, userComment);
+            RefreshComments();
+        }
+
+        private void RefreshComments()
+        {
+            //Voegt de comments toe
+            int row = 0;
+            //Vraagt de bijhorende comments op
+            commentList = mediaManager.RequestComments(mediaComment.ID_Media);
+            //Maakt de lijst leeg
+            lbCommentLoader.Items.Clear();
+            
+            foreach (Comment c in commentList)
+            {
+                lblOpenComment = new Label();
+
+                lblOpenComment.Location = new Point(0, lbCommentLoader.Height / 6 * row);
+                row++;
+                lbCommentLoader.Items.Add(c.ToString());
+            }    
         }
 
         private void CommentNewsfeedItem_Load(object sender, EventArgs e)

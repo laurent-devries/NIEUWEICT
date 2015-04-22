@@ -71,7 +71,7 @@ namespace ICT4Events
             Titel.BringToFront();
             Titel.Click += delegate
             {
-                CommentNewsfeedItem commentNFI = new CommentNewsfeedItem(media.Title, id, user);
+                CommentNewsfeedItem commentNFI = new CommentNewsfeedItem(media, user);
                 commentNFI.Show();
             };
 

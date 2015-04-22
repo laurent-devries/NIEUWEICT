@@ -14,6 +14,7 @@ namespace ICT4Events
        
         List<Media> mediaList = new List<Media>();
         List<Comment> commentList = new List<Comment>();
+
         public List<Media> RequestMedia()
         {
             DatabaseConnection con = new DatabaseConnection();
@@ -99,29 +100,40 @@ namespace ICT4Events
             return writer;
         }
 
-        public void UpdateLikes(string title)
+        public bool UpdateLikes(string title)
         {
             DatabaseConnection con = new DatabaseConnection();
 
             //string Query = "UPDATE ICT4_MEDIA SET likes = likes + 1 WHERE title = '" + title + "'";
             string Query = "INSERT INTO ICT4_NOTE(ID_NOTE, ID_USERFK, ID_COMMENTFK, LIKENOTE) VALUESVALUES (note_seq.nextval, 3, 1, 'Y')";
             bool writer = con.InsertOrUpdate(Query);
+            return writer;
         }
 
-        public void UpdateReports(string title)
+        public bool UpdateReports(string title)
         {
             DatabaseConnection con = new DatabaseConnection();
 
             string Query = "UPDATE ICT4_MEDIA SET reports = reports + 1 WHERE title = '" + title + "'";
             bool writer = con.InsertOrUpdate(Query);
+            return writer;
         }
 
-        public void MakeComment(string comment)
+        public bool MakeComment(string comment)
         {
             DatabaseConnection con = new DatabaseConnection();
 
             string Query = "INSERT INTO ICT4_COMMENT(idComment = 1, commentComment = alksdjf)";
             bool writer = con.InsertOrUpdate(Query);
+            return writer;
+        }
+
+        public bool UpdateViews(Media media)
+        {
+            DatabaseConnection con = new DatabaseConnection();
+            string Query = "UPDATE ICT4_MEDIA SET VIEWMEDIA = VIEWMEDIA + 1 WHERE ID_MEDIA = " + media.ID_Media;
+            bool writer = con.InsertOrUpdate(Query);
+            return writer;
         }
     }
 }
