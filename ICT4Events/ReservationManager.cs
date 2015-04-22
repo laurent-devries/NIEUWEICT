@@ -26,7 +26,7 @@ namespace ICT4Events
 
             while (reader.Read())
             {
-                reservation = new Reservation(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetDateTime(3), reader.GetDateTime(4), Convert.ToChar(reader.GetString(5)));
+                reservation = new Reservation(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), Convert.ToChar(reader.GetString(5)));
                 reservations.Add(reservation);
 
             }
