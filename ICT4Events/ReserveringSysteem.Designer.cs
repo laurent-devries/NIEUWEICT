@@ -66,6 +66,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cbPersonsAmount = new System.Windows.Forms.ComboBox();
             this.btnEventSettings = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbCampingPlaces)).BeginInit();
             this.gb_gebruikercreatie.SuspendLayout();
             this.SuspendLayout();
@@ -536,11 +537,21 @@
             this.btnEventSettings.UseVisualStyleBackColor = true;
             this.btnEventSettings.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(20, 725);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(264, 17);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Moet nog een link naar materiaalverhuur";
+            // 
             // ReserveringSysteem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1906, 806);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnEventSettings);
             this.Controls.Add(this.cbPersonsAmount);
             this.Controls.Add(this.label7);
@@ -554,7 +565,9 @@
             this.Controls.Add(this.lblAankomst);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbCampingPlaces);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "ReserveringSysteem";
             this.Text = "ReserveringSysteem";
             ((System.ComponentModel.ISupportInitialize)(this.pbCampingPlaces)).EndInit();
@@ -605,5 +618,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbPersonsAmount;
         private System.Windows.Forms.Button btnEventSettings;
+        private System.Windows.Forms.Label label8;
     }
 }

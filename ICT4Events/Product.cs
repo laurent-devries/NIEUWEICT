@@ -11,42 +11,23 @@ namespace ICT4Events
     //Mario Schipper
     public class Product
     {
-        
+        //Fields
         private int iD_product;
         private string product_name;
         private decimal bail;
         private decimal price;
+        private string category;
         private DateTime hire_date;
         private DateTime return_date;
 
        
 
-        public decimal Price
-        {
-            get { return price; }
-            set { price = value; }
-        }
-        
-
-        public decimal Bail
-        {
-            get { return bail; }
-            set { bail = value; }
-        }
-        
-
-        public string Product_Name
-        {
-            get { return product_name; }
-            set { product_name = value; }
-        }
-        
-
-        public int ID_Product
-        {
-            get { return iD_product; }
-            set { iD_product = value; }
-        }
+        public decimal Price { get { return price; } set { price = value; } }
+        public decimal Bail { get { return bail; } set { bail = value; } }
+        public string Product_Name { get { return product_name; } set { product_name = value; } }
+        public int ID_Product { get { return iD_product; } set { iD_product = value; } }  
+        public DateTime Return_Date { get { return return_date; } set { return_date = value; } } 
+        public string Category { get { return category; } set { category = value; } }
         
         public Product(int iD_product, string product_name, decimal bail, decimal price)
         {
@@ -68,23 +49,29 @@ namespace ICT4Events
             this.return_date = return_date;
         }
 
+
+
+        public Product(int iD_product, string product_name, string category, decimal bail)
+        {
+            this.iD_product = iD_product;
+            this.product_name = product_name;
+            this.category = category;
+            this.bail = bail;
+        }
+
         public decimal GetProductPrice()
         {
             decimal a = bail + price;
             return a;
         }
 
-        public DateTime Return_Date
-        {
-            get { return return_date; }
-            set { return_date = value; }
-        }
+      
 
-        public DateTime Hire_Date
-        {
-            get { return hire_date; }
-            set { hire_date = value; }
-        }
+        
+        
+            
+            
+        
         
 
         
