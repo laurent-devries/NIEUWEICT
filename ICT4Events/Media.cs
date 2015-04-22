@@ -31,7 +31,7 @@ namespace ICT4Events
         public int Likes { get { return likes; } set { likes = value; } }
         public int Reports { get { return reports; } set { reports = value; } }
         //Methods
-        public Media(string title, string date, string summary, int views, int likes, int reports, string file_Path, string type_Media, int idmedia)
+        public Media(string title, string date, string summary, int views, int likes, int reports, string file_Path, string type_Media, int idmedia, User user)
         {
             ID_Media = idmedia;
             Title = title;
