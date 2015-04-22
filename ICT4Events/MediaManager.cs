@@ -14,13 +14,16 @@ namespace ICT4Events
        
         List<Media> mediaList = new List<Media>();
         List<Comment> commentList = new List<Comment>();
+
         public List<Media> RequestMedia()
         {
             DatabaseConnection con = new DatabaseConnection();
-            string Querry = "SELECT TITLE, to_char(DATEMEDIA), SUMMARYMEDIA,  to_char(viewMedia), to_char(likes), to_char(reports), FILEPATH, id_media   FROM ICT4_MEDIA";
-
+            string Querry = "SELECT TITLE, to_char(DATEMEDIA), SUMMARYMEDIA,  to_char(viewMedia), to_char(likes), to_char(reports), FILEPATH, id_media, id_userFk   FROM ICT4_MEDIA";
+            
             OracleDataReader reader = con.SelectFromDatabase(Querry);
             Media media;
+            UserManager userManager = new UserManager();
+            MediaManager mediaManager = new MediaManager();
             while (reader.Read())
             {
                 int aantalLikes;
@@ -35,7 +38,9 @@ namespace ICT4Events
                     aantalLikes = 0;
                     aantalReports = 0;
                 }
-                media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), aantalLikes, aantalReports, reader.GetString(6), "VIDEO", reader.GetInt32(7));
+
+
+                media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, reader.GetString(6), "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
                 mediaList.Add(media);
             }
 
@@ -44,45 +49,21 @@ namespace ICT4Events
             return mediaList;
         }
 
-       public List<Comment> RequestComments(int mediaID)
+
+        public int CountLikes(int mediaId)
         {
+            int count = 0;
             DatabaseConnection con = new DatabaseConnection();
-            string Query = "SELECT id_comment, id_mediaFK, dateComment, commentComment FROM ICT4_COMMENT WHERE id_mediaFk = '"+ mediaID +"'";
+            string Query = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId;
+
             OracleDataReader reader = con.SelectFromDatabase(Query);
-            Comment comment;
-            while (reader.Read())
+            while (reader.Read()) 
             {
-                comment = new Comment(reader.GetInt32(0), reader.GetDateTime(2), reader.GetString(3), reader.GetInt32(1));
-                commentList.Add(comment);
+                count++;
             }
+            return count;
 
-            reader.Dispose();
-
-            return commentList;
         }
-
-       public void InsertComment(string comment, int id_media)
-       {
-           DatabaseConnection con = new DatabaseConnection();
-           DateTime currentDate = DateTime.Now;
-           string dateMonth = Convert.ToString(currentDate.Month);
-           string dateDay = Convert.ToString(currentDate.Day);
-           string dateYear = Convert.ToString(currentDate.Year);
-
-           if (currentDate.Month < 10)
-           {
-               dateMonth = "0" + dateMonth;
-           }
-           if (currentDate.Day < 10)
-           {
-               dateDay = "0" + dateDay;
-           }
-
-           string Query = "INSERT INTO ICT4_COMMENT(ID_COMMENT, id_MediaFK , dateComment, commentComment) VAlues(com_seq.nextval, '" + id_media + "', to_date('" + dateDay + dateMonth + dateYear + "', 'DDMMYYYY'), '" + comment + "')";
-         
-           bool writer = con.InsertOrUpdate(Query);
-       }
-        
 
         public bool InsertMedia(string title, string summaryMedia, string filePath, string typeMedia, DateTime currentDate)
         {
@@ -99,29 +80,40 @@ namespace ICT4Events
             return writer;
         }
 
-        public void UpdateLikes(string title)
+        public bool UpdateLikes(Media media, User user)
         {
             DatabaseConnection con = new DatabaseConnection();
 
             //string Query = "UPDATE ICT4_MEDIA SET likes = likes + 1 WHERE title = '" + title + "'";
-            string Query = "INSERT INTO ICT4_NOTE(ID_NOTE, ID_USERFK, ID_COMMENTFK, LIKENOTE) VALUESVALUES (note_seq.nextval, 3, 1, 'Y')";
+            string Query = "INSERT INTO ICT4_NOTE(ID_NOTE, ID_USERFK, ID_MEDIAFK, LIKENOTE) VALUES (note_seq.nextval, " + user.ID_User +", " + media.ID_Media +", 'Y')";
             bool writer = con.InsertOrUpdate(Query);
+            return writer;
         }
 
-        public void UpdateReports(string title)
+        public bool UpdateReports(string title)
         {
             DatabaseConnection con = new DatabaseConnection();
 
             string Query = "UPDATE ICT4_MEDIA SET reports = reports + 1 WHERE title = '" + title + "'";
             bool writer = con.InsertOrUpdate(Query);
+            return writer;
         }
 
-        public void MakeComment(string comment)
+        public bool MakeComment(string comment)
         {
             DatabaseConnection con = new DatabaseConnection();
 
             string Query = "INSERT INTO ICT4_COMMENT(idComment = 1, commentComment = alksdjf)";
             bool writer = con.InsertOrUpdate(Query);
+            return writer;
+        }
+
+        public bool UpdateViews(Media media)
+        {
+            DatabaseConnection con = new DatabaseConnection();
+            string Query = "UPDATE ICT4_MEDIA SET VIEWMEDIA = VIEWMEDIA + 1 WHERE ID_MEDIA = " + media.ID_Media;
+            bool writer = con.InsertOrUpdate(Query);
+            return writer;
         }
     }
 }
