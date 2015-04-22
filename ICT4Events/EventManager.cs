@@ -23,7 +23,7 @@ namespace ICT4Events
             OracleDataReader reader = con.SelectFromDatabase(Querry);
             while (reader.Read())
             {
-                Event event1 = new Event(reader.GetString(1), reader.GetDateTime(2), reader.GetDateTime(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(0));
+                Event event1 = new Event(reader.GetString(1), reader.GetDateTime(3), reader.GetDateTime(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(0));
                 evenementen.Add(event1);
                 a = event1;
             }
