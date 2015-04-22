@@ -124,7 +124,7 @@
             this.lbCommentLoader.FormattingEnabled = true;
             this.lbCommentLoader.Location = new System.Drawing.Point(35, 215);
             this.lbCommentLoader.Name = "lbCommentLoader";
-            this.lbCommentLoader.Size = new System.Drawing.Size(241, 199);
+            this.lbCommentLoader.Size = new System.Drawing.Size(318, 199);
             this.lbCommentLoader.TabIndex = 9;
             // 
             // CommentNewsfeedItem
