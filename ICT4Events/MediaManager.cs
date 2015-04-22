@@ -18,7 +18,7 @@ namespace ICT4Events
         public List<Media> RequestMedia()
         {
             DatabaseConnection con = new DatabaseConnection();
-            string Querry = "SELECT TITLE, to_char(DATEMEDIA), SUMMARYMEDIA,  to_char(viewMedia), to_char(likes), to_char(reports), FILEPATH, id_media   FROM ICT4_MEDIA";
+            string Querry = "SELECT TITLE, to_char(DATEMEDIA), SUMMARYMEDIA,  to_char(viewMedia), to_char(likes), to_char(reports), FILEPATH, id_media, id_userFk   FROM ICT4_MEDIA";
             
             OracleDataReader reader = con.SelectFromDatabase(Querry);
             Media media;
@@ -37,7 +37,9 @@ namespace ICT4Events
                     aantalLikes = 0;
                     aantalReports = 0;
                 }
-                media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), aantalLikes, aantalReports, reader.GetString(6), "VIDEO", reader.GetInt32(7), userManager.SearchById(reader.GetInt32(8)));
+
+
+                media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), aantalLikes, aantalReports, reader.GetString(6), "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
                 mediaList.Add(media);
             }
 
