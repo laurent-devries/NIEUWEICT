@@ -52,15 +52,14 @@ namespace ICT4Events
 
         public int CountLikes(int mediaId)
         {
-            int count = 0;
+    
             DatabaseConnection con = new DatabaseConnection();
             string Query = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId;
 
             OracleDataReader reader = con.SelectFromDatabase(Query);
-            while (reader.Read()) 
-            {
-                count++;
-            }
+            reader.Read();
+            int count = reader.GetInt32(0);
+            reader.Dispose();
             return count;
 
         }
