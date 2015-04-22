@@ -145,11 +145,11 @@ namespace ICT4Events
             panel.Controls.Add(Like);
             Like.Click += delegate
             {
-                /*
+                
                 MediaManager m = new MediaManager();
                 m.UpdateLikes(media.Title);
-                 */
-                MessageBox.Show("This item will be likeable soon");
+                 
+               // MessageBox.Show("This item will be likeable soon");
             };
 
             LinkLabel lblDownload = new LinkLabel();
