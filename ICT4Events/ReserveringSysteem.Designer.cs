@@ -73,7 +73,7 @@
             // pbCampingPlaces
             // 
             this.pbCampingPlaces.Image = global::ICT4Events.Properties.Resources.Camping_ReeënDal;
-            this.pbCampingPlaces.Location = new System.Drawing.Point(596, 97);
+            this.pbCampingPlaces.Location = new System.Drawing.Point(642, 13);
             this.pbCampingPlaces.Margin = new System.Windows.Forms.Padding(4);
             this.pbCampingPlaces.Name = "pbCampingPlaces";
             this.pbCampingPlaces.Size = new System.Drawing.Size(1251, 1061);
@@ -540,7 +540,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1906, 1008);
+            this.ClientSize = new System.Drawing.Size(1906, 806);
             this.Controls.Add(this.btnEventSettings);
             this.Controls.Add(this.cbPersonsAmount);
             this.Controls.Add(this.label7);
