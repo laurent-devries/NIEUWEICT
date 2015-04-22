@@ -77,7 +77,16 @@ namespace ICT4Events
         
          public override string ToString()
          {
-             return iD_product + "\t" + "\t" + "\t" + product_name + "\t" + "\t" + "\t" + "€"+bail + "\t" + "\t" + "\t" + "€"+ price; 
+
+             if (category ==  null)
+             {
+                 return iD_product + "\t" + "\t" + "\t" + product_name + "\t" + "\t" + "\t" + "€"+bail + "\t" + "\t" + "\t" + "€"+ price; 
+                 
+             }
+
+             else
+             return iD_product + "\t" + "\t" + "\t" + product_name + "\t" + "\t" + "\t" + category + "\t" + "\t" + "\t" + "€" + bail;
+
          }
     }
 }

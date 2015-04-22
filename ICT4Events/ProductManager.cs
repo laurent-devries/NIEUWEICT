@@ -41,13 +41,14 @@ namespace ICT4Events
              try
              {
                  DatabaseConnection con = new DatabaseConnection();
-                 string Querry = "SELECT P.ID_PRODUCT, P.PRODUCTNAME, PR.PRODUCTCATEGORY, P.BAIL FROM ICT4_PRODUCT P, ICT4_BORROWED_PRODUCTS BP, ICT4_BORROW B, ICT4_PRODUCTCATEGORY PR WHERE P.ID_PRODUCT = BP.ID_PRODUCTFK AND B.ID_BORROW = BP.ID_BORROWFK AND PR.ID_PRODUCTCAT = P.ID_PRODUCTCATFK AND HIREDATE = 'NULL'";
+                 string Querry = "SELECT P.ID_PRODUCT, P.PRODUCTNAME, PR.PRODUCTCATEGORY, P.BAIL FROM ICT4_PRODUCT P, ICT4_BORROWED_PRODUCTS BP, ICT4_BORROW B, ICT4_PRODUCTCATEGORY PR WHERE P.ID_PRODUCT = BP.ID_PRODUCTFK AND B.ID_BORROW = BP.ID_BORROWFK AND PR.ID_PRODUCTCAT = P.ID_PRODUCTCATFK AND HIREDATE is NULL";
                       
                  OracleDataReader reader = con.SelectFromDatabase(Querry);
+                 MessageBox.Show(Querry);
                  Product product;
                  while (reader.Read())
                  {
-                     product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetString(3), reader.GetInt32(4));
+                     product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDecimal(3));
                      availableProduct.Add(product);
                  }
                  reader.Dispose();

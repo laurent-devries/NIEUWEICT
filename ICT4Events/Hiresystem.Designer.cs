@@ -78,6 +78,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.listBoxAvble = new System.Windows.Forms.ListBox();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -491,7 +492,7 @@
             this.listBox3.ItemHeight = 16;
             this.listBox3.Location = new System.Drawing.Point(12, 150);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(966, 196);
+            this.listBox3.Size = new System.Drawing.Size(481, 196);
             this.listBox3.TabIndex = 25;
             // 
             // bttnLend
@@ -556,11 +557,21 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(376, 22);
             this.dateTimePicker1.TabIndex = 41;
             // 
+            // listBoxAvble
+            // 
+            this.listBoxAvble.FormattingEnabled = true;
+            this.listBoxAvble.ItemHeight = 16;
+            this.listBoxAvble.Location = new System.Drawing.Point(510, 150);
+            this.listBoxAvble.Name = "listBoxAvble";
+            this.listBoxAvble.Size = new System.Drawing.Size(814, 196);
+            this.listBoxAvble.TabIndex = 42;
+            // 
             // Hiresystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1410, 746);
+            this.Controls.Add(this.listBoxAvble);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label16);
@@ -647,5 +658,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ListBox listBoxAvble;
     }
 }

@@ -178,6 +178,9 @@
     <EmbeddedResource Include="Hiresystem.resx">
       <DependentUpon>Hiresystem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginFormStart.resx">
+      <DependentUpon>LoginFormStart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
