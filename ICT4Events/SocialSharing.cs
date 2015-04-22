@@ -302,9 +302,35 @@ namespace ICT4Events
                 cbCategorie.Items.Add(c);
             }
 
+            Label lTag = new Label();
+            lTag.Location = new Point(10, pnlNewsFeed.Height / 20 * 15);
+            lTag.Text = "Tag";
+            lTag.ForeColor = Color.DarkOrange;
+            lTag.Font = new Font("Georgia", 13);
+            lTag.Width = 140;
+            lTag.Height = 25;
+            pnlNewsFeed.Controls.Add(lTag);
+
+            Label lTagMax = new Label();
+            lTagMax.Location = new Point(10, pnlNewsFeed.Height / 20 * 16);
+            lTagMax.Text = "(Max 100characters)";
+            lTagMax.ForeColor = Color.DarkOrange;
+            lTagMax.Font = new Font("Georgia", 8);
+            lTagMax.Width = 140;
+            lTagMax.Height = 30;
+            pnlNewsFeed.Controls.Add(lTagMax);
+
+            RichTextBox tTag = new RichTextBox();
+            tTag.Location = new Point(lTag.Width + 10, pnlNewsFeed.Height / 20 * 15);
+            tTag.Width = 150;
+            tTag.Height = pnlNewsFeed.Height / 20 * 2;
+            tTag.MaxLength = 100;
+            tTag.Text = "use '#'between tags";
+            pnlNewsFeed.Controls.Add(tTag);
+
             //Upload
             Button bUpload = new Button();
-            bUpload.Location = new Point(lTitleOfMedia.Width + 10, pnlNewsFeed.Height / 20 * 15);
+            bUpload.Location = new Point(lTitleOfMedia.Width + 10, pnlNewsFeed.Height / 20 * 17);
             bUpload.Text = "Upload";
             bUpload.ForeColor = Color.DarkOrange;
             bUpload.Font = new Font("Georgia", 13);
@@ -317,7 +343,7 @@ namespace ICT4Events
             {
                 MediaManager media = new MediaManager();
                 DateTime currentDate = DateTime.Now;
-                media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, tMediaPath.Text, "anus", currentDate);
+                media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, tMediaPath.Text, "test", currentDate);
                 ftp.upload(q, localfile);
             };
         }
