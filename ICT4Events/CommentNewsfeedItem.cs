@@ -64,9 +64,11 @@ namespace ICT4Events
             //Voegt de comments toe
             int row = 0;
             //Vraagt de bijhorende comments op
+            commentList.Clear();
             commentList = commentManager.RequestComments(mediaComment.ID_Media);
             //Maakt de lijst leeg
             lbCommentLoader.Items.Clear();
+
             
             foreach (Comment c in commentList)
             {
