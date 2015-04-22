@@ -48,44 +48,7 @@ namespace ICT4Events
             return mediaList;
         }
 
-       public List<Comment> RequestComments(int mediaID)
-        {
-            DatabaseConnection con = new DatabaseConnection();
-            string Query = "SELECT id_comment, id_mediaFK, dateComment, commentComment FROM ICT4_COMMENT WHERE id_mediaFk = '"+ mediaID +"'";
-            OracleDataReader reader = con.SelectFromDatabase(Query);
-            Comment comment;
-            while (reader.Read())
-            {
-                comment = new Comment(reader.GetInt32(0), reader.GetDateTime(2), reader.GetString(3), reader.GetInt32(1));
-                commentList.Add(comment);
-            }
 
-            reader.Dispose();
-
-            return commentList;
-        }
-
-       public void InsertComment(string comment, int id_media)
-       {
-           DatabaseConnection con = new DatabaseConnection();
-           DateTime currentDate = DateTime.Now;
-           string dateMonth = Convert.ToString(currentDate.Month);
-           string dateDay = Convert.ToString(currentDate.Day);
-           string dateYear = Convert.ToString(currentDate.Year);
-
-           if (currentDate.Month < 10)
-           {
-               dateMonth = "0" + dateMonth;
-           }
-           if (currentDate.Day < 10)
-           {
-               dateDay = "0" + dateDay;
-           }
-
-           string Query = "INSERT INTO ICT4_COMMENT(ID_COMMENT, id_MediaFK , dateComment, commentComment) VAlues(com_seq.nextval, '" + id_media + "', to_date('" + dateDay + dateMonth + dateYear + "', 'DDMMYYYY'), '" + comment + "')";
-         
-           bool writer = con.InsertOrUpdate(Query);
-       }
         
 
         public bool InsertMedia(string title, string summaryMedia, string filePath, string typeMedia, DateTime currentDate)
