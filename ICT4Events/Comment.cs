@@ -16,7 +16,7 @@ namespace ICT4Events
         DateTime Date { get; set; }
 
         //Constructor
-        public Comment(int id_Comment, DateTime date, string comment, int id_media)
+        public Comment(int id_Comment, DateTime date, string comment, int id_media, User user)
         {
             this.id_Comment = id_Comment;
             this.id_media = id_media;
