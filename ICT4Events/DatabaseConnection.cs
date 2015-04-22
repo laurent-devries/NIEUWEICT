@@ -17,7 +17,7 @@ namespace ICT4Events
         private OracleConnection oracleConn;
 
         private string user = "system";//Wachtwoord van de server
-        private string pw = "visisdood";//Wachtwoord van de server
+        private string pw = "root";//Wachtwoord van de server
 
         private void Connect()
         {
@@ -68,9 +68,8 @@ namespace ICT4Events
                 oracleConn.Dispose();
                 return true;
             }
-            catch(Exception e)
+            catch
             {
-                MessageBox.Show(e.ToString());
                 return false;
             }
         }
