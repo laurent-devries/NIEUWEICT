@@ -209,25 +209,29 @@ namespace ICT4Events
 
         private void cB_Event_ID_User_TextChanged(object sender, EventArgs e)
         {
+            List<string> liststring = new List<string>();
             gb_gebruikercreatie.Enabled = true;
-            int userid;
+            int eventid;
             try
             {
-                int.TryParse(cB_Event_ID_User.Text, out userid);
-                reservations = Reservation.RequestReservations(userid);
+                bool succes = int.TryParse(cB_Event_ID_User.Text, out eventid);
+                if (succes)
+                {
+                    liststring = Reservation.RequestReservationsInfo(eventid);
+                }
+                else
+                {
+                    MessageBox.Show("Het is niet gelukt om de reservaties op te halen.");
+                }
             }
             catch (FormatException)
             {
                 MessageBox.Show("error");
             }
-            if (reservations != null)
+            cB_Reservation_ID_User.Items.Clear();
+            foreach (string tekst in liststring)
             {
-                cB_Reservation_ID_User.Items.Clear();
-                foreach (Reservation reservation in reservations)
-                {
-                    cB_Reservation_ID_User.Items.Add(reservation.ToString());
-                }
-
+                cB_Reservation_ID_User.Items.Add(tekst);
             }
         }
 
