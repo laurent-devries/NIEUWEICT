@@ -16,15 +16,14 @@ namespace ICT4Events
         public LoginFormStart()
         {
             InitializeComponent();
+            tbUsername.Text = "frankhartman96";
+            tbPassword.Text = "hunter1";
+            cbFormLoader.SelectedIndex = 0;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             UserManager dataUser = new UserManager();
-
-            tbUsername.Text = "frankhartman96";
-            tbPassword.Text = "hunter1";
-            cbFormLoader.SelectedIndex = 0;
 
             string userName = tbUsername.Text;
             string password = tbPassword.Text;
