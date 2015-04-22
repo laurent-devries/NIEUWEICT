@@ -554,7 +554,9 @@
             this.Controls.Add(this.lblAankomst);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbCampingPlaces);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "ReserveringSysteem";
             this.Text = "ReserveringSysteem";
             ((System.ComponentModel.ISupportInitialize)(this.pbCampingPlaces)).EndInit();
