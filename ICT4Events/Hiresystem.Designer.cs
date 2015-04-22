@@ -78,6 +78,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -493,11 +494,10 @@
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(966, 196);
             this.listBox3.TabIndex = 25;
-            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
             // 
             // bttnLend
             // 
-            this.bttnLend.Location = new System.Drawing.Point(987, 474);
+            this.bttnLend.Location = new System.Drawing.Point(984, 545);
             this.bttnLend.Name = "bttnLend";
             this.bttnLend.Size = new System.Drawing.Size(376, 47);
             this.bttnLend.TabIndex = 31;
@@ -559,11 +559,19 @@
             this.listBox2.Size = new System.Drawing.Size(296, 196);
             this.listBox2.TabIndex = 38;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(984, 504);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(376, 22);
+            this.dateTimePicker1.TabIndex = 41;
+            // 
             // Hiresystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1410, 746);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label16);
@@ -587,7 +595,7 @@
             this.Controls.Add(this.groupBox4);
             this.Name = "Hiresystem";
             this.Text = "Hiresystem";
-            this.Load += new System.EventHandler(this.Hiresystem_Load);
+            
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -651,5 +659,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
