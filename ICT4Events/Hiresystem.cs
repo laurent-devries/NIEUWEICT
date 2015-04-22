@@ -16,6 +16,7 @@ namespace ICT4Events
     public partial class Hiresystem : Form
     {
         List<Product> producten;
+        RFID rfid = new RFID(); //RFID object
         private bool scanned = false;
         User user;
 
@@ -31,26 +32,29 @@ namespace ICT4Events
             {
                 if (scanned == false)
                 {
-                    RFID rfid = new RFID(); //RFID object
                     rfid.Attach += new AttachEventHandler(rfid_Attach);
                     rfid.Detach += new DetachEventHandler(rfid_Detach);
                     rfid.Error += new ErrorEventHandler(rfid_Error);
                     rfid.Tag += new TagEventHandler(rfid_Tag);
-
                     rfid.open();
-                    rfid.Antenna = true;
-                    rfid.LED = true;
-
+                    bttnEnableRFID.Text = "Restart";
+                    //rfid.Antenna = true;
+                    //rfid.LED = true;
                 }
                 else
                 {
                     RFIDtext.Text = "";
+                    scanned = false;
+                    rfid.close();
+                  //  rfid.Antenna = false;
+                   // rfid.LED = false;
                 }
             }
 
+
             catch (PhidgetException ex)
             {
-                MessageBox.Show(ex.Description);
+               MessageBox.Show(ex.Description);
             }
 
             catch (DllNotFoundException)
@@ -69,6 +73,7 @@ namespace ICT4Events
         {
             lblconnectedInfo.Text = "disconnected";
             lblserialInfo.Text = "--";
+            //scanned = false;
         }
 
         public void rfid_Tag(object sender, TagEventArgs e)
@@ -130,6 +135,7 @@ namespace ICT4Events
             producten = productData.RequestProducts();
             foreach (Product product in producten)
             {
+
                 listBox3.Items.Add(product);
             }
         }

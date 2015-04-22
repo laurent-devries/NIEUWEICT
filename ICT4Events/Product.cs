@@ -50,8 +50,7 @@ namespace ICT4Events
         
         public Product(int iD_product, string product_name, decimal bail, decimal price)
         {
-           // this.ID_product = idnumber;
-           // idnumber++;
+          
             this.iD_product = iD_product;
             this.product_name = product_name;
             this.bail = bail;
