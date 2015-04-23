@@ -16,8 +16,8 @@ namespace ICT4Events
     {
         private OracleConnection oracleConn;
 
-        private string user = "teun";//Wachtwoord van de server
-        private string pw = "schepersdijk";//Wachtwoord van de server
+        private string user = "system";//Wachtwoord van de server
+        private string pw = "root";//Wachtwoord van de server
 
         private void Connect()
         {
@@ -44,15 +44,22 @@ namespace ICT4Events
                 cmd.CommandType = CommandType.Text;
                 oracleConn.Open();
                 OracleDataReader reader = cmd.ExecuteReader();
+                cmd.Dispose();
                 return reader;
             }
 
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                //MessageBox.Show(e.ToString());
                 return null;
             }
 
+        }
+
+        public void CloseConnection()
+        {
+            oracleConn.Close();
+            oracleConn.Dispose();
         }
         public bool InsertOrUpdate(string Querry)
         {
@@ -66,6 +73,8 @@ namespace ICT4Events
                 oracleConn.Open();
                 OracleDataReader reader = cmd.ExecuteReader();
                 oracleConn.Dispose();
+                reader.Dispose();
+                cmd.Dispose();
                 return true;
             }
             catch

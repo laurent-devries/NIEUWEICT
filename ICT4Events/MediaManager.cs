@@ -55,6 +55,7 @@ namespace ICT4Events
             }
 
             reader.Dispose();
+            con.CloseConnection();//////////////////////////test
             return mediaList;
         }
 
@@ -68,6 +69,7 @@ namespace ICT4Events
             reader.Read();
             int count = reader.GetInt32(0);
             reader.Dispose();
+            con.CloseConnection();//////////////////////////test
             return count;
         }
 
@@ -96,6 +98,7 @@ namespace ICT4Events
 
                 if (insert)
                 {
+                    //Voegt de tags toe als ze nog niet bestaan
                     string insertTag = "INSERT INTO ICT4_TAG (id_tag, tagname) VALUES ( tag_seq.nextval, '" + tags[i] + "')";
                     con.InsertOrUpdate(insertTag);
                     string tagId = "SELECT id_tag FROM ICT4_TAG WHERE tagname = '" + tags[i] + "'";
@@ -103,38 +106,10 @@ namespace ICT4Events
                     reader.Read();
                     tagIdList.Add(reader.GetInt32(0));
                     reader.Dispose();
+                    con.CloseConnection();//////////////////////////test
                 }
             }
 
-          
-
-
-
-            ////Toevoegen wanneer tag is not in database
-            //for (int i = 0; i < tags.Length; i++)
-            //{
-            //    bool insert = false;
-            //    foreach (string t in readTaglist)
-            //    {
-            //        if (t == tags[i])
-            //        {
-            //            insert = true;
-            //        }
-
-            //    }
-            //    if (!insert)
-            //    {
-            //        string insertNewTag = "INSERT INTO ICT4_TAG(id_Tag, tagName) VALUES(tag_seq.nextval,'" + tags[i] + "')";
-            //        string selectTagId = "SELECT ID_TAG FROM ICT4_TAG where tagName = '" + tags[i] + "'";
-            //        bool bInsertNewTag = con.InsertOrUpdate(insertNewTag);
-
-            //        OracleDataReader tagReader = con.SelectFromDatabase(selectTagId);
-            //        while (tagReader.Read())
-            //        {
-            //            int tagID = tagReader.GetInt32(0);
-            //        }
-            //    }
-            //}
 
 
             string dateMonth = Convert.ToString(currentDate.Month);
@@ -146,7 +121,8 @@ namespace ICT4Events
 
 
             string Query;
-            if (filePath == "")
+            //Kijkt of het filepath gevult is of niet
+            if (filePath == "ftp://172.16.0.15/")
             {
                 Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,SUMMARYMEDIA,TYPEMEDIA, ID_USERFK) VALUES(media_seq.nextval,'" + title + "','" + summaryMedia + "', '" + typeMedia + "', " + user.ID_User +")";
                     
@@ -157,6 +133,24 @@ namespace ICT4Events
                 Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,DATEMEDIA,SUMMARYMEDIA,VIEWMEDIA,FILEPATH,TYPEMEDIA) VALUES(media_seq.nextval,'" + title + "', to_date('" + Convert.ToString(currentDate.Day) + dateMonth + Convert.ToString(currentDate.Year) + "', 'DDMMYYYY'),'" + summaryMedia + "', 0,'" + filePath + "','" + typeMedia + "')";
             }
             bool writer = con.InsertOrUpdate(Query);
+            
+            string selectMediaId = "SELECT MAX(ID_MEDIA) FROM ICT4_MEDIA WHERE ID_USERFK = " + user.ID_User;
+            OracleDataReader r = con.SelectFromDatabase(selectMediaId);
+            r.Read();
+            int id = r.GetInt32(0);
+            r.Dispose();
+
+
+            //Vult de koppel tabbellen 
+            foreach (int i in tagIdList)
+            {
+                string insertTagMedia = "INSERT INTO ICT4_MEDIA_TAG(ID_MEDIAFK, ID_TAGFK) VALUES (" + id + ", " + i + ")";
+                con.InsertOrUpdate(insertTagMedia);
+            }
+            con.CloseConnection();//////////////////////////test
+
+            
+
             return writer;
 
 
