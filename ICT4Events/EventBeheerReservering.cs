@@ -64,7 +64,7 @@ namespace ICT4Events
                 {
                     dag = Convert.ToString(dtp_geboortedatum_gebruiker.Value.Day);
                 }
-                conn.InsertOrUpdate("INSERT INTO ICT4_USER (id_user,id_eventFK,id_reservationFK,id_permissionFK,firstName,surName,birthDate,email,country,street,houseNumber,city,cellphoneNumber,loginName,userName,passwordUser,profilePic,summaryUser,presentUser) VALUES(USER_SEQ.NEXTVAL," + Convert.ToInt32(cB_Event_ID_User.Text) + "," + Convert.ToInt32(cB_Reservation_ID_User.Text) + "," + 1 + ",'" + tb_voornaam_gebruiker.Text + "','" + tb_achternaam_user.Text + "', to_date('" + dag + maand + Convert.ToString(dtp_geboortedatum_gebruiker.Value.Year) + "','DDMMYYYY') ,'" + tb_email_gebruiker.Text + "','" + cb_land_gebruiker.Text + "','" + tb_straat_user.Text + "','" + tb_number_user.Text + "','" + tb_stad_user.Text + "','" + tb_telnr_gebruiker.Text + "','" + tb_loginname_gebruiker.Text + "','" + tb_username_gebruiker.Text + "','" + tb_password_gebruiker.Text + "','C:/','No Summary','N')");
+                conn.InsertOrUpdate("INSERT INTO ICT4_USER (id_user,id_eventFK,id_reservationFK,id_permissionFK,firstName,surName,birthDate,email,country,street,houseNumber,city,cellphoneNumber,loginName,userName,passwordUser,profilePic,summaryUser,presentUser) VALUES(USER_SEQ.NEXTVAL," + cB_Event_ID_User.Text + "," + cB_Reservation_ID_User.Text + "," + 1 + ",'" + tb_voornaam_gebruiker.Text + "','" + tb_achternaam_user.Text + "', to_date('" + dag + maand + Convert.ToString(dtp_geboortedatum_gebruiker.Value.Year) + "','DDMMYYYY') ,'" + tb_email_gebruiker.Text + "','" + cb_land_gebruiker.Text + "','" + tb_straat_user.Text + "','" + tb_number_user.Text + "','" + tb_stad_user.Text + "','" + tb_telnr_gebruiker.Text + "','" + tb_loginname_gebruiker.Text + "','" + tb_username_gebruiker.Text + "','" + tb_password_gebruiker.Text + "','C:/','No Summary','N')");
             }
             if (btn_changeuser.Enabled)
             {
@@ -91,9 +91,10 @@ namespace ICT4Events
                 foreach (User user in userList)
                 {
 
-                    if (user.ToString() == Listb_gebruikers.GetItemText(Listb_gebruikers.SelectedItem) || trueorfalse == false)
+                    if (user.ToString() == Listb_gebruikers.GetItemText(Listb_gebruikers.SelectedItem) && trueorfalse == false)
                     {
-                        string querry = "UPDATE ICT4_USER SET ID_EVENTFK = " + Convert.ToInt32(cB_Event_ID_User.Text) + ", ID_RESERVATIONFK = " + Convert.ToInt32(cB_Reservation_ID_User.Text) + ", FIRSTNAME = '" + tb_voornaam_gebruiker.Text + "', SURNAME = '" + tb_achternaam_user.Text + "', BIRTHDATE = to_date('" + dag + maand + Convert.ToString(dtp_geboortedatum_gebruiker.Value.Year) + "','DDMMYYYY'), EMAIL = '" + tb_email_gebruiker.Text + "', COUNTRY = '" + cb_land_gebruiker.Text + "', STREET = '" + tb_straat_user + "', HOUSENUMBER = '" + tb_number_user.Text + "', CITY = '" + tb_stad_user.Text + "', CELLPHONENUMBER = '" + tb_telnr_gebruiker.Text + "', LOGINNAME = '" + tb_loginname_gebruiker.Text + "', USERNAME = '" + tb_username_gebruiker.Text + "', PASSWORDUSER ='" + tb_password_gebruiker.Text + "' WHERE ID_USER = " + user.ID_User;
+                        string querry = "UPDATE ICT4_USER SET FIRSTNAME = '" + tb_voornaam_gebruiker.Text + "', SURNAME = '" + tb_achternaam_user.Text + "', BIRTHDATE = to_date('" + dag + maand + Convert.ToString(dtp_geboortedatum_gebruiker.Value.Year) + "','DDMMYYYY'), EMAIL = '" + tb_email_gebruiker.Text + "', COUNTRY = '" + cb_land_gebruiker.Text + "', STREET = '" + tb_straat_user + "', HOUSENUMBER = '" + tb_number_user.Text + "', CITY = '" + tb_stad_user.Text + "', CELLPHONENUMBER = '" + tb_telnr_gebruiker.Text + "', LOGINNAME = '" + tb_loginname_gebruiker.Text + "', USERNAME = '" + tb_username_gebruiker.Text + "', PASSWORDUSER ='" + tb_password_gebruiker.Text + "' WHERE ID_USER = " + Convert.ToString(user.ID_User);
+                        MessageBox.Show(querry);
                         bool succes = conn.InsertOrUpdate(querry);
                         if (succes)
                         {
@@ -103,7 +104,7 @@ namespace ICT4Events
                         {
                             MessageBox.Show("Something has gone wrong. Did you fill in everything you need?");
                         }
-                        trueorfalse = false;
+                        trueorfalse = true;
                     }
                 }
             }
@@ -194,6 +195,26 @@ namespace ICT4Events
             cB_Reservation_ID_User.Enabled = false;
             btn_nieuwe_gebruiker.Enabled = false;
             btn_verwijder_gebruiker.Enabled = false;
+            foreach (User user in userList)
+            {
+                if (user.ToString() == Listb_gebruikers.GetItemText(Listb_gebruikers.SelectedItem))
+                {
+                    cB_Reservation_ID_User.Text = user.ID_ReservationFK.ToString();
+                    cb_land_gebruiker.Text = user.Country;
+                    tb_voornaam_gebruiker.Text = user.First_Name;
+                    tb_achternaam_user.Text = user.Sur_Name;
+                    dtp_geboortedatum_gebruiker.Value = user.Birth_Date;
+                    tb_email_gebruiker.Text = user.Email;
+
+                    tb_stad_user.Text = user.City;
+                    tb_straat_user.Text = user.Street;
+                    tb_number_user.Text = user.Housenumber;
+                    tb_telnr_gebruiker.Text = user.Phone_Number;
+                    tb_loginname_gebruiker.Text = user.Login_Name;
+                    tb_username_gebruiker.Text = user.Username;
+                    tb_password_gebruiker.Text = "Welkom";
+                }
+            }
         }
         private void cB_Event_ID_User_TextChanged(object sender, EventArgs e)
         {
@@ -202,10 +223,17 @@ namespace ICT4Events
             int eventid;
             try
             {
+
                 bool succes = int.TryParse(cB_Event_ID_User.Text, out eventid);
                 if (succes)
                 {
+                    cB_Reservation_ID_User.Items.Clear();
                     liststring = Reservation.RequestReservationsInfo(eventid);
+                    foreach (string tekst in liststring)
+                    {
+                        string[] teksten = tekst.Split(':');
+                        cB_Reservation_ID_User.Items.Add(teksten[0]);
+                    }
                 }
                 else
                 {
@@ -216,11 +244,7 @@ namespace ICT4Events
             {
                 MessageBox.Show("error");
             }
-            cB_Reservation_ID_User.Items.Clear();
-            foreach (string tekst in liststring)
-            {
-                cB_Reservation_ID_User.Items.Add(tekst);
-            }
+            cB_Reservation_ID_User.Enabled = true;
         }
         private void btn_verwijder_gebruiker_Click(object sender, EventArgs e)
         {
@@ -300,7 +324,6 @@ namespace ICT4Events
                 foreach (string tekst in lb_show_user_on_event.Items)
                 {
                     writer.WriteLine(tekst);
-                    
                 }
                 MessageBox.Show("The userlist on the event has been placed on you desktop.");
                 writer.Close();
