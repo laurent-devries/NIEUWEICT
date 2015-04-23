@@ -62,15 +62,26 @@ namespace ICT4Events
 
         public int CountLikes(int mediaId)
         {
-            DatabaseConnection con = new DatabaseConnection();
-            string Query = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId;
+            int count = 0;
+            try
+            {
+                DatabaseConnection con = new DatabaseConnection();
+                string Query = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId;
 
-            OracleDataReader reader = con.SelectFromDatabase(Query);
-            reader.Read();
-            int count = reader.GetInt32(0);
-            reader.Dispose();
-            con.CloseConnection();//////////////////////////test
-            return count;
+                OracleDataReader reader = con.SelectFromDatabase(Query);
+                reader.Read();
+                count = reader.GetInt32(0);
+                reader.Close();
+                reader.Dispose();
+                con.CloseConnection();//////////////////////////test
+                return count;
+            }
+
+            catch
+            {
+                return count;
+            }
+          
         }
 
         public bool InsertMedia(string title, string summaryMedia, string filePath, string typeMedia, DateTime currentDate, User user, string[] tags)
