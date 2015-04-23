@@ -12,6 +12,8 @@ namespace ICT4Events
         //fields
         string tag_name;
 
+        public string Tag_name { get; set; }
+
         public Tag(string tag_name)
         {
             this.tag_name = tag_name;

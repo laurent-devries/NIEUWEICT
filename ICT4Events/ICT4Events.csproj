@@ -84,9 +84,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\odp.net.managed.121.1.2\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
-    <Reference Include="Phidget21.NET, Version=2.1.8.208, Culture=neutral, PublicKeyToken=c2b1f2a3594bce52, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\Phidget21.NET.dll</HintPath>
+    <Reference Include="Phidget21.NET">
+      <HintPath>F:\fontys ICT\semester 2\proftaak\clone\ICT4Events\References\Phidget21.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -122,6 +121,12 @@
       <DependentUpon>EventBeheerReservering.cs</DependentUpon>
     </Compile>
     <Compile Include="EventManager.cs" />
+    <Compile Include="FirstTimeLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstTimeLogin.Designer.cs">
+      <DependentUpon>FirstTimeLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGathering.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +170,7 @@
       <DependentUpon>SocialSharing.cs</DependentUpon>
     </Compile>
     <Compile Include="Tag.cs" />
+    <Compile Include="TagManager.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserManager.cs" />
     <EmbeddedResource Include="CommentNewsfeedItem.resx">
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EventBeheerReservering.resx">
       <DependentUpon>EventBeheerReservering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstTimeLogin.resx">
+      <DependentUpon>FirstTimeLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGathering.resx">
       <DependentUpon>FormGathering.cs</DependentUpon>

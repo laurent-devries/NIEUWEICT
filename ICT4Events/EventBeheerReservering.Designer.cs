@@ -152,7 +152,7 @@
             this.cB_Event_ID_User.Name = "cB_Event_ID_User";
             this.cB_Event_ID_User.Size = new System.Drawing.Size(141, 21);
             this.cB_Event_ID_User.TabIndex = 31;
-            this.cB_Event_ID_User.SelectedIndexChanged += new System.EventHandler(this.cB_Event_ID_User_SelectedIndexChanged);
+            
             this.cB_Event_ID_User.TextChanged += new System.EventHandler(this.cB_Event_ID_User_TextChanged);
             // 
             // gb_gebruikercreatie
@@ -510,7 +510,6 @@
             this.Listb_gebruikers.Name = "Listb_gebruikers";
             this.Listb_gebruikers.Size = new System.Drawing.Size(426, 199);
             this.Listb_gebruikers.TabIndex = 2;
-            this.Listb_gebruikers.SelectedIndexChanged += new System.EventHandler(this.Listb_gebruikers_SelectedIndexChanged);
             // 
             // btn_nieuwe_gebruiker
             // 

@@ -31,14 +31,24 @@ namespace ICT4Events
             try
             {
                 user = dataUser.LoginUser(userName, password);
-                MessageBox.Show(user.Username);
                 Permission p = new Permission();
 
                 if (cbFormLoader.Text == "Social media")
                 {
-                    SocialSharing s = new SocialSharing(user);
-                    this.Close();
-                    s.Show();
+                    if (user.City == null)
+                    {
+                        FirstTimeLogin f = new FirstTimeLogin(user);
+                        this.Close();
+                        f.Show();
+                    }
+
+                    else
+                    {
+                        SocialSharing s = new SocialSharing(user);
+                        this.Close();
+                        s.Show();
+                    }
+
                 }
                 
                 else if (cbFormLoader.Text == "Event beheer")
@@ -48,6 +58,7 @@ namespace ICT4Events
                         EventBeheerReservering ev = new EventBeheerReservering();
                         this.Close();
                         ev.Show();
+    
                     }
 
                     else
