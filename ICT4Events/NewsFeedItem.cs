@@ -168,16 +168,15 @@ namespace ICT4Events
             lblDownload.ForeColor = Color.DarkOrange;
             panel.Controls.Add(lblDownload);
             lblDownload.Click += delegate
-            {
-                MessageBox.Show("Coming soon");
-               
-                FTPConnection ftp = new FTPConnection(@"ftp://172.16.0.15/", "client", "1233");
+            {             
                 if (media.File_path == "C\\:" || media.File_path == "")
                 {
                     lblDownload.Enabled = false;
+                    MessageBox.Show("You cannot download this file.");
                 }
                 else
                 {
+                    FTPConnection ftp = new FTPConnection(@"ftp://172.16.0.15/", "client", "1233");
                     string s = Path.GetFileName(media.File_path);
                     string q = Path.Combine("ftp://172.16.0.15/", s);
                     string i = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), s);
