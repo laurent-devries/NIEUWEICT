@@ -170,6 +170,7 @@
       <DependentUpon>SocialSharing.cs</DependentUpon>
     </Compile>
     <Compile Include="Tag.cs" />
+    <Compile Include="TagManager.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserManager.cs" />
     <EmbeddedResource Include="CommentNewsfeedItem.resx">

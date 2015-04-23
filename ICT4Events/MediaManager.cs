@@ -77,38 +77,65 @@ namespace ICT4Events
 
 
             //READ TAGS
-            List<string> readTaglist = new List<string>();
-            string readQuery = "SELECT tagName from ICT4_Tag";
-            OracleDataReader reader = con.SelectFromDatabase(readQuery);
-            while (reader.Read())
-            {
-                readTaglist.Add(reader.GetString(0));
-            }
+            TagManager tagManager = new TagManager();
+            List<Tag> TagList = tagManager.RequestAllTags();
+            List<int> tagIdList = new List<int>();
 
-            //Toevoegen wanneer tag is not in database
+            // Gaat een lijst af om te kijken of de tag al bestaat
             for (int i = 0; i < tags.Length; i++)
             {
-                bool insert = false;
-                foreach (string t in readTaglist)
+                bool insert = true;
+                foreach (Tag t in TagList)
                 {
-                    if (t == tags[i])
+                    MessageBox.Show(t.Tag_name + " + " + tags[i]);
+                    if (t.Tag_name == tags[i])
                     {
-                        insert = true;
+                        insert = false;
                     }
                 }
-                if (!insert)
-                {
-                    string insertNewTag = "INSERT INTO ICT4_TAG(id_Tag, tagName) VALUES(tag_seq.nextval,'" + tags[i] + "')";
-                    string selectTagId = "SELECT ID_TAG FROM ICT4_TAG where tagName = '" + tags[i] + "'";
-                    bool bInsertNewTag = con.InsertOrUpdate(insertNewTag);
 
-                    OracleDataReader tagReader = con.SelectFromDatabase(selectTagId);
-                    while (tagReader.Read())
-                    {
-                        int tagID = tagReader.GetInt32(0);
-                    }
+                if (insert)
+                {
+                    string insertTag = "INSERT INTO ICT4_TAG (id_tag, tagname) VALUES ( tag_seq.nextval, '" + tags[i] + "')";
+                    con.InsertOrUpdate(insertTag);
+                    string tagId = "SELECT id_tag FROM ICT4_TAG WHERE tagname = '" + tags[i] + "'";
+                    OracleDataReader reader = con.SelectFromDatabase(tagId);
+                    reader.Read();
+                    tagIdList.Add(reader.GetInt32(0));
+                    reader.Dispose();
                 }
             }
+
+          
+
+
+
+            ////Toevoegen wanneer tag is not in database
+            //for (int i = 0; i < tags.Length; i++)
+            //{
+            //    bool insert = false;
+            //    foreach (string t in readTaglist)
+            //    {
+            //        if (t == tags[i])
+            //        {
+            //            insert = true;
+            //        }
+
+            //    }
+            //    if (!insert)
+            //    {
+            //        string insertNewTag = "INSERT INTO ICT4_TAG(id_Tag, tagName) VALUES(tag_seq.nextval,'" + tags[i] + "')";
+            //        string selectTagId = "SELECT ID_TAG FROM ICT4_TAG where tagName = '" + tags[i] + "'";
+            //        bool bInsertNewTag = con.InsertOrUpdate(insertNewTag);
+
+            //        OracleDataReader tagReader = con.SelectFromDatabase(selectTagId);
+            //        while (tagReader.Read())
+            //        {
+            //            int tagID = tagReader.GetInt32(0);
+            //        }
+            //    }
+            //}
+
 
             string dateMonth = Convert.ToString(currentDate.Month);
             if (currentDate.Month < 10)
