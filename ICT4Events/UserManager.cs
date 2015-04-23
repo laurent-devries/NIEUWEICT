@@ -55,10 +55,28 @@ namespace ICT4Events
                 return null;
             }
 
+          
+
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
-                return null;
+                //try
+                //{
+                    DatabaseConnection con = new DatabaseConnection();
+                    string Querry = "SELECT ID_USER, ID_EVENTFK, ID_RESERVATIONFK, id_permissionFK, LOGINNAME, PASSWORDUSER, PRESENTUSER  FROM ICT4_USER WHERE UPPER(LOGINNAME) = '" + us.ToUpper() + "' AND PASSWORDUSER = '" + ps + "'";
+                    OracleDataReader reader = con.SelectFromDatabase(Querry);
+                    User user;
+                    reader.Read();
+                    user = new User(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetString(4), reader.GetString(5), Convert.ToChar(reader.GetString(6)));
+                    return user;
+                    
+                //}
+
+                //catch
+                //{
+                //    MessageBox.Show(e.ToString());
+                //    return null;
+                //}
+                
             }
 
         }
