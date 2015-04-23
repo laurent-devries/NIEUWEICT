@@ -65,20 +65,12 @@
             this.lblconnectedInfo = new System.Windows.Forms.Label();
             this.lblserialInfo = new System.Windows.Forms.Label();
             this.bttnEnableRFID = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.bttnLend = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.listBoxAvble = new System.Windows.Forms.ListBox();
+            this.bttnReturn = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -128,7 +120,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(987, 150);
+            this.groupBox3.Location = new System.Drawing.Point(12, 134);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(376, 301);
             this.groupBox3.TabIndex = 10;
@@ -398,7 +390,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(755, 76);
+            this.label3.Location = new System.Drawing.Point(407, 76);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 17);
             this.label3.TabIndex = 22;
@@ -407,7 +399,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(755, 59);
+            this.label2.Location = new System.Drawing.Point(407, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 17);
             this.label2.TabIndex = 21;
@@ -416,7 +408,7 @@
             // lblconnectedInfo
             // 
             this.lblconnectedInfo.AutoSize = true;
-            this.lblconnectedInfo.Location = new System.Drawing.Point(854, 79);
+            this.lblconnectedInfo.Location = new System.Drawing.Point(506, 79);
             this.lblconnectedInfo.Name = "lblconnectedInfo";
             this.lblconnectedInfo.Size = new System.Drawing.Size(18, 17);
             this.lblconnectedInfo.TabIndex = 20;
@@ -425,7 +417,7 @@
             // lblserialInfo
             // 
             this.lblserialInfo.AutoSize = true;
-            this.lblserialInfo.Location = new System.Drawing.Point(854, 62);
+            this.lblserialInfo.Location = new System.Drawing.Point(506, 62);
             this.lblserialInfo.Name = "lblserialInfo";
             this.lblserialInfo.Size = new System.Drawing.Size(18, 17);
             this.lblserialInfo.TabIndex = 19;
@@ -433,7 +425,7 @@
             // 
             // bttnEnableRFID
             // 
-            this.bttnEnableRFID.Location = new System.Drawing.Point(758, 12);
+            this.bttnEnableRFID.Location = new System.Drawing.Point(410, 12);
             this.bttnEnableRFID.Name = "bttnEnableRFID";
             this.bttnEnableRFID.Size = new System.Drawing.Size(124, 34);
             this.bttnEnableRFID.TabIndex = 18;
@@ -441,118 +433,37 @@
             this.bttnEnableRFID.UseVisualStyleBackColor = true;
             this.bttnEnableRFID.Click += new System.EventHandler(this.bttnEnableRFID_Click);
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(9, 365);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(113, 17);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "Product on user:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(679, 365);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(42, 17);
-            this.label12.TabIndex = 29;
-            this.label12.Text = "Date:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(418, 693);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 17);
-            this.label11.TabIndex = 28;
-            this.label11.Text = "Total:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(200, 693);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(73, 17);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "Hire price:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 693);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 17);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Bail price:";
-            // 
             // listBox3
             // 
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 16;
-            this.listBox3.Location = new System.Drawing.Point(12, 150);
+            this.listBox3.Location = new System.Drawing.Point(996, 134);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(481, 196);
+            this.listBox3.Size = new System.Drawing.Size(367, 340);
             this.listBox3.TabIndex = 25;
             // 
             // bttnLend
             // 
-            this.bttnLend.Location = new System.Drawing.Point(984, 545);
+            this.bttnLend.Location = new System.Drawing.Point(984, 603);
             this.bttnLend.Name = "bttnLend";
             this.bttnLend.Size = new System.Drawing.Size(376, 47);
             this.bttnLend.TabIndex = 31;
-            this.bttnLend.Text = "LEND";
+            this.bttnLend.Text = "Lend Product";
             this.bttnLend.UseVisualStyleBackColor = true;
             this.bttnLend.Click += new System.EventHandler(this.bttnLend_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 130);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 17);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "Product_id: ";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(200, 130);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(102, 17);
-            this.label14.TabIndex = 34;
-            this.label14.Text = "Product Name:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(458, 130);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(35, 17);
-            this.label15.TabIndex = 35;
-            this.label15.Text = "Bail:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(650, 130);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(40, 17);
-            this.label16.TabIndex = 36;
-            this.label16.Text = "Price";
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(12, 396);
+            this.listBox1.Location = new System.Drawing.Point(12, 464);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(966, 196);
+            this.listBox1.Size = new System.Drawing.Size(376, 260);
             this.listBox1.TabIndex = 37;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(984, 504);
+            this.dateTimePicker1.Location = new System.Drawing.Point(984, 575);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(376, 22);
             this.dateTimePicker1.TabIndex = 41;
@@ -561,30 +472,34 @@
             // 
             this.listBoxAvble.FormattingEnabled = true;
             this.listBoxAvble.ItemHeight = 16;
-            this.listBoxAvble.Location = new System.Drawing.Point(510, 150);
+            this.listBoxAvble.Location = new System.Drawing.Point(410, 134);
             this.listBoxAvble.Name = "listBoxAvble";
-            this.listBoxAvble.Size = new System.Drawing.Size(814, 196);
+            this.listBoxAvble.Size = new System.Drawing.Size(571, 580);
             this.listBoxAvble.TabIndex = 42;
+            this.listBoxAvble.SelectedIndexChanged += new System.EventHandler(this.listBoxAvble_SelectedIndexChanged);
+            // 
+            // bttnReturn
+            // 
+            this.bttnReturn.Location = new System.Drawing.Point(984, 667);
+            this.bttnReturn.Name = "bttnReturn";
+            this.bttnReturn.Size = new System.Drawing.Size(376, 47);
+            this.bttnReturn.TabIndex = 43;
+            this.bttnReturn.Text = "Return Product";
+            this.bttnReturn.UseVisualStyleBackColor = true;
+            this.bttnReturn.Click += new System.EventHandler(this.bttnReturn_Click);
             // 
             // Hiresystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1410, 746);
+            this.Controls.Add(this.bttnReturn);
             this.Controls.Add(this.listBoxAvble);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.listBox3);
             this.Controls.Add(this.bttnLend);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblconnectedInfo);
@@ -624,11 +539,6 @@
         private System.Windows.Forms.Label lblconnectedInfo;
         private System.Windows.Forms.Label lblserialInfo;
         private System.Windows.Forms.Button bttnEnableRFID;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Button bttnLend;
         private System.Windows.Forms.Label lblEmailHR;
@@ -652,12 +562,9 @@
         private System.Windows.Forms.Label lbluserHS;
         private System.Windows.Forms.Label lblCityHR;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ListBox listBoxAvble;
+        private System.Windows.Forms.Button bttnReturn;
     }
 }

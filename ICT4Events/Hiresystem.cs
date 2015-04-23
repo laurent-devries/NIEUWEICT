@@ -133,10 +133,16 @@ namespace ICT4Events
         { 
           ProductManager productData = new ProductManager();
             producten = productData.availableProduct();
-            foreach (Product product in producten)
+
+            if (producten.Count == 0)
             {
-                listBoxAvble.Items.Add(product);
+             listBoxAvble.Text = "There are no available products"; 
             }
+            else
+                foreach (Product product in producten)
+                {
+                    listBoxAvble.Items.Add(product);
+                }
         }
 
 
@@ -174,7 +180,8 @@ namespace ICT4Events
             {
                 Product product;
                 //User user;
-                if (listBox3.SelectedItem is Product)
+
+                if (listBoxAvble.SelectedItem is Product)
                 {
                     string maand;
                     if (dateTimePicker1.Value.Month < 10)
@@ -198,7 +205,7 @@ namespace ICT4Events
                     string date = dag + maand + Convert.ToString(dateTimePicker1.Value.Year);
 
                     //UserManager userdata = new UserManager();
-                    product = listBox3.SelectedItem as Product;
+                    product = listBoxAvble.SelectedItem as Product;
                     ProductManager productdata = new ProductManager();
                     productdata.InsertBorrow(product, user, date);
 
@@ -213,5 +220,29 @@ namespace ICT4Events
 
             }
 
+            private void listBoxAvble_SelectedIndexChanged(object sender, EventArgs e)
+            {
+
+            }
+
+            private void bttnReturn_Click(object sender, EventArgs e)
+            {
+               Product product;
+
+               if (listBox1.SelectedItem is Product)
+               {
+                    product = listBox1.SelectedItem as Product;
+                    ProductManager productdata = new ProductManager();
+                    productdata.deleteBorrow(product, user);
+               }
+                   
+                          
+            }
+            public void refresh(TagEventArgs e)
+            {
+                LoadProducts();
+                availableProduct();
+                LoadHiredProducts(e.Tag);
+            }
     }
 }
