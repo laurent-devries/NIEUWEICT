@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
-
+using System.IO;
 namespace ICT4Events
 {
     class UserManager
@@ -32,7 +32,7 @@ namespace ICT4Events
                 }
                 userlist.Add(user);
             }
-
+            
             reader.Dispose();
 
             return userlist;
