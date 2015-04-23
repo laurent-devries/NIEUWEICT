@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 namespace ICT4Events
 {
     public partial class EventBeheerReservering : Form
@@ -317,6 +318,7 @@ namespace ICT4Events
             // deze is nog niet uitgewerkt.
             FileStream file;
             StreamWriter writer;
+            
             try
             {
                 file = new FileStream("C:/Users/Yoeri/Desktop/Logbestand.txt", FileMode.Create, FileAccess.Write);
@@ -326,6 +328,7 @@ namespace ICT4Events
                     writer.WriteLine(tekst);
                 }
                 MessageBox.Show("The userlist on the event has been placed on you desktop.");
+
                 writer.Close();
                 file.Close();
             }
@@ -333,6 +336,7 @@ namespace ICT4Events
             {
                 MessageBox.Show("Something has gone wrong.");
             }
+
         }
     }
 }

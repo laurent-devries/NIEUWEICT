@@ -85,7 +85,7 @@
       <HintPath>..\packages\odp.net.managed.121.1.2\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="Phidget21.NET">
-      <HintPath>Phidget21.NET.dll</HintPath>
+      <HintPath>F:\fontys ICT\semester 2\proftaak\clone\ICT4Events\References\Phidget21.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
