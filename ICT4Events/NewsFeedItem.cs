@@ -171,12 +171,18 @@ namespace ICT4Events
             {
                 MessageBox.Show("Coming soon");
                
-                /*FTPConnection ftp = new FTPConnection(@"ftp://172.16.0.15/", "client", "1233");
-                string s = Path.GetFileName(media.File_path);
-                string q = Path.Combine("ftp://172.16.0.15/", s);
-                string i = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), s);
-                ftp.download(q, i);
-                 */
+                FTPConnection ftp = new FTPConnection(@"ftp://172.16.0.15/", "client", "1233");
+                if (media.File_path == "C\\:" || media.File_path == "")
+                {
+                    lblDownload.Enabled = false;
+                }
+                else
+                {
+                    string s = Path.GetFileName(media.File_path);
+                    string q = Path.Combine("ftp://172.16.0.15/", s);
+                    string i = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), s);
+                    ftp.download(q, i);
+                }
             };
             
         }

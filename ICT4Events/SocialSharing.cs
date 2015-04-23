@@ -163,7 +163,6 @@ namespace ICT4Events
             //Maakt de ftp connectie
             ftp = new FTPConnection(@"ftp://172.16.0.15/", "client", "1233");
             string s = "";
-            string q = "";
             string localfile = "";
             //Titel
             Label Titel = new Label();
