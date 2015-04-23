@@ -55,7 +55,7 @@ namespace ICT4Events
             }
 
             reader.Dispose();
-            con.CloseConnection();//////////////////////////test
+            //con.CloseConnection();//////////////////////////test
             return mediaList;
         }
 
@@ -73,7 +73,7 @@ namespace ICT4Events
                 count = reader.GetInt32(0);
                 reader.Close();
                 reader.Dispose();
-                con.CloseConnection();//////////////////////////test
+                //con.CloseConnection();//////////////////////////test
                 return count;
             }
 
@@ -117,7 +117,7 @@ namespace ICT4Events
                     reader.Read();
                     tagIdList.Add(reader.GetInt32(0));
                     reader.Dispose();
-                    con.CloseConnection();//////////////////////////test
+                    //con.CloseConnection();//////////////////////////test
                 }
             }
 
@@ -158,13 +158,11 @@ namespace ICT4Events
                 string insertTagMedia = "INSERT INTO ICT4_MEDIA_TAG(ID_MEDIAFK, ID_TAGFK) VALUES (" + id + ", " + i + ")";
                 con.InsertOrUpdate(insertTagMedia);
             }
-            con.CloseConnection();//////////////////////////test
+            //con.CloseConnection();//////////////////////////test
 
             
 
             return writer;
-
-
         }
 
 
@@ -203,5 +201,115 @@ namespace ICT4Events
             bool writer = con.InsertOrUpdate(Query);
             return writer;
         }
+        public List<Media> RequestMediaTag(string tagnaam)
+        {
+            DatabaseConnection con = new DatabaseConnection();
+            string Querry = "select id_MediaFK from ICT4_MEDIA_TAG where ID_TAGFK = (SELECT id_tag from ICT4_TAG where tagName = '"+ tagnaam + "')";
+            OracleDataReader mediaReader = con.SelectFromDatabase(Querry);
+
+            List<int> mediaIDs = new List<int>();
+            while (mediaReader.Read())
+            {
+                mediaIDs.Add(mediaReader.GetInt32(0));
+            }
+            foreach (int i in mediaIDs)
+            {
+                string Query = "SELECT TITLE, to_char(DATEMEDIA), SUMMARYMEDIA,  to_char(viewMedia), to_char(likes), to_char(reports), FILEPATH, id_media, ID_USERFK FROM ICT4_MEDIA WHERE id_media = '" + i + "'";
+                OracleDataReader reader = con.SelectFromDatabase(Query);
+                Media media;
+                UserManager userManager = new UserManager();
+                MediaManager mediaManager = new MediaManager();
+                while (reader.Read())
+                {
+                    int aantalLikes;
+                    int aantalReports;
+
+                    try
+                    {
+                        aantalLikes = Convert.ToInt32(reader.GetString(4));
+                        aantalReports = Convert.ToInt32(reader.GetString(5));
+                    }
+                    catch
+                    {
+                        aantalLikes = 0;
+                        aantalReports = 0;
+                    }
+                    string filePath;
+                    try
+                    {
+                        filePath = reader.GetString(6);
+                        media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, filePath, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                    }
+
+                    catch
+                    {
+                        media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                    }
+
+                    mediaList.Add(media);
+                }
+
+                reader.Dispose();
+            }            
+
+            //con.CloseConnection();//////////////////////////test
+            return mediaList;
+        }
+        public List<Media> RequestMediaCategory(string categoryName)
+        {
+            DatabaseConnection con = new DatabaseConnection();
+            string Querry = "select id_MediaFK from ICT4_MEDIA_CATEGORY where ID_CATEGORYFK = (SELECT id_category from ICT4_category where categoryName = '" + categoryName + "')";
+            OracleDataReader mediaReader = con.SelectFromDatabase(Querry);
+
+            List<int> mediaIDs = new List<int>();
+            while (mediaReader.Read())
+            {
+                mediaIDs.Add(mediaReader.GetInt32(0));
+            }
+            foreach (int i in mediaIDs)
+            {
+                string Query = "SELECT TITLE, to_char(DATEMEDIA), SUMMARYMEDIA,  to_char(viewMedia), to_char(likes), to_char(reports), FILEPATH, id_media, ID_USERFK FROM ICT4_MEDIA WHERE id_media = '" + i + "'";
+                OracleDataReader reader = con.SelectFromDatabase(Query);
+                Media media;
+                UserManager userManager = new UserManager();
+                MediaManager mediaManager = new MediaManager();
+                while (reader.Read())
+                {
+                    int aantalLikes;
+                    int aantalReports;
+
+                    try
+                    {
+                        aantalLikes = Convert.ToInt32(reader.GetString(4));
+                        aantalReports = Convert.ToInt32(reader.GetString(5));
+                    }
+                    catch
+                    {
+                        aantalLikes = 0;
+                        aantalReports = 0;
+                    }
+                    string filePath;
+                    try
+                    {
+                        filePath = reader.GetString(6);
+                        media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, filePath, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                    }
+
+                    catch
+                    {
+                        media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                    }
+
+                    mediaList.Add(media);
+                }
+
+                reader.Dispose();
+            }
+
+            //con.CloseConnection();//////////////////////////test
+            return mediaList;
+        }
     }
+
+
 }

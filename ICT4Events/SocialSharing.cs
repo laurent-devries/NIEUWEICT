@@ -63,6 +63,8 @@ namespace ICT4Events
 
             lblIngelogdNaam.Text = user.Username;
 
+            loadCategories();
+            loadTags();
         }
 
         //btnNextPage
@@ -146,6 +148,10 @@ namespace ICT4Events
         //HomeButton
         private void btnHome_Click(object sender, EventArgs e)
         {
+            countWidth = 0;
+            countHeight = 0;
+            loadEnder = 6;
+            loadStarter = 0;
             loadMedia(loadStarter, loadEnder);
         }
 
@@ -348,6 +354,169 @@ namespace ICT4Events
                 media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, path, "test", currentDate, user, tags);
                 ftp.upload(path, localfile);
             };
+        }
+
+        private void loadCategories()
+        {
+            cbCategorieCheck.Visible = true;
+            List<Category> categorylist = new List<Category>();
+            Category category = new Category();
+            categorylist = category.RequestCategories();
+
+            foreach (Category c in categorylist)
+            {
+                cbCategorieCheck.Items.Add(c.ToString());
+            }
+        }
+
+        private void loadTags()
+        {
+            List<Tag> tags = new List<Tag>();
+            TagManager tm = new TagManager();
+            tags = tm.RequestAllTags();
+
+            foreach (Tag t in tags)
+            {
+                cbTagCheck.Items.Add(t.Tag_name);
+            }
+
+        }
+
+        private void cbCategorieCheck_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            countWidth = 0;
+            countHeight = 0;
+            loadEnder = 6;
+            loadStarter = 0;
+            //Laad de media bestanden op het form
+            MediaManager mediaData = new MediaManager();
+            List<Tag> taglist = new List<Tag>();
+            List<Category> categorylist = new List<Category>();
+            Category category = new Category();
+            categorylist = category.RequestCategories();
+
+            string selectedCategory = cbCategorieCheck.GetItemText(cbCategorieCheck.SelectedItem);
+            MessageBox.Show(selectedCategory);
+            mediaList = mediaData.RequestMediaCategory(cbCategorieCheck.SelectedText);
+
+            btnNextPage.Visible = true;
+            btnPreviousPage.Visible = true;
+
+            //Vraagt de specifieke media bestanden op die nodig zijn die tussen start en end zitten
+            if (mediaList.Count < loadEnder)
+            {
+                loadEnder = mediaList.Count;
+                btnNextPage.Enabled = false;
+            }
+
+            //Er kan terug geklikt worden wanneer 6 items zijn
+            if (loadEnder <= 6)
+            {
+                btnPreviousPage.Enabled = false;
+            }
+
+            pnlNewsFeed.Controls.Clear();
+            itemlist.Clear();
+            countWidth = 0;
+            countHeight = 0;
+
+            //Zet alle media bestanden op de juise plek neer
+            for (int i = loadStarter; i < loadEnder; i++)
+            {
+                Media media = mediaList[i];
+                Panel p = new Panel();
+                NewsFeedItem item = new NewsFeedItem(media, p, pnlNewsFeed, i, countWidth, countHeight, user, media.ID_Media);
+
+
+                //Geeft de positie op de x as aan
+                countWidth++;
+
+                if (countWidth > 2)
+                {
+                    //Geeft positie op y as en reset de x as
+                    countHeight++;
+                    countWidth = 0;
+                }
+                //Voegt de items aan de itemlist toe
+                itemlist.Add(item);
+            }
+
+            foreach (NewsFeedItem item in itemlist)
+            {
+                //Alle medie/newsfeeditems worden aan het form toegevoegd
+                pnlNewsFeed.Controls.Add(item.Panel);
+                Panel p = item.Panel;
+                p.ForeColor = Color.CadetBlue;
+                p.BringToFront();
+            }
+        }
+
+        private void cbTagCheck_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            countWidth = 0;
+            countHeight = 0;
+            loadEnder = 6;
+            loadStarter = 0;
+            //Laad de media bestanden op het form
+            MediaManager mediaData = new MediaManager();
+            List<Tag> taglist = new List<Tag>();
+            TagManager tm = new TagManager();
+            taglist = tm.RequestAllTags();
+
+            string selectedTag = cbTagCheck.GetItemText(cbTagCheck.SelectedItem);
+            MessageBox.Show(selectedTag);
+            mediaList = mediaData.RequestMediaTag(cbTagCheck.SelectedText);
+
+            btnNextPage.Visible = true;
+            btnPreviousPage.Visible = true;
+
+            //Vraagt de specifieke media bestanden op die nodig zijn die tussen start en end zitten
+            if (mediaList.Count < loadEnder)
+            {
+                loadEnder = mediaList.Count;
+                btnNextPage.Enabled = false;
+            }
+
+            //Er kan terug geklikt worden wanneer 6 items zijn
+            if (loadEnder <= 6)
+            {
+                btnPreviousPage.Enabled = false;
+            }
+
+            pnlNewsFeed.Controls.Clear();
+            itemlist.Clear();
+            countWidth = 0;
+            countHeight = 0;
+
+            //Zet alle media bestanden op de juise plek neer
+            for (int i = loadStarter; i < loadEnder; i++)
+            {
+                Media media = mediaList[i];
+                Panel p = new Panel();
+                NewsFeedItem item = new NewsFeedItem(media, p, pnlNewsFeed, i, countWidth, countHeight, user, media.ID_Media);
+
+
+                //Geeft de positie op de x as aan
+                countWidth++;
+
+                if (countWidth > 2)
+                {
+                    //Geeft positie op y as en reset de x as
+                    countHeight++;
+                    countWidth = 0;
+                }
+                //Voegt de items aan de itemlist toe
+                itemlist.Add(item);
+            }
+
+            foreach (NewsFeedItem item in itemlist)
+            {
+                //Alle medie/newsfeeditems worden aan het form toegevoegd
+                pnlNewsFeed.Controls.Add(item.Panel);
+                Panel p = item.Panel;
+                p.ForeColor = Color.CadetBlue;
+                p.BringToFront();
+            }
         }
     }
 }
