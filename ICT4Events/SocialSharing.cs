@@ -341,9 +341,15 @@ namespace ICT4Events
 
             bUpload.Click += delegate
             {
+                string[] tags = tTag.Text.Split('#');
+                for (int i = 1; i < tags.Length; i++)
+                {
+                    MessageBox.Show(tags[i]);
+                }
+
                 MediaManager media = new MediaManager();
                 DateTime currentDate = DateTime.Now;
-                media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, tMediaPath.Text, "test", currentDate, user);
+                media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, tMediaPath.Text, "test", currentDate, user, tags);
                 ftp.upload(q, localfile);
             };
         }
