@@ -45,13 +45,13 @@ namespace ICT4Events
             string QuerryWHERE = "WHERE R.ID_RESERVATION = RC.ID_RESERVATIONFK AND C.ID_CAMPINGPLACE = RC.ID_CAMPINGPLACEFK AND E.ID_EVENT = R.ID_EVENTFK AND E.ID_EVENT =" + event_Id.ToString();
             string Querry = QuerrySELECT + QuerryFROM + QuerryWHERE;
             OracleDataReader reader = conn.SelectFromDatabase(Querry);
-            int i = 0;
+
             List<string> Liststring = new List<string>();
             while (reader.Read())
             {
 
-                Liststring.Add(reader.GetInt32(0).ToString() + " " + reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetDateTime(3).ToString("dd-MM-yyyy") + " " + reader.GetDateTime(4).ToString("dd-MM-yyyy") + " " + Convert.ToChar(reader.GetString(5)));
-                i++;
+                Liststring.Add(reader.GetInt32(0).ToString() + ": " + reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetDateTime(3).ToString("dd-MM-yyyy") + " " + reader.GetDateTime(4).ToString("dd-MM-yyyy") + " " + Convert.ToChar(reader.GetString(5)));
+
             }
             return Liststring;
         }

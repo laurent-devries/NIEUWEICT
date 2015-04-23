@@ -102,6 +102,17 @@ namespace ICT4Events
 
 
         }
+
+        public User(int id_user, int id_event, int id_reservation, int permission, string loginname, string password, char present)
+        {
+            this.id_user = id_user;
+            ID_EventFK = id_event;
+            ID_ReservationFK = id_reservation;
+            this.permissionFk = permission;
+            this.loginname = loginname;
+            this.password = password;
+            this.present = present;
+        }
         
         public override string ToString()
         {
