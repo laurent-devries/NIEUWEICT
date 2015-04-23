@@ -47,6 +47,7 @@ namespace ICT4Events
                         EventBeheerReservering ev = new EventBeheerReservering();
                         this.Close();
                         ev.Show();
+    
                     }
 
                     else

@@ -124,6 +124,12 @@
       <DependentUpon>EventBeheerReservering.cs</DependentUpon>
     </Compile>
     <Compile Include="EventManager.cs" />
+    <Compile Include="FirstTimeLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstTimeLogin.Designer.cs">
+      <DependentUpon>FirstTimeLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGathering.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EventBeheerReservering.resx">
       <DependentUpon>EventBeheerReservering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstTimeLogin.resx">
+      <DependentUpon>FirstTimeLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGathering.resx">
       <DependentUpon>FormGathering.cs</DependentUpon>
