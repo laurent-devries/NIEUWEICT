@@ -18,6 +18,7 @@ namespace ICT4Events
         List<Product> producten;
         RFID rfid = new RFID(); //RFID object
         private bool scanned = false;
+        
         User user;
 
         public Hiresystem()
@@ -26,8 +27,8 @@ namespace ICT4Events
             LoadProducts();
             availableProduct();
         }
-
-        private void bttnEnableRFID_Click(object sender, EventArgs e)
+        
+        public void bttnEnableRFID_Click(object sender, EventArgs e)
         {
             try
             {
@@ -39,16 +40,12 @@ namespace ICT4Events
                     rfid.Tag += new TagEventHandler(rfid_Tag);
                     rfid.open();
                     bttnEnableRFID.Text = "Restart";
-                    //rfid.Antenna = true;
-                    //rfid.LED = true;
                 }
                 else
                 {
                     RFIDtext.Text = "";
                     scanned = false;
                     rfid.close();
-                  //  rfid.Antenna = false;
-                   // rfid.LED = false;
                 }
             }
 
@@ -79,7 +76,7 @@ namespace ICT4Events
 
         public void rfid_Tag(object sender, TagEventArgs e)
         {
-
+            
             lblWaiting.Text = "Scan succesfull";
 
             scanned = true;
@@ -167,20 +164,16 @@ namespace ICT4Events
 
                 listBox1.Items.Add("User heeft geen producten gehuurd");
             }
-
             else
                 foreach (Product product in producten)
                 {
                     listBox1.Items.Add(product);
                 }
-
         }
 
             private void bttnLend_Click(object sender, EventArgs e)
             {
                 Product product;
-                //User user;
-
                 if (listBoxAvble.SelectedItem is Product)
                 {
                     string maand;
@@ -204,12 +197,11 @@ namespace ICT4Events
                     }
                     string date = dag + maand + Convert.ToString(dateTimePicker1.Value.Year);
 
-                    //UserManager userdata = new UserManager();
                     product = listBoxAvble.SelectedItem as Product;
                     ProductManager productdata = new ProductManager();
                     productdata.InsertBorrow(product, user, date);
-
-                    //MessageBox.Show(Convert.ToString(product.ID_Product));
+                    string RFID = RFIDtext.Text;
+                    refresh(RFID);
 
                 }
 
@@ -217,12 +209,7 @@ namespace ICT4Events
                 {
                     MessageBox.Show("Selecteer eerst een product om uit te lenen");
                 }
-
-            }
-
-            private void listBoxAvble_SelectedIndexChanged(object sender, EventArgs e)
-            {
-
+                
             }
 
             private void bttnReturn_Click(object sender, EventArgs e)
@@ -234,15 +221,21 @@ namespace ICT4Events
                     product = listBox1.SelectedItem as Product;
                     ProductManager productdata = new ProductManager();
                     productdata.deleteBorrow(product, user);
+                    string RFID = RFIDtext.Text;
+                    refresh(RFID);
                }
                    
                           
             }
-            public void refresh(TagEventArgs e)
+            public void refresh(string e)
             {
+                listBox1.Items.Clear();
+                listBox3.Items.Clear();
+                listBoxAvble.Items.Clear();
                 LoadProducts();
                 availableProduct();
-                LoadHiredProducts(e.Tag);
+                LoadHiredProducts(e);
+                
             }
     }
 }

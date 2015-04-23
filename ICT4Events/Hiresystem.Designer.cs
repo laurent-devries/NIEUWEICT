@@ -71,9 +71,31 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.listBoxAvble = new System.Windows.Forms.ListBox();
             this.bttnReturn = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -120,7 +142,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(12, 134);
+            this.groupBox3.Location = new System.Drawing.Point(12, 118);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(376, 301);
             this.groupBox3.TabIndex = 10;
@@ -356,9 +378,9 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.lblWaiting);
             this.groupBox2.Controls.Add(this.RFIDtext);
-            this.groupBox2.Location = new System.Drawing.Point(996, 12);
+            this.groupBox2.Location = new System.Drawing.Point(903, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(367, 106);
+            this.groupBox2.Size = new System.Drawing.Size(414, 91);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "RFID TAG:";
@@ -437,16 +459,16 @@
             // 
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 16;
-            this.listBox3.Location = new System.Drawing.Point(996, 134);
+            this.listBox3.Location = new System.Drawing.Point(15, 49);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(367, 340);
+            this.listBox3.Size = new System.Drawing.Size(388, 548);
             this.listBox3.TabIndex = 25;
             // 
             // bttnLend
             // 
-            this.bttnLend.Location = new System.Drawing.Point(984, 603);
+            this.bttnLend.Location = new System.Drawing.Point(9, 128);
             this.bttnLend.Name = "bttnLend";
-            this.bttnLend.Size = new System.Drawing.Size(376, 47);
+            this.bttnLend.Size = new System.Drawing.Size(139, 38);
             this.bttnLend.TabIndex = 31;
             this.bttnLend.Text = "Lend Product";
             this.bttnLend.UseVisualStyleBackColor = true;
@@ -456,50 +478,229 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(12, 464);
+            this.listBox1.Location = new System.Drawing.Point(16, 45);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(376, 260);
+            this.listBox1.Size = new System.Drawing.Size(626, 244);
             this.listBox1.TabIndex = 37;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(984, 575);
+            this.dateTimePicker1.Location = new System.Drawing.Point(9, 70);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(376, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(174, 22);
             this.dateTimePicker1.TabIndex = 41;
             // 
             // listBoxAvble
             // 
             this.listBoxAvble.FormattingEnabled = true;
             this.listBoxAvble.ItemHeight = 16;
-            this.listBoxAvble.Location = new System.Drawing.Point(410, 134);
+            this.listBoxAvble.Location = new System.Drawing.Point(15, 45);
             this.listBoxAvble.Name = "listBoxAvble";
-            this.listBoxAvble.Size = new System.Drawing.Size(571, 580);
+            this.listBoxAvble.Size = new System.Drawing.Size(456, 244);
             this.listBoxAvble.TabIndex = 42;
-            this.listBoxAvble.SelectedIndexChanged += new System.EventHandler(this.listBoxAvble_SelectedIndexChanged);
             // 
             // bttnReturn
             // 
-            this.bttnReturn.Location = new System.Drawing.Point(984, 667);
+            this.bttnReturn.Location = new System.Drawing.Point(9, 172);
             this.bttnReturn.Name = "bttnReturn";
-            this.bttnReturn.Size = new System.Drawing.Size(376, 47);
+            this.bttnReturn.Size = new System.Drawing.Size(139, 38);
             this.bttnReturn.TabIndex = 43;
             this.bttnReturn.Text = "Return Product";
             this.bttnReturn.UseVisualStyleBackColor = true;
             this.bttnReturn.Click += new System.EventHandler(this.bttnReturn_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 29);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(25, 17);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "ID:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(80, 29);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 17);
+            this.label9.TabIndex = 45;
+            this.label9.Text = "Product:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(207, 29);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 17);
+            this.label10.TabIndex = 46;
+            this.label10.Text = "Bail:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(269, 29);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 17);
+            this.label11.TabIndex = 47;
+            this.label11.Text = "Price:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(334, 29);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(69, 17);
+            this.label12.TabIndex = 48;
+            this.label12.Text = "Available:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 50);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(125, 17);
+            this.label13.TabIndex = 49;
+            this.label13.Text = "Select return date.";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.bttnReturn);
+            this.groupBox1.Controls.Add(this.bttnLend);
+            this.groupBox1.Location = new System.Drawing.Point(676, 436);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(205, 304);
+            this.groupBox1.TabIndex = 50;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Return or Lend Item";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(79, 25);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(61, 17);
+            this.label14.TabIndex = 51;
+            this.label14.Text = "Product:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(274, 25);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(35, 17);
+            this.label15.TabIndex = 52;
+            this.label15.Text = "Bail:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(16, 25);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(25, 17);
+            this.label16.TabIndex = 53;
+            this.label16.Text = "ID:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(12, 25);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(25, 17);
+            this.label18.TabIndex = 55;
+            this.label18.Text = "ID:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(78, 25);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(61, 17);
+            this.label19.TabIndex = 56;
+            this.label19.Text = "Product:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(174, 25);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(69, 17);
+            this.label29.TabIndex = 57;
+            this.label29.Text = "Category:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(527, 25);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(83, 17);
+            this.label17.TabIndex = 58;
+            this.label17.Text = "Returndate:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(402, 25);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(66, 17);
+            this.label30.TabIndex = 59;
+            this.label30.Text = "Hiredate:";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.listBox3);
+            this.groupBox5.Controls.Add(this.label8);
+            this.groupBox5.Controls.Add(this.label9);
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Location = new System.Drawing.Point(900, 118);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(417, 631);
+            this.groupBox5.TabIndex = 60;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "All products:";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.listBoxAvble);
+            this.groupBox6.Controls.Add(this.label18);
+            this.groupBox6.Controls.Add(this.label19);
+            this.groupBox6.Controls.Add(this.label29);
+            this.groupBox6.Location = new System.Drawing.Point(410, 118);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(484, 301);
+            this.groupBox6.TabIndex = 61;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Products then can be hired:";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label16);
+            this.groupBox7.Controls.Add(this.listBox1);
+            this.groupBox7.Controls.Add(this.label14);
+            this.groupBox7.Controls.Add(this.label30);
+            this.groupBox7.Controls.Add(this.label15);
+            this.groupBox7.Controls.Add(this.label17);
+            this.groupBox7.Location = new System.Drawing.Point(12, 436);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(654, 304);
+            this.groupBox7.TabIndex = 58;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Products on user:";
             // 
             // Hiresystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1410, 746);
-            this.Controls.Add(this.bttnReturn);
-            this.Controls.Add(this.listBoxAvble);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.listBox3);
-            this.Controls.Add(this.bttnLend);
+            this.ClientSize = new System.Drawing.Size(1319, 761);
+            this.Controls.Add(this.groupBox7);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblconnectedInfo);
@@ -516,6 +717,14 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -566,5 +775,23 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ListBox listBoxAvble;
         private System.Windows.Forms.Button bttnReturn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox7;
     }
 }
