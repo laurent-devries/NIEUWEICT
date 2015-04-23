@@ -86,7 +86,7 @@ namespace ICT4Events
             }
 
             //Toevoegen wanneer tag is not in database
-            for (int i = 0; i < tags.Length; i++)
+            for (int i = 1; i < tags.Length; i++)
             {
                 bool insert = false;
                 foreach (string t in readTaglist)
