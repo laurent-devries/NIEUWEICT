@@ -237,7 +237,6 @@ namespace ICT4Events
                     previewImag = Image.FromFile(tMediaPath.Text);
                     s = Path.GetFileName(fDialog.FileName);
                     localfile = fDialog.FileName;
-                    q = Path.Combine("ftp://172.16.0.15/", s);
                 }
             };
 
@@ -341,16 +340,14 @@ namespace ICT4Events
 
             bUpload.Click += delegate
             {
-                string[] tags = tTag.Text.Split('#');
-                for (int i = 1; i < tags.Length; i++)
-                {
-                    MessageBox.Show(tags[i]);
-                }
-
+                List<string> tag = new List<string>(tTag.Text.Split('#'));
+                tag.RemoveAll(p => string.IsNullOrEmpty(p));
+                string [] tags = tag.ToArray();
                 MediaManager media = new MediaManager();
                 DateTime currentDate = DateTime.Now;
-                media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, tMediaPath.Text, "test", currentDate, user, tags);
-                ftp.upload(q, localfile);
+                string path = Path.Combine("ftp://172.16.0.15/", Path.GetFileName(tMediaPath.Text));
+                media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, path, "test", currentDate, user, tags);
+                ftp.upload(path, localfile);
             };
         }
     }
