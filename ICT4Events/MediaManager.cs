@@ -18,8 +18,8 @@ namespace ICT4Events
         public List<Media> RequestMedia()
         {
             DatabaseConnection con = new DatabaseConnection();
-            string Querry = "SELECT TITLE, to_char(DATEMEDIA), SUMMARYMEDIA,  to_char(viewMedia), to_char(likes), to_char(reports), FILEPATH, id_media, id_userFk   FROM ICT4_MEDIA";
-            
+            string Querry = "SELECT TITLE, to_char(DATEMEDIA), SUMMARYMEDIA,  to_char(viewMedia), to_char(likes), to_char(reports), FILEPATH, id_media, ID_USERFK FROM ICT4_MEDIA";
+
             OracleDataReader reader = con.SelectFromDatabase(Querry);
             Media media;
             UserManager userManager = new UserManager();
