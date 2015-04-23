@@ -31,7 +31,6 @@ namespace ICT4Events
             try
             {
                 user = dataUser.LoginUser(userName, password);
-                MessageBox.Show(user.Username);
                 Permission p = new Permission();
 
                 if (cbFormLoader.Text == "Social media")

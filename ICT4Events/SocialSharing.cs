@@ -343,7 +343,7 @@ namespace ICT4Events
             {
                 MediaManager media = new MediaManager();
                 DateTime currentDate = DateTime.Now;
-                media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, tMediaPath.Text, "test", currentDate);
+                media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, tMediaPath.Text, "test", currentDate, user);
                 ftp.upload(q, localfile);
             };
         }
