@@ -342,7 +342,7 @@ namespace ICT4Events
             bUpload.Click += delegate
             {
                 string[] tags = tTag.Text.Split('#');
-                for (int i = 0; i < tags.Length; i++)
+                for (int i = 1; i < tags.Length; i++)
                 {
                     MessageBox.Show(tags[i]);
                 }
