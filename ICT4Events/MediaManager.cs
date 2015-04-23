@@ -74,20 +74,60 @@ namespace ICT4Events
 
         }
 
-        public bool InsertMedia(string title, string summaryMedia, string filePath, string typeMedia, DateTime currentDate, User user)
+        public bool InsertMedia(string title, string summaryMedia, string filePath, string typeMedia, DateTime currentDate, User user, string[] tags)
         {
             DatabaseConnection con = new DatabaseConnection();
+
+
+            //READ TAGS
+            List<string> readTaglist = new List<string>();
+            string readQuery = "SELECT tagName from ICT4_Tag";
+            OracleDataReader reader = con.SelectFromDatabase(readQuery);
+            while (reader.Read())
+            {
+                readTaglist.Add(reader.GetString(0));
+            }
+
+            //Toevoegen wanneer tag is not in database
+            for (int i = 0; i < tags.Length; i++)
+            {
+                bool insert = false;
+                foreach (string t in readTaglist)
+                {
+                    if (t == tags[i])
+                    {
+                        insert = true;
+                    }
+                }
+                if (!insert)
+                {
+                    string insertNewTag = "INSERT INTO ICT4_TAG(id_Tag, tagName) VALUES(tag_seq.nextval,'" + tags[i] + "')";
+                    string selectTagId = "SELECT ID_TAG FROM ICT4_TAG where tagName = '" + tags[i] + "'";
+                    bool bInsertNewTag = con.InsertOrUpdate(insertNewTag);
+
+                    OracleDataReader tagReader = con.SelectFromDatabase(selectTagId);
+                    while (tagReader.Read())
+                    {
+                        int tagID = tagReader.GetInt32(0);
+                    }
+
+                    //string insertMediaTag = "INSERT INTO ICT4_MEDIA_TAG(id_mediaFK, id_tagFK) VALUES('" + "'";
+                }
+            }
 
             string dateMonth = Convert.ToString(currentDate.Month);
             if (currentDate.Month < 10)
             {
                 dateMonth = "0" + dateMonth;
             }
+
+
+
             string Query;
             if (filePath == "")
             {
                 Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,SUMMARYMEDIA,TYPEMEDIA, ID_USERFK) VALUES(media_seq.nextval,'" + title + "','" + summaryMedia + "', '" + typeMedia + "', " + user.ID_User +")";
-            
+                    
             }
 
             else
@@ -96,7 +136,11 @@ namespace ICT4Events
             }
             bool writer = con.InsertOrUpdate(Query);
             return writer;
+
+
         }
+
+
 
         public bool UpdateLikes(Media media, User user)
         {
