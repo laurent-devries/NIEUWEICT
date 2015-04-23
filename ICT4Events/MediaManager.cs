@@ -55,14 +55,12 @@ namespace ICT4Events
             }
 
             reader.Dispose();
-
             return mediaList;
         }
 
 
         public int CountLikes(int mediaId)
         {
-    
             DatabaseConnection con = new DatabaseConnection();
             string Query = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId;
 
@@ -71,7 +69,6 @@ namespace ICT4Events
             int count = reader.GetInt32(0);
             reader.Dispose();
             return count;
-
         }
 
         public bool InsertMedia(string title, string summaryMedia, string filePath, string typeMedia, DateTime currentDate, User user, string[] tags)
@@ -110,8 +107,6 @@ namespace ICT4Events
                     {
                         int tagID = tagReader.GetInt32(0);
                     }
-
-                    //string insertMediaTag = "INSERT INTO ICT4_MEDIA_TAG(id_mediaFK, id_tagFK) VALUES('" + "'";
                 }
             }
 
