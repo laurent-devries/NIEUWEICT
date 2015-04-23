@@ -130,7 +130,7 @@ namespace ICT4Events
             Report.Click += delegate
             {
                 MediaManager m = new MediaManager();
-                m.UpdateReports(media.Title);
+                m.UpdateReports(user, media);
                 MessageBox.Show("Succesfully reported");
                 Report.Visible = false;
             };

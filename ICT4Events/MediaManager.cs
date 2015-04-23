@@ -28,6 +28,7 @@ namespace ICT4Events
             {
                 int aantalLikes;
                 int aantalReports;
+          
                 try
                 {
                     aantalLikes = Convert.ToInt32(reader.GetString(4));
@@ -38,9 +39,18 @@ namespace ICT4Events
                     aantalLikes = 0;
                     aantalReports = 0;
                 }
+                string filePath;
+                try
+                {
+                    filePath = reader.GetString(6);
+                    media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, filePath, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                }
 
+                catch
+                {
+                    media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                }
 
-                media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, reader.GetString(6), "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
                 mediaList.Add(media);
             }
 
@@ -64,7 +74,7 @@ namespace ICT4Events
 
         }
 
-        public bool InsertMedia(string title, string summaryMedia, string filePath, string typeMedia, DateTime currentDate)
+        public bool InsertMedia(string title, string summaryMedia, string filePath, string typeMedia, DateTime currentDate, User user)
         {
             DatabaseConnection con = new DatabaseConnection();
 
@@ -73,8 +83,17 @@ namespace ICT4Events
             {
                 dateMonth = "0" + dateMonth;
             }
+            string Query;
+            if (filePath == "")
+            {
+                Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,SUMMARYMEDIA,TYPEMEDIA, ID_USERFK) VALUES(media_seq.nextval,'" + title + "','" + summaryMedia + "', '" + typeMedia + "', " + user.ID_User +")";
+            
+            }
 
-            string Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,DATEMEDIA,SUMMARYMEDIA,VIEWMEDIA,FILEPATH,TYPEMEDIA) VALUES(media_seq.nextval,'" + title + "', to_date('" + Convert.ToString(currentDate.Day) + dateMonth + Convert.ToString(currentDate.Year) + "', 'DDMMYYYY'),'" + summaryMedia + "', 50000,'" + filePath + "','" + typeMedia + "')";
+            else
+            {
+                Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,DATEMEDIA,SUMMARYMEDIA,VIEWMEDIA,FILEPATH,TYPEMEDIA) VALUES(media_seq.nextval,'" + title + "', to_date('" + Convert.ToString(currentDate.Day) + dateMonth + Convert.ToString(currentDate.Year) + "', 'DDMMYYYY'),'" + summaryMedia + "', 0,'" + filePath + "','" + typeMedia + "')";
+            }
             bool writer = con.InsertOrUpdate(Query);
             return writer;
         }
@@ -83,17 +102,16 @@ namespace ICT4Events
         {
             DatabaseConnection con = new DatabaseConnection();
 
-            //string Query = "UPDATE ICT4_MEDIA SET likes = likes + 1 WHERE title = '" + title + "'";
             string Query = "INSERT INTO ICT4_NOTE(ID_NOTE, ID_USERFK, ID_MEDIAFK, LIKENOTE) VALUES (note_seq.nextval, " + user.ID_User +", " + media.ID_Media +", 'Y')";
             bool writer = con.InsertOrUpdate(Query);
             return writer;
         }
 
-        public bool UpdateReports(string title)
+        public bool UpdateReports(User user, Media media)
         {
             DatabaseConnection con = new DatabaseConnection();
 
-            string Query = "UPDATE ICT4_MEDIA SET reports = reports + 1 WHERE title = '" + title + "'";
+            string Query = "INSERT INTO ICT4_NOTE(ID_NOTE, ID_USERFK, ID_MEDIAFK, REPORTNOTE) VALUES (note_seq.nextval, " + user.ID_User + ", " + media.ID_Media + ", 'Y')";
             bool writer = con.InsertOrUpdate(Query);
             return writer;
         }

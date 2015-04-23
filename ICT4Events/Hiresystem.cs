@@ -24,6 +24,7 @@ namespace ICT4Events
         {
             InitializeComponent();
             LoadProducts();
+            availableProduct();
         }
 
         private void bttnEnableRFID_Click(object sender, EventArgs e)
@@ -126,6 +127,16 @@ namespace ICT4Events
         private void rfid_Error(object sender, ErrorEventArgs e)
         {
             MessageBox.Show(e.Description);
+        }
+
+        private void availableProduct() 
+        { 
+          ProductManager productData = new ProductManager();
+            producten = productData.availableProduct();
+            foreach (Product product in producten)
+            {
+                listBoxAvble.Items.Add(product);
+            }
         }
 
 

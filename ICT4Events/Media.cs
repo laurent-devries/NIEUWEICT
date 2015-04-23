@@ -18,8 +18,6 @@ namespace ICT4Events
         private int reports;
         private int views;
 
-        private List<Media> mediaList;
-
         //Properties
         public string Title { get; set; }
         public string Date { get; set; }
@@ -44,11 +42,18 @@ namespace ICT4Events
             Reports = reports;
         }
 
-        public Media()
+        public Media(string title, string date, string summary, int views, int likes, int reports,  string type_Media, int idmedia, User user)
         {
-            mediaList = new List<Media>();
-
+            ID_Media = idmedia;
+            Title = title;
+            Date = date;
+            Summary = summary;
+            Views = views;
+            Type_Media = type_Media;
+            Likes = likes;
+            Reports = reports;
         }
+
 
         public bool CheckAbuse(string abusiveWord)
         {

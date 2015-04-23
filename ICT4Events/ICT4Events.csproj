@@ -84,12 +84,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\odp.net.managed.121.1.2\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
-    <Reference Include="Phidget21.NET, Version=2.1.8.208, Culture=neutral, PublicKeyToken=c2b1f2a3594bce52, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Downloads\Phidget21.NET.dll</HintPath>
+    <Reference Include="Phidget21.NET">
+      <HintPath>F:\fontys ICT\semester 2\proftaak\clone\ICT4Events\References\Phidget21.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Log" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -178,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Hiresystem.resx">
       <DependentUpon>Hiresystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginFormStart.resx">
+      <DependentUpon>LoginFormStart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
