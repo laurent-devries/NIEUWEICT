@@ -35,9 +35,20 @@ namespace ICT4Events
 
                 if (cbFormLoader.Text == "Social media")
                 {
-                    SocialSharing s = new SocialSharing(user);
-                    this.Close();
-                    s.Show();
+                    if (user.City == null)
+                    {
+                        FirstTimeLogin f = new FirstTimeLogin(user);
+                        this.Close();
+                        f.Show();
+                    }
+
+                    else
+                    {
+                        SocialSharing s = new SocialSharing(user);
+                        this.Close();
+                        s.Show();
+                    }
+
                 }
                 
                 else if (cbFormLoader.Text == "Event beheer")
