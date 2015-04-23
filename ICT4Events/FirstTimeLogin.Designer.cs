@@ -85,7 +85,6 @@
             this.gb_gebruikercreatie.Controls.Add(this.lb_geboortedatum_gebruiker);
             this.gb_gebruikercreatie.Controls.Add(this.lb_naam_gebruiker);
             this.gb_gebruikercreatie.Controls.Add(this.tb_voornaam_gebruiker);
-            this.gb_gebruikercreatie.Enabled = false;
             this.gb_gebruikercreatie.Location = new System.Drawing.Point(21, 58);
             this.gb_gebruikercreatie.Name = "gb_gebruikercreatie";
             this.gb_gebruikercreatie.Size = new System.Drawing.Size(426, 332);
