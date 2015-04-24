@@ -172,6 +172,12 @@
     </Compile>
     <Compile Include="Tag.cs" />
     <Compile Include="TagManager.cs" />
+    <Compile Include="ToegangscontroleSysteem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToegangscontroleSysteem.Designer.cs">
+      <DependentUpon>ToegangscontroleSysteem.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserManager.cs" />
     <EmbeddedResource Include="CommentNewsfeedItem.resx">
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SocialSharing.resx">
       <DependentUpon>SocialSharing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToegangscontroleSysteem.resx">
+      <DependentUpon>ToegangscontroleSysteem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ICT4Events_TemporaryKey.pfx" />
     <None Include="packages.config" />
