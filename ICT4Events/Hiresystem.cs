@@ -63,13 +63,13 @@ namespace ICT4Events
 
         private void rfid_Attach(object sender, AttachEventArgs e)
         {
-            lblconnectedInfo.Text = "connected";
+            lblconnectedInfo.Text = "Verbonden";
             lblserialInfo.Text = e.Device.SerialNumber.ToString();
 
         }
         private void rfid_Detach(object sender, DetachEventArgs e)
         {
-            lblconnectedInfo.Text = "disconnected";
+            lblconnectedInfo.Text = "Verbinding verbroken";
             lblserialInfo.Text = "--";
             //scanned = false;
         }
@@ -77,7 +77,7 @@ namespace ICT4Events
         public void rfid_Tag(object sender, TagEventArgs e)
         {
             
-            lblWaiting.Text = "Scan succesfull";
+            lblWaiting.Text = "De scan is voltooid";
 
             scanned = true;
             UserManager dataCollect = new UserManager();
@@ -133,7 +133,7 @@ namespace ICT4Events
 
             if (producten.Count == 0)
             {
-             listBoxAvble.Text = "There are no available products"; 
+             listBoxAvble.Text = "Er zijn geen producten beschikbaar"; 
             }
             else
                 foreach (Product product in producten)
@@ -162,7 +162,7 @@ namespace ICT4Events
             if (producten.Count == 0)
             {
 
-                listBox1.Items.Add("User heeft geen producten gehuurd");
+                listBox1.Items.Add("Gebruiker heeft geen producten gehuurd");
             }
             else
                 foreach (Product product in producten)

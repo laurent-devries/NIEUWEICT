@@ -384,6 +384,7 @@ namespace ICT4Events
 
         private void cbCategorieCheck_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbTagCheck.Text = "";
             countWidth = 0;
             countHeight = 0;
             loadEnder = 6;
@@ -397,6 +398,7 @@ namespace ICT4Events
 
             string selectedCategory = cbCategorieCheck.GetItemText(cbCategorieCheck.SelectedItem);
             MessageBox.Show(selectedCategory);
+            cbTagCheck.Text = "";
             mediaList = mediaData.RequestMediaCategory(cbCategorieCheck.SelectedText);
 
             btnNextPage.Visible = true;
@@ -453,6 +455,7 @@ namespace ICT4Events
 
         private void cbTagCheck_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbCategorieCheck.Text = "";
             countWidth = 0;
             countHeight = 0;
             loadEnder = 6;

@@ -257,6 +257,7 @@ namespace ICT4Events
         }
         public List<Media> RequestMediaCategory(string categoryName)
         {
+            
             DatabaseConnection con = new DatabaseConnection();
             string Querry = "select id_MediaFK from ICT4_MEDIA_CATEGORY where ID_CATEGORYFK = (SELECT id_category from ICT4_category where categoryName = '" + categoryName + "')";
             OracleDataReader mediaReader = con.SelectFromDatabase(Querry);
