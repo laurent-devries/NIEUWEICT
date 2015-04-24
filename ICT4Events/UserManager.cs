@@ -92,9 +92,8 @@ namespace ICT4Events
                 return user;
             }
 
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show(e.ToString());
                 return null;
             }
 

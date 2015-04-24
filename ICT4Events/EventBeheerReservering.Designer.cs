@@ -66,7 +66,7 @@
             this.btn_nieuwe_gebruiker = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gb_mantain_event = new System.Windows.Forms.GroupBox();
             this.Event_End_Date = new System.Windows.Forms.DateTimePicker();
             this.Event_Start_Date = new System.Windows.Forms.DateTimePicker();
             this.btn_create_event = new System.Windows.Forms.Button();
@@ -86,10 +86,14 @@
             this.cb_showusersonevent = new System.Windows.Forms.ComboBox();
             this.btn_show_users = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_new_event = new System.Windows.Forms.Button();
+            this.btn_change_event = new System.Windows.Forms.Button();
+            this.btn_delete_event = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gb_gebruikercreatie.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gb_mantain_event.SuspendLayout();
             this.gB_aanwezige_gebruikers.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
@@ -152,7 +156,6 @@
             this.cB_Event_ID_User.Name = "cB_Event_ID_User";
             this.cB_Event_ID_User.Size = new System.Drawing.Size(141, 21);
             this.cB_Event_ID_User.TabIndex = 31;
-            
             this.cB_Event_ID_User.TextChanged += new System.EventHandler(this.cB_Event_ID_User_TextChanged);
             // 
             // gb_gebruikercreatie
@@ -532,7 +535,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.groupBox3);
+            this.groupBox2.Controls.Add(this.btn_delete_event);
+            this.groupBox2.Controls.Add(this.btn_change_event);
+            this.groupBox2.Controls.Add(this.btn_new_event);
+            this.groupBox2.Controls.Add(this.gb_mantain_event);
             this.groupBox2.Controls.Add(this.Listb_Events);
             this.groupBox2.Location = new System.Drawing.Point(463, 12);
             this.groupBox2.Name = "groupBox2";
@@ -541,25 +547,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Event Management";
             // 
-            // groupBox3
+            // gb_mantain_event
             // 
-            this.groupBox3.Controls.Add(this.Event_End_Date);
-            this.groupBox3.Controls.Add(this.Event_Start_Date);
-            this.groupBox3.Controls.Add(this.btn_create_event);
-            this.groupBox3.Controls.Add(this.Event_Camping_Location);
-            this.groupBox3.Controls.Add(this.Event_Camping_Name);
-            this.groupBox3.Controls.Add(this.Event_Title);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(6, 311);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(432, 332);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Event Create / Change";
+            this.gb_mantain_event.Controls.Add(this.button1);
+            this.gb_mantain_event.Controls.Add(this.Event_End_Date);
+            this.gb_mantain_event.Controls.Add(this.Event_Start_Date);
+            this.gb_mantain_event.Controls.Add(this.btn_create_event);
+            this.gb_mantain_event.Controls.Add(this.Event_Camping_Location);
+            this.gb_mantain_event.Controls.Add(this.Event_Camping_Name);
+            this.gb_mantain_event.Controls.Add(this.Event_Title);
+            this.gb_mantain_event.Controls.Add(this.label8);
+            this.gb_mantain_event.Controls.Add(this.label7);
+            this.gb_mantain_event.Controls.Add(this.label6);
+            this.gb_mantain_event.Controls.Add(this.label5);
+            this.gb_mantain_event.Controls.Add(this.label4);
+            this.gb_mantain_event.Location = new System.Drawing.Point(6, 311);
+            this.gb_mantain_event.Name = "gb_mantain_event";
+            this.gb_mantain_event.Size = new System.Drawing.Size(432, 332);
+            this.gb_mantain_event.TabIndex = 7;
+            this.gb_mantain_event.TabStop = false;
+            this.gb_mantain_event.Text = "Event Create / Change";
+            this.gb_mantain_event.Enter += new System.EventHandler(this.gb_mantain_event_Enter);
             // 
             // Event_End_Date
             // 
@@ -581,7 +589,7 @@
             this.btn_create_event.Name = "btn_create_event";
             this.btn_create_event.Size = new System.Drawing.Size(112, 23);
             this.btn_create_event.TabIndex = 10;
-            this.btn_create_event.Text = "Create / Change Event";
+            this.btn_create_event.Text = "Confirm";
             this.btn_create_event.UseVisualStyleBackColor = true;
             this.btn_create_event.Click += new System.EventHandler(this.btn_create_event_Click_1);
             // 
@@ -731,6 +739,46 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Event_ID:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(207, 298);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(87, 23);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btn_new_event
+            // 
+            this.btn_new_event.Location = new System.Drawing.Point(20, 19);
+            this.btn_new_event.Name = "btn_new_event";
+            this.btn_new_event.Size = new System.Drawing.Size(75, 23);
+            this.btn_new_event.TabIndex = 8;
+            this.btn_new_event.Text = "New";
+            this.btn_new_event.UseVisualStyleBackColor = true;
+            this.btn_new_event.Click += new System.EventHandler(this.btn_new_event_Click);
+            // 
+            // btn_change_event
+            // 
+            this.btn_change_event.Location = new System.Drawing.Point(101, 19);
+            this.btn_change_event.Name = "btn_change_event";
+            this.btn_change_event.Size = new System.Drawing.Size(75, 23);
+            this.btn_change_event.TabIndex = 9;
+            this.btn_change_event.Text = "Change";
+            this.btn_change_event.UseVisualStyleBackColor = true;
+            this.btn_change_event.Click += new System.EventHandler(this.btn_change_event_Click);
+            // 
+            // btn_delete_event
+            // 
+            this.btn_delete_event.Location = new System.Drawing.Point(182, 19);
+            this.btn_delete_event.Name = "btn_delete_event";
+            this.btn_delete_event.Size = new System.Drawing.Size(75, 23);
+            this.btn_delete_event.TabIndex = 10;
+            this.btn_delete_event.Text = "Delete";
+            this.btn_delete_event.UseVisualStyleBackColor = true;
+            this.btn_delete_event.Click += new System.EventHandler(this.btn_delete_event_Click);
+            // 
             // EventBeheerReservering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -746,8 +794,8 @@
             this.gb_gebruikercreatie.ResumeLayout(false);
             this.gb_gebruikercreatie.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gb_mantain_event.ResumeLayout(false);
+            this.gb_mantain_event.PerformLayout();
             this.gB_aanwezige_gebruikers.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -787,7 +835,7 @@
         private System.Windows.Forms.TextBox tb_telnr_gebruiker;
         private System.Windows.Forms.Button btn_Confirm_user;
         private System.Windows.Forms.Button btn_changeuser;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gb_mantain_event;
         private System.Windows.Forms.ListBox Listb_Events;
         private System.Windows.Forms.DateTimePicker Event_End_Date;
         private System.Windows.Forms.DateTimePicker Event_Start_Date;
@@ -815,6 +863,10 @@
         private System.Windows.Forms.Button btn_show_users;
         private System.Windows.Forms.ComboBox cb_showusersonevent;
         private System.Windows.Forms.Button btn_printlistusers;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_delete_event;
+        private System.Windows.Forms.Button btn_change_event;
+        private System.Windows.Forms.Button btn_new_event;
     }
 }
 

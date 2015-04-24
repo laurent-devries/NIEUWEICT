@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             this.btnHome = new System.Windows.Forms.Button();
-            this.btnCategorie = new System.Windows.Forms.Button();
-            this.btnTags = new System.Windows.Forms.Button();
             this.btnMateriaalHuren = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblIngelogdNaam = new System.Windows.Forms.Label();
             this.pbProfilePicture = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.pnlNewsFeed = new System.Windows.Forms.Panel();
             this.btnNextPage = new System.Windows.Forms.Button();
             this.btnPreviousPage = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cbCategorieCheck = new System.Windows.Forms.ComboBox();
+            this.lblSelectCategory = new System.Windows.Forms.Label();
+            this.lblSelectTag = new System.Windows.Forms.Label();
+            this.cbTagCheck = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,36 +61,12 @@
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // btnCategorie
-            // 
-            this.btnCategorie.BackColor = System.Drawing.Color.Wheat;
-            this.btnCategorie.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCategorie.ForeColor = System.Drawing.Color.DarkOrange;
-            this.btnCategorie.Location = new System.Drawing.Point(95, 14);
-            this.btnCategorie.Name = "btnCategorie";
-            this.btnCategorie.Size = new System.Drawing.Size(89, 23);
-            this.btnCategorie.TabIndex = 1;
-            this.btnCategorie.Text = "Categorie";
-            this.btnCategorie.UseVisualStyleBackColor = false;
-            // 
-            // btnTags
-            // 
-            this.btnTags.BackColor = System.Drawing.Color.Wheat;
-            this.btnTags.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTags.ForeColor = System.Drawing.Color.DarkOrange;
-            this.btnTags.Location = new System.Drawing.Point(190, 14);
-            this.btnTags.Name = "btnTags";
-            this.btnTags.Size = new System.Drawing.Size(89, 23);
-            this.btnTags.TabIndex = 2;
-            this.btnTags.Text = "Tags";
-            this.btnTags.UseVisualStyleBackColor = false;
-            // 
             // btnMateriaalHuren
             // 
             this.btnMateriaalHuren.BackColor = System.Drawing.Color.Wheat;
             this.btnMateriaalHuren.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMateriaalHuren.ForeColor = System.Drawing.Color.DarkOrange;
-            this.btnMateriaalHuren.Location = new System.Drawing.Point(285, 14);
+            this.btnMateriaalHuren.Location = new System.Drawing.Point(95, 14);
             this.btnMateriaalHuren.Name = "btnMateriaalHuren";
             this.btnMateriaalHuren.Size = new System.Drawing.Size(134, 23);
             this.btnMateriaalHuren.TabIndex = 3;
@@ -141,13 +119,24 @@
             this.panel1.Controls.Add(this.lblIngelogdNaam);
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Controls.Add(this.btnCategorie);
             this.panel1.Controls.Add(this.tbSearch);
-            this.panel1.Controls.Add(this.btnTags);
             this.panel1.Location = new System.Drawing.Point(-1, -4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(978, 49);
             this.panel1.TabIndex = 8;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Wheat;
+            this.button2.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.DarkOrange;
+            this.button2.Location = new System.Drawing.Point(235, 14);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(134, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Uploaden";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pnlNewsFeed
             // 
@@ -177,18 +166,41 @@
             this.btnPreviousPage.UseVisualStyleBackColor = true;
             this.btnPreviousPage.Click += new System.EventHandler(this.btnPreviousPage_Click);
             // 
-            // button2
+            // cbCategorieCheck
             // 
-            this.button2.BackColor = System.Drawing.Color.Wheat;
-            this.button2.Font = new System.Drawing.Font("Georgia", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.button2.Location = new System.Drawing.Point(422, 13);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Uploaden";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.cbCategorieCheck.FormattingEnabled = true;
+            this.cbCategorieCheck.Location = new System.Drawing.Point(10, 73);
+            this.cbCategorieCheck.Name = "cbCategorieCheck";
+            this.cbCategorieCheck.Size = new System.Drawing.Size(121, 21);
+            this.cbCategorieCheck.TabIndex = 13;
+            this.cbCategorieCheck.SelectedIndexChanged += new System.EventHandler(this.cbCategorieCheck_SelectedIndexChanged);
+            // 
+            // lblSelectCategory
+            // 
+            this.lblSelectCategory.AutoSize = true;
+            this.lblSelectCategory.Location = new System.Drawing.Point(13, 51);
+            this.lblSelectCategory.Name = "lblSelectCategory";
+            this.lblSelectCategory.Size = new System.Drawing.Size(97, 13);
+            this.lblSelectCategory.TabIndex = 14;
+            this.lblSelectCategory.Text = "Selecteer Category";
+            // 
+            // lblSelectTag
+            // 
+            this.lblSelectTag.AutoSize = true;
+            this.lblSelectTag.Location = new System.Drawing.Point(13, 132);
+            this.lblSelectTag.Name = "lblSelectTag";
+            this.lblSelectTag.Size = new System.Drawing.Size(74, 13);
+            this.lblSelectTag.TabIndex = 15;
+            this.lblSelectTag.Text = "Selecteer Tag";
+            // 
+            // cbTagCheck
+            // 
+            this.cbTagCheck.FormattingEnabled = true;
+            this.cbTagCheck.Location = new System.Drawing.Point(10, 148);
+            this.cbTagCheck.Name = "cbTagCheck";
+            this.cbTagCheck.Size = new System.Drawing.Size(121, 21);
+            this.cbTagCheck.TabIndex = 16;
+            this.cbTagCheck.SelectedIndexChanged += new System.EventHandler(this.cbTagCheck_SelectedIndexChanged);
             // 
             // SocialSharing
             // 
@@ -196,6 +208,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(976, 513);
+            this.Controls.Add(this.cbTagCheck);
+            this.Controls.Add(this.lblSelectTag);
+            this.Controls.Add(this.lblSelectCategory);
+            this.Controls.Add(this.cbCategorieCheck);
             this.Controls.Add(this.btnPreviousPage);
             this.Controls.Add(this.btnNextPage);
             this.Controls.Add(this.pnlNewsFeed);
@@ -208,13 +224,13 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
         private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.Button btnCategorie;
-        private System.Windows.Forms.Button btnTags;
         private System.Windows.Forms.Button btnMateriaalHuren;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Button btnSearch;
@@ -225,5 +241,9 @@
         private System.Windows.Forms.Button btnNextPage;
         private System.Windows.Forms.Button btnPreviousPage;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cbCategorieCheck;
+        private System.Windows.Forms.Label lblSelectCategory;
+        private System.Windows.Forms.Label lblSelectTag;
+        private System.Windows.Forms.ComboBox cbTagCheck;
     }
 }
