@@ -243,6 +243,7 @@ namespace ICT4Events
                 }
 
             }
+            lists();
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -295,7 +296,7 @@ namespace ICT4Events
                 {
                     endday = Convert.ToString(Event_End_Date.Value.Day);
                 }
-                string querry = "INSERT INTO ICT4_EVENT (ID_EVENT, TITLE, DateICT, STARTDATE,ENDDATE,CAMPINGNAME,LOCATION) VALUES (event_seq.NEXTVAL,'" + Event_Title.Text + "', sysdate, to_date('" + startday + startmonth + Convert.ToString(Event_Start_Date.Value.Year) + "','DDMMYYYY'), to_date('" + endday + endmonth + Convert.ToString(Event_End_Date.Value.Year) + "','DDMMYYYY'),'" + Event_Camping_Name.Text + "','" + Event_Camping_Location.Text + "'";
+                string querry = "INSERT INTO ICT4_EVENT (ID_EVENT, TITLE, STARTDATE, ENDDATE, CAMPINGNAME, LOCATION) VALUES (EVENT_SEQ.NEXTVAL,'" + Event_Title.Text + "', to_date('" + startday + startmonth + Convert.ToString(Event_Start_Date.Value.Year) + "','DDMMYYYY'), to_date('" + endday + endmonth + Convert.ToString(Event_End_Date.Value.Year) + "','DDMMYYYY'),'" + Event_Camping_Name.Text + "','" + Event_Camping_Location.Text + "')";
                 conn.InsertOrUpdate(querry);
             }
             if (btn_change_event.Enabled)
@@ -471,6 +472,7 @@ namespace ICT4Events
                 }
 
             }
+            lists();
         }
     }
 }
