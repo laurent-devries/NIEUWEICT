@@ -368,11 +368,11 @@ namespace ICT4Events
         {
             lb_show_user_on_event.Items.Clear();
             DatabaseConnection conn = new DatabaseConnection();
-            string querry = "select u.ID_USER, u.FIRSTNAME, u.SURNAME, u.PRESENTUSER FROM ICT4_USER u, ICT4_EVENT e WHERE e.ID_EVENT = u.ID_EVENTFK and u.ID_EVENTFK = " + Convert.ToInt32(cb_showusersonevent.Text);
+            string querry = "select u.ID_USER, u.FIRSTNAME, u.SURNAME, u.PRESENTUSER, r.PAYMENTSTATE FROM ICT4_USER u, ICT4_EVENT e , ICT4_RESERVATION r WHERE e.ID_EVENT = u.ID_EVENTFK and r.ID_RESERVATION = u.ID_RESERVATIONFK and u.ID_EVENTFK = " + cb_showusersonevent.Text;
             OracleDataReader reader = conn.SelectFromDatabase(querry);
             while (reader.Read())
             {
-                lb_show_user_on_event.Items.Add("ID: " + Convert.ToString(reader.GetInt32(0)) + "\t" + "naam: " + reader.GetString(1) + " " + reader.GetString(2) + "  \t\t" + "present: " + reader.GetString(3));
+                lb_show_user_on_event.Items.Add("ID: " + Convert.ToString(reader.GetInt32(0)) + "\t" + "naam: " + reader.GetString(1) + " " + reader.GetString(2) + "      \t\t" + "present: " + reader.GetString(3) + "\t Paymentstate: "+ reader.GetString(4));
             }
         }
         private void btn_printlistusers_Click(object sender, EventArgs e)
