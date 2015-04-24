@@ -10,11 +10,12 @@ namespace ICT4Events
     class Tag
     {
         //fields
-        string tag_name;
+
+        public string Tag_name { get; set; }
 
         public Tag(string tag_name)
         {
-            this.tag_name = tag_name;
+            Tag_name = tag_name;
         }
     }
 }

@@ -87,9 +87,12 @@ namespace ICT4Events
             {
                 
             }
-            
-
           
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
