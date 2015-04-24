@@ -19,7 +19,7 @@ namespace ICT4Events
         {
             evenementen = new List<Event>();
             DatabaseConnection con = new DatabaseConnection();
-            string Querry = "SELECT ID_EVENT, TITLE, DATEICT, STARTDATE, ENDDATE, CAMPINGNAME, LOCATION FROM ICT4_EVENT";
+            string Querry = "SELECT ID_EVENT, TITLE, DATEICT, STARTDATE, ENDDATE, CAMPINGNAME, LOCATION FROM ICT4_EVENT ORDER BY ID_EVENT, TITLE, CAMPINGNAME";
             OracleDataReader reader = con.SelectFromDatabase(Querry);
             while (reader.Read())
             {

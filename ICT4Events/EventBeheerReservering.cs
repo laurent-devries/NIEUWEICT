@@ -344,7 +344,7 @@ namespace ICT4Events
                     if (event1.ToString() == Listb_Events.GetItemText(Listb_Events.SelectedItem) && trueorfalse == false)
                     {
                         string querry = "UPDATE ICT4_EVENT SET title = '" + Event_Title.Text + "', startDate = to_date('" + startday + startmonth + Convert.ToString(Event_Start_Date.Value.Year) + "','DDMMYYYY'), endDate= to_date('" + endday + endmonth + Convert.ToString(Event_End_Date.Value.Year) + "','DDMMYYYY'), campingName = '" + Event_Camping_Name.Text + "', location = '" + Event_Camping_Location.Text + "'WHERE ID_EVENT = " + Convert.ToString(event1.ID_Event);
-                        MessageBox.Show(querry);
+                        
                         bool succes = conn.InsertOrUpdate(querry);
                         if (succes)
                         {
@@ -458,7 +458,7 @@ namespace ICT4Events
                 {
                     DatabaseConnection conn = new DatabaseConnection();
                     string querry = "DELETE FROM ICT4_EVENT WHERE ID_event = " + Convert.ToString(event1.ID_Event);
-                    MessageBox.Show(querry);
+                    
                     bool succes = conn.InsertOrUpdate(querry);
                     if (succes == true)
                     {

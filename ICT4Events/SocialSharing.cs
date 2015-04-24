@@ -233,7 +233,7 @@ namespace ICT4Events
             {
                 OpenFileDialog fDialog = new OpenFileDialog();
                 fDialog.Title = "Open media";
-                fDialog.Filter = "IMAGE Files|*.jpg";
+                fDialog.Filter = "All files (*.*)|*.*";
                 fDialog.InitialDirectory = Environment.SpecialFolder.MyPictures.ToString();
 
                 if (fDialog.ShowDialog() == DialogResult.OK)
@@ -384,11 +384,11 @@ namespace ICT4Events
 
         private void cbCategorieCheck_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbTagCheck.Text = "";
             countWidth = 0;
             countHeight = 0;
             loadEnder = 6;
             loadStarter = 0;
-            cbTagCheck.SelectedIndex = 0;
             //Laad de media bestanden op het form
             MediaManager mediaData = new MediaManager();
             List<Tag> taglist = new List<Tag>();
@@ -398,6 +398,7 @@ namespace ICT4Events
 
             string selectedCategory = cbCategorieCheck.GetItemText(cbCategorieCheck.SelectedItem);
             MessageBox.Show(selectedCategory);
+            cbTagCheck.Text = "";
             mediaList = mediaData.RequestMediaCategory(cbCategorieCheck.SelectedText);
 
             btnNextPage.Visible = true;
@@ -454,6 +455,7 @@ namespace ICT4Events
 
         private void cbTagCheck_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbCategorieCheck.Text = "";
             countWidth = 0;
             countHeight = 0;
             loadEnder = 6;
