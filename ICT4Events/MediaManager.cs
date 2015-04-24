@@ -100,7 +100,6 @@ namespace ICT4Events
                 bool insert = true;
                 foreach (Tag t in TagList)
                 {
-                    MessageBox.Show(t.Tag_name + " + " + tags[i]);
                     if (t.Tag_name == tags[i])
                     {
                         insert = false;

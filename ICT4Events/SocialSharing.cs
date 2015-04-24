@@ -233,7 +233,7 @@ namespace ICT4Events
             {
                 OpenFileDialog fDialog = new OpenFileDialog();
                 fDialog.Title = "Open media";
-                fDialog.Filter = "IMAGE Files|*.jpg";
+                fDialog.Filter = "All files (*.*)|*.*";
                 fDialog.InitialDirectory = Environment.SpecialFolder.MyPictures.ToString();
 
                 if (fDialog.ShowDialog() == DialogResult.OK)
