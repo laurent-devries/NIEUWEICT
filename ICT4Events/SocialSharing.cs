@@ -388,6 +388,7 @@ namespace ICT4Events
             countHeight = 0;
             loadEnder = 6;
             loadStarter = 0;
+            cbTagCheck.SelectedIndex = 0;
             //Laad de media bestanden op het form
             MediaManager mediaData = new MediaManager();
             List<Tag> taglist = new List<Tag>();
