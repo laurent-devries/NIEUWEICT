@@ -56,7 +56,7 @@ namespace ICT4Events
         {
             //Voegt de comments toe
             commentManager.InsertComment(rtbComment.Text, mediaComment.ID_Media, userComment);
-            RefreshComments();
+            Refresh();
         }
 
         private void RefreshComments()
