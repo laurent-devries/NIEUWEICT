@@ -16,14 +16,14 @@ namespace ICT4Events
     {
         private OracleConnection oracleConn;
 
-        private string user = "teun";//Wachtwoord van de server
-        private string pw = "schepersdijk";//Wachtwoord van de server
+        private string user = "ICT4EVENT";//Wachtwoord van de server
+        private string pw = "Welkom123";//Wachtwoord van de server
 
         private void Connect()
         {
             try
             {
-                oracleConn = new OracleConnection("User Id=" + user + ";Password=" + pw + ";Data Source=" + "//127.0.0.1:1521/XE" + ";");
+                oracleConn = new OracleConnection("User Id=" + user + ";Password=" + pw + ";Data Source=" + "//172.16.0.15:1521/XE" + ";");
             }
 
             catch (Exception e)
