@@ -30,7 +30,6 @@ namespace ICT4Events
             }
 
             string Query = "INSERT INTO ICT4_COMMENT(ID_COMMENT, id_MediaFK , id_userFk, dateComment, commentComment) VAlues(com_seq.nextval, " + id_media.ToString() + ", " + user.ID_User.ToString() + ", to_date('" + dateDay + dateMonth + dateYear + "', 'DDMMYYYY'), '" + comment + "')";
-            MessageBox.Show(Query);
             bool writer = con.InsertOrUpdate(Query);
         }
 
