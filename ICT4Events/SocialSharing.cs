@@ -33,7 +33,7 @@ namespace ICT4Events
         RichTextBox tMediaDescription;
         Image previewImag;
         User user;
-        FTPConnection ftp;
+        //FTPConnection ftp;
 
         //Geeft een user mee die gebruikt wordt om te kijken welke user ingelogd is
         public SocialSharing(User user)
@@ -91,8 +91,9 @@ namespace ICT4Events
         {
             //Laad de media bestanden op het form
             MediaManager mediaData = new MediaManager();
+            
             mediaList = mediaData.RequestMedia();
-
+            this.Refresh();
             btnNextPage.Visible = true;
             btnPreviousPage.Visible = true;
 
@@ -148,11 +149,13 @@ namespace ICT4Events
         //HomeButton
         private void btnHome_Click(object sender, EventArgs e)
         {
+            
             countWidth = 0;
             countHeight = 0;
             loadEnder = 6;
             loadStarter = 0;
             loadMedia(loadStarter, loadEnder);
+            this.Refresh();
         }
 
         //UploadButton
@@ -167,7 +170,7 @@ namespace ICT4Events
         public void loadUploadingScreen()
         {
             //Maakt de ftp connectie
-            ftp = new FTPConnection(@"ftp://172.16.0.15/", "client", "1233");
+            //ftp = new FTPConnection(@"ftp://172.16.0.15/", "client", "1233");
             string s = "";
             string localfile = "";
             //Titel
@@ -352,7 +355,7 @@ namespace ICT4Events
                 DateTime currentDate = DateTime.Now;
                 string path = Path.Combine("ftp://172.16.0.15/", Path.GetFileName(tMediaPath.Text));
                 media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, path, "test", currentDate, user, tags);
-                ftp.upload(path, localfile);
+                //ftp.upload(path, localfile);
             };
         }
 

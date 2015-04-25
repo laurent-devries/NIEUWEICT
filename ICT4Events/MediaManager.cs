@@ -132,7 +132,7 @@ namespace ICT4Events
 
             string Query;
             //Kijkt of het filepath gevult is of niet
-            if (filePath == "ftp://172.16.0.15/")
+            if (filePath == "ftp://172.16.0.15/" || filePath == "")
             {
                 Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,SUMMARYMEDIA,TYPEMEDIA, ID_USERFK) VALUES(media_seq.nextval,'" + title + "','" + summaryMedia + "', '" + typeMedia + "', " + user.ID_User +")";
                     
