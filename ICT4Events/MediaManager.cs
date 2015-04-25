@@ -198,9 +198,32 @@ namespace ICT4Events
                     string tagId = "SELECT id_tag FROM ICT4_TAG WHERE tagname = '" + tags[i] + "'";
                     OracleDataReader reader = con.SelectFromDatabase(tagId);
                     reader.Read();
-                    tagIdList.Add(reader.GetInt32(0));
-                    reader.Dispose();
-                    //con.CloseConnection();//////////////////////////test
+
+                    // Haalt het ID van de tag op
+                    DatabaseConnection conTag = new DatabaseConnection();
+                    OracleConnection oracleConnection = conTag.OracleConnetion();
+                    oracleConnection.Open();
+
+                    string cmdQuery = "SELECT id_tag FROM ICT4_TAG WHERE tagname = '" + tags[i] + "'";
+
+                    // Maakt het OracleCommand aan
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+
+                    cmd.Connection = oracleConnection;
+                    cmd.CommandType = CommandType.Text;
+
+                    // Voert het OracleCommand uit
+                    OracleDataReader tagReader = cmd.ExecuteReader();
+
+                    //Haalt het ID op
+                    tagReader.Read();
+                    tagIdList.Add(tagReader.GetInt32(0));
+
+                    // Opruimen
+                    tagReader.Dispose();
+                    cmd.Dispose();
+                    oracleConnection.Dispose();
+
                 }
             }
 

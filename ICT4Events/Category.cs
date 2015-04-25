@@ -27,6 +27,7 @@ namespace ICT4Events
             categories = new List<Category>();
         }
 
+        // Deze moet hier nog weg -- Frank
         public List<Category> RequestCategories()
         {
             DatabaseConnection con = new DatabaseConnection();

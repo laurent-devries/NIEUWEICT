@@ -15,7 +15,6 @@ namespace ICT4Events
         MediaManager mediaManager;
         CommentManager commentManager;
         Label lblOpenComment;
-        List<Media> medialist;
         List<Comment> commentList;
 
         Media mediaComment;
@@ -56,7 +55,6 @@ namespace ICT4Events
         {
             //Voegt de comments toe
             commentManager.InsertComment(rtbComment.Text, mediaComment.ID_Media, userComment);
-            Refresh();
         }
 
         private void RefreshComments()

@@ -22,14 +22,22 @@ namespace ICT4Events
         Label[] viewsArray = new Label[4];
         Label[] likesArray = new Label[4];
         Label[] reportsArray = new Label[4];
+        Label[] uploaderArray = new Label[4];
+        Label[] datumArray = new Label[4];
         GroupBox[] groupBoxArray = new GroupBox[4];
         TextBox[] summaryArray = new TextBox[4];
         PictureBox[] pictureArray = new PictureBox[4];
+
+        // De user die ingelogd is
+        User user;
+
         public SocialMediaSharing(User user)
         {
             InitializeComponent();
             mediaManager = new MediaManager();
             mediaList = mediaManager.RequestMediaUploads();
+
+            this.user = user;
 
             #region Vullen van arrays
             //Vult alle arrays
@@ -47,6 +55,16 @@ namespace ICT4Events
             reportsArray[1] = lbReports2;
             reportsArray[2] = lbReports3;
             reportsArray[3] = lbReports4;
+
+            uploaderArray[0] = lbUploader1;
+            uploaderArray[1] = lbUploader2;
+            uploaderArray[2] = lbUploader3;
+            uploaderArray[3] = lbUploader4;
+
+            datumArray[0] = lbDatum1;
+            datumArray[1] = lbDatum2;
+            datumArray[2] = lbDatum3;
+            datumArray[3] = lbDatum4;
 
             groupBoxArray[0] = gbNumber1;
             groupBoxArray[1] = gbNumber2;
@@ -67,54 +85,246 @@ namespace ICT4Events
 
             //Vult de posts wanneer het programma geopent wordt
             fillPosts(0);
+            
      
 
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (mediaCount < mediaList.Count - 1)
+            // Kijkt naar welke posts geladen moeten worden
+            if (mediaCount < mediaList.Count)
             {
-                mediaCount++;
+                mediaCount = mediaCount + groupBoxArray.Length;
                 fillPosts(mediaCount);
+                btnBack.Enabled = true;
             }
 
-            else
+            // Kijkt of de next button gedisabeld moet worden
+            if (mediaCount + groupBoxArray.Length >= mediaList.Count)
             {
                 btnNext.Enabled = false;
             }
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            // Kijkt naar welke posts geladen moeten worden
+            if (mediaCount < mediaList.Count)
+            {
+                mediaCount = mediaCount - 4;
+                fillPosts(mediaCount);
+                btnNext.Enabled = true;
+            }
+
+            // Kijkt of de back button gedisabeld moet worden
+            if (mediaCount - groupBoxArray.Length < 0)
+            {
+                btnBack.Enabled = false;
+            }
+        }
+
         private void fillPosts(int postNumber)
         {
-            // Vult de eerste post
-            lbLikes1.Text = "Likes: " + mediaList[postNumber].Likes;
-            lbReports1.Text = "Reports: " + mediaList[postNumber].Reports;
-            tbSummary1.Text = mediaList[postNumber].Summary;
+            int groupBoxAmount = groupBoxArray.Length;
 
-            for (int i = 0; i < viewsArray.Length; i++)
+            if (postNumber + 4 >= mediaList.Count)
             {
-                viewsArray[i].Text = "Views: " + mediaList[i + postNumber].Views;
-                likesArray[i].Text = "Likes: " + mediaList[i + postNumber].Likes;
-                reportsArray[i].Text = "Reports: " + mediaList[i + postNumber].Reports;
-                groupBoxArray[i].Text = mediaList[i + postNumber].Title;
-                summaryArray[i].Text = mediaList[i + postNumber].Summary;
+                groupBoxAmount = mediaList.Count - postNumber;
+            }
+
+            // Kijkt of er minder posts geladen moeten worden dan het aantal groupboxes
+            if (postNumber + 4 > mediaList.Count())
+            {
+                // Verandert het aantal groupboxes wanneer er minder gevult moeten worden dan er zijn
+
+                int amount = mediaList.Count % postNumber;
+                for (int i = 3; i >= amount; i = i -1)
+                {
+                    // Zorgt dat de overige groupboxes niet getoond worden
+                    groupBoxArray[i].Visible = false;
+                }
+            }
+
+            else
+            {
+                for (int i = 0; i < groupBoxArray.Length; i++)
+                {
+                    groupBoxArray[i].Visible = true;
+                }
+            }
+
+            for (int i = 0; i < groupBoxAmount; i++)
+            {
+                // Vult alle data van de posts
+                Media media = mediaList[i + postNumber];
+                viewsArray[i].Text = "Views: " + media.Views;
+                likesArray[i].Text = "Likes: " + media.Likes;
+                reportsArray[i].Text = "Reports: " + media.Reports;
+                uploaderArray[i].Text = media.User.Username;
+                datumArray[i].Text = media.Date;
+                groupBoxArray[i].Text = media.Title;
+                summaryArray[i].Text = media.Summary;
             }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            // Vraagt de media lijst opnieuw op
             mediaList = mediaManager.RequestMediaUploads();
             mediaCount = 0;
             fillPosts(0);
+
+            // Vult categorie combobox
+           
+
+            // Reset de knoppen
+            btnNext.Enabled = true;
+            btnBack.Enabled = false;
         }
 
-        private void SocialMediaSharing_Load(object sender, EventArgs e)
+        // Events voor het klikken op een like linkLabel
+
+        #region Updaten van likes
+        private void lbLike1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            updateLike(0);
+        }
 
+        private void lbLike2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            updateLike(1);
+        }
+
+        private void lbLike3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            updateLike(2);
+        }
+
+        private void lbLike4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            updateLike(3);
+        }
+
+        private void updateLike(int position)
+        {
+            if (!mediaManager.UpdateLikes(mediaList[mediaCount + position], user))
+            {
+                MessageBox.Show("Er is al geliked");
+            }
+        }
+
+        #endregion
+
+        #region updaten van reports
+        private void lbReport1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            updateReports(0);
+        }
+
+        private void lbReport2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            updateReports(0);
+        }
+
+        private void lbReport3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            updateReports(0);
+        }
+
+        private void lbReport4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            updateReports(0);
+        }
+
+        private void updateReports(int position)
+        {
+            if (!mediaManager.UpdateReports(user, mediaList[mediaCount + position]))
+            {
+                MessageBox.Show("Je hebt dit al gereport");
+            }
+        }
+
+        #endregion 
+
+        #region Vergroten van post en commenten
+
+        private void tbSummary1_MouseClick(object sender, MouseEventArgs e)
+        {
+            CommentNewsfeedItem c = new CommentNewsfeedItem(mediaList[mediaCount], user);
+            c.Show();
+        }
+
+        private void tbSummary2_MouseClick(object sender, MouseEventArgs e)
+        {
+            CommentNewsfeedItem c = new CommentNewsfeedItem(mediaList[mediaCount + 1], user);
+            c.Show();
+        }
+
+        private void tbSummary3_MouseClick(object sender, MouseEventArgs e)
+        {
+            CommentNewsfeedItem c = new CommentNewsfeedItem(mediaList[mediaCount + 2], user);
+            c.Show();
+        }
+
+        private void tbSummary4_MouseClick(object sender, MouseEventArgs e)
+        {
+            CommentNewsfeedItem c = new CommentNewsfeedItem(mediaList[mediaCount + 3], user);
+            c.Show();
+        }
+        #endregion
+
+        #region UploadTab
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            string filePath;
+            OpenFileDialog fDialog = new OpenFileDialog();
+            fDialog.Title = "Open media";
+            // Geeft de file types aan
+            fDialog.Filter = "All files (*.*)|*.*";
+            fDialog.InitialDirectory = Environment.SpecialFolder.MyPictures.ToString();
+
+            if (fDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Geeft een preview van het image wanneer het gelukt is
+                filePath = fDialog.FileName;
+                tbFilepath.Text = filePath;
+                Image previewImage = Image.FromFile(filePath);
+                pbPreview.Image = previewImage;
+            }
         }
 
 
+        #endregion
+
+        // Vult de lijst met categorieen wanneer de tab upload geopent wordt
+        private void tabPage4_Enter(object sender, EventArgs e)
+        {
+            // Maakt de manager aan
+            CategoryManager categoryManager = new CategoryManager();
+            // Haal de categoryList op
+            List<Category> categoryList = categoryManager.RequestCategories();
+
+            // Voegt alles toe in aan de combobox
+            foreach (Category c in categoryList)
+            {
+                cbCategory.Items.Add(c);
+            }
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            List<string> tag = new List<string>(tbTags.Text.Split('#'));
+            tag.RemoveAll(p => string.IsNullOrEmpty(p));
+            string[] tags = tag.ToArray();
+            // Pakt de datum van vandaag
+            DateTime currentDate = DateTime.Now;
+            if (!mediaManager.InsertMedia(tbTitle.Text, tbSummary.Text, tbFilepath.Text, "FOTO", currentDate, user, tags))
+            {
+                MessageBox.Show("Upload mislukt!");
+            }
+
+        }
 
     }
 }

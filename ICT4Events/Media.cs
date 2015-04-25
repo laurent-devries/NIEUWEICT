@@ -28,6 +28,7 @@ namespace ICT4Events
         public int ID_Media { get { return id_media; } set { id_media = value; } }
         public int Likes { get { return likes; } set { likes = value; } }
         public int Reports { get { return reports; } set { reports = value; } }
+        public User User { get; set; }
 
         // Lijst van categorieen en tags
         private List<ICategorieTag> CategorieTagList;
@@ -44,6 +45,7 @@ namespace ICT4Events
             Type_Media = type_Media;
             Likes = likes;
             Reports = reports;
+            User = user;
         }
 
         public Media(string title, string date, string summary, int views, int likes, int reports,  string type_Media, int idmedia, User user)
@@ -56,6 +58,7 @@ namespace ICT4Events
             Type_Media = type_Media;
             Likes = likes;
             Reports = reports;
+            User = user;
         }
 
 
