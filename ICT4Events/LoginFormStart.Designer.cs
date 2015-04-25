@@ -35,9 +35,9 @@
             this.cbFormLoader = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Cancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Cancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -45,23 +45,24 @@
             // tbUsername
             // 
             this.tbUsername.Location = new System.Drawing.Point(0, 39);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(208, 22);
             this.tbUsername.TabIndex = 0;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(0, 93);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPassword.Location = new System.Drawing.Point(0, 94);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(208, 22);
             this.tbPassword.TabIndex = 1;
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(0, 123);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(100, 28);
             this.btnLogin.TabIndex = 2;
@@ -77,7 +78,7 @@
             "Event beheer",
             "Materiaal verhuur"});
             this.cbFormLoader.Location = new System.Drawing.Point(0, 171);
-            this.cbFormLoader.Margin = new System.Windows.Forms.Padding(4);
+            this.cbFormLoader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbFormLoader.Name = "cbFormLoader";
             this.cbFormLoader.Size = new System.Drawing.Size(264, 24);
             this.cbFormLoader.TabIndex = 3;
@@ -87,6 +88,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(300, 54);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -103,10 +105,23 @@
             this.groupBox1.Controls.Add(this.tbPassword);
             this.groupBox1.Controls.Add(this.btnLogin);
             this.groupBox1.Location = new System.Drawing.Point(12, 60);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Size = new System.Drawing.Size(276, 219);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
+            // 
+            // Cancel
+            // 
+            this.Cancel.Location = new System.Drawing.Point(108, 123);
+            this.Cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(100, 28);
+            this.Cancel.TabIndex = 5;
+            this.Cancel.Text = "Cancel";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // label2
             // 
@@ -126,25 +141,15 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Username:";
             // 
-            // Cancel
-            // 
-            this.Cancel.Location = new System.Drawing.Point(108, 123);
-            this.Cancel.Margin = new System.Windows.Forms.Padding(4);
-            this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(100, 28);
-            this.Cancel.TabIndex = 5;
-            this.Cancel.Text = "Cancel";
-            this.Cancel.UseVisualStyleBackColor = true;
-            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
-            // 
             // LoginFormStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 291);
+            this.ClientSize = new System.Drawing.Size(300, 290);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LoginFormStart";
             this.Text = "LoginForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -344,7 +344,7 @@ namespace ICT4Events
                     if (event1.ToString() == Listb_Events.GetItemText(Listb_Events.SelectedItem) && trueorfalse == false)
                     {
                         string querry = "UPDATE ICT4_EVENT SET title = '" + Event_Title.Text + "', startDate = to_date('" + startday + startmonth + Convert.ToString(Event_Start_Date.Value.Year) + "','DDMMYYYY'), endDate= to_date('" + endday + endmonth + Convert.ToString(Event_End_Date.Value.Year) + "','DDMMYYYY'), campingName = '" + Event_Camping_Name.Text + "', location = '" + Event_Camping_Location.Text + "'WHERE ID_EVENT = " + Convert.ToString(event1.ID_Event);
-                        MessageBox.Show(querry);
+                        
                         bool succes = conn.InsertOrUpdate(querry);
                         if (succes)
                         {
@@ -368,11 +368,11 @@ namespace ICT4Events
         {
             lb_show_user_on_event.Items.Clear();
             DatabaseConnection conn = new DatabaseConnection();
-            string querry = "select u.ID_USER, u.FIRSTNAME, u.SURNAME, u.PRESENTUSER FROM ICT4_USER u, ICT4_EVENT e WHERE e.ID_EVENT = u.ID_EVENTFK and u.ID_EVENTFK = " + Convert.ToInt32(cb_showusersonevent.Text);
+            string querry = "select u.ID_USER, u.FIRSTNAME, u.SURNAME, u.PRESENTUSER, r.PAYMENTSTATE FROM ICT4_USER u, ICT4_EVENT e , ICT4_RESERVATION r WHERE e.ID_EVENT = u.ID_EVENTFK and r.ID_RESERVATION = u.ID_RESERVATIONFK and u.ID_EVENTFK = " + cb_showusersonevent.Text;
             OracleDataReader reader = conn.SelectFromDatabase(querry);
             while (reader.Read())
             {
-                lb_show_user_on_event.Items.Add("ID: " + Convert.ToString(reader.GetInt32(0)) + "\t" + "naam: " + reader.GetString(1) + " " + reader.GetString(2) + "  \t\t" + "present: " + reader.GetString(3));
+                lb_show_user_on_event.Items.Add("ID: " + Convert.ToString(reader.GetInt32(0)) + "\t" + "naam: " + reader.GetString(1) + " " + reader.GetString(2) + "      \t\t" + "present: " + reader.GetString(3) + "\t Paymentstate: "+ reader.GetString(4));
             }
         }
         private void btn_printlistusers_Click(object sender, EventArgs e)
@@ -458,7 +458,7 @@ namespace ICT4Events
                 {
                     DatabaseConnection conn = new DatabaseConnection();
                     string querry = "DELETE FROM ICT4_EVENT WHERE ID_event = " + Convert.ToString(event1.ID_Event);
-                    MessageBox.Show(querry);
+                    
                     bool succes = conn.InsertOrUpdate(querry);
                     if (succes == true)
                     {

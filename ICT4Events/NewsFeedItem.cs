@@ -131,7 +131,7 @@ namespace ICT4Events
             {
                 MediaManager m = new MediaManager();
                 m.UpdateReports(user, media);
-                MessageBox.Show("Succesfully reported");
+                SocialSharing s = new SocialSharing("Succesfully reported");
                 Report.Visible = false;
             };
 
@@ -151,13 +151,10 @@ namespace ICT4Events
                 {
 
                 }
-
                 else
                 {
-                    MessageBox.Show("Er is al geliked");
+                    SocialSharing s = new SocialSharing("Er is al geliked");
                 }
-                 
-               // MessageBox.Show("This item will be likeable soon");
             };
 
             LinkLabel lblDownload = new LinkLabel();
@@ -172,15 +169,15 @@ namespace ICT4Events
                 if (media.File_path == "C\\:" || media.File_path == "")
                 {
                     lblDownload.Enabled = false;
-                    MessageBox.Show("You cannot download this file.");
+                    SocialSharing s = new SocialSharing("You cannot download this file.");
                 }
                 else
                 {
-                    FTPConnection ftp = new FTPConnection(@"ftp://172.16.0.15/", "client", "1233");
-                    string s = Path.GetFileName(media.File_path);
-                    string q = Path.Combine("ftp://172.16.0.15/", s);
-                    string i = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), s);
-                    ftp.download(q, i);
+                    OpenFileDialog dialog = new OpenFileDialog();
+                    dialog.ShowDialog();
+                    string s = dialog.FileName;
+                    FileInfo info = new FileInfo(s);
+                    info.CopyTo(Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), false);
                 }
             };
             

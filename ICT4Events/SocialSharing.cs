@@ -33,7 +33,6 @@ namespace ICT4Events
         RichTextBox tMediaDescription;
         Image previewImag;
         User user;
-        FTPConnection ftp;
 
         //Geeft een user mee die gebruikt wordt om te kijken welke user ingelogd is
         public SocialSharing(User user)
@@ -65,6 +64,11 @@ namespace ICT4Events
 
             loadCategories();
             loadTags();
+        }
+
+        public SocialSharing(string message)
+        {
+            MessageBox.Show(message);
         }
 
         //btnNextPage
@@ -166,10 +170,7 @@ namespace ICT4Events
 
         public void loadUploadingScreen()
         {
-            //Maakt de ftp connectie
-            ftp = new FTPConnection(@"ftp://172.16.0.15/", "client", "1233");
-            string s = "";
-            string localfile = "";
+            string path = "";
             //Titel
             Label Titel = new Label();
             Titel.Location = new Point(0, 5);
@@ -233,15 +234,14 @@ namespace ICT4Events
             {
                 OpenFileDialog fDialog = new OpenFileDialog();
                 fDialog.Title = "Open media";
-                fDialog.Filter = "IMAGE Files|*.jpg";
+                fDialog.Filter = "All files (*.*)|*.*";
                 fDialog.InitialDirectory = Environment.SpecialFolder.MyPictures.ToString();
 
                 if (fDialog.ShowDialog() == DialogResult.OK)
                 {
-                    tMediaPath.Text = fDialog.FileName;
-                    previewImag = Image.FromFile(tMediaPath.Text);
-                    s = Path.GetFileName(fDialog.FileName);
-                    localfile = fDialog.FileName;
+                    path = fDialog.FileName;
+                    tMediaPath.Text = path;
+                    previewImag = Image.FromFile(path);
                 }
             };
 
@@ -261,9 +261,9 @@ namespace ICT4Events
             pnlNewsFeed.Controls.Add(bTry);
             bTry.Click += delegate
             {
-                if (File.Exists(tMediaPath.Text))
+                if (File.Exists(path))
                 {
-                    previewImage.Load(tMediaPath.Text);
+                    previewImage.Load(path);
                 }
             };
 
@@ -350,9 +350,7 @@ namespace ICT4Events
                 string [] tags = tag.ToArray();
                 MediaManager media = new MediaManager();
                 DateTime currentDate = DateTime.Now;
-                string path = Path.Combine("ftp://172.16.0.15/", Path.GetFileName(tMediaPath.Text));
                 media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, path, "test", currentDate, user, tags);
-                ftp.upload(path, localfile);
             };
         }
 
@@ -377,13 +375,14 @@ namespace ICT4Events
 
             foreach (Tag t in tags)
             {
-                cbTagCheck.Items.Add(t.Tag_name);
+                cbTagCheck.Items.Add(t.Name);
             }
 
         }
 
         private void cbCategorieCheck_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbTagCheck.Text = "";
             countWidth = 0;
             countHeight = 0;
             loadEnder = 6;
@@ -397,6 +396,7 @@ namespace ICT4Events
 
             string selectedCategory = cbCategorieCheck.GetItemText(cbCategorieCheck.SelectedItem);
             MessageBox.Show(selectedCategory);
+            cbTagCheck.Text = "";
             mediaList = mediaData.RequestMediaCategory(cbCategorieCheck.SelectedText);
 
             btnNextPage.Visible = true;
@@ -451,8 +451,10 @@ namespace ICT4Events
             }
         }
 
+
         private void cbTagCheck_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbCategorieCheck.Text = "";
             countWidth = 0;
             countHeight = 0;
             loadEnder = 6;

@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -84,8 +84,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\odp.net.managed.121.1.2\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
-    <Reference Include="Phidget21.NET">
-      <HintPath>F:\fontys ICT\semester 2\proftaak\clone\ICT4Events\References\Phidget21.NET.dll</HintPath>
+    <Reference Include="Phidget21.NET, Version=2.1.8.208, Culture=neutral, PublicKeyToken=c2b1f2a3594bce52, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\Phidget21.NET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -133,13 +134,13 @@
     <Compile Include="FormGathering.Designer.cs">
       <DependentUpon>FormGathering.cs</DependentUpon>
     </Compile>
-    <Compile Include="FTPConnection.cs" />
     <Compile Include="Hiresystem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Hiresystem.Designer.cs">
       <DependentUpon>Hiresystem.cs</DependentUpon>
     </Compile>
+    <Compile Include="ICategorieTag.cs" />
     <Compile Include="LoginFormStart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +164,12 @@
     <Compile Include="ReserveringSysteem.Designer.cs">
       <DependentUpon>ReserveringSysteem.cs</DependentUpon>
     </Compile>
+    <Compile Include="SocialMediaSharing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SocialMediaSharing.Designer.cs">
+      <DependentUpon>SocialMediaSharing.cs</DependentUpon>
+    </Compile>
     <Compile Include="SocialSharing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +178,12 @@
     </Compile>
     <Compile Include="Tag.cs" />
     <Compile Include="TagManager.cs" />
+    <Compile Include="ToegangscontroleSysteem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToegangscontroleSysteem.Designer.cs">
+      <DependentUpon>ToegangscontroleSysteem.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserManager.cs" />
     <EmbeddedResource Include="CommentNewsfeedItem.resx">
@@ -204,8 +217,14 @@
     <EmbeddedResource Include="ReserveringSysteem.resx">
       <DependentUpon>ReserveringSysteem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SocialMediaSharing.resx">
+      <DependentUpon>SocialMediaSharing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SocialSharing.resx">
       <DependentUpon>SocialSharing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToegangscontroleSysteem.resx">
+      <DependentUpon>ToegangscontroleSysteem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ICT4Events_TemporaryKey.pfx" />
     <None Include="packages.config" />
