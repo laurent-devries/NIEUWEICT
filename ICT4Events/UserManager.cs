@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
 using System.IO;
+using System.Data;
 namespace ICT4Events
 {
     class UserManager
@@ -81,21 +82,48 @@ namespace ICT4Events
 
         public User SearchUserById(int idUser)
         {
-            try
-            {
-                DatabaseConnection con = new DatabaseConnection();
-                string Querry = "SELECT ID_USER, ID_EVENTFK, ID_RESERVATIONFK, id_permissionFK, FIRSTNAME, SURNAME, BIRTHDATE, EMAIL, COUNTRY, STREET, HOUSENUMBER, CITY, CELLPHONENUMBER, LOGINNAME, USERNAME, PASSWORDUSER, PROFILEPIC, SUMMARYUSER, PRESENTUSER, RFIDTAG  FROM ICT4_USER WHERE ID_USER = " + idUser;
-                OracleDataReader reader = con.SelectFromDatabase(Querry);
-                User user;
-                reader.Read();
-                user = new User(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetString(10), reader.GetString(11), reader.GetString(12), reader.GetString(13), reader.GetString(14), reader.GetString(15), reader.GetString(16), reader.GetString(17), Convert.ToChar(reader.GetString(18)), reader.GetString(19));
-                return user;
-            }
+            //try
+            //{
+            //    DatabaseConnection con = new DatabaseConnection();
+            //    string Querry = "SELECT ID_USER, ID_EVENTFK, ID_RESERVATIONFK, id_permissionFK, FIRSTNAME, SURNAME, BIRTHDATE, EMAIL, COUNTRY, STREET, HOUSENUMBER, CITY, CELLPHONENUMBER, LOGINNAME, USERNAME, PASSWORDUSER, PROFILEPIC, SUMMARYUSER, PRESENTUSER, RFIDTAG  FROM ICT4_USER WHERE ID_USER = " + idUser;
+            //    OracleDataReader reader = con.SelectFromDatabase(Querry);
+            //    User user;
+            //    reader.Read();
+            //    user = new User(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetString(10), reader.GetString(11), reader.GetString(12), reader.GetString(13), reader.GetString(14), reader.GetString(15), reader.GetString(16), reader.GetString(17), Convert.ToChar(reader.GetString(18)), reader.GetString(19));
+            //    return user;
+            //}
 
-            catch (Exception)
-            {
-                return null;
-            }
+            //catch (Exception)
+            //{
+            //    return null;
+            //}
+
+            DatabaseConnection con = new DatabaseConnection();
+            OracleConnection oracleConnection = con.OracleConnetion();
+            oracleConnection.Open();
+
+            string cmdQuery = "SELECT ID_USER, ID_EVENTFK, ID_RESERVATIONFK, id_permissionFK, FIRSTNAME, SURNAME, BIRTHDATE, EMAIL, COUNTRY, STREET, HOUSENUMBER, CITY, CELLPHONENUMBER, LOGINNAME, USERNAME, PASSWORDUSER, PROFILEPIC, SUMMARYUSER, PRESENTUSER, RFIDTAG  FROM ICT4_USER WHERE ID_USER = " + idUser;
+
+            // Maakt het OracleCommand aan
+            OracleCommand cmd = new OracleCommand(cmdQuery);
+
+            cmd.Connection = oracleConnection;
+            cmd.CommandType = CommandType.Text;
+
+            // Voert het OracleCommand uit
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            //Haalt het aantal likes op
+            reader.Read();
+            User user = new User(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetString(10), reader.GetString(11), reader.GetString(12), reader.GetString(13), reader.GetString(14), reader.GetString(15), reader.GetString(16), reader.GetString(17), Convert.ToChar(reader.GetString(18)), reader.GetString(19));
+
+            // Opruimen
+            reader.Dispose();
+            cmd.Dispose();
+            oracleConnection.Dispose();
+
+            // Returend het aantal
+            return user;
 
         }
 

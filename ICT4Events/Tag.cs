@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 namespace ICT4Events
 {
     //Laurent de Vries
-    class Tag
+    class Tag : ICategorieTag
     {
         //fields
 
-        public string Tag_name { get; set; }
+        public string Name { get; set; }
 
         public Tag(string tag_name)
         {
-            Tag_name = tag_name;
+            Name = tag_name;
         }
+
+
     }
 }

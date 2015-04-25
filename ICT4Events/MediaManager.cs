@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Types;
 using Oracle.ManagedDataAccess.Client;
+using System.Data;
 
 namespace ICT4Events
 {
@@ -14,6 +15,78 @@ namespace ICT4Events
        
         List<Media> mediaList = new List<Media>();
         List<Comment> commentList = new List<Comment>();
+
+        // Nieuwe requestMedia gemaakt -- Frank
+        // Link : http://docs.oracle.com/cd/B19306_01/win.102/b14307/OracleCommandClass.htm
+        public List<Media> RequestMediaUploads()
+        {
+
+            // Maakt de lijst aan die later gevult wordt met alle uploads
+            List<Media> mList = new List<Media>();
+            Media media;
+
+            DatabaseConnection con = new DatabaseConnection();
+            OracleConnection oracleConnection = con.OracleConnetion();
+            oracleConnection.Open();
+
+            string cmdQuery = "SELECT TITLE, to_char(DATEMEDIA), SUMMARYMEDIA,  viewMedia, to_char(likes), to_char(reports), FILEPATH, id_media, ID_USERFK FROM ICT4_MEDIA";
+
+            // Maakt het OracleCommand aan
+            OracleCommand cmd = new OracleCommand(cmdQuery);
+
+            cmd.Connection = oracleConnection;
+            cmd.CommandType = CommandType.Text;
+
+            // Voert het OracleCommand uit
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string title = reader.GetString(0);
+                string date = reader.GetString(1);
+                string summary = reader.GetString(2);
+                int views = reader.GetInt32(3);
+                
+                // Moet nog een methode voor reports tellen geschreven worden -- Frank
+                int reports = 0;
+                
+                int idMedia = reader.GetInt32(7);
+                int likes = CountLikes(idMedia);
+
+                UserManager userManager = new UserManager();
+                User user = userManager.SearchUserById(reader.GetInt32(8));
+
+                // Kijkt of het een foto upload is of niet
+                string mediaType;
+                string filePath;
+                try
+                {
+                    filePath = reader.GetString(6);
+                    mediaType = "FOTO";
+                    media = new Media(title, date, summary, views, likes, reports,filePath, mediaType, idMedia, user);
+                    mList.Add(media);
+                }
+
+                catch
+                {
+                    mediaType = "TEXT";
+                    media = new Media(title, date, summary, views, likes, reports, mediaType, idMedia, user);
+                    mList.Add(media);
+                }                
+            }
+
+            // Opruimen
+            reader.Dispose();
+            cmd.Dispose();
+            oracleConnection.Dispose();
+
+            // Geeft de list terug
+            return mList;
+
+        }
+
+
+
 
         public List<Media> RequestMedia()
         {
@@ -63,24 +136,35 @@ namespace ICT4Events
         public int CountLikes(int mediaId)
         {
             int count = 0;
-            try
-            {
-                DatabaseConnection con = new DatabaseConnection();
-                string Query = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId;
 
-                OracleDataReader reader = con.SelectFromDatabase(Query);
-                reader.Read();
-                count = reader.GetInt32(0);
-                reader.Close();
-                reader.Dispose();
-                //con.CloseConnection();//////////////////////////test
-                return count;
-            }
+            DatabaseConnection con = new DatabaseConnection();
+            OracleConnection oracleConnection = con.OracleConnetion();
+            oracleConnection.Open();
 
-            catch
-            {
-                return count;
-            }
+            string cmdQuery = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId;
+
+            // Maakt het OracleCommand aan
+            OracleCommand cmd = new OracleCommand(cmdQuery);
+
+            cmd.Connection = oracleConnection;
+            cmd.CommandType = CommandType.Text;
+
+            // Voert het OracleCommand uit
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            //Haalt het aantal likes op
+            reader.Read();
+            count = reader.GetInt32(0);
+
+            // Opruimen
+            reader.Dispose();
+            cmd.Dispose();
+            oracleConnection.Dispose();
+
+            // Returend het aantal
+            return count;
+
+
           
         }
 
@@ -100,7 +184,7 @@ namespace ICT4Events
                 bool insert = true;
                 foreach (Tag t in TagList)
                 {
-                    if (t.Tag_name == tags[i])
+                    if (t.Name == tags[i])
                     {
                         insert = false;
                     }
@@ -132,7 +216,7 @@ namespace ICT4Events
 
             string Query;
             //Kijkt of het filepath gevult is of niet
-            if (filePath == "ftp://172.16.0.15/")
+            if (filePath == "ftp://172.16.0.15/" || filePath == "")
             {
                 Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,SUMMARYMEDIA,TYPEMEDIA, ID_USERFK) VALUES(media_seq.nextval,'" + title + "','" + summaryMedia + "', '" + typeMedia + "', " + user.ID_User +")";
                     

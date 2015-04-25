@@ -9,16 +9,17 @@ using Oracle.ManagedDataAccess.Types;
 namespace ICT4Events
 {
     //Laurent de Vries
-    class Category
+    class Category : ICategorieTag
     {
         //Fields 
-        string category_Name;
         List<Category> categories;
+
+        public string Name { get; set; }
 
         //Constructor
         public Category(string Category_Name)
         {
-            this.category_Name = Category_Name;
+            Name = Category_Name;
         }
 
         public Category()
@@ -46,7 +47,7 @@ namespace ICT4Events
 
         public override string ToString()
         {
-            return category_Name;
+            return Name;
         }
     }
 

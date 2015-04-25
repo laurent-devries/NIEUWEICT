@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -158,13 +158,13 @@
     <Compile Include="FormGathering.Designer.cs">
       <DependentUpon>FormGathering.cs</DependentUpon>
     </Compile>
-    <Compile Include="FTPConnection.cs" />
     <Compile Include="Hiresystem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Hiresystem.Designer.cs">
       <DependentUpon>Hiresystem.cs</DependentUpon>
     </Compile>
+    <Compile Include="ICategorieTag.cs" />
     <Compile Include="LoginFormStart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +187,12 @@
     </Compile>
     <Compile Include="ReserveringSysteem.Designer.cs">
       <DependentUpon>ReserveringSysteem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SocialMediaSharing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SocialMediaSharing.Designer.cs">
+      <DependentUpon>SocialMediaSharing.cs</DependentUpon>
     </Compile>
     <Compile Include="SocialSharing.cs">
       <SubType>Form</SubType>
@@ -234,6 +240,9 @@
     </Compile>
     <EmbeddedResource Include="ReserveringSysteem.resx">
       <DependentUpon>ReserveringSysteem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SocialMediaSharing.resx">
+      <DependentUpon>SocialMediaSharing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SocialSharing.resx">
       <DependentUpon>SocialSharing.cs</DependentUpon>

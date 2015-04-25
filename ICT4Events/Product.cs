@@ -27,6 +27,7 @@ namespace ICT4Events
         private DateTime return_date;
         private DateTime returned_date;
         private string available;
+        private int amount;
         
         public decimal Price { get { return price; } set { price = value; } }
         public decimal Bail { get { return bail; } set { bail = value; } }
@@ -37,6 +38,7 @@ namespace ICT4Events
         public DateTime Returned_Date { get { return returned_date; } set { returned_date = value; } } 
         public string Category { get { return category; } set { category = value; } }
         public string Available { get { return available; } set { available = value; } }
+        public int Amount { get { return amount; } set { amount = value;  } }
         
         public Product(int iD_product, string product_name, decimal bail, decimal price, string available)
         {

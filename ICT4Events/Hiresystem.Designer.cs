@@ -89,6 +89,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label31 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -624,7 +625,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(174, 25);
+            this.label29.Location = new System.Drawing.Point(206, 25);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(69, 17);
             this.label29.TabIndex = 57;
@@ -665,6 +666,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label31);
             this.groupBox6.Controls.Add(this.listBoxAvble);
             this.groupBox6.Controls.Add(this.label18);
             this.groupBox6.Controls.Add(this.label19);
@@ -690,6 +692,15 @@
             this.groupBox7.TabIndex = 58;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Products on user:";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(332, 25);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(35, 17);
+            this.label31.TabIndex = 62;
+            this.label31.Text = "Bail:";
             // 
             // Hiresystem
             // 
@@ -793,5 +804,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label31;
     }
 }
