@@ -14,7 +14,6 @@ namespace ICT4Events
         public List<Category> RequestCategories()
         {
             List<Category> categoryList = new List<Category>();
-            int count = 0;
 
             DatabaseConnection con = new DatabaseConnection();
             OracleConnection oracleConnection = con.OracleConnetion();
