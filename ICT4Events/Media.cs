@@ -28,6 +28,10 @@ namespace ICT4Events
         public int ID_Media { get { return id_media; } set { id_media = value; } }
         public int Likes { get { return likes; } set { likes = value; } }
         public int Reports { get { return reports; } set { reports = value; } }
+
+        // Lijst van categorieen en tags
+        private List<ICategorieTag> CategorieTagList;
+        //
         //Methods
         public Media(string title, string date, string summary, int views, int likes, int reports, string file_Path, string type_Media, int idmedia, User user)
         {

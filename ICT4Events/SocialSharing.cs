@@ -375,7 +375,7 @@ namespace ICT4Events
 
             foreach (Tag t in tags)
             {
-                cbTagCheck.Items.Add(t.Tag_name);
+                cbTagCheck.Items.Add(t.Name);
             }
 
         }

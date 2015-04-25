@@ -140,6 +140,7 @@
     <Compile Include="Hiresystem.Designer.cs">
       <DependentUpon>Hiresystem.cs</DependentUpon>
     </Compile>
+    <Compile Include="ICategorieTag.cs" />
     <Compile Include="LoginFormStart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +163,12 @@
     </Compile>
     <Compile Include="ReserveringSysteem.Designer.cs">
       <DependentUpon>ReserveringSysteem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SocialMediaSharing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SocialMediaSharing.Designer.cs">
+      <DependentUpon>SocialMediaSharing.cs</DependentUpon>
     </Compile>
     <Compile Include="SocialSharing.cs">
       <SubType>Form</SubType>
@@ -209,6 +216,9 @@
     </Compile>
     <EmbeddedResource Include="ReserveringSysteem.resx">
       <DependentUpon>ReserveringSysteem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SocialMediaSharing.resx">
+      <DependentUpon>SocialMediaSharing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SocialSharing.resx">
       <DependentUpon>SocialSharing.cs</DependentUpon>
