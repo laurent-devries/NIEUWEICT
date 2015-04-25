@@ -33,7 +33,6 @@ namespace ICT4Events
         RichTextBox tMediaDescription;
         Image previewImag;
         User user;
-        //FTPConnection ftp;
 
         //Geeft een user mee die gebruikt wordt om te kijken welke user ingelogd is
         public SocialSharing(User user)
@@ -67,6 +66,11 @@ namespace ICT4Events
             loadTags();
         }
 
+        public SocialSharing(string message)
+        {
+            MessageBox.Show(message);
+        }
+
         //btnNextPage
         private void button1_Click(object sender, EventArgs e)
         {
@@ -91,9 +95,8 @@ namespace ICT4Events
         {
             //Laad de media bestanden op het form
             MediaManager mediaData = new MediaManager();
-            
             mediaList = mediaData.RequestMedia();
-            this.Refresh();
+
             btnNextPage.Visible = true;
             btnPreviousPage.Visible = true;
 
@@ -149,13 +152,11 @@ namespace ICT4Events
         //HomeButton
         private void btnHome_Click(object sender, EventArgs e)
         {
-            
             countWidth = 0;
             countHeight = 0;
             loadEnder = 6;
             loadStarter = 0;
             loadMedia(loadStarter, loadEnder);
-            this.Refresh();
         }
 
         //UploadButton
@@ -169,10 +170,7 @@ namespace ICT4Events
 
         public void loadUploadingScreen()
         {
-            //Maakt de ftp connectie
-            //ftp = new FTPConnection(@"ftp://172.16.0.15/", "client", "1233");
-            string s = "";
-            string localfile = "";
+            string path = "";
             //Titel
             Label Titel = new Label();
             Titel.Location = new Point(0, 5);
@@ -241,10 +239,9 @@ namespace ICT4Events
 
                 if (fDialog.ShowDialog() == DialogResult.OK)
                 {
-                    tMediaPath.Text = fDialog.FileName;
-                    previewImag = Image.FromFile(tMediaPath.Text);
-                    s = Path.GetFileName(fDialog.FileName);
-                    localfile = fDialog.FileName;
+                    path = fDialog.FileName;
+                    tMediaPath.Text = path;
+                    previewImag = Image.FromFile(path);
                 }
             };
 
@@ -264,9 +261,9 @@ namespace ICT4Events
             pnlNewsFeed.Controls.Add(bTry);
             bTry.Click += delegate
             {
-                if (File.Exists(tMediaPath.Text))
+                if (File.Exists(path))
                 {
-                    previewImage.Load(tMediaPath.Text);
+                    previewImage.Load(path);
                 }
             };
 
@@ -353,9 +350,7 @@ namespace ICT4Events
                 string [] tags = tag.ToArray();
                 MediaManager media = new MediaManager();
                 DateTime currentDate = DateTime.Now;
-                string path = Path.Combine("ftp://172.16.0.15/", Path.GetFileName(tMediaPath.Text));
                 media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, path, "test", currentDate, user, tags);
-                //ftp.upload(path, localfile);
             };
         }
 
@@ -455,6 +450,7 @@ namespace ICT4Events
                 p.BringToFront();
             }
         }
+
 
         private void cbTagCheck_SelectedIndexChanged(object sender, EventArgs e)
         {
