@@ -49,6 +49,12 @@ namespace ICT4Events
 
         }
 
+        private void btnToegangsControleSysteem_Click(object sender, EventArgs e)
+        {
+            ToegangscontroleSysteem t = new ToegangscontroleSysteem();
+            t.Show();
+        }
+
 
     }
 }
