@@ -56,6 +56,12 @@ namespace ICT4Events
             s.Show();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ToegangscontroleSysteem k = new ToegangscontroleSysteem();
+            k.Show();
+        }
+
 
     }
 }

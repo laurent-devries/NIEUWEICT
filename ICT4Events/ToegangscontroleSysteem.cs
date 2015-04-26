@@ -15,8 +15,9 @@ namespace ICT4Events
 {
     public partial class ToegangscontroleSysteem : Form
     {
-        private bool scanned = false;
+        private bool scanned = false; // ik gebruik dit om eventueel de RFID te resete anders crashed dat schijt ding... niet verder gebruiken :)
         RFID rfid = new RFID();
+        User user;
         public ToegangscontroleSysteem()
         {
             InitializeComponent();
@@ -78,11 +79,14 @@ namespace ICT4Events
         {
             scanned = true;
             UserManager dataCollect = new UserManager();
-            if (scanned == true)
+            user = dataCollect.SearchByRfid(e.Tag);
+            if (user == null) // als user leeg is, dan staat de RFID niet in de database.
             {
+                lblNaam.Text = "Faggg";
             }
             else
             {
+                 lblNaam.Text = user.First_Name; //miss heb ik niet de juiste LB gebruikt maar dit kun jij veranderen. Werkt wel tooooch..
             }
         }
     }
