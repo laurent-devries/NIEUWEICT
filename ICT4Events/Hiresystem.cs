@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Phidgets; //voor het gebruik van RFID
-using Phidgets.Events; //voor het gebruik van EVENTS (Attach etc.)
+using Phidgets;         //voor het gebruik van RFID
+using Phidgets.Events;  //voor het gebruik van EVENTS (Attach etc.)
 using Oracle.ManagedDataAccess.Client; 
 
 namespace ICT4Events
@@ -223,7 +223,6 @@ namespace ICT4Events
 
         }
                 
-           
             private void bttnReturn_Click(object sender, EventArgs e)
             {
                Product product;
@@ -236,8 +235,6 @@ namespace ICT4Events
                     string RFID = RFIDtext.Text;
                     refresh(RFID);
                }
-                   
-                          
             }
             public void refresh(string e)
             {
@@ -247,9 +244,6 @@ namespace ICT4Events
                 LoadProducts();
                 availableProduct();
                 LoadHiredProducts(e);
-                
             }
-
-           
     }
 }

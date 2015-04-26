@@ -121,36 +121,51 @@ namespace ICT4Events
                  }
                  reader.Dispose();
 
-                 if (Totalhireamount >= TotalAmount)
+                 if (Totalhireamount < TotalAmount)
                  {
-                     MessageBox.Show("fck it");
+                     MessageBox.Show("Aantal producten is niet meer beschikbaar");
+                     noUserSelected = false;
                  }
+
+                               
+
+                // if (hireAmount >= TotalAmount)
+                // {
+
+                   //  MessageBox.Show("Te veel producten aantal");
+                     //string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+                     //con.InsertOrUpdate(Query2);
+
+                     //string Query3 = "UPDATE ICT4_PRODUCT SET TotalHiredamount =+ " + "'" + hireAmount + "'" + "," + "5 WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+                     //con.InsertOrUpdate(Query3);
+
+               //      noUserSelected = false;
+              //   }
 
                  else 
                  {
-                     string Query1 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(" + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date(sysdate,'DD-MM-YYYY'), to_date('" + date + "', 'DD-MM-YYYY'), null" + "'" + product.ID_Product + "," + "'" + hireAmount + "'" + ")";
-                     con.InsertOrUpdate(Query1);
+                     {
+                         string Query4 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(" + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date(sysdate,'DD-MM-YYYY'), to_date('" + date + "', 'DD-MM-YYYY'), null" + "," + +hireAmount + ")";
+                         con.InsertOrUpdate(Query4);
 
-                     string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
-                     con.InsertOrUpdate(Query2);
-                     noUserSelected = false;
+                         string Query5 = "UPDATE ICT4_PRODUCT SET TotalHiredamount  = TOTALHIREDAMOUNT +" + hireAmount + "WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+                         con.InsertOrUpdate(Query5);
+                         noUserSelected = false;
+
+                        
+
+                         if (product.Totalamount == 0)
+                         {
+                             string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+                             con.InsertOrUpdate(Query2);
+                         }
+
+                     }
+                    
+
                  }
                  
              } 
-
-             
-             //if ()
-             //{
-             //    return true;
-             //}
-
-             //else 
-             //{
-             //   return false;
-             //}
-
-             
-
          }
 
         
