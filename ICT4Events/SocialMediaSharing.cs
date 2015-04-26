@@ -21,6 +21,7 @@ namespace ICT4Events
         MediaManager mediaManager;
         CategoryManager categoryManager;
         TagManager tagManager;
+        Media reportedMedia;
 
         // Arrays van alle objecten
         Label[] viewsArray = new Label[4];
@@ -47,7 +48,6 @@ namespace ICT4Events
             holder = mediaList;
 
             this.user = user;
-
             #region Vullen van arrays
             //Vult alle arrays
             viewsArray[0] = lbViews1;
@@ -412,9 +412,20 @@ namespace ICT4Events
                 MessageBox.Show("Upload mislukt!");
             }
 
+            else
+            {
+                MessageBox.Show("Uploaden gelukt");
+                tbTitle.Text = "";
+                tbSummary.Text = "";
+                tbFilepath.Text = "";
+                tbTags.Text = "";
+            }
+
+            tabPage3.Show();
+
         }
 
-        #endregion
+        
 
         // Sorteren
         private void btnSort_Click(object sender, EventArgs e)
@@ -478,18 +489,83 @@ namespace ICT4Events
                 mediaList = new List<Media>();
                 RefreshData();
             }
-
-            
-
-            
         }
+        #endregion
 
-        private void tbTitleSort_TextChanged(object sender, EventArgs e)
+
+        #region AdminTab
+        private void tabAdmin_Enter(object sender, EventArgs e)
         {
-            
+            List<Media> reportedPosts = mediaManager.RequestMediaUploads();
+            lbReportedPosts.Items.Clear();
+            foreach (Media m in reportedPosts)
+            {
+                if (m.Reports > 0)
+                {
+                    lbReportedPosts.Items.Add(m);
+                }
+            }
         }
 
+        #endregion
 
+        private void lbReportedPosts_SelectedValueChanged(object sender, EventArgs e)
+        {
+            reportedMedia = lbReportedPosts.SelectedItem as Media;
 
+            if (reportedMedia != null)
+            {
+                gbAdmin.Text = reportedMedia.Title;
+                tbSummaryAdmin.Text = reportedMedia.Title;
+                lbLikesAdmin.Text = "Likes: " + reportedMedia.Likes;
+                lbReportsAdmin.Text = "Reports: " + reportedMedia.Reports;
+                lbViewsAdmin.Text = "Views: " + reportedMedia.Views;
+                lbCategorieAdmin.Text = reportedMedia.Category.Name;
+                lbUploaderAdmin.Text = reportedMedia.User.ToString();
+                lbDateAdmin.Text = reportedMedia.Date;
+
+                List<Tag> tagList = reportedMedia.TagList;
+                lbTagsAdmin.Text = "";
+                foreach (Tag t in tagList)
+                {
+                    lbTagsAdmin.Text = lbTagsAdmin.Text + " #" + t.Name;
+                }
+
+                if (reportedMedia.File_path != null)
+                {
+                    try
+                    {
+                        pbAdmin.Visible = true;
+                        pbAdmin.Image = Image.FromFile(reportedMedia.File_path);
+                    }
+
+                    catch
+                    {
+                        pbAdmin.Visible = false;
+                    }
+                }
+
+                else
+                {
+                    pbAdmin.Visible = false;
+                }
+
+                
+            }
+        }
+
+        private void tbSummaryAdmin_Click(object sender, EventArgs e)
+        {
+            if (lbReportedPosts.SelectedItem != null)
+            {
+                CommentNewsfeedItem c = new CommentNewsfeedItem(reportedMedia, user);
+                c.Show();
+            }
+        }
+
+        private void btnVerwijder_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

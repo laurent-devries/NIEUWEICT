@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Types;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
@@ -29,7 +28,7 @@ namespace ICT4Events
             OracleConnection oracleConnection = con.OracleConnetion();
             oracleConnection.Open();
 
-            string cmdQuery = "SELECT M.TITLE, to_char(M.DATEMEDIA), M.SUMMARYMEDIA,  M.viewMedia, to_char(M.likes), to_char(M.reports), M.FILEPATH, M.id_media, M.ID_USERFK, (SELECT CATEGORYNAME FROM ICT4_CATEGORY CA WHERE CA.ID_CATEGORY = M.ID_MEDIA), (SELECT COUNT(ID_MEDIA) FROM ICT4_NOTE N WHERE N.REPORTNOTE = 'Y' AND N.ID_MEDIAFK = M.ID_MEDIA) FROM ICT4_MEDIA M";
+            string cmdQuery = "SELECT M.TITLE, to_char(M.DATEMEDIA), M.SUMMARYMEDIA,  M.viewMedia, to_char(M.likes), to_char(M.reports), M.FILEPATH, M.id_media, M.ID_USERFK, (SELECT CATEGORYNAME FROM ICT4_CATEGORY CA WHERE CA.ID_CATEGORY = M.ID_MEDIA), (SELECT COUNT(ID_MEDIAFK) FROM ICT4_NOTE N WHERE N.REPORTNOTE = 'Y' AND N.ID_MEDIAFK = M.ID_MEDIA) FROM ICT4_MEDIA M ORDER BY M.ID_MEDIA DESC";
             // Maakt het OracleCommand aan
             OracleCommand cmd = new OracleCommand(cmdQuery);
 
@@ -143,7 +142,7 @@ namespace ICT4Events
             OracleConnection oracleConnection = con.OracleConnetion();
             oracleConnection.Open();
 
-            string cmdQuery = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId;
+            string cmdQuery = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId + " AND LIKENOTE = 'Y'";
 
             // Maakt het OracleCommand aan
             OracleCommand cmd = new OracleCommand(cmdQuery);
@@ -327,6 +326,11 @@ namespace ICT4Events
             string Query = "INSERT INTO ICT4_NOTE(ID_NOTE, ID_USERFK, ID_MEDIAFK, REPORTNOTE) VALUES (note_seq.nextval, " + user.ID_User + ", " + media.ID_Media + ", 'Y')";
             bool writer = con.InsertOrUpdate(Query);
             return writer;
+        }
+
+        public bool DeleteMedia(Media media)
+        {
+            return true;
         }
 
         public bool MakeComment(string comment)
