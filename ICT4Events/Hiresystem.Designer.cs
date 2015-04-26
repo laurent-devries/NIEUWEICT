@@ -78,6 +78,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.txtAmount = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -88,11 +90,9 @@
             this.label30 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.txtAmount = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -484,7 +484,7 @@
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(16, 45);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(626, 244);
+            this.listBox1.Size = new System.Drawing.Size(775, 244);
             this.listBox1.TabIndex = 37;
             // 
             // dateTimePicker1
@@ -575,12 +575,28 @@
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.bttnReturn);
             this.groupBox1.Controls.Add(this.bttnLend);
-            this.groupBox1.Location = new System.Drawing.Point(676, 436);
+            this.groupBox1.Location = new System.Drawing.Point(815, 436);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(205, 304);
             this.groupBox1.TabIndex = 50;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Return or Lend Item";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(7, 41);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(60, 17);
+            this.label33.TabIndex = 51;
+            this.label33.Text = "Amount:";
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(7, 64);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(176, 22);
+            this.txtAmount.TabIndex = 50;
             // 
             // label14
             // 
@@ -684,6 +700,15 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Products then can be hired:";
             // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(394, 25);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(105, 17);
+            this.label32.TabIndex = 63;
+            this.label32.Text = "Total Available:";
+            // 
             // label31
             // 
             this.label31.AutoSize = true;
@@ -703,35 +728,10 @@
             this.groupBox7.Controls.Add(this.label17);
             this.groupBox7.Location = new System.Drawing.Point(12, 436);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(654, 304);
+            this.groupBox7.Size = new System.Drawing.Size(797, 304);
             this.groupBox7.TabIndex = 58;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Products on user:";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(394, 25);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(105, 17);
-            this.label32.TabIndex = 63;
-            this.label32.Text = "Total Available:";
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.Location = new System.Drawing.Point(7, 64);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(176, 22);
-            this.txtAmount.TabIndex = 50;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(7, 41);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(60, 17);
-            this.label33.TabIndex = 51;
-            this.label33.Text = "Amount:";
             // 
             // Hiresystem
             // 
