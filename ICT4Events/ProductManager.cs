@@ -18,14 +18,14 @@ namespace ICT4Events
          public List<Product> RequestProducts()
          {
              DatabaseConnection con = new DatabaseConnection();
-             string Querry = "SELECT ID_PRODUCT, PRODUCTNAME, BAIL, PRICE, available FROM ICT4_PRODUCT";
+             string Querry = "SELECT ID_PRODUCT, PRODUCTNAME, BAIL, PRICE, available, TOTALAMOUNT FROM ICT4_PRODUCT";
              
 
              OracleDataReader reader = con.SelectFromDatabase(Querry);
              Product product;
              while (reader.Read())
              {
-                 product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetDecimal(2), reader.GetDecimal(3), reader.GetString(4));
+                 product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetDecimal(2), reader.GetDecimal(3), reader.GetString(4), reader.GetInt32(5));
                  productList.Add(product);
              }
 
@@ -42,7 +42,7 @@ namespace ICT4Events
              try
              {
                  DatabaseConnection con = new DatabaseConnection();
-                 string Querry = "SELECT DISTINCT P.ID_PRODUCT, P.PRODUCTNAME, PC.PRODUCTCATEGORY, P.BAIL FROM ICT4_PRODUCT P, ICT4_USER_PRODUCTS UP, ICT4_PRODUCTCATEGORY PC WHERE PC.ID_PRODUCTCAT = P.ID_PRODUCTCATFK AND P.ID_PRODUCT = UP.ID_PRODUCTFK(+) AND P.AVAILABLE = 'Y' ORDER BY P.ID_PRODUCT ";
+                 string Querry = "SELECT DISTINCT P.ID_PRODUCT, P.PRODUCTNAME, PC.PRODUCTCATEGORY, P.BAIL, P.TOTALAMOUNT, P.TOTALHIREDAMOUNT FROM ICT4_PRODUCT P, ICT4_USER_PRODUCTS UP, ICT4_PRODUCTCATEGORY PC WHERE PC.ID_PRODUCTCAT = P.ID_PRODUCTCATFK AND P.ID_PRODUCT = UP.ID_PRODUCTFK(+) AND P.AVAILABLE = 'Y' ORDER BY P.ID_PRODUCT ";
 
 
                       
@@ -50,9 +50,11 @@ namespace ICT4Events
                  Product product;
                  while (reader.Read())
                  {
-                     product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDecimal(3));
+                     product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDecimal(3), reader.GetInt32(4), reader.GetInt32(5));
                      availableProduct.Add(product);
                  }
+
+
                  reader.Dispose();
 
                  return availableProduct;

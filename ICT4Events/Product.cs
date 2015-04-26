@@ -27,7 +27,8 @@ namespace ICT4Events
         private DateTime return_date;
         private DateTime returned_date;
         private string available;
-        private int amount;
+        private int totalamount;
+        private int totalHiredamount;
         
         public decimal Price { get { return price; } set { price = value; } }
         public decimal Bail { get { return bail; } set { bail = value; } }
@@ -38,9 +39,11 @@ namespace ICT4Events
         public DateTime Returned_Date { get { return returned_date; } set { returned_date = value; } } 
         public string Category { get { return category; } set { category = value; } }
         public string Available { get { return available; } set { available = value; } }
-        public int Amount { get { return amount; } set { amount = value;  } }
+        public int TotalHiredamount { get { return totalHiredamount; } set { totalHiredamount = value; } }
+        public int Totalamount { get { return totalamount; } set { totalamount = value; } }
         
-        public Product(int iD_product, string product_name, decimal bail, decimal price, string available)
+        // Alle producten die aanwezig zijn in het systeem.
+        public Product(int iD_product, string product_name, decimal bail, decimal price, string available, int totalamount)
         {
           
             this.iD_product = iD_product;
@@ -48,8 +51,10 @@ namespace ICT4Events
             this.bail = bail;
             this.price = price;
             this.available = available;
+            this.totalamount = totalamount;
         }
 
+        // De producten die de user gehuurd heeft.
         public Product(int iD_product, string product_name, DateTime hire_date, DateTime return_date, decimal bail)
         {
             this.iD_product = iD_product;
@@ -59,6 +64,8 @@ namespace ICT4Events
             this.bail = bail;
             
         }
+
+        
         public Product(int iD_product, string product_name, decimal bail, decimal price, DateTime hire_date, DateTime return_date)
         {
 
@@ -70,13 +77,15 @@ namespace ICT4Events
             this.return_date = return_date;
         }
 
-
-        public Product(int iD_product, string product_name, string category, decimal bail)
+        // Alle producten die verhuurd kunnen worden.
+        public Product(int iD_product, string product_name, string category, decimal bail, int totalamount, int totalHiredamount)
         {
             this.iD_product = iD_product;
             this.product_name = product_name;
             this.category = category;
             this.bail = bail;
+            this.totalHiredamount = totalHiredamount;
+            this.totalamount = totalamount - totalHiredamount;
         }
 
      
@@ -105,13 +114,13 @@ namespace ICT4Events
 
              if (category ==  null)
              {
-                 return iD_product + "\t" + product_name + "\t" + "€" + bail + "\t" + "€" + price + "\t" + available; 
+                 return iD_product + "\t" + product_name + "\t" + "€" + bail + "\t" + "€" + price + "\t" + available + totalamount; 
                  
              }
 
              else 
              {
-                 return iD_product + "\t" + product_name + "\t" + category + "\t" + "€" + bail;
+                 return iD_product + "\t" + product_name + "\t" + category + "\t" + "€" + bail + "\t" + totalamount + "\t" + totalHiredamount;
              }
 
          }
