@@ -41,8 +41,11 @@
             this.lbLikes1 = new System.Windows.Forms.Label();
             this.pbImage1 = new System.Windows.Forms.PictureBox();
             this.btnNext = new System.Windows.Forms.Button();
-            this.tbUpload = new System.Windows.Forms.TabControl();
+            this.tabPosts = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.rbTitle = new System.Windows.Forms.RadioButton();
+            this.tbTitleSort = new System.Windows.Forms.TextBox();
+            this.btnSort = new System.Windows.Forms.Button();
             this.cbTags = new System.Windows.Forms.ComboBox();
             this.cbCategorySort = new System.Windows.Forms.ComboBox();
             this.rbTag = new System.Windows.Forms.RadioButton();
@@ -85,7 +88,7 @@
             this.lbLikes2 = new System.Windows.Forms.Label();
             this.pbImage2 = new System.Windows.Forms.PictureBox();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabUpload = new System.Windows.Forms.TabPage();
             this.btnUpload = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.pbPreview = new System.Windows.Forms.PictureBox();
@@ -100,13 +103,22 @@
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnSort = new System.Windows.Forms.Button();
-            this.tbTitleSort = new System.Windows.Forms.TextBox();
-            this.rbTitle = new System.Windows.Forms.RadioButton();
+            this.tabAdmin = new System.Windows.Forms.TabPage();
+            this.gbAdmin = new System.Windows.Forms.GroupBox();
+            this.lbDateAdmin = new System.Windows.Forms.Label();
+            this.lbUploaderAdmin = new System.Windows.Forms.Label();
+            this.lbTagsAdmin = new System.Windows.Forms.Label();
+            this.lbCategorieAdmin = new System.Windows.Forms.Label();
+            this.lbReportsAdmin = new System.Windows.Forms.Label();
+            this.tbSummaryAdmin = new System.Windows.Forms.TextBox();
+            this.lbViewsAdmin = new System.Windows.Forms.Label();
+            this.lbLikesAdmin = new System.Windows.Forms.Label();
+            this.pbAdmin = new System.Windows.Forms.PictureBox();
+            this.lbReportedPosts = new System.Windows.Forms.ListBox();
+            this.btnVerwijder = new System.Windows.Forms.Button();
             this.gbNumber1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage1)).BeginInit();
-            this.tbUpload.SuspendLayout();
+            this.tabPosts.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.gbNumber4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage4)).BeginInit();
@@ -114,12 +126,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbImage3)).BeginInit();
             this.gbNumber2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage2)).BeginInit();
-            this.tabPage4.SuspendLayout();
+            this.tabUpload.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPreview)).BeginInit();
+            this.tabAdmin.SuspendLayout();
+            this.gbAdmin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // gbNumber1
             // 
+            this.gbNumber1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.gbNumber1.Controls.Add(this.lbDatum1);
             this.gbNumber1.Controls.Add(this.lbUploader1);
             this.gbNumber1.Controls.Add(this.lbTags1);
@@ -131,6 +147,8 @@
             this.gbNumber1.Controls.Add(this.lbViews1);
             this.gbNumber1.Controls.Add(this.lbLikes1);
             this.gbNumber1.Controls.Add(this.pbImage1);
+            this.gbNumber1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbNumber1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(138)))), ((int)(((byte)(26)))));
             this.gbNumber1.Location = new System.Drawing.Point(22, 16);
             this.gbNumber1.Name = "gbNumber1";
             this.gbNumber1.Size = new System.Drawing.Size(327, 191);
@@ -141,45 +159,54 @@
             // lbDatum1
             // 
             this.lbDatum1.AutoSize = true;
+            this.lbDatum1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDatum1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbDatum1.Location = new System.Drawing.Point(6, 178);
             this.lbDatum1.Name = "lbDatum1";
-            this.lbDatum1.Size = new System.Drawing.Size(38, 13);
+            this.lbDatum1.Size = new System.Drawing.Size(44, 15);
             this.lbDatum1.TabIndex = 15;
             this.lbDatum1.Text = "Datum";
             // 
             // lbUploader1
             // 
             this.lbUploader1.AutoSize = true;
+            this.lbUploader1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUploader1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbUploader1.Location = new System.Drawing.Point(6, 157);
             this.lbUploader1.Name = "lbUploader1";
-            this.lbUploader1.Size = new System.Drawing.Size(50, 13);
+            this.lbUploader1.Size = new System.Drawing.Size(58, 15);
             this.lbUploader1.TabIndex = 14;
             this.lbUploader1.Text = "Uploader";
             // 
             // lbTags1
             // 
             this.lbTags1.AutoSize = true;
+            this.lbTags1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTags1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbTags1.Location = new System.Drawing.Point(127, 157);
             this.lbTags1.Name = "lbTags1";
-            this.lbTags1.Size = new System.Drawing.Size(34, 13);
+            this.lbTags1.Size = new System.Drawing.Size(37, 15);
             this.lbTags1.TabIndex = 9;
             this.lbTags1.Text = "Tags:";
             // 
             // lblCategorie1
             // 
             this.lblCategorie1.AutoSize = true;
+            this.lblCategorie1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategorie1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lblCategorie1.Location = new System.Drawing.Point(127, 139);
             this.lblCategorie1.Name = "lblCategorie1";
-            this.lblCategorie1.Size = new System.Drawing.Size(52, 13);
+            this.lblCategorie1.Size = new System.Drawing.Size(61, 15);
             this.lblCategorie1.TabIndex = 8;
             this.lblCategorie1.Text = "Categorie";
             // 
             // lbReport1
             // 
             this.lbReport1.AutoSize = true;
+            this.lbReport1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReport1.Location = new System.Drawing.Point(281, 120);
             this.lbReport1.Name = "lbReport1";
-            this.lbReport1.Size = new System.Drawing.Size(39, 13);
+            this.lbReport1.Size = new System.Drawing.Size(44, 15);
             this.lbReport1.TabIndex = 7;
             this.lbReport1.TabStop = true;
             this.lbReport1.Text = "Report";
@@ -188,9 +215,10 @@
             // lbLike1
             // 
             this.lbLike1.AutoSize = true;
+            this.lbLike1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLike1.Location = new System.Drawing.Point(180, 120);
             this.lbLike1.Name = "lbLike1";
-            this.lbLike1.Size = new System.Drawing.Size(27, 13);
+            this.lbLike1.Size = new System.Drawing.Size(30, 15);
             this.lbLike1.TabIndex = 6;
             this.lbLike1.TabStop = true;
             this.lbLike1.Text = "Like";
@@ -199,15 +227,20 @@
             // lbReports1
             // 
             this.lbReports1.AutoSize = true;
+            this.lbReports1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReports1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbReports1.Location = new System.Drawing.Point(213, 120);
             this.lbReports1.Name = "lbReports1";
-            this.lbReports1.Size = new System.Drawing.Size(56, 13);
+            this.lbReports1.Size = new System.Drawing.Size(64, 15);
             this.lbReports1.TabIndex = 5;
             this.lbReports1.Text = "Reports: 0";
             // 
             // tbSummary1
             // 
+            this.tbSummary1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.tbSummary1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSummary1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tbSummary1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSummary1.Location = new System.Drawing.Point(127, 19);
             this.tbSummary1.MaxLength = 255;
             this.tbSummary1.Multiline = true;
@@ -220,18 +253,22 @@
             // lbViews1
             // 
             this.lbViews1.AutoSize = true;
+            this.lbViews1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbViews1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbViews1.Location = new System.Drawing.Point(6, 139);
             this.lbViews1.Name = "lbViews1";
-            this.lbViews1.Size = new System.Drawing.Size(47, 13);
+            this.lbViews1.Size = new System.Drawing.Size(53, 15);
             this.lbViews1.TabIndex = 3;
             this.lbViews1.Text = "Views: 0";
             // 
             // lbLikes1
             // 
             this.lbLikes1.AutoSize = true;
+            this.lbLikes1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLikes1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbLikes1.Location = new System.Drawing.Point(127, 120);
             this.lbLikes1.Name = "lbLikes1";
-            this.lbLikes1.Size = new System.Drawing.Size(44, 13);
+            this.lbLikes1.Size = new System.Drawing.Size(50, 15);
             this.lbLikes1.TabIndex = 2;
             this.lbLikes1.Text = "Likes: 0";
             // 
@@ -246,7 +283,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(636, 412);
+            this.btnNext.Location = new System.Drawing.Point(636, 428);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 10;
@@ -254,20 +291,20 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // tbUpload
+            // tabPosts
             // 
-            this.tbUpload.Controls.Add(this.tabPage3);
-            this.tbUpload.Controls.Add(this.tabPage4);
-            this.tbUpload.Controls.Add(this.tabPage1);
-            this.tbUpload.Location = new System.Drawing.Point(21, 12);
-            this.tbUpload.Name = "tbUpload";
-            this.tbUpload.SelectedIndex = 0;
-            this.tbUpload.Size = new System.Drawing.Size(732, 534);
-            this.tbUpload.TabIndex = 12;
+            this.tabPosts.Controls.Add(this.tabPage3);
+            this.tabPosts.Controls.Add(this.tabUpload);
+            this.tabPosts.Controls.Add(this.tabAdmin);
+            this.tabPosts.Location = new System.Drawing.Point(0, -1);
+            this.tabPosts.Name = "tabPosts";
+            this.tabPosts.SelectedIndex = 0;
+            this.tabPosts.Size = new System.Drawing.Size(760, 576);
+            this.tabPosts.TabIndex = 12;
             // 
             // tabPage3
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.tabPage3.Controls.Add(this.rbTitle);
             this.tabPage3.Controls.Add(this.tbTitleSort);
             this.tabPage3.Controls.Add(this.btnSort);
@@ -285,14 +322,42 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(724, 508);
+            this.tabPage3.Size = new System.Drawing.Size(752, 550);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Posts";
+            // 
+            // rbTitle
+            // 
+            this.rbTitle.AutoSize = true;
+            this.rbTitle.Location = new System.Drawing.Point(249, 434);
+            this.rbTitle.Name = "rbTitle";
+            this.rbTitle.Size = new System.Drawing.Size(45, 17);
+            this.rbTitle.TabIndex = 26;
+            this.rbTitle.TabStop = true;
+            this.rbTitle.Text = "Titel";
+            this.rbTitle.UseVisualStyleBackColor = true;
+            // 
+            // tbTitleSort
+            // 
+            this.tbTitleSort.Location = new System.Drawing.Point(249, 457);
+            this.tbTitleSort.Name = "tbTitleSort";
+            this.tbTitleSort.Size = new System.Drawing.Size(100, 20);
+            this.tbTitleSort.TabIndex = 25;
+            // 
+            // btnSort
+            // 
+            this.btnSort.Location = new System.Drawing.Point(22, 495);
+            this.btnSort.Name = "btnSort";
+            this.btnSort.Size = new System.Drawing.Size(75, 23);
+            this.btnSort.TabIndex = 24;
+            this.btnSort.Text = "Sorteren";
+            this.btnSort.UseVisualStyleBackColor = true;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
             // cbTags
             // 
             this.cbTags.FormattingEnabled = true;
-            this.cbTags.Location = new System.Drawing.Point(135, 441);
+            this.cbTags.Location = new System.Drawing.Point(135, 457);
             this.cbTags.Name = "cbTags";
             this.cbTags.Size = new System.Drawing.Size(107, 21);
             this.cbTags.TabIndex = 23;
@@ -300,7 +365,7 @@
             // cbCategorySort
             // 
             this.cbCategorySort.FormattingEnabled = true;
-            this.cbCategorySort.Location = new System.Drawing.Point(22, 441);
+            this.cbCategorySort.Location = new System.Drawing.Point(22, 457);
             this.cbCategorySort.Name = "cbCategorySort";
             this.cbCategorySort.Size = new System.Drawing.Size(107, 21);
             this.cbCategorySort.TabIndex = 22;
@@ -308,7 +373,7 @@
             // rbTag
             // 
             this.rbTag.AutoSize = true;
-            this.rbTag.Location = new System.Drawing.Point(135, 418);
+            this.rbTag.Location = new System.Drawing.Point(135, 434);
             this.rbTag.Name = "rbTag";
             this.rbTag.Size = new System.Drawing.Size(44, 17);
             this.rbTag.TabIndex = 20;
@@ -319,7 +384,7 @@
             // rbCategory
             // 
             this.rbCategory.AutoSize = true;
-            this.rbCategory.Location = new System.Drawing.Point(22, 418);
+            this.rbCategory.Location = new System.Drawing.Point(22, 434);
             this.rbCategory.Name = "rbCategory";
             this.rbCategory.Size = new System.Drawing.Size(70, 17);
             this.rbCategory.TabIndex = 19;
@@ -330,7 +395,7 @@
             // btnBack
             // 
             this.btnBack.Enabled = false;
-            this.btnBack.Location = new System.Drawing.Point(543, 412);
+            this.btnBack.Location = new System.Drawing.Point(543, 428);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 18;
@@ -340,6 +405,7 @@
             // 
             // gbNumber4
             // 
+            this.gbNumber4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.gbNumber4.Controls.Add(this.lbDatum4);
             this.gbNumber4.Controls.Add(this.lbUploader4);
             this.gbNumber4.Controls.Add(this.lbTags4);
@@ -351,7 +417,9 @@
             this.gbNumber4.Controls.Add(this.lbViews4);
             this.gbNumber4.Controls.Add(this.lbLikes4);
             this.gbNumber4.Controls.Add(this.pbImage4);
-            this.gbNumber4.Location = new System.Drawing.Point(384, 213);
+            this.gbNumber4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbNumber4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(138)))), ((int)(((byte)(26)))));
+            this.gbNumber4.Location = new System.Drawing.Point(384, 220);
             this.gbNumber4.Name = "gbNumber4";
             this.gbNumber4.Size = new System.Drawing.Size(327, 193);
             this.gbNumber4.TabIndex = 17;
@@ -361,45 +429,54 @@
             // lbDatum4
             // 
             this.lbDatum4.AutoSize = true;
+            this.lbDatum4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDatum4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbDatum4.Location = new System.Drawing.Point(6, 180);
             this.lbDatum4.Name = "lbDatum4";
-            this.lbDatum4.Size = new System.Drawing.Size(38, 13);
+            this.lbDatum4.Size = new System.Drawing.Size(44, 15);
             this.lbDatum4.TabIndex = 17;
             this.lbDatum4.Text = "Datum";
             // 
             // lbUploader4
             // 
             this.lbUploader4.AutoSize = true;
+            this.lbUploader4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUploader4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbUploader4.Location = new System.Drawing.Point(6, 157);
             this.lbUploader4.Name = "lbUploader4";
-            this.lbUploader4.Size = new System.Drawing.Size(50, 13);
+            this.lbUploader4.Size = new System.Drawing.Size(58, 15);
             this.lbUploader4.TabIndex = 14;
             this.lbUploader4.Text = "Uploader";
             // 
             // lbTags4
             // 
             this.lbTags4.AutoSize = true;
+            this.lbTags4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTags4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbTags4.Location = new System.Drawing.Point(127, 157);
             this.lbTags4.Name = "lbTags4";
-            this.lbTags4.Size = new System.Drawing.Size(34, 13);
+            this.lbTags4.Size = new System.Drawing.Size(37, 15);
             this.lbTags4.TabIndex = 9;
             this.lbTags4.Text = "Tags:";
             // 
             // lblCategorie4
             // 
             this.lblCategorie4.AutoSize = true;
+            this.lblCategorie4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategorie4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lblCategorie4.Location = new System.Drawing.Point(127, 139);
             this.lblCategorie4.Name = "lblCategorie4";
-            this.lblCategorie4.Size = new System.Drawing.Size(52, 13);
+            this.lblCategorie4.Size = new System.Drawing.Size(61, 15);
             this.lblCategorie4.TabIndex = 8;
             this.lblCategorie4.Text = "Categorie";
             // 
             // lbReport4
             // 
             this.lbReport4.AutoSize = true;
+            this.lbReport4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReport4.Location = new System.Drawing.Point(281, 120);
             this.lbReport4.Name = "lbReport4";
-            this.lbReport4.Size = new System.Drawing.Size(39, 13);
+            this.lbReport4.Size = new System.Drawing.Size(44, 15);
             this.lbReport4.TabIndex = 7;
             this.lbReport4.TabStop = true;
             this.lbReport4.Text = "Report";
@@ -408,9 +485,10 @@
             // lbLike4
             // 
             this.lbLike4.AutoSize = true;
+            this.lbLike4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLike4.Location = new System.Drawing.Point(180, 120);
             this.lbLike4.Name = "lbLike4";
-            this.lbLike4.Size = new System.Drawing.Size(27, 13);
+            this.lbLike4.Size = new System.Drawing.Size(30, 15);
             this.lbLike4.TabIndex = 6;
             this.lbLike4.TabStop = true;
             this.lbLike4.Text = "Like";
@@ -419,15 +497,20 @@
             // lbReports4
             // 
             this.lbReports4.AutoSize = true;
+            this.lbReports4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReports4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbReports4.Location = new System.Drawing.Point(213, 120);
             this.lbReports4.Name = "lbReports4";
-            this.lbReports4.Size = new System.Drawing.Size(56, 13);
+            this.lbReports4.Size = new System.Drawing.Size(64, 15);
             this.lbReports4.TabIndex = 5;
             this.lbReports4.Text = "Reports: 0";
             // 
             // tbSummary4
             // 
+            this.tbSummary4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.tbSummary4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSummary4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tbSummary4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSummary4.Location = new System.Drawing.Point(127, 19);
             this.tbSummary4.MaxLength = 255;
             this.tbSummary4.Multiline = true;
@@ -440,18 +523,22 @@
             // lbViews4
             // 
             this.lbViews4.AutoSize = true;
+            this.lbViews4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbViews4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbViews4.Location = new System.Drawing.Point(6, 139);
             this.lbViews4.Name = "lbViews4";
-            this.lbViews4.Size = new System.Drawing.Size(47, 13);
+            this.lbViews4.Size = new System.Drawing.Size(53, 15);
             this.lbViews4.TabIndex = 3;
             this.lbViews4.Text = "Views: 0";
             // 
             // lbLikes4
             // 
             this.lbLikes4.AutoSize = true;
+            this.lbLikes4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLikes4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbLikes4.Location = new System.Drawing.Point(127, 120);
             this.lbLikes4.Name = "lbLikes4";
-            this.lbLikes4.Size = new System.Drawing.Size(44, 13);
+            this.lbLikes4.Size = new System.Drawing.Size(50, 15);
             this.lbLikes4.TabIndex = 2;
             this.lbLikes4.Text = "Likes: 0";
             // 
@@ -466,6 +553,7 @@
             // 
             // gbNumber3
             // 
+            this.gbNumber3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.gbNumber3.Controls.Add(this.lbDatum3);
             this.gbNumber3.Controls.Add(this.lbUploader3);
             this.gbNumber3.Controls.Add(this.lbTags3);
@@ -477,7 +565,9 @@
             this.gbNumber3.Controls.Add(this.lbViews3);
             this.gbNumber3.Controls.Add(this.lbLikes3);
             this.gbNumber3.Controls.Add(this.pbImage3);
-            this.gbNumber3.Location = new System.Drawing.Point(22, 213);
+            this.gbNumber3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbNumber3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(138)))), ((int)(((byte)(26)))));
+            this.gbNumber3.Location = new System.Drawing.Point(22, 220);
             this.gbNumber3.Name = "gbNumber3";
             this.gbNumber3.Size = new System.Drawing.Size(327, 193);
             this.gbNumber3.TabIndex = 16;
@@ -487,45 +577,54 @@
             // lbDatum3
             // 
             this.lbDatum3.AutoSize = true;
+            this.lbDatum3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDatum3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbDatum3.Location = new System.Drawing.Point(6, 180);
             this.lbDatum3.Name = "lbDatum3";
-            this.lbDatum3.Size = new System.Drawing.Size(38, 13);
+            this.lbDatum3.Size = new System.Drawing.Size(44, 15);
             this.lbDatum3.TabIndex = 16;
             this.lbDatum3.Text = "Datum";
             // 
             // lbUploader3
             // 
             this.lbUploader3.AutoSize = true;
+            this.lbUploader3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUploader3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbUploader3.Location = new System.Drawing.Point(6, 157);
             this.lbUploader3.Name = "lbUploader3";
-            this.lbUploader3.Size = new System.Drawing.Size(50, 13);
+            this.lbUploader3.Size = new System.Drawing.Size(58, 15);
             this.lbUploader3.TabIndex = 14;
             this.lbUploader3.Text = "Uploader";
             // 
             // lbTags3
             // 
             this.lbTags3.AutoSize = true;
+            this.lbTags3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTags3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbTags3.Location = new System.Drawing.Point(127, 157);
             this.lbTags3.Name = "lbTags3";
-            this.lbTags3.Size = new System.Drawing.Size(34, 13);
+            this.lbTags3.Size = new System.Drawing.Size(37, 15);
             this.lbTags3.TabIndex = 9;
             this.lbTags3.Text = "Tags:";
             // 
             // lblCategorie3
             // 
             this.lblCategorie3.AutoSize = true;
+            this.lblCategorie3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategorie3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lblCategorie3.Location = new System.Drawing.Point(127, 139);
             this.lblCategorie3.Name = "lblCategorie3";
-            this.lblCategorie3.Size = new System.Drawing.Size(52, 13);
+            this.lblCategorie3.Size = new System.Drawing.Size(61, 15);
             this.lblCategorie3.TabIndex = 8;
             this.lblCategorie3.Text = "Categorie";
             // 
             // lbReport3
             // 
             this.lbReport3.AutoSize = true;
+            this.lbReport3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReport3.Location = new System.Drawing.Point(281, 120);
             this.lbReport3.Name = "lbReport3";
-            this.lbReport3.Size = new System.Drawing.Size(39, 13);
+            this.lbReport3.Size = new System.Drawing.Size(44, 15);
             this.lbReport3.TabIndex = 7;
             this.lbReport3.TabStop = true;
             this.lbReport3.Text = "Report";
@@ -534,9 +633,10 @@
             // lbLike3
             // 
             this.lbLike3.AutoSize = true;
+            this.lbLike3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLike3.Location = new System.Drawing.Point(180, 120);
             this.lbLike3.Name = "lbLike3";
-            this.lbLike3.Size = new System.Drawing.Size(27, 13);
+            this.lbLike3.Size = new System.Drawing.Size(30, 15);
             this.lbLike3.TabIndex = 6;
             this.lbLike3.TabStop = true;
             this.lbLike3.Text = "Like";
@@ -545,15 +645,20 @@
             // lbReports3
             // 
             this.lbReports3.AutoSize = true;
+            this.lbReports3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReports3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbReports3.Location = new System.Drawing.Point(213, 120);
             this.lbReports3.Name = "lbReports3";
-            this.lbReports3.Size = new System.Drawing.Size(56, 13);
+            this.lbReports3.Size = new System.Drawing.Size(64, 15);
             this.lbReports3.TabIndex = 5;
             this.lbReports3.Text = "Reports: 0";
             // 
             // tbSummary3
             // 
+            this.tbSummary3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.tbSummary3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSummary3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tbSummary3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSummary3.Location = new System.Drawing.Point(127, 19);
             this.tbSummary3.MaxLength = 255;
             this.tbSummary3.Multiline = true;
@@ -566,18 +671,22 @@
             // lbViews3
             // 
             this.lbViews3.AutoSize = true;
+            this.lbViews3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbViews3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbViews3.Location = new System.Drawing.Point(6, 139);
             this.lbViews3.Name = "lbViews3";
-            this.lbViews3.Size = new System.Drawing.Size(47, 13);
+            this.lbViews3.Size = new System.Drawing.Size(53, 15);
             this.lbViews3.TabIndex = 3;
             this.lbViews3.Text = "Views: 0";
             // 
             // lbLikes3
             // 
             this.lbLikes3.AutoSize = true;
+            this.lbLikes3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLikes3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbLikes3.Location = new System.Drawing.Point(127, 120);
             this.lbLikes3.Name = "lbLikes3";
-            this.lbLikes3.Size = new System.Drawing.Size(44, 13);
+            this.lbLikes3.Size = new System.Drawing.Size(50, 15);
             this.lbLikes3.TabIndex = 2;
             this.lbLikes3.Text = "Likes: 0";
             // 
@@ -592,6 +701,7 @@
             // 
             // gbNumber2
             // 
+            this.gbNumber2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.gbNumber2.Controls.Add(this.lbDatum2);
             this.gbNumber2.Controls.Add(this.lbUploader2);
             this.gbNumber2.Controls.Add(this.lbTags2);
@@ -603,6 +713,8 @@
             this.gbNumber2.Controls.Add(this.lbViews2);
             this.gbNumber2.Controls.Add(this.lbLikes2);
             this.gbNumber2.Controls.Add(this.pbImage2);
+            this.gbNumber2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbNumber2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(138)))), ((int)(((byte)(26)))));
             this.gbNumber2.Location = new System.Drawing.Point(384, 16);
             this.gbNumber2.Name = "gbNumber2";
             this.gbNumber2.Size = new System.Drawing.Size(327, 191);
@@ -613,45 +725,54 @@
             // lbDatum2
             // 
             this.lbDatum2.AutoSize = true;
+            this.lbDatum2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDatum2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbDatum2.Location = new System.Drawing.Point(6, 178);
             this.lbDatum2.Name = "lbDatum2";
-            this.lbDatum2.Size = new System.Drawing.Size(38, 13);
+            this.lbDatum2.Size = new System.Drawing.Size(44, 15);
             this.lbDatum2.TabIndex = 16;
             this.lbDatum2.Text = "Datum";
             // 
             // lbUploader2
             // 
             this.lbUploader2.AutoSize = true;
+            this.lbUploader2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUploader2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbUploader2.Location = new System.Drawing.Point(6, 157);
             this.lbUploader2.Name = "lbUploader2";
-            this.lbUploader2.Size = new System.Drawing.Size(50, 13);
+            this.lbUploader2.Size = new System.Drawing.Size(58, 15);
             this.lbUploader2.TabIndex = 14;
             this.lbUploader2.Text = "Uploader";
             // 
             // lbTags2
             // 
             this.lbTags2.AutoSize = true;
+            this.lbTags2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTags2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbTags2.Location = new System.Drawing.Point(127, 157);
             this.lbTags2.Name = "lbTags2";
-            this.lbTags2.Size = new System.Drawing.Size(34, 13);
+            this.lbTags2.Size = new System.Drawing.Size(37, 15);
             this.lbTags2.TabIndex = 9;
             this.lbTags2.Text = "Tags:";
             // 
             // lblCategorie2
             // 
             this.lblCategorie2.AutoSize = true;
+            this.lblCategorie2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategorie2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lblCategorie2.Location = new System.Drawing.Point(127, 139);
             this.lblCategorie2.Name = "lblCategorie2";
-            this.lblCategorie2.Size = new System.Drawing.Size(52, 13);
+            this.lblCategorie2.Size = new System.Drawing.Size(61, 15);
             this.lblCategorie2.TabIndex = 8;
             this.lblCategorie2.Text = "Categorie";
             // 
             // lbReport2
             // 
             this.lbReport2.AutoSize = true;
+            this.lbReport2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReport2.Location = new System.Drawing.Point(281, 120);
             this.lbReport2.Name = "lbReport2";
-            this.lbReport2.Size = new System.Drawing.Size(39, 13);
+            this.lbReport2.Size = new System.Drawing.Size(44, 15);
             this.lbReport2.TabIndex = 7;
             this.lbReport2.TabStop = true;
             this.lbReport2.Text = "Report";
@@ -660,9 +781,10 @@
             // lbLike2
             // 
             this.lbLike2.AutoSize = true;
+            this.lbLike2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLike2.Location = new System.Drawing.Point(180, 120);
             this.lbLike2.Name = "lbLike2";
-            this.lbLike2.Size = new System.Drawing.Size(27, 13);
+            this.lbLike2.Size = new System.Drawing.Size(30, 15);
             this.lbLike2.TabIndex = 6;
             this.lbLike2.TabStop = true;
             this.lbLike2.Text = "Like";
@@ -671,15 +793,20 @@
             // lbReports2
             // 
             this.lbReports2.AutoSize = true;
+            this.lbReports2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbReports2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbReports2.Location = new System.Drawing.Point(213, 120);
             this.lbReports2.Name = "lbReports2";
-            this.lbReports2.Size = new System.Drawing.Size(56, 13);
+            this.lbReports2.Size = new System.Drawing.Size(64, 15);
             this.lbReports2.TabIndex = 5;
             this.lbReports2.Text = "Reports: 0";
             // 
             // tbSummary2
             // 
+            this.tbSummary2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.tbSummary2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSummary2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tbSummary2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSummary2.Location = new System.Drawing.Point(127, 19);
             this.tbSummary2.MaxLength = 255;
             this.tbSummary2.Multiline = true;
@@ -692,18 +819,22 @@
             // lbViews2
             // 
             this.lbViews2.AutoSize = true;
+            this.lbViews2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbViews2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbViews2.Location = new System.Drawing.Point(6, 139);
             this.lbViews2.Name = "lbViews2";
-            this.lbViews2.Size = new System.Drawing.Size(47, 13);
+            this.lbViews2.Size = new System.Drawing.Size(53, 15);
             this.lbViews2.TabIndex = 3;
             this.lbViews2.Text = "Views: 0";
             // 
             // lbLikes2
             // 
             this.lbLikes2.AutoSize = true;
+            this.lbLikes2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLikes2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.lbLikes2.Location = new System.Drawing.Point(127, 120);
             this.lbLikes2.Name = "lbLikes2";
-            this.lbLikes2.Size = new System.Drawing.Size(44, 13);
+            this.lbLikes2.Size = new System.Drawing.Size(50, 15);
             this.lbLikes2.TabIndex = 2;
             this.lbLikes2.Text = "Likes: 0";
             // 
@@ -718,7 +849,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(543, 460);
+            this.btnRefresh.Location = new System.Drawing.Point(543, 476);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 13;
@@ -726,30 +857,30 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // tabPage4
+            // tabUpload
             // 
-            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tabPage4.Controls.Add(this.btnUpload);
-            this.tabPage4.Controls.Add(this.label6);
-            this.tabPage4.Controls.Add(this.pbPreview);
-            this.tabPage4.Controls.Add(this.tbTags);
-            this.tabPage4.Controls.Add(this.label5);
-            this.tabPage4.Controls.Add(this.cbCategory);
-            this.tabPage4.Controls.Add(this.label4);
-            this.tabPage4.Controls.Add(this.btnBrowse);
-            this.tabPage4.Controls.Add(this.tbFilepath);
-            this.tabPage4.Controls.Add(this.label3);
-            this.tabPage4.Controls.Add(this.tbSummary);
-            this.tabPage4.Controls.Add(this.tbTitle);
-            this.tabPage4.Controls.Add(this.label2);
-            this.tabPage4.Controls.Add(this.label1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(724, 508);
-            this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "Upload";
-            this.tabPage4.Enter += new System.EventHandler(this.tabPage4_Enter);
+            this.tabUpload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.tabUpload.Controls.Add(this.btnUpload);
+            this.tabUpload.Controls.Add(this.label6);
+            this.tabUpload.Controls.Add(this.pbPreview);
+            this.tabUpload.Controls.Add(this.tbTags);
+            this.tabUpload.Controls.Add(this.label5);
+            this.tabUpload.Controls.Add(this.cbCategory);
+            this.tabUpload.Controls.Add(this.label4);
+            this.tabUpload.Controls.Add(this.btnBrowse);
+            this.tabUpload.Controls.Add(this.tbFilepath);
+            this.tabUpload.Controls.Add(this.label3);
+            this.tabUpload.Controls.Add(this.tbSummary);
+            this.tabUpload.Controls.Add(this.tbTitle);
+            this.tabUpload.Controls.Add(this.label2);
+            this.tabUpload.Controls.Add(this.label1);
+            this.tabUpload.Location = new System.Drawing.Point(4, 22);
+            this.tabUpload.Name = "tabUpload";
+            this.tabUpload.Padding = new System.Windows.Forms.Padding(3);
+            this.tabUpload.Size = new System.Drawing.Size(752, 550);
+            this.tabUpload.TabIndex = 1;
+            this.tabUpload.Text = "Upload";
+            this.tabUpload.Enter += new System.EventHandler(this.tabPage4_Enter);
             // 
             // btnUpload
             // 
@@ -880,58 +1011,156 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Titel";
             // 
-            // tabPage1
+            // tabAdmin
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(724, 508);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "Admin";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.tabAdmin.Controls.Add(this.btnVerwijder);
+            this.tabAdmin.Controls.Add(this.gbAdmin);
+            this.tabAdmin.Controls.Add(this.lbReportedPosts);
+            this.tabAdmin.Location = new System.Drawing.Point(4, 22);
+            this.tabAdmin.Name = "tabAdmin";
+            this.tabAdmin.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAdmin.Size = new System.Drawing.Size(752, 550);
+            this.tabAdmin.TabIndex = 2;
+            this.tabAdmin.Text = "Admin";
+            this.tabAdmin.Enter += new System.EventHandler(this.tabAdmin_Enter);
             // 
-            // btnSort
+            // gbAdmin
             // 
-            this.btnSort.Location = new System.Drawing.Point(22, 479);
-            this.btnSort.Name = "btnSort";
-            this.btnSort.Size = new System.Drawing.Size(75, 23);
-            this.btnSort.TabIndex = 24;
-            this.btnSort.Text = "Sorteren";
-            this.btnSort.UseVisualStyleBackColor = true;
-            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
+            this.gbAdmin.Controls.Add(this.lbDateAdmin);
+            this.gbAdmin.Controls.Add(this.lbUploaderAdmin);
+            this.gbAdmin.Controls.Add(this.lbTagsAdmin);
+            this.gbAdmin.Controls.Add(this.lbCategorieAdmin);
+            this.gbAdmin.Controls.Add(this.lbReportsAdmin);
+            this.gbAdmin.Controls.Add(this.tbSummaryAdmin);
+            this.gbAdmin.Controls.Add(this.lbViewsAdmin);
+            this.gbAdmin.Controls.Add(this.lbLikesAdmin);
+            this.gbAdmin.Controls.Add(this.pbAdmin);
+            this.gbAdmin.Location = new System.Drawing.Point(6, 185);
+            this.gbAdmin.Name = "gbAdmin";
+            this.gbAdmin.Size = new System.Drawing.Size(327, 191);
+            this.gbAdmin.TabIndex = 1;
+            this.gbAdmin.TabStop = false;
+            this.gbAdmin.Text = "Upload title";
             // 
-            // tbTitleSort
+            // lbDateAdmin
             // 
-            this.tbTitleSort.Location = new System.Drawing.Point(249, 441);
-            this.tbTitleSort.Name = "tbTitleSort";
-            this.tbTitleSort.Size = new System.Drawing.Size(100, 20);
-            this.tbTitleSort.TabIndex = 25;
-            this.tbTitleSort.TextChanged += new System.EventHandler(this.tbTitleSort_TextChanged);
+            this.lbDateAdmin.AutoSize = true;
+            this.lbDateAdmin.Location = new System.Drawing.Point(6, 178);
+            this.lbDateAdmin.Name = "lbDateAdmin";
+            this.lbDateAdmin.Size = new System.Drawing.Size(38, 13);
+            this.lbDateAdmin.TabIndex = 15;
+            this.lbDateAdmin.Text = "Datum";
             // 
-            // rbTitle
+            // lbUploaderAdmin
             // 
-            this.rbTitle.AutoSize = true;
-            this.rbTitle.Location = new System.Drawing.Point(249, 418);
-            this.rbTitle.Name = "rbTitle";
-            this.rbTitle.Size = new System.Drawing.Size(45, 17);
-            this.rbTitle.TabIndex = 26;
-            this.rbTitle.TabStop = true;
-            this.rbTitle.Text = "Titel";
-            this.rbTitle.UseVisualStyleBackColor = true;
+            this.lbUploaderAdmin.AutoSize = true;
+            this.lbUploaderAdmin.Location = new System.Drawing.Point(6, 157);
+            this.lbUploaderAdmin.Name = "lbUploaderAdmin";
+            this.lbUploaderAdmin.Size = new System.Drawing.Size(50, 13);
+            this.lbUploaderAdmin.TabIndex = 14;
+            this.lbUploaderAdmin.Text = "Uploader";
+            // 
+            // lbTagsAdmin
+            // 
+            this.lbTagsAdmin.AutoSize = true;
+            this.lbTagsAdmin.Location = new System.Drawing.Point(127, 157);
+            this.lbTagsAdmin.Name = "lbTagsAdmin";
+            this.lbTagsAdmin.Size = new System.Drawing.Size(34, 13);
+            this.lbTagsAdmin.TabIndex = 9;
+            this.lbTagsAdmin.Text = "Tags:";
+            // 
+            // lbCategorieAdmin
+            // 
+            this.lbCategorieAdmin.AutoSize = true;
+            this.lbCategorieAdmin.Location = new System.Drawing.Point(127, 139);
+            this.lbCategorieAdmin.Name = "lbCategorieAdmin";
+            this.lbCategorieAdmin.Size = new System.Drawing.Size(52, 13);
+            this.lbCategorieAdmin.TabIndex = 8;
+            this.lbCategorieAdmin.Text = "Categorie";
+            // 
+            // lbReportsAdmin
+            // 
+            this.lbReportsAdmin.AutoSize = true;
+            this.lbReportsAdmin.Location = new System.Drawing.Point(213, 120);
+            this.lbReportsAdmin.Name = "lbReportsAdmin";
+            this.lbReportsAdmin.Size = new System.Drawing.Size(56, 13);
+            this.lbReportsAdmin.TabIndex = 5;
+            this.lbReportsAdmin.Text = "Reports: 0";
+            // 
+            // tbSummaryAdmin
+            // 
+            this.tbSummaryAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tbSummaryAdmin.Location = new System.Drawing.Point(127, 19);
+            this.tbSummaryAdmin.MaxLength = 255;
+            this.tbSummaryAdmin.Multiline = true;
+            this.tbSummaryAdmin.Name = "tbSummaryAdmin";
+            this.tbSummaryAdmin.ReadOnly = true;
+            this.tbSummaryAdmin.Size = new System.Drawing.Size(186, 98);
+            this.tbSummaryAdmin.TabIndex = 4;
+            this.tbSummaryAdmin.Click += new System.EventHandler(this.tbSummaryAdmin_Click);
+            // 
+            // lbViewsAdmin
+            // 
+            this.lbViewsAdmin.AutoSize = true;
+            this.lbViewsAdmin.Location = new System.Drawing.Point(6, 139);
+            this.lbViewsAdmin.Name = "lbViewsAdmin";
+            this.lbViewsAdmin.Size = new System.Drawing.Size(47, 13);
+            this.lbViewsAdmin.TabIndex = 3;
+            this.lbViewsAdmin.Text = "Views: 0";
+            // 
+            // lbLikesAdmin
+            // 
+            this.lbLikesAdmin.AutoSize = true;
+            this.lbLikesAdmin.Location = new System.Drawing.Point(127, 120);
+            this.lbLikesAdmin.Name = "lbLikesAdmin";
+            this.lbLikesAdmin.Size = new System.Drawing.Size(44, 13);
+            this.lbLikesAdmin.TabIndex = 2;
+            this.lbLikesAdmin.Text = "Likes: 0";
+            // 
+            // pbAdmin
+            // 
+            this.pbAdmin.Location = new System.Drawing.Point(6, 19);
+            this.pbAdmin.Name = "pbAdmin";
+            this.pbAdmin.Size = new System.Drawing.Size(115, 114);
+            this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAdmin.TabIndex = 1;
+            this.pbAdmin.TabStop = false;
+            // 
+            // lbReportedPosts
+            // 
+            this.lbReportedPosts.BackColor = System.Drawing.Color.White;
+            this.lbReportedPosts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbReportedPosts.FormattingEnabled = true;
+            this.lbReportedPosts.Location = new System.Drawing.Point(6, 6);
+            this.lbReportedPosts.Name = "lbReportedPosts";
+            this.lbReportedPosts.Size = new System.Drawing.Size(712, 171);
+            this.lbReportedPosts.TabIndex = 0;
+            this.lbReportedPosts.SelectedValueChanged += new System.EventHandler(this.lbReportedPosts_SelectedValueChanged);
+            // 
+            // btnVerwijder
+            // 
+            this.btnVerwijder.Location = new System.Drawing.Point(6, 397);
+            this.btnVerwijder.Name = "btnVerwijder";
+            this.btnVerwijder.Size = new System.Drawing.Size(75, 23);
+            this.btnVerwijder.TabIndex = 2;
+            this.btnVerwijder.Text = "Verwijder";
+            this.btnVerwijder.UseVisualStyleBackColor = true;
+            this.btnVerwijder.Click += new System.EventHandler(this.btnVerwijder_Click);
             // 
             // SocialMediaSharing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(858, 576);
-            this.Controls.Add(this.tbUpload);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.ClientSize = new System.Drawing.Size(746, 562);
+            this.Controls.Add(this.tabPosts);
             this.Name = "SocialMediaSharing";
             this.Text = "SocialMediaSharing";
             this.gbNumber1.ResumeLayout(false);
             this.gbNumber1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage1)).EndInit();
-            this.tbUpload.ResumeLayout(false);
+            this.tabPosts.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.gbNumber4.ResumeLayout(false);
@@ -943,9 +1172,13 @@
             this.gbNumber2.ResumeLayout(false);
             this.gbNumber2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage2)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
+            this.tabUpload.ResumeLayout(false);
+            this.tabUpload.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPreview)).EndInit();
+            this.tabAdmin.ResumeLayout(false);
+            this.gbAdmin.ResumeLayout(false);
+            this.gbAdmin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -963,9 +1196,9 @@
         private System.Windows.Forms.Label lbTags1;
         private System.Windows.Forms.Label lblCategorie1;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.TabControl tbUpload;
+        private System.Windows.Forms.TabControl tabPosts;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabUpload;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Label lbUploader1;
         private System.Windows.Forms.GroupBox gbNumber4;
@@ -1023,10 +1256,22 @@
         private System.Windows.Forms.Label lbDatum4;
         private System.Windows.Forms.Label lbDatum3;
         private System.Windows.Forms.Label lbDatum2;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabAdmin;
         private System.Windows.Forms.ComboBox cbTags;
         private System.Windows.Forms.Button btnSort;
         private System.Windows.Forms.TextBox tbTitleSort;
         private System.Windows.Forms.RadioButton rbTitle;
+        private System.Windows.Forms.ListBox lbReportedPosts;
+        private System.Windows.Forms.GroupBox gbAdmin;
+        private System.Windows.Forms.Label lbDateAdmin;
+        private System.Windows.Forms.Label lbUploaderAdmin;
+        private System.Windows.Forms.Label lbTagsAdmin;
+        private System.Windows.Forms.Label lbCategorieAdmin;
+        private System.Windows.Forms.Label lbReportsAdmin;
+        private System.Windows.Forms.TextBox tbSummaryAdmin;
+        private System.Windows.Forms.Label lbViewsAdmin;
+        private System.Windows.Forms.Label lbLikesAdmin;
+        private System.Windows.Forms.PictureBox pbAdmin;
+        private System.Windows.Forms.Button btnVerwijder;
     }
 }

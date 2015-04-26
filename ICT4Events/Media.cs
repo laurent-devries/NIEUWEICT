@@ -63,25 +63,9 @@ namespace ICT4Events
             TagList = tagList;
         }
 
-
-        public bool CheckAbuse(string abusiveWord)
+        public override string ToString()
         {
-            return true;
-        }
-
-        public int GetLikes()
-        {
-            return likes;
-        }
-
-        public int getReports()
-        {
-            return reports;
-        }
-
-        public int getViews()
-        {
-            return views;
+            return Title + "Aantal reports: " + reports;
         }
     }
 }
