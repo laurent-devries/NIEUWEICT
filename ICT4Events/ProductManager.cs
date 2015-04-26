@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
+using System.Data;
 
 
 namespace ICT4Events
@@ -13,8 +14,6 @@ namespace ICT4Events
     class ProductManager
     {
         public bool noUserSelected = false;
-        private int Totalhireamount;
-        private int TotalAmount;
         //done
         List<Product> productList = new List<Product>();
 
@@ -112,20 +111,55 @@ namespace ICT4Events
              else
              {
                  DatabaseConnection con = new DatabaseConnection();
-                 string Query = "SELECT TOTALAMOUNT, TOTALHIREDAMOUNT FROM ICT4_PRODUCT";
-                 OracleDataReader reader = con.SelectFromDatabase(Query);
-                 while (reader.Read())
-                 {
-                     Totalhireamount =  (reader.GetInt32(0)); 
-                     TotalAmount = (reader.GetInt32(1));
-                 }
-                 reader.Dispose();
+                 OracleConnection oracleConnection = con.OracleConnetion();
+                 oracleConnection.Open();
 
-                 if (Totalhireamount < TotalAmount)
+                 string cmdQuery = "SELECT TOTALAMOUNT, TOTALHIREDAMOUNT FROM ICT4_PRODUCT WHERE ID_PRODUCT = " + product.ID_Product;
+
+                 // Maakt het OracleCommand aan
+                 OracleCommand cmd = new OracleCommand(cmdQuery);
+
+                 cmd.Connection = oracleConnection;
+                 cmd.CommandType = CommandType.Text;
+
+                 // Voert het OracleCommand uit
+                 OracleDataReader reader = cmd.ExecuteReader();
+
+                 //Haalt het totaal en aantal gehuurde producten op
+                 reader.Read();
+                 int totalAmount = reader.GetInt32(0);
+                 int hiredAmount = reader.GetInt32(1);
+
+                 // Opruimen
+                 reader.Dispose();
+                 cmd.Dispose();
+                 oracleConnection.Dispose();
+
+                 if (hiredAmount < totalAmount)
                  {
-                     MessageBox.Show("Aantal producten is niet meer beschikbaar");
-                     noUserSelected = false;
+                        MessageBox.Show("Aantal producten is niet meer beschikbaar");
+                        noUserSelected = false;
                  }
+
+
+                 /////////////////////////OUDE CODE MARIO////////////////////////////
+                 //DatabaseConnection con = new DatabaseConnection();
+                 //string Query = "SELECT TOTALAMOUNT, TOTALHIREDAMOUNT FROM ICT4_PRODUCT WHERE ID_PRODUCT = " + product.ID_Product;
+                 //OracleDataReader reader = con.SelectFromDatabase(Query);
+                 //while (reader.Read())
+                 //{
+                 //    Totalhireamount =  (reader.GetInt32(0)); 
+                 //    TotalAmount = (reader.GetInt32(1));
+                 //}
+                 //reader.Dispose();
+
+                 //if (Totalhireamount < TotalAmount)
+                 //{
+                 //    MessageBox.Show("Aantal producten is niet meer beschikbaar");
+                 //    noUserSelected = false;
+                 //}
+                //////////////////////////////////////////////////////////////////////
+
 
                                
 
