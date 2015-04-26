@@ -17,13 +17,17 @@ namespace ICT4Events
 
         List<Media> mediaList;
         MediaManager mediaManager;
+        CategoryManager categoryManager;
+        TagManager tagManager;
 
         // Arrays van alle objecten
         Label[] viewsArray = new Label[4];
         Label[] likesArray = new Label[4];
         Label[] reportsArray = new Label[4];
         Label[] uploaderArray = new Label[4];
-        Label[] datumArray = new Label[4];
+        Label[] dateArray = new Label[4];
+        Label[] categoryArray = new Label[4];
+        Label[] tagArray = new Label[4];
         GroupBox[] groupBoxArray = new GroupBox[4];
         TextBox[] summaryArray = new TextBox[4];
         PictureBox[] pictureArray = new PictureBox[4];
@@ -35,6 +39,8 @@ namespace ICT4Events
         {
             InitializeComponent();
             mediaManager = new MediaManager();
+            categoryManager = new CategoryManager();
+            tagManager = new TagManager();
             mediaList = mediaManager.RequestMediaUploads();
 
             this.user = user;
@@ -61,10 +67,20 @@ namespace ICT4Events
             uploaderArray[2] = lbUploader3;
             uploaderArray[3] = lbUploader4;
 
-            datumArray[0] = lbDatum1;
-            datumArray[1] = lbDatum2;
-            datumArray[2] = lbDatum3;
-            datumArray[3] = lbDatum4;
+            dateArray[0] = lbDatum1;
+            dateArray[1] = lbDatum2;
+            dateArray[2] = lbDatum3;
+            dateArray[3] = lbDatum4;
+
+            categoryArray[0] = lblCategorie1;
+            categoryArray[1] = lblCategorie2;
+            categoryArray[2] = lblCategorie3;
+            categoryArray[3] = lblCategorie4;
+
+            tagArray[0] = lbTags1;
+            tagArray[1] = lbTags2;
+            tagArray[2] = lbTags3;
+            tagArray[3] = lbTags4;
 
             groupBoxArray[0] = gbNumber1;
             groupBoxArray[1] = gbNumber2;
@@ -83,8 +99,27 @@ namespace ICT4Events
             #endregion
 
 
-            //Vult de posts wanneer het programma geopent wordt
+            // Vult de posts wanneer het programma geopent wordt
             fillPosts(0);
+
+            // Vult de comboboxes om te kunnen sorteren
+            // Haal de categoryList op
+            List<Category> categoryList = categoryManager.RequestCategories();
+            List<Tag> tagList = tagManager.RequestAllTags();
+            // Voegt alles toe in aan de combobox
+            cbCategorySort.Items.Clear();
+            cbTags.Items.Clear();
+            foreach (Category c in categoryList)
+            {
+                cbCategorySort.Items.Add(c);
+            }
+
+            foreach (Tag t in tagList)
+            {
+                cbTags.Items.Add(t);
+            }
+
+
             
      
 
@@ -162,9 +197,37 @@ namespace ICT4Events
                 likesArray[i].Text = "Likes: " + media.Likes;
                 reportsArray[i].Text = "Reports: " + media.Reports;
                 uploaderArray[i].Text = media.User.Username;
-                datumArray[i].Text = media.Date;
+                dateArray[i].Text = media.Date;
                 groupBoxArray[i].Text = media.Title;
                 summaryArray[i].Text = media.Summary;
+                categoryArray[i].Text = media.Category.Name;
+
+                //Voegt alle tags toe
+                tagArray[i].Text = "";
+                foreach (Tag tag in media.TagList)
+                {
+                    tagArray[i].Text = tagArray[i].Text + " #" + tag.Name;
+                }
+                
+                //Kijkt of er een foto toegevoegd moet worden
+                if (media.File_path != null)
+                {
+                    try
+                    {
+                        pictureArray[i].Visible = true;
+                        pictureArray[i].Image = Image.FromFile(media.File_path);
+                    }
+
+                    catch
+                    {
+                        pictureArray[i].Visible = false;
+                    }
+                }
+
+                else
+                {
+                    pictureArray[i].Visible = false;
+                }
             }
         }
 
@@ -175,7 +238,16 @@ namespace ICT4Events
             mediaCount = 0;
             fillPosts(0);
 
-            // Vult categorie combobox
+            // Vult de comboboxes om te kunnen sorteren
+            // Haal de categoryList op
+            List<Category> categoryList = categoryManager.RequestCategories();
+
+            // Voegt alles toe in aan de combobox
+            cbCategorySort.Items.Clear();
+            foreach (Category c in categoryList)
+            {
+                cbCategorySort.Items.Add(c);
+            }
            
 
             // Reset de knoppen
@@ -224,17 +296,17 @@ namespace ICT4Events
 
         private void lbReport2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            updateReports(0);
+            updateReports(1);
         }
 
         private void lbReport3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            updateReports(0);
+            updateReports(2);
         }
 
         private void lbReport4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            updateReports(0);
+            updateReports(3);
         }
 
         private void updateReports(int position)
@@ -295,7 +367,7 @@ namespace ICT4Events
         }
 
 
-        #endregion
+        
 
         // Vult de lijst met categorieen wanneer de tab upload geopent wordt
         private void tabPage4_Enter(object sender, EventArgs e)
@@ -306,6 +378,7 @@ namespace ICT4Events
             List<Category> categoryList = categoryManager.RequestCategories();
 
             // Voegt alles toe in aan de combobox
+            cbCategory.Items.Clear();
             foreach (Category c in categoryList)
             {
                 cbCategory.Items.Add(c);
@@ -319,12 +392,16 @@ namespace ICT4Events
             string[] tags = tag.ToArray();
             // Pakt de datum van vandaag
             DateTime currentDate = DateTime.Now;
-            if (!mediaManager.InsertMedia(tbTitle.Text, tbSummary.Text, tbFilepath.Text, "FOTO", currentDate, user, tags))
+            Category category = cbCategory.SelectedItem as Category;
+
+            if (!mediaManager.InsertMedia(tbTitle.Text, tbSummary.Text, tbFilepath.Text, "FOTO", currentDate, user, tags, category))
             {
                 MessageBox.Show("Upload mislukt!");
             }
 
         }
+
+        #endregion
 
     }
 }

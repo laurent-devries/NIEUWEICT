@@ -29,8 +29,6 @@ namespace ICT4Events
         private char present;
         private string country;
 
-        private List<User> userList;
-
         public char Present { get { return present; } set { present = value; } }
         public string Summary { get { return summary; } set { summary = value; } }
         public string Profile_Pic { get { return profile_pic; } set { profile_pic = value; } }
