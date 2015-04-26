@@ -43,10 +43,10 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.tbUpload = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.cbTags = new System.Windows.Forms.ComboBox();
             this.cbCategorySort = new System.Windows.Forms.ComboBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbTag = new System.Windows.Forms.RadioButton();
+            this.rbCategory = new System.Windows.Forms.RadioButton();
             this.btnBack = new System.Windows.Forms.Button();
             this.gbNumber4 = new System.Windows.Forms.GroupBox();
             this.lbDatum4 = new System.Windows.Forms.Label();
@@ -101,7 +101,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.cbTags = new System.Windows.Forms.ComboBox();
+            this.btnSort = new System.Windows.Forms.Button();
+            this.tbTitleSort = new System.Windows.Forms.TextBox();
+            this.rbTitle = new System.Windows.Forms.RadioButton();
             this.gbNumber1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage1)).BeginInit();
             this.tbUpload.SuspendLayout();
@@ -266,11 +268,13 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage3.Controls.Add(this.rbTitle);
+            this.tabPage3.Controls.Add(this.tbTitleSort);
+            this.tabPage3.Controls.Add(this.btnSort);
             this.tabPage3.Controls.Add(this.cbTags);
             this.tabPage3.Controls.Add(this.cbCategorySort);
-            this.tabPage3.Controls.Add(this.radioButton3);
-            this.tabPage3.Controls.Add(this.radioButton2);
-            this.tabPage3.Controls.Add(this.radioButton1);
+            this.tabPage3.Controls.Add(this.rbTag);
+            this.tabPage3.Controls.Add(this.rbCategory);
             this.tabPage3.Controls.Add(this.btnBack);
             this.tabPage3.Controls.Add(this.gbNumber4);
             this.tabPage3.Controls.Add(this.gbNumber3);
@@ -285,6 +289,14 @@
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Posts";
             // 
+            // cbTags
+            // 
+            this.cbTags.FormattingEnabled = true;
+            this.cbTags.Location = new System.Drawing.Point(135, 441);
+            this.cbTags.Name = "cbTags";
+            this.cbTags.Size = new System.Drawing.Size(107, 21);
+            this.cbTags.TabIndex = 23;
+            // 
             // cbCategorySort
             // 
             this.cbCategorySort.FormattingEnabled = true;
@@ -293,38 +305,27 @@
             this.cbCategorySort.Size = new System.Drawing.Size(107, 21);
             this.cbCategorySort.TabIndex = 22;
             // 
-            // radioButton3
+            // rbTag
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(245, 418);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 17);
-            this.radioButton3.TabIndex = 21;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbTag.AutoSize = true;
+            this.rbTag.Location = new System.Drawing.Point(135, 418);
+            this.rbTag.Name = "rbTag";
+            this.rbTag.Size = new System.Drawing.Size(44, 17);
+            this.rbTag.TabIndex = 20;
+            this.rbTag.TabStop = true;
+            this.rbTag.Text = "Tag";
+            this.rbTag.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbCategory
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(152, 418);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(44, 17);
-            this.radioButton2.TabIndex = 20;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Tag";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(22, 418);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(70, 17);
-            this.radioButton1.TabIndex = 19;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Categorie";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbCategory.AutoSize = true;
+            this.rbCategory.Location = new System.Drawing.Point(22, 418);
+            this.rbCategory.Name = "rbCategory";
+            this.rbCategory.Size = new System.Drawing.Size(70, 17);
+            this.rbCategory.TabIndex = 19;
+            this.rbCategory.TabStop = true;
+            this.rbCategory.Text = "Categorie";
+            this.rbCategory.UseVisualStyleBackColor = true;
             // 
             // btnBack
             // 
@@ -889,13 +890,34 @@
             this.tabPage1.Text = "Admin";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // cbTags
+            // btnSort
             // 
-            this.cbTags.FormattingEnabled = true;
-            this.cbTags.Location = new System.Drawing.Point(152, 441);
-            this.cbTags.Name = "cbTags";
-            this.cbTags.Size = new System.Drawing.Size(107, 21);
-            this.cbTags.TabIndex = 23;
+            this.btnSort.Location = new System.Drawing.Point(22, 479);
+            this.btnSort.Name = "btnSort";
+            this.btnSort.Size = new System.Drawing.Size(75, 23);
+            this.btnSort.TabIndex = 24;
+            this.btnSort.Text = "Sorteren";
+            this.btnSort.UseVisualStyleBackColor = true;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
+            // 
+            // tbTitleSort
+            // 
+            this.tbTitleSort.Location = new System.Drawing.Point(249, 441);
+            this.tbTitleSort.Name = "tbTitleSort";
+            this.tbTitleSort.Size = new System.Drawing.Size(100, 20);
+            this.tbTitleSort.TabIndex = 25;
+            this.tbTitleSort.TextChanged += new System.EventHandler(this.tbTitleSort_TextChanged);
+            // 
+            // rbTitle
+            // 
+            this.rbTitle.AutoSize = true;
+            this.rbTitle.Location = new System.Drawing.Point(249, 418);
+            this.rbTitle.Name = "rbTitle";
+            this.rbTitle.Size = new System.Drawing.Size(45, 17);
+            this.rbTitle.TabIndex = 26;
+            this.rbTitle.TabStop = true;
+            this.rbTitle.Text = "Titel";
+            this.rbTitle.UseVisualStyleBackColor = true;
             // 
             // SocialMediaSharing
             // 
@@ -980,11 +1002,10 @@
         private System.Windows.Forms.Label lbLikes2;
         private System.Windows.Forms.PictureBox pbImage2;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbTag;
+        private System.Windows.Forms.RadioButton rbCategory;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbCategorySort;
-        private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.TextBox tbSummary;
         private System.Windows.Forms.TextBox tbTitle;
         private System.Windows.Forms.Label label2;
@@ -1004,5 +1025,8 @@
         private System.Windows.Forms.Label lbDatum2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ComboBox cbTags;
+        private System.Windows.Forms.Button btnSort;
+        private System.Windows.Forms.TextBox tbTitleSort;
+        private System.Windows.Forms.RadioButton rbTitle;
     }
 }

@@ -16,6 +16,8 @@ namespace ICT4Events
         int mediaCount = 0;
 
         List<Media> mediaList;
+        // Holder voor het swappen van media
+        List<Media> holder;
         MediaManager mediaManager;
         CategoryManager categoryManager;
         TagManager tagManager;
@@ -42,6 +44,7 @@ namespace ICT4Events
             categoryManager = new CategoryManager();
             tagManager = new TagManager();
             mediaList = mediaManager.RequestMediaUploads();
+            holder = mediaList;
 
             this.user = user;
 
@@ -167,22 +170,32 @@ namespace ICT4Events
             {
                 groupBoxAmount = mediaList.Count - postNumber;
             }
-
             // Kijkt of er minder posts geladen moeten worden dan het aantal groupboxes
-            if (postNumber + 4 > mediaList.Count())
+            if (postNumber + 4 >= mediaList.Count())
             {
+                btnNext.Enabled = false;
                 // Verandert het aantal groupboxes wanneer er minder gevult moeten worden dan er zijn
-
-                int amount = mediaList.Count % postNumber;
+                int amount = mediaList.Count - postNumber;
                 for (int i = 3; i >= amount; i = i -1)
                 {
                     // Zorgt dat de overige groupboxes niet getoond worden
                     groupBoxArray[i].Visible = false;
                 }
+
+                if (amount != 0)
+                {
+                    for (int i = amount; i > 0; i = i - 1)
+                    {
+                        // Zorgt dat de groupboxes die wel getoond moeten worden getoond worden
+                        groupBoxArray[i - 1].Visible = true;
+                    }
+                }
+              
             }
 
             else
             {
+                btnNext.Enabled = true;
                 for (int i = 0; i < groupBoxArray.Length; i++)
                 {
                     groupBoxArray[i].Visible = true;
@@ -233,8 +246,13 @@ namespace ICT4Events
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            // Vraagt de media lijst opnieuw op
             mediaList = mediaManager.RequestMediaUploads();
+            RefreshData();
+        }
+
+        private void RefreshData()
+        {
+            // Vraagt de media lijst opnieuw op
             mediaCount = 0;
             fillPosts(0);
 
@@ -248,11 +266,6 @@ namespace ICT4Events
             {
                 cbCategorySort.Items.Add(c);
             }
-           
-
-            // Reset de knoppen
-            btnNext.Enabled = true;
-            btnBack.Enabled = false;
         }
 
         // Events voor het klikken op een like linkLabel
@@ -402,6 +415,81 @@ namespace ICT4Events
         }
 
         #endregion
+
+        // Sorteren
+        private void btnSort_Click(object sender, EventArgs e)
+        {
+            List<Media> swap = new List<Media>();
+            bool swapped = false;
+            if (rbCategory.Checked)
+            {
+                mediaList = holder;
+                swapped = false;
+                foreach (Media m in mediaList)
+                {
+                    if (m.Category.Name == cbCategorySort.Text)
+                    {
+                        swap.Add(m);
+                        swapped = true;
+                    }
+                }
+            }
+
+            else if (rbTag.Checked)
+            {
+                mediaList = holder;
+                swapped = false;
+       
+                foreach (Media m in mediaList)
+                {
+                    List<Tag> tagList = m.TagList;
+                    foreach (Tag t in tagList)
+                    {
+                        if (t.Name == cbTags.Text)
+                        {
+                            swap.Add(m);
+                            swapped = true;
+                        }
+                    }
+                }
+            }
+
+            else if (rbTitle.Checked)
+            {
+                foreach (Media m in mediaList)
+                {
+                    string title = tbTitleSort.Text;
+                    if (m.Title.ToUpper().Contains(title.ToUpper()))
+                    {
+                        swap.Add(m);
+                        swapped = true;
+                    }
+                }
+            }
+
+            if (swapped)
+            {
+                mediaList = swap;
+                RefreshData();
+            }
+
+            else
+            {
+                mediaList = new List<Media>();
+                RefreshData();
+            }
+
+            
+
+            
+        }
+
+        private void tbTitleSort_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+
 
     }
 }
