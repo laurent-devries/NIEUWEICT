@@ -18,6 +18,11 @@ namespace ICT4Events
             Name = tag_name;
         }
 
+        public override string ToString()
+        {
+            return Name;
+        }
+
 
     }
 }
