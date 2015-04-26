@@ -12,16 +12,19 @@ namespace ICT4Events
 {
     class ProductManager
     {
+        public bool noUserSelected = false;
+        private int Totalhireamount;
+        private int TotalAmount;
         //done
         List<Product> productList = new List<Product>();
 
          public List<Product> RequestProducts()
          {
              DatabaseConnection con = new DatabaseConnection();
-             string Querry = "SELECT ID_PRODUCT, PRODUCTNAME, BAIL, PRICE, available, TOTALAMOUNT FROM ICT4_PRODUCT";
+             string Query = "SELECT ID_PRODUCT, PRODUCTNAME, BAIL, PRICE, available, TOTALAMOUNT FROM ICT4_PRODUCT";
              
 
-             OracleDataReader reader = con.SelectFromDatabase(Querry);
+             OracleDataReader reader = con.SelectFromDatabase(Query);
              Product product;
              while (reader.Read())
              {
@@ -42,11 +45,11 @@ namespace ICT4Events
              try
              {
                  DatabaseConnection con = new DatabaseConnection();
-                 string Querry = "SELECT DISTINCT P.ID_PRODUCT, P.PRODUCTNAME, PC.PRODUCTCATEGORY, P.BAIL, P.TOTALAMOUNT, P.TOTALHIREDAMOUNT FROM ICT4_PRODUCT P, ICT4_USER_PRODUCTS UP, ICT4_PRODUCTCATEGORY PC WHERE PC.ID_PRODUCTCAT = P.ID_PRODUCTCATFK AND P.ID_PRODUCT = UP.ID_PRODUCTFK(+) AND P.AVAILABLE = 'Y' ORDER BY P.ID_PRODUCT ";
+                 string Query = "SELECT DISTINCT P.ID_PRODUCT, P.PRODUCTNAME, PC.PRODUCTCATEGORY, P.BAIL, P.TOTALAMOUNT, P.TOTALHIREDAMOUNT FROM ICT4_PRODUCT P, ICT4_USER_PRODUCTS UP, ICT4_PRODUCTCATEGORY PC WHERE PC.ID_PRODUCTCAT = P.ID_PRODUCTCATFK AND P.ID_PRODUCT = UP.ID_PRODUCTFK(+) AND P.AVAILABLE = 'Y' ORDER BY P.ID_PRODUCT ";
 
 
                       
-                 OracleDataReader reader = con.SelectFromDatabase(Querry);
+                 OracleDataReader reader = con.SelectFromDatabase(Query);
                  Product product;
                  while (reader.Read())
                  {
@@ -76,13 +79,13 @@ namespace ICT4Events
              try
              {
                  DatabaseConnection con = new DatabaseConnection();
-                 string Querry = "SELECT P.ID_PRODUCT, P.PRODUCTNAME, UP.HIREDATE, UP.RETURNDATE, P.BAIL FROM ICT4_USER U, ICT4_USER_PRODUCTS UP, ICT4_PRODUCT P where u.ID_USER = UP.ID_USERFK and UP.ID_PRODUCTFK = p.ID_PRODUCT AND UP.RETURNEDDATE IS NULL AND u.rfidtag = " + "'" + rfid + "'"; 
+                 string Query = "SELECT P.ID_PRODUCT, P.PRODUCTNAME, UP.HIREDATE, UP.RETURNDATE, P.BAIL, UP.HIREDAMOUNT  FROM ICT4_USER U, ICT4_USER_PRODUCTS UP, ICT4_PRODUCT P where u.ID_USER = UP.ID_USERFK and UP.ID_PRODUCTFK = p.ID_PRODUCT AND UP.RETURNEDDATE IS NULL AND u.rfidtag = " + "'" + rfid + "'"; 
                   
-                 OracleDataReader reader = con.SelectFromDatabase(Querry);
+                 OracleDataReader reader = con.SelectFromDatabase(Query);
                  Product product;
                  while (reader.Read())
                  {
-                     product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetDateTime(3), reader.GetDecimal(4));
+                     product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetDateTime(3), reader.GetDecimal(4), reader.GetInt32(5));
                      productUserList.Add(product);
                  }
                  reader.Dispose();
@@ -99,15 +102,54 @@ namespace ICT4Events
          }
 
         // done
-         public void InsertBorrow(Product product, User user , string date) 
+         public void InsertBorrow(Product product, User user , string date, int hireAmount) 
          {
-             DatabaseConnection con = new DatabaseConnection();
 
-             string Query = "INSERT INTO ICT4_USER_PRODUCTS VALUES(" + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date(sysdate,'DD-MM-YYYY'), to_date('" + date + "', 'DD-MM-YYYY'), null)";
-             con.InsertOrUpdate(Query);
+             if (user == null)
+             {
+                 noUserSelected = true;         
+             }
+             else
+             {
+                 DatabaseConnection con = new DatabaseConnection();
+                 string Query = "SELECT TOTALAMOUNT, TOTALHIREDAMOUNT FROM ICT4_PRODUCT";
+                 OracleDataReader reader = con.SelectFromDatabase(Query);
+                 while (reader.Read())
+                 {
+                     Totalhireamount =  (reader.GetInt32(0)); 
+                     TotalAmount = (reader.GetInt32(1));
+                 }
+                 reader.Dispose();
 
-             string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + ""; 
-             con.InsertOrUpdate(Query2);
+                 if (Totalhireamount >= TotalAmount)
+                 {
+                     MessageBox.Show("fck it");
+                 }
+
+                 else 
+                 {
+                     string Query1 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(" + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date(sysdate,'DD-MM-YYYY'), to_date('" + date + "', 'DD-MM-YYYY'), null" + "'" + product.ID_Product + "," + "'" + hireAmount + "'" + ")";
+                     con.InsertOrUpdate(Query1);
+
+                     string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+                     con.InsertOrUpdate(Query2);
+                     noUserSelected = false;
+                 }
+                 
+             } 
+
+             
+             //if ()
+             //{
+             //    return true;
+             //}
+
+             //else 
+             //{
+             //   return false;
+             //}
+
+             
 
          }
 

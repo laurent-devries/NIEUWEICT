@@ -29,6 +29,7 @@ namespace ICT4Events
         private string available;
         private int totalamount;
         private int totalHiredamount;
+        private int hiredamount;
         
         public decimal Price { get { return price; } set { price = value; } }
         public decimal Bail { get { return bail; } set { bail = value; } }
@@ -41,6 +42,7 @@ namespace ICT4Events
         public string Available { get { return available; } set { available = value; } }
         public int TotalHiredamount { get { return totalHiredamount; } set { totalHiredamount = value; } }
         public int Totalamount { get { return totalamount; } set { totalamount = value; } }
+        public int Hiredamount { get { return hiredamount; } set { hiredamount = value;  } }
         
         // Alle producten die aanwezig zijn in het systeem.
         public Product(int iD_product, string product_name, decimal bail, decimal price, string available, int totalamount)
@@ -55,13 +57,14 @@ namespace ICT4Events
         }
 
         // De producten die de user gehuurd heeft.
-        public Product(int iD_product, string product_name, DateTime hire_date, DateTime return_date, decimal bail)
+        public Product(int iD_product, string product_name, DateTime hire_date, DateTime return_date, decimal bail, int hiredamount)
         {
             this.iD_product = iD_product;
             this.product_name = product_name;
             this.hire_date = hire_date;
             this.return_date = return_date;
             this.bail = bail;
+            this.hiredamount = hiredamount;
             
         }
 
@@ -87,11 +90,7 @@ namespace ICT4Events
             this.totalHiredamount = totalHiredamount;
             this.totalamount = totalamount - totalHiredamount;
         }
-
-     
-
         
-
         public decimal GetProductPrice()
         {
             decimal a = bail + price;
@@ -99,8 +98,6 @@ namespace ICT4Events
             
         }
 
-            
-        
          public override string ToString()
          {
 
@@ -109,7 +106,7 @@ namespace ICT4Events
 
              if (category == null && available == null) 
              {
-                 return iD_product + "\t" + product_name + "\t" + category + "\t" + "€" + bail + "\t" + "\t" + hiredate + "\t" + returndate;
+                 return iD_product + "\t" + product_name + "\t" + "€" + bail + "\t" + "\t" + hiredate + "\t" + returndate + "\t" + hiredamount;
              }
 
              if (category ==  null)
@@ -124,7 +121,5 @@ namespace ICT4Events
              }
 
          }
-
-         
     }
 }

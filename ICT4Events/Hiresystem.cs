@@ -71,7 +71,6 @@ namespace ICT4Events
         {
             lblconnectedInfo.Text = "Verbinding verbroken";
             lblserialInfo.Text = "--";
-            //scanned = false;
         }
 
         public void rfid_Tag(object sender, TagEventArgs e)
@@ -92,8 +91,8 @@ namespace ICT4Events
                 lblBirthDHR.Text = "";
                 lblEmailHR.Text = "";
                 lblCountryHR.Text = "";
-                lblStreetHR.Text = "";
-                lblHouseNBHR.Text = "";
+                // lblStreetHR.Text = "";
+                //lblHouseNBHR.Text = "";
                 lblCityHR.Text = "";
                 lblCellPhoneNBHR.Text = "";
                 lblLoginHR.Text = "";
@@ -109,8 +108,8 @@ namespace ICT4Events
                 lblBirthDHR.Text = Convert.ToString(user.Birth_Date);
                 lblEmailHR.Text = user.Email;
                 lblCountryHR.Text = user.Country;
-                // lblStreetHR.Text = user.
-                // lblHouseNBHR.Text = user.
+                // lblStreetHR.Text = user.Street;
+               // lblHouseNBHR.Text = user.Housenumber;
                 lblCityHR.Text = user.City;
                 lblCellPhoneNBHR.Text = user.Phone_Number;
                 lblLoginHR.Text = user.Login_Name;
@@ -203,26 +202,28 @@ namespace ICT4Events
 
                     product = listBoxAvble.SelectedItem as Product;
                     ProductManager productdata = new ProductManager();
-                    productdata.InsertBorrow(product, user, date);
+                    productdata.InsertBorrow(product, user, date, Amountvalue);
+                    if (productdata.noUserSelected == true)
+                    {
+                        MessageBox.Show("Scan eerst een user.");
+                        
+                    }
                     string RFID = RFIDtext.Text;
                     refresh(RFID);
-
                 }
-
                 else
                 {
                     MessageBox.Show("Selecteer eerst een product om uit te lenen");
                 }
-            
             }
             else
             {
-                MessageBox.Show("Vul teminste 1 product om te lenen");
+                MessageBox.Show("Vul teminste 1 product in om te lenen");
             }
+
         }
                 
-              
-
+           
             private void bttnReturn_Click(object sender, EventArgs e)
             {
                Product product;
@@ -248,5 +249,7 @@ namespace ICT4Events
                 LoadHiredProducts(e);
                 
             }
+
+           
     }
 }
