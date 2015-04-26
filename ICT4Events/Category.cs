@@ -9,17 +9,25 @@ using Oracle.ManagedDataAccess.Types;
 namespace ICT4Events
 {
     //Laurent de Vries
-    class Category : ICategorieTag
+    public class Category : ICategorieTag
     {
         //Fields 
         List<Category> categories;
 
         public string Name { get; set; }
+        public int Id { get; set; }
 
         //Constructor
         public Category(string Category_Name)
         {
             Name = Category_Name;
+        }
+
+        public Category(string category_Name, int id)
+        {
+            Name = category_Name;
+            Id = id;
+
         }
 
         public Category()

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbNumber1 = new System.Windows.Forms.GroupBox();
+            this.lbDatum1 = new System.Windows.Forms.Label();
             this.lbUploader1 = new System.Windows.Forms.Label();
             this.lbTags1 = new System.Windows.Forms.Label();
             this.lblCategorie1 = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btnBack = new System.Windows.Forms.Button();
             this.gbNumber4 = new System.Windows.Forms.GroupBox();
+            this.lbDatum4 = new System.Windows.Forms.Label();
             this.lbUploader4 = new System.Windows.Forms.Label();
             this.lbTags4 = new System.Windows.Forms.Label();
             this.lblCategorie4 = new System.Windows.Forms.Label();
@@ -59,6 +61,7 @@
             this.lbLikes4 = new System.Windows.Forms.Label();
             this.pbImage4 = new System.Windows.Forms.PictureBox();
             this.gbNumber3 = new System.Windows.Forms.GroupBox();
+            this.lbDatum3 = new System.Windows.Forms.Label();
             this.lbUploader3 = new System.Windows.Forms.Label();
             this.lbTags3 = new System.Windows.Forms.Label();
             this.lblCategorie3 = new System.Windows.Forms.Label();
@@ -70,6 +73,7 @@
             this.lbLikes3 = new System.Windows.Forms.Label();
             this.pbImage3 = new System.Windows.Forms.PictureBox();
             this.gbNumber2 = new System.Windows.Forms.GroupBox();
+            this.lbDatum2 = new System.Windows.Forms.Label();
             this.lbUploader2 = new System.Windows.Forms.Label();
             this.lbTags2 = new System.Windows.Forms.Label();
             this.lblCategorie2 = new System.Windows.Forms.Label();
@@ -96,10 +100,8 @@
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbDatum1 = new System.Windows.Forms.Label();
-            this.lbDatum2 = new System.Windows.Forms.Label();
-            this.lbDatum3 = new System.Windows.Forms.Label();
-            this.lbDatum4 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cbTags = new System.Windows.Forms.ComboBox();
             this.gbNumber1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage1)).BeginInit();
             this.tbUpload.SuspendLayout();
@@ -133,6 +135,15 @@
             this.gbNumber1.TabIndex = 0;
             this.gbNumber1.TabStop = false;
             this.gbNumber1.Text = "Upload title";
+            // 
+            // lbDatum1
+            // 
+            this.lbDatum1.AutoSize = true;
+            this.lbDatum1.Location = new System.Drawing.Point(6, 178);
+            this.lbDatum1.Name = "lbDatum1";
+            this.lbDatum1.Size = new System.Drawing.Size(38, 13);
+            this.lbDatum1.TabIndex = 15;
+            this.lbDatum1.Text = "Datum";
             // 
             // lbUploader1
             // 
@@ -227,6 +238,7 @@
             this.pbImage1.Location = new System.Drawing.Point(6, 19);
             this.pbImage1.Name = "pbImage1";
             this.pbImage1.Size = new System.Drawing.Size(115, 114);
+            this.pbImage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage1.TabIndex = 1;
             this.pbImage1.TabStop = false;
             // 
@@ -244,6 +256,7 @@
             // 
             this.tbUpload.Controls.Add(this.tabPage3);
             this.tbUpload.Controls.Add(this.tabPage4);
+            this.tbUpload.Controls.Add(this.tabPage1);
             this.tbUpload.Location = new System.Drawing.Point(21, 12);
             this.tbUpload.Name = "tbUpload";
             this.tbUpload.SelectedIndex = 0;
@@ -253,6 +266,7 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage3.Controls.Add(this.cbTags);
             this.tabPage3.Controls.Add(this.cbCategorySort);
             this.tabPage3.Controls.Add(this.radioButton3);
             this.tabPage3.Controls.Add(this.radioButton2);
@@ -295,10 +309,10 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(152, 418);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
+            this.radioButton2.Size = new System.Drawing.Size(44, 17);
             this.radioButton2.TabIndex = 20;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.Text = "Tag";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
@@ -342,6 +356,15 @@
             this.gbNumber4.TabIndex = 17;
             this.gbNumber4.TabStop = false;
             this.gbNumber4.Text = "Upload title";
+            // 
+            // lbDatum4
+            // 
+            this.lbDatum4.AutoSize = true;
+            this.lbDatum4.Location = new System.Drawing.Point(6, 180);
+            this.lbDatum4.Name = "lbDatum4";
+            this.lbDatum4.Size = new System.Drawing.Size(38, 13);
+            this.lbDatum4.TabIndex = 17;
+            this.lbDatum4.Text = "Datum";
             // 
             // lbUploader4
             // 
@@ -436,6 +459,7 @@
             this.pbImage4.Location = new System.Drawing.Point(6, 19);
             this.pbImage4.Name = "pbImage4";
             this.pbImage4.Size = new System.Drawing.Size(115, 114);
+            this.pbImage4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage4.TabIndex = 1;
             this.pbImage4.TabStop = false;
             // 
@@ -458,6 +482,15 @@
             this.gbNumber3.TabIndex = 16;
             this.gbNumber3.TabStop = false;
             this.gbNumber3.Text = "Upload title";
+            // 
+            // lbDatum3
+            // 
+            this.lbDatum3.AutoSize = true;
+            this.lbDatum3.Location = new System.Drawing.Point(6, 180);
+            this.lbDatum3.Name = "lbDatum3";
+            this.lbDatum3.Size = new System.Drawing.Size(38, 13);
+            this.lbDatum3.TabIndex = 16;
+            this.lbDatum3.Text = "Datum";
             // 
             // lbUploader3
             // 
@@ -552,6 +585,7 @@
             this.pbImage3.Location = new System.Drawing.Point(6, 19);
             this.pbImage3.Name = "pbImage3";
             this.pbImage3.Size = new System.Drawing.Size(115, 114);
+            this.pbImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage3.TabIndex = 1;
             this.pbImage3.TabStop = false;
             // 
@@ -574,6 +608,15 @@
             this.gbNumber2.TabIndex = 15;
             this.gbNumber2.TabStop = false;
             this.gbNumber2.Text = "Upload title";
+            // 
+            // lbDatum2
+            // 
+            this.lbDatum2.AutoSize = true;
+            this.lbDatum2.Location = new System.Drawing.Point(6, 178);
+            this.lbDatum2.Name = "lbDatum2";
+            this.lbDatum2.Size = new System.Drawing.Size(38, 13);
+            this.lbDatum2.TabIndex = 16;
+            this.lbDatum2.Text = "Datum";
             // 
             // lbUploader2
             // 
@@ -668,6 +711,7 @@
             this.pbImage2.Location = new System.Drawing.Point(6, 19);
             this.pbImage2.Name = "pbImage2";
             this.pbImage2.Size = new System.Drawing.Size(115, 114);
+            this.pbImage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage2.TabIndex = 1;
             this.pbImage2.TabStop = false;
             // 
@@ -835,41 +879,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Titel";
             // 
-            // lbDatum1
+            // tabPage1
             // 
-            this.lbDatum1.AutoSize = true;
-            this.lbDatum1.Location = new System.Drawing.Point(6, 178);
-            this.lbDatum1.Name = "lbDatum1";
-            this.lbDatum1.Size = new System.Drawing.Size(38, 13);
-            this.lbDatum1.TabIndex = 15;
-            this.lbDatum1.Text = "Datum";
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(724, 508);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Admin";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // lbDatum2
+            // cbTags
             // 
-            this.lbDatum2.AutoSize = true;
-            this.lbDatum2.Location = new System.Drawing.Point(6, 178);
-            this.lbDatum2.Name = "lbDatum2";
-            this.lbDatum2.Size = new System.Drawing.Size(38, 13);
-            this.lbDatum2.TabIndex = 16;
-            this.lbDatum2.Text = "Datum";
-            // 
-            // lbDatum3
-            // 
-            this.lbDatum3.AutoSize = true;
-            this.lbDatum3.Location = new System.Drawing.Point(6, 180);
-            this.lbDatum3.Name = "lbDatum3";
-            this.lbDatum3.Size = new System.Drawing.Size(38, 13);
-            this.lbDatum3.TabIndex = 16;
-            this.lbDatum3.Text = "Datum";
-            // 
-            // lbDatum4
-            // 
-            this.lbDatum4.AutoSize = true;
-            this.lbDatum4.Location = new System.Drawing.Point(6, 180);
-            this.lbDatum4.Name = "lbDatum4";
-            this.lbDatum4.Size = new System.Drawing.Size(38, 13);
-            this.lbDatum4.TabIndex = 17;
-            this.lbDatum4.Text = "Datum";
+            this.cbTags.FormattingEnabled = true;
+            this.cbTags.Location = new System.Drawing.Point(152, 441);
+            this.cbTags.Name = "cbTags";
+            this.cbTags.Size = new System.Drawing.Size(107, 21);
+            this.cbTags.TabIndex = 23;
             // 
             // SocialMediaSharing
             // 
@@ -976,5 +1002,7 @@
         private System.Windows.Forms.Label lbDatum4;
         private System.Windows.Forms.Label lbDatum3;
         private System.Windows.Forms.Label lbDatum2;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.ComboBox cbTags;
     }
 }

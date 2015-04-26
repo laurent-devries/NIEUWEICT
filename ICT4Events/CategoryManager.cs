@@ -19,7 +19,7 @@ namespace ICT4Events
             OracleConnection oracleConnection = con.OracleConnetion();
             oracleConnection.Open();
 
-            string cmdQuery = "SELECT categoryName FROM ICT4_CATEGORY";
+            string cmdQuery = "SELECT categoryName, id_category FROM ICT4_CATEGORY";
 
             // Maakt het OracleCommand aan
             OracleCommand cmd = new OracleCommand(cmdQuery);
@@ -33,7 +33,7 @@ namespace ICT4Events
             //Haalt alle categorieen op
             while (reader.Read())
             {
-                Category categorie = new Category(reader.GetString(0));
+                Category categorie = new Category(reader.GetString(0), reader.GetInt32(1));
                 categoryList.Add(categorie);
             }
 

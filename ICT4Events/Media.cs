@@ -12,7 +12,6 @@ namespace ICT4Events
     public class Media
     {
         //Fields
-        private static int idnumber = 0;
         private int id_media;
         private int likes;
         private int reports;
@@ -29,12 +28,11 @@ namespace ICT4Events
         public int Likes { get { return likes; } set { likes = value; } }
         public int Reports { get { return reports; } set { reports = value; } }
         public User User { get; set; }
-
-        // Lijst van categorieen en tags
-        private List<ICategorieTag> CategorieTagList;
+        public Category Category { get; set; }
+        public List<Tag> TagList { get; set; }
         //
         //Methods
-        public Media(string title, string date, string summary, int views, int likes, int reports, string file_Path, string type_Media, int idmedia, User user)
+        public Media(string title, string date, string summary, int views, int likes, int reports, string file_Path, string type_Media, int idmedia, User user, Category category, List<Tag> tagList)
         {
             ID_Media = idmedia;
             Title = title;
@@ -46,9 +44,11 @@ namespace ICT4Events
             Likes = likes;
             Reports = reports;
             User = user;
+            Category = category;
+            TagList = tagList;
         }
 
-        public Media(string title, string date, string summary, int views, int likes, int reports,  string type_Media, int idmedia, User user)
+        public Media(string title, string date, string summary, int views, int likes, int reports,  string type_Media, int idmedia, User user, Category category, List<Tag> tagList)
         {
             ID_Media = idmedia;
             Title = title;
@@ -59,6 +59,8 @@ namespace ICT4Events
             Likes = likes;
             Reports = reports;
             User = user;
+            Category = category;
+            TagList = tagList;
         }
 
 
