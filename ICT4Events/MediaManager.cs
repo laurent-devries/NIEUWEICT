@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Types;
 using Oracle.ManagedDataAccess.Client;
+using System.Data;
 
 namespace ICT4Events
 {
@@ -15,13 +15,87 @@ namespace ICT4Events
         List<Media> mediaList = new List<Media>();
         List<Comment> commentList = new List<Comment>();
 
+        // Nieuwe requestMedia gemaakt -- Frank
+        // Link : http://docs.oracle.com/cd/B19306_01/win.102/b14307/OracleCommandClass.htm
+        public List<Media> RequestMediaUploads(User loginUser)
+        {
+
+            // Maakt de lijst aan die later gevult wordt met alle uploads
+            List<Media> mList = new List<Media>();
+            Media media;
+
+            DatabaseConnection con = new DatabaseConnection();
+            OracleConnection oracleConnection = con.OracleConnetion();
+            oracleConnection.Open();
+
+            string cmdQuery = "SELECT M.TITLE, to_char(M.DATEMEDIA), M.SUMMARYMEDIA,  M.viewMedia, to_char(M.likes), to_char(M.reports), M.FILEPATH, M.id_media, M.ID_USERFK, (SELECT CATEGORYNAME FROM ICT4_CATEGORY CA WHERE CA.ID_CATEGORY = M.ID_CATEGORYFK), (SELECT COUNT(ID_MEDIAFK) FROM ICT4_NOTE N WHERE N.REPORTNOTE = 'Y' AND N.ID_MEDIAFK = M.ID_MEDIA) FROM ICT4_MEDIA M WHERE ID_EVENTFK = " + loginUser.ID_EventFK + "ORDER BY M.ID_MEDIA DESC";
+            // Maakt het OracleCommand aan
+            OracleCommand cmd = new OracleCommand(cmdQuery);
+
+            cmd.Connection = oracleConnection;
+            cmd.CommandType = CommandType.Text;
+
+            // Voert het OracleCommand uit
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string title = reader.GetString(0);
+                string date = reader.GetString(1);
+                string summary = reader.GetString(2);
+                int views = reader.GetInt32(3);
+                
+                int reports = reader.GetInt32(10);
+                
+                int idMedia = reader.GetInt32(7);
+                int likes = CountLikes(idMedia);
+
+                UserManager userManager = new UserManager();
+                User user = userManager.SearchUserById(reader.GetInt32(8));
+
+                // Haalt een lijst op met alle bijhorende tags
+                List<Tag> tagList = RequestTagsForMedia(idMedia);
+                Category category = new Category(reader.GetString(9));
+
+                // Kijkt of het een foto upload is of niet
+                string mediaType;
+                string filePath;
+                try
+                {
+                    filePath = reader.GetString(6);
+                    mediaType = "FOTO";
+                    media = new Media(title, date, summary, views, likes, reports,filePath, mediaType, idMedia, user, category, tagList);
+                    mList.Add(media);
+                }
+
+                catch
+                {
+                    mediaType = "TEXT";
+                    media = new Media(title, date, summary, views, likes, reports, mediaType, idMedia, user, category, tagList);
+                    mList.Add(media);
+                }                
+            }
+
+            // Opruimen
+            reader.Dispose();
+            cmd.Dispose();
+            oracleConnection.Dispose();
+
+            // Geeft de list terug
+            return mList;
+
+        }
+
+
+
+
         public List<Media> RequestMedia()
         {
             DatabaseConnection con = new DatabaseConnection();
             string Querry = "SELECT TITLE, to_char(DATEMEDIA), SUMMARYMEDIA,  to_char(viewMedia), to_char(likes), to_char(reports), FILEPATH, id_media, ID_USERFK FROM ICT4_MEDIA";
 
             OracleDataReader reader = con.SelectFromDatabase(Querry);
-            Media media;
+            //Media media;
             UserManager userManager = new UserManager();
             MediaManager mediaManager = new MediaManager();
             while (reader.Read())
@@ -43,15 +117,15 @@ namespace ICT4Events
                 try
                 {
                     filePath = reader.GetString(6);
-                    media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, filePath, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                    //media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, filePath, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)), new Category("Oud"));
                 }
 
                 catch
                 {
-                    media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                    //media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)), new Category("Oud"));
                 }
 
-                mediaList.Add(media);
+                //mediaList.Add(media);
             }
 
             reader.Dispose();
@@ -63,28 +137,39 @@ namespace ICT4Events
         public int CountLikes(int mediaId)
         {
             int count = 0;
-            try
-            {
-                DatabaseConnection con = new DatabaseConnection();
-                string Query = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId;
 
-                OracleDataReader reader = con.SelectFromDatabase(Query);
-                reader.Read();
-                count = reader.GetInt32(0);
-                reader.Close();
-                reader.Dispose();
-                //con.CloseConnection();//////////////////////////test
-                return count;
-            }
+            DatabaseConnection con = new DatabaseConnection();
+            OracleConnection oracleConnection = con.OracleConnetion();
+            oracleConnection.Open();
 
-            catch
-            {
-                return count;
-            }
+            string cmdQuery = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId + " AND LIKENOTE = 'Y'";
+
+            // Maakt het OracleCommand aan
+            OracleCommand cmd = new OracleCommand(cmdQuery);
+
+            cmd.Connection = oracleConnection;
+            cmd.CommandType = CommandType.Text;
+
+            // Voert het OracleCommand uit
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            //Haalt het aantal likes op
+            reader.Read();
+            count = reader.GetInt32(0);
+
+            // Opruimen
+            reader.Dispose();
+            cmd.Dispose();
+            oracleConnection.Dispose();
+
+            // Returend het aantal
+            return count;
+
+
           
         }
 
-        public bool InsertMedia(string title, string summaryMedia, string filePath, string typeMedia, DateTime currentDate, User user, string[] tags)
+        public bool InsertMedia(string title, string summaryMedia, string filePath, string typeMedia, DateTime currentDate, User user, string[] tags, Category category)
         {
             DatabaseConnection con = new DatabaseConnection();
 
@@ -93,14 +178,14 @@ namespace ICT4Events
             TagManager tagManager = new TagManager();
             List<Tag> TagList = tagManager.RequestAllTags();
             List<int> tagIdList = new List<int>();
-
+            #region Toevoegen van tags
             // Gaat een lijst af om te kijken of de tag al bestaat
             for (int i = 0; i < tags.Length; i++)
             {
                 bool insert = true;
                 foreach (Tag t in TagList)
                 {
-                    if (t.Tag_name == tags[i])
+                    if (t.Name == tags[i])
                     {
                         insert = false;
                     }
@@ -114,12 +199,36 @@ namespace ICT4Events
                     string tagId = "SELECT id_tag FROM ICT4_TAG WHERE tagname = '" + tags[i] + "'";
                     OracleDataReader reader = con.SelectFromDatabase(tagId);
                     reader.Read();
-                    tagIdList.Add(reader.GetInt32(0));
-                    reader.Dispose();
-                    //con.CloseConnection();//////////////////////////test
+
+                    // Haalt het ID van de tag op
+                    DatabaseConnection conTag = new DatabaseConnection();
+                    OracleConnection oracleConnection = conTag.OracleConnetion();
+                    oracleConnection.Open();
+
+                    string cmdQuery = "SELECT id_tag FROM ICT4_TAG WHERE tagname = '" + tags[i] + "'";
+
+                    // Maakt het OracleCommand aan
+                    OracleCommand cmd = new OracleCommand(cmdQuery);
+
+                    cmd.Connection = oracleConnection;
+                    cmd.CommandType = CommandType.Text;
+
+                    // Voert het OracleCommand uit
+                    OracleDataReader tagReader = cmd.ExecuteReader();
+
+                    //Haalt het ID op
+                    tagReader.Read();
+                    tagIdList.Add(tagReader.GetInt32(0));
+
+                    // Opruimen
+                    tagReader.Dispose();
+                    cmd.Dispose();
+                    oracleConnection.Dispose();
+
                 }
             }
 
+            #endregion
 
 
             string dateMonth = Convert.ToString(currentDate.Month);
@@ -132,15 +241,14 @@ namespace ICT4Events
 
             string Query;
             //Kijkt of het filepath gevult is of niet
-            if (filePath == "ftp://172.16.0.15/")
+            if (filePath == "ftp://172.16.0.15/" || filePath == "")
             {
-                Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,SUMMARYMEDIA,TYPEMEDIA, ID_USERFK) VALUES(media_seq.nextval,'" + title + "','" + summaryMedia + "', '" + typeMedia + "', " + user.ID_User +")";
-                    
+                Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,SUMMARYMEDIA,TYPEMEDIA, ID_USERFK, ID_CATEGORYFK, ID_EVENTFK) VALUES(media_seq.nextval,'" + title + "','" + summaryMedia + "', '" + typeMedia + "', " + user.ID_User +", " + category.Id + ", " + user.ID_EventFK + ")";            
             }
 
             else
             {
-                Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,DATEMEDIA,SUMMARYMEDIA,VIEWMEDIA,FILEPATH,TYPEMEDIA) VALUES(media_seq.nextval,'" + title + "', to_date('" + Convert.ToString(currentDate.Day) + dateMonth + Convert.ToString(currentDate.Year) + "', 'DDMMYYYY'),'" + summaryMedia + "', 0,'" + filePath + "','" + typeMedia + "')";
+                Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,DATEMEDIA,SUMMARYMEDIA,VIEWMEDIA,FILEPATH,TYPEMEDIA, ID_USERFK, ID_CATEGORYFK, ID_EVENTFK) VALUES(media_seq.nextval,'" + title + "', to_date('" + Convert.ToString(currentDate.Day) + dateMonth + Convert.ToString(currentDate.Year) + "', 'DDMMYYYY'),'" + summaryMedia + "', 0,'" + filePath + "','" + typeMedia + "', " + user.ID_User + ", " + category.Id + " ,  " + user.ID_EventFK + ")";
             }
             bool writer = con.InsertOrUpdate(Query);
             
@@ -165,6 +273,40 @@ namespace ICT4Events
         }
 
 
+        private List<Tag> RequestTagsForMedia(int idMedia)
+        {
+            List<Tag> tagList = new List<Tag>();
+
+            DatabaseConnection con = new DatabaseConnection();
+            OracleConnection oracleConnection = con.OracleConnetion();
+            oracleConnection.Open();
+
+            string cmdQuery = "SELECT T.TAGNAME FROM ICT4_MEDIA M, ICT4_TAG T, ICT4_MEDIA_TAG MT WHERE M.ID_MEDIA = MT.ID_MEDIAFK AND MT.ID_TAGFK = T.ID_TAG AND M.ID_MEDIA = " + idMedia;
+
+            // Maakt het OracleCommand aan
+            OracleCommand cmd = new OracleCommand(cmdQuery);
+
+            cmd.Connection = oracleConnection;
+            cmd.CommandType = CommandType.Text;
+
+            // Voert het OracleCommand uit
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            //Haalt het aantal likes op
+            while (reader.Read())
+            {
+                Tag tag = new Tag(reader.GetString(0));
+                tagList.Add(tag);
+            }
+
+            // Opruimen
+            reader.Dispose();
+            cmd.Dispose();
+            oracleConnection.Dispose();
+
+            // Returend het aantal
+            return tagList;
+        }
 
         public bool UpdateLikes(Media media, User user)
         {
@@ -179,8 +321,17 @@ namespace ICT4Events
         {
             DatabaseConnection con = new DatabaseConnection();
 
-            string Query = "INSERT INTO ICT4_NOTE(ID_NOTE, ID_USERFK, ID_MEDIAFK, REPORTNOTE) VALUES (note_seq.nextval, " + user.ID_User + ", " + media.ID_Media + ", 'Y')";
-            bool writer = con.InsertOrUpdate(Query);
+            string query = "INSERT INTO ICT4_NOTE(ID_NOTE, ID_USERFK, ID_MEDIAFK, REPORTNOTE) VALUES (note_seq.nextval, " + user.ID_User + ", " + media.ID_Media + ", 'Y')";
+            bool writer = con.InsertOrUpdate(query);
+            return writer;
+        }
+
+        public bool DeleteMedia(Media media)
+        {
+            DatabaseConnection con = new DatabaseConnection();
+
+            string query = "DELETE FROM ICT4_MEDIA WHERE ID_MEDIA = " + media.ID_Media;
+            bool writer = con.InsertOrUpdate(query);
             return writer;
         }
 
@@ -200,6 +351,30 @@ namespace ICT4Events
             bool writer = con.InsertOrUpdate(Query);
             return writer;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // OUD -- Frank
         public List<Media> RequestMediaTag(string tagnaam)
         {
             DatabaseConnection con = new DatabaseConnection();
@@ -215,7 +390,7 @@ namespace ICT4Events
             {
                 string Query = "SELECT TITLE, to_char(DATEMEDIA), SUMMARYMEDIA,  to_char(viewMedia), to_char(likes), to_char(reports), FILEPATH, id_media, ID_USERFK FROM ICT4_MEDIA WHERE id_media = '" + i + "'";
                 OracleDataReader reader = con.SelectFromDatabase(Query);
-                Media media;
+                //Media media;
                 UserManager userManager = new UserManager();
                 MediaManager mediaManager = new MediaManager();
                 while (reader.Read())
@@ -237,15 +412,15 @@ namespace ICT4Events
                     try
                     {
                         filePath = reader.GetString(6);
-                        media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, filePath, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                        //media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, filePath, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)), new Category("Oud"));
                     }
 
                     catch
                     {
-                        media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                        //media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)), new Category("Oud"));
                     }
 
-                    mediaList.Add(media);
+                    //mediaList.Add(media);
                 }
 
                 reader.Dispose();
@@ -270,7 +445,7 @@ namespace ICT4Events
             {
                 string Query = "SELECT TITLE, to_char(DATEMEDIA), SUMMARYMEDIA,  to_char(viewMedia), to_char(likes), to_char(reports), FILEPATH, id_media, ID_USERFK FROM ICT4_MEDIA WHERE id_media = '" + i + "'";
                 OracleDataReader reader = con.SelectFromDatabase(Query);
-                Media media;
+                //Media media;
                 UserManager userManager = new UserManager();
                 MediaManager mediaManager = new MediaManager();
                 while (reader.Read())
@@ -292,15 +467,15 @@ namespace ICT4Events
                     try
                     {
                         filePath = reader.GetString(6);
-                        media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, filePath, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                        //media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, filePath, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)), new Category("Oud"));
                     }
 
                     catch
                     {
-                        media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)));
+                        //media = new Media(reader.GetString(0), reader.GetString(1), reader.GetString(2), Convert.ToInt32(reader.GetString(3)), mediaManager.CountLikes(reader.GetInt32(7)), aantalReports, "VIDEO", reader.GetInt32(7), userManager.SearchUserById(reader.GetInt32(8)), new Category("Oud"));
                     }
 
-                    mediaList.Add(media);
+                    //mediaList.Add(media);
                 }
 
                 reader.Dispose();

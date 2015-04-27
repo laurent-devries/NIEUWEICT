@@ -350,7 +350,7 @@ namespace ICT4Events
                 string [] tags = tag.ToArray();
                 MediaManager media = new MediaManager();
                 DateTime currentDate = DateTime.Now;
-                media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, path, "test", currentDate, user, tags);
+                //media.InsertMedia(tTitleOfMedia.Text, tMediaDescription.Text, path, "test", currentDate, user, tags);
             };
         }
 
@@ -375,7 +375,7 @@ namespace ICT4Events
 
             foreach (Tag t in tags)
             {
-                cbTagCheck.Items.Add(t.Tag_name);
+                cbTagCheck.Items.Add(t.Name);
             }
 
         }

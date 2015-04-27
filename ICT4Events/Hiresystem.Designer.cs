@@ -78,6 +78,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.txtAmount = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -88,6 +90,8 @@
             this.label30 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -461,12 +465,12 @@
             this.listBox3.ItemHeight = 16;
             this.listBox3.Location = new System.Drawing.Point(15, 49);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(388, 548);
+            this.listBox3.Size = new System.Drawing.Size(452, 548);
             this.listBox3.TabIndex = 25;
             // 
             // bttnLend
             // 
-            this.bttnLend.Location = new System.Drawing.Point(9, 128);
+            this.bttnLend.Location = new System.Drawing.Point(9, 166);
             this.bttnLend.Name = "bttnLend";
             this.bttnLend.Size = new System.Drawing.Size(139, 38);
             this.bttnLend.TabIndex = 31;
@@ -480,12 +484,12 @@
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(16, 45);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(626, 244);
+            this.listBox1.Size = new System.Drawing.Size(775, 244);
             this.listBox1.TabIndex = 37;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(9, 70);
+            this.dateTimePicker1.Location = new System.Drawing.Point(9, 119);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(174, 22);
             this.dateTimePicker1.TabIndex = 41;
@@ -496,12 +500,12 @@
             this.listBoxAvble.ItemHeight = 16;
             this.listBoxAvble.Location = new System.Drawing.Point(15, 45);
             this.listBoxAvble.Name = "listBoxAvble";
-            this.listBoxAvble.Size = new System.Drawing.Size(456, 244);
+            this.listBoxAvble.Size = new System.Drawing.Size(580, 244);
             this.listBoxAvble.TabIndex = 42;
             // 
             // bttnReturn
             // 
-            this.bttnReturn.Location = new System.Drawing.Point(9, 172);
+            this.bttnReturn.Location = new System.Drawing.Point(9, 210);
             this.bttnReturn.Name = "bttnReturn";
             this.bttnReturn.Size = new System.Drawing.Size(139, 38);
             this.bttnReturn.TabIndex = 43;
@@ -557,7 +561,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 50);
+            this.label13.Location = new System.Drawing.Point(6, 99);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(125, 17);
             this.label13.TabIndex = 49;
@@ -565,16 +569,34 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label33);
+            this.groupBox1.Controls.Add(this.txtAmount);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.bttnReturn);
             this.groupBox1.Controls.Add(this.bttnLend);
-            this.groupBox1.Location = new System.Drawing.Point(676, 436);
+            this.groupBox1.Location = new System.Drawing.Point(815, 436);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(205, 304);
             this.groupBox1.TabIndex = 50;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Return or Lend Item";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(7, 41);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(60, 17);
+            this.label33.TabIndex = 51;
+            this.label33.Text = "Amount:";
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(7, 64);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(176, 22);
+            this.txtAmount.TabIndex = 50;
             // 
             // label14
             // 
@@ -624,7 +646,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(174, 25);
+            this.label29.Location = new System.Drawing.Point(206, 25);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(69, 17);
             this.label29.TabIndex = 57;
@@ -656,25 +678,45 @@
             this.groupBox5.Controls.Add(this.label10);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Location = new System.Drawing.Point(900, 118);
+            this.groupBox5.Location = new System.Drawing.Point(1040, 118);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(417, 631);
+            this.groupBox5.Size = new System.Drawing.Size(483, 631);
             this.groupBox5.TabIndex = 60;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "All products:";
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label32);
+            this.groupBox6.Controls.Add(this.label31);
             this.groupBox6.Controls.Add(this.listBoxAvble);
             this.groupBox6.Controls.Add(this.label18);
             this.groupBox6.Controls.Add(this.label19);
             this.groupBox6.Controls.Add(this.label29);
             this.groupBox6.Location = new System.Drawing.Point(410, 118);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(484, 301);
+            this.groupBox6.Size = new System.Drawing.Size(610, 301);
             this.groupBox6.TabIndex = 61;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Products then can be hired:";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(394, 25);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(105, 17);
+            this.label32.TabIndex = 63;
+            this.label32.Text = "Total Available:";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(332, 25);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(35, 17);
+            this.label31.TabIndex = 62;
+            this.label31.Text = "Bail:";
             // 
             // groupBox7
             // 
@@ -686,7 +728,7 @@
             this.groupBox7.Controls.Add(this.label17);
             this.groupBox7.Location = new System.Drawing.Point(12, 436);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(654, 304);
+            this.groupBox7.Size = new System.Drawing.Size(797, 304);
             this.groupBox7.TabIndex = 58;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Products on user:";
@@ -696,7 +738,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1319, 761);
+            this.ClientSize = new System.Drawing.Size(1466, 761);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -793,5 +835,9 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox txtAmount;
     }
 }

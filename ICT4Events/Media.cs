@@ -12,7 +12,6 @@ namespace ICT4Events
     public class Media
     {
         //Fields
-        private static int idnumber = 0;
         private int id_media;
         private int likes;
         private int reports;
@@ -28,8 +27,12 @@ namespace ICT4Events
         public int ID_Media { get { return id_media; } set { id_media = value; } }
         public int Likes { get { return likes; } set { likes = value; } }
         public int Reports { get { return reports; } set { reports = value; } }
+        public User User { get; set; }
+        public Category Category { get; set; }
+        public List<Tag> TagList { get; set; }
+        //
         //Methods
-        public Media(string title, string date, string summary, int views, int likes, int reports, string file_Path, string type_Media, int idmedia, User user)
+        public Media(string title, string date, string summary, int views, int likes, int reports, string file_Path, string type_Media, int idmedia, User user, Category category, List<Tag> tagList)
         {
             ID_Media = idmedia;
             Title = title;
@@ -40,9 +43,12 @@ namespace ICT4Events
             Type_Media = type_Media;
             Likes = likes;
             Reports = reports;
+            User = user;
+            Category = category;
+            TagList = tagList;
         }
 
-        public Media(string title, string date, string summary, int views, int likes, int reports,  string type_Media, int idmedia, User user)
+        public Media(string title, string date, string summary, int views, int likes, int reports,  string type_Media, int idmedia, User user, Category category, List<Tag> tagList)
         {
             ID_Media = idmedia;
             Title = title;
@@ -52,27 +58,14 @@ namespace ICT4Events
             Type_Media = type_Media;
             Likes = likes;
             Reports = reports;
+            User = user;
+            Category = category;
+            TagList = tagList;
         }
 
-
-        public bool CheckAbuse(string abusiveWord)
+        public override string ToString()
         {
-            return true;
-        }
-
-        public int GetLikes()
-        {
-            return likes;
-        }
-
-        public int getReports()
-        {
-            return reports;
-        }
-
-        public int getViews()
-        {
-            return views;
+            return Title + "Aantal reports: " + reports;
         }
     }
 }

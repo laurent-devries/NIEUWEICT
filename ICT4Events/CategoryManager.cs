@@ -9,34 +9,17 @@ using System.Data;
 
 namespace ICT4Events
 {
-    class TagManager
+    class CategoryManager
     {
-        List<Tag> tagList = new List<Tag>();
-        public List<Tag> RequestAllTags()
+        public List<Category> RequestCategories()
         {
-            //DatabaseConnection con = new DatabaseConnection();
-            //string Query = "SELECT TAGNAME FROM ICT4_TAG";
-            //OracleDataReader reader = con.SelectFromDatabase(Query);
-            //Tag tag;
-            //UserManager userManager = new UserManager();
-
-            //while (reader.Read())
-            //{
-            //    tag = new Tag(reader.GetString(0));
-            //    tagList.Add(tag);
-            //}
-
-            //reader.Dispose();
-
-            //return tagList;
-
-            List<Tag> tagList = new List<Tag>();
+            List<Category> categoryList = new List<Category>();
 
             DatabaseConnection con = new DatabaseConnection();
             OracleConnection oracleConnection = con.OracleConnetion();
             oracleConnection.Open();
 
-            string cmdQuery = "SELECT TAGNAME FROM ICT4_TAG";
+            string cmdQuery = "SELECT categoryName, id_category FROM ICT4_CATEGORY";
 
             // Maakt het OracleCommand aan
             OracleCommand cmd = new OracleCommand(cmdQuery);
@@ -50,8 +33,8 @@ namespace ICT4Events
             //Haalt alle categorieen op
             while (reader.Read())
             {
-                Tag tag = new Tag(reader.GetString(0));
-                tagList.Add(tag);
+                Category categorie = new Category(reader.GetString(0), reader.GetInt32(1));
+                categoryList.Add(categorie);
             }
 
             // Opruimen
@@ -60,7 +43,7 @@ namespace ICT4Events
             oracleConnection.Dispose();
 
             // Returend de list
-            return tagList;
+            return categoryList;
         }
     }
 }

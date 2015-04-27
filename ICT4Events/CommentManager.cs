@@ -12,7 +12,7 @@ namespace ICT4Events
     class CommentManager
     {
         List<Comment> commentList = new List<Comment>();
-        public void InsertComment(string comment, int id_media, User user)
+        public bool InsertComment(string comment, int id_media, User user)
         {
             DatabaseConnection con = new DatabaseConnection();
             DateTime currentDate = DateTime.Now;
@@ -31,6 +31,7 @@ namespace ICT4Events
 
             string Query = "INSERT INTO ICT4_COMMENT(ID_COMMENT, id_MediaFK , id_userFk, dateComment, commentComment) VAlues(com_seq.nextval, " + id_media.ToString() + ", " + user.ID_User.ToString() + ", to_date('" + dateDay + dateMonth + dateYear + "', 'DDMMYYYY'), '" + comment + "')";
             bool writer = con.InsertOrUpdate(Query);
+            return writer;
         }
 
         public List<Comment> RequestComments(int mediaID)
