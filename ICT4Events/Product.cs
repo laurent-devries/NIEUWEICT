@@ -30,6 +30,8 @@ namespace ICT4Events
         private int totalamount;
         private int totalHiredamount;
         private int hiredamount;
+        private int idhire;
+
         
         public decimal Price { get { return price; } set { price = value; } }
         public decimal Bail { get { return bail; } set { bail = value; } }
@@ -43,6 +45,7 @@ namespace ICT4Events
         public int TotalHiredamount { get { return totalHiredamount; } set { totalHiredamount = value; } }
         public int Totalamount { get { return totalamount; } set { totalamount = value; } }
         public int Hiredamount { get { return hiredamount; } set { hiredamount = value;  } }
+        public int Idhire { get { return idhire; } set { idhire = value; } }
         
         // Alle producten die aanwezig zijn in het systeem.
         public Product(int iD_product, string product_name, decimal bail, decimal price, string available, int totalamount)
@@ -57,7 +60,7 @@ namespace ICT4Events
         }
 
         // De producten die de user gehuurd heeft.
-        public Product(int iD_product, string product_name, DateTime hire_date, DateTime return_date, decimal bail, int hiredamount)
+        public Product(int iD_product, string product_name, DateTime hire_date, DateTime return_date, decimal bail, int hiredamount, int idhire)
         {
             this.iD_product = iD_product;
             this.product_name = product_name;
@@ -65,6 +68,7 @@ namespace ICT4Events
             this.return_date = return_date;
             this.bail = bail;
             this.hiredamount = hiredamount;
+            this.idhire = idhire;
             
         }
 
@@ -91,7 +95,6 @@ namespace ICT4Events
             this.totalamount = totalamount;
         }
         
-
         public int GetTotaalAmount()
         {
             int a = totalamount - totalHiredamount; ;
@@ -115,13 +118,10 @@ namespace ICT4Events
              {
                  return iD_product + "\t" + product_name + "\t" + "€" + bail + "\t" + "\t" + hiredate + "\t" + returndate + "\t" + hiredamount;
              }
-
              if (category ==  null)
              {
                  return iD_product + "\t" + product_name + "\t" + "€" + bail + "\t" + "€" + price + "\t" + available + totalamount; 
-                 
              }
-
              else 
              {
                  return iD_product + "\t" + product_name + "\t" + category + "\t" + "€" + bail + "\t" + totalamount + "\t" + totalHiredamount;
