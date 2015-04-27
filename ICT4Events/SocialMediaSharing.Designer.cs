@@ -104,6 +104,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabAdmin = new System.Windows.Forms.TabPage();
+            this.btnVerwijder = new System.Windows.Forms.Button();
             this.gbAdmin = new System.Windows.Forms.GroupBox();
             this.lbDateAdmin = new System.Windows.Forms.Label();
             this.lbUploaderAdmin = new System.Windows.Forms.Label();
@@ -115,7 +116,6 @@
             this.lbLikesAdmin = new System.Windows.Forms.Label();
             this.pbAdmin = new System.Windows.Forms.PictureBox();
             this.lbReportedPosts = new System.Windows.Forms.ListBox();
-            this.btnVerwijder = new System.Windows.Forms.Button();
             this.gbNumber1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage1)).BeginInit();
             this.tabPosts.SuspendLayout();
@@ -1025,6 +1025,16 @@
             this.tabAdmin.Text = "Admin";
             this.tabAdmin.Enter += new System.EventHandler(this.tabAdmin_Enter);
             // 
+            // btnVerwijder
+            // 
+            this.btnVerwijder.Location = new System.Drawing.Point(6, 397);
+            this.btnVerwijder.Name = "btnVerwijder";
+            this.btnVerwijder.Size = new System.Drawing.Size(75, 23);
+            this.btnVerwijder.TabIndex = 2;
+            this.btnVerwijder.Text = "Verwijder";
+            this.btnVerwijder.UseVisualStyleBackColor = true;
+            this.btnVerwijder.Click += new System.EventHandler(this.btnVerwijder_Click);
+            // 
             // gbAdmin
             // 
             this.gbAdmin.Controls.Add(this.lbDateAdmin);
@@ -1138,16 +1148,6 @@
             this.lbReportedPosts.TabIndex = 0;
             this.lbReportedPosts.SelectedValueChanged += new System.EventHandler(this.lbReportedPosts_SelectedValueChanged);
             // 
-            // btnVerwijder
-            // 
-            this.btnVerwijder.Location = new System.Drawing.Point(6, 397);
-            this.btnVerwijder.Name = "btnVerwijder";
-            this.btnVerwijder.Size = new System.Drawing.Size(75, 23);
-            this.btnVerwijder.TabIndex = 2;
-            this.btnVerwijder.Text = "Verwijder";
-            this.btnVerwijder.UseVisualStyleBackColor = true;
-            this.btnVerwijder.Click += new System.EventHandler(this.btnVerwijder_Click);
-            // 
             // SocialMediaSharing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1155,6 +1155,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.ClientSize = new System.Drawing.Size(746, 562);
             this.Controls.Add(this.tabPosts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SocialMediaSharing";
             this.Text = "SocialMediaSharing";
             this.gbNumber1.ResumeLayout(false);

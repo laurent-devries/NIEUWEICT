@@ -33,7 +33,7 @@ namespace ICT4Events
 
         public override string ToString()
         {
-            return comment + " --- Written by: " + User.Username.ToUpper();
+            return User.Username.ToUpper() + ": " + comment;
         }
     }
 }

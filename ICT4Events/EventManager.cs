@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace ICT4Events
 {
@@ -28,6 +29,36 @@ namespace ICT4Events
                 a = event1;
             }
             return evenementen;
+        }
+
+        public string RequestEventName(int id)
+        {       
+            DatabaseConnection con = new DatabaseConnection();
+            OracleConnection oracleConnection = con.OracleConnetion();
+            oracleConnection.Open();
+
+            string cmdQuery = "SELECT TITLE FROM ICT4_EVENT WHERE ID_EVENT =" + id;
+
+            // Maakt het OracleCommand aan
+            OracleCommand cmd = new OracleCommand(cmdQuery);
+
+            cmd.Connection = oracleConnection;
+            cmd.CommandType = CommandType.Text;
+
+            // Voert het OracleCommand uit
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            //Haalt de titel van het event op
+            reader.Read();
+            string eventName = reader.GetString(0);
+
+            // Opruimen
+            reader.Dispose();
+            cmd.Dispose();
+            oracleConnection.Dispose();
+
+            // Returend de titel
+            return eventName;
         }
     }
 }
