@@ -51,7 +51,7 @@ namespace ICT4Events
 
         private void btnSMS_Click(object sender, EventArgs e)
         {
-            User user = new User(1, 111, 11111111, 2, "Frank", "Hartman", new DateTime(1, 1, 1), "frankhartman96@gmail.com", "Nederland", "straat", "15", "Helmond", "06-36127912", "frankhartman96", "MightyFrenkel", "hunter1", "C:/", "hoi", 'Y', "2800c48fcf");
+            User user = new User(1, 1, 11111111, 2, "Frank", "Hartman", new DateTime(1, 1, 1), "frankhartman96@gmail.com", "Nederland", "straat", "15", "Helmond", "06-36127912", "frankhartman96", "MightyFrenkel", "hunter1", "C:/", "hoi", 'Y', "2800c48fcf");
             SocialMediaSharing s = new SocialMediaSharing(user);
             s.Show();
         }

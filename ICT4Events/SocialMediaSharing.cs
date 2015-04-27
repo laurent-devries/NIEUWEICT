@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace ICT4Events
         MediaManager mediaManager;
         CategoryManager categoryManager;
         TagManager tagManager;
+        EventManager eventManager; 
         Media reportedMedia;
 
         // Arrays van alle objecten
@@ -38,16 +40,30 @@ namespace ICT4Events
         // De user die ingelogd is
         User user;
 
+
         public SocialMediaSharing(User user)
         {
             InitializeComponent();
             mediaManager = new MediaManager();
             categoryManager = new CategoryManager();
             tagManager = new TagManager();
-            mediaList = mediaManager.RequestMediaUploads();
+            eventManager = new EventManager();
+            mediaList = mediaManager.RequestMediaUploads(user);
             holder = mediaList;
 
             this.user = user;
+            lblLoginUser.Text = "Ingelogd als: " + user.Username;
+            // Kijkt wat de titel van het event is
+            string eventTitle = eventManager.RequestEventName(user.ID_EventFK);
+            lbEvent.Text = "Event: " + eventTitle;
+            this.Text = eventTitle;
+
+            // Kijkt of de user genoeg rechten heeft om de admin page te bekijken
+            if (user.Permissionfk != 2)
+            {
+                // Pagina wordt weggegooit wanneer dit niet het geval is
+                tabAdmin.Dispose();
+            }
             #region Vullen van arrays
             //Vult alle arrays
             viewsArray[0] = lbViews1;
@@ -100,7 +116,6 @@ namespace ICT4Events
             pictureArray[2] = pbImage3;
             pictureArray[3] = pbImage4;
             #endregion
-
 
             // Vult de posts wanneer het programma geopent wordt
             fillPosts(0);
@@ -222,7 +237,7 @@ namespace ICT4Events
                     tagArray[i].Text = tagArray[i].Text + " #" + tag.Name;
                 }
                 
-                //Kijkt of er een foto toegevoegd moet worden
+                //Kijkt of er een foto toegevoegd moet worden aan de post
                 if (media.File_path != null)
                 {
                     try
@@ -246,7 +261,8 @@ namespace ICT4Events
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            mediaList = mediaManager.RequestMediaUploads();
+            // Laad alle posts opnieuw
+            mediaList = mediaManager.RequestMediaUploads(user);
             RefreshData();
         }
 
@@ -405,24 +421,35 @@ namespace ICT4Events
             string[] tags = tag.ToArray();
             // Pakt de datum van vandaag
             DateTime currentDate = DateTime.Now;
-            Category category = cbCategory.SelectedItem as Category;
-
-            if (!mediaManager.InsertMedia(tbTitle.Text, tbSummary.Text, tbFilepath.Text, "FOTO", currentDate, user, tags, category))
+            try
             {
-                MessageBox.Show("Upload mislukt!");
+                // Pakt de geselecteerde waarde uit de combobox
+                int c = cbCategory.SelectedIndex;
+                Category category = cbCategory.Items[c] as Category;
+
+                if (!mediaManager.InsertMedia(tbTitle.Text, tbSummary.Text, tbFilepath.Text, "FOTO", currentDate, user, tags, category))
+                {
+                    MessageBox.Show("Upload mislukt!");
+                }
+
+                else
+                {
+                    // Maakt de upload pagina leeg en gaat vervolgens naar de post pagina
+                    MessageBox.Show("Uploaden gelukt");
+                    tbTitle.Text = "";
+                    tbSummary.Text = "";
+                    tbFilepath.Text = "";
+                    tbTags.Text = "";
+                    tabPage3.Show();
+                }
             }
 
-            else
+            catch
             {
-                MessageBox.Show("Uploaden gelukt");
-                tbTitle.Text = "";
-                tbSummary.Text = "";
-                tbFilepath.Text = "";
-                tbTags.Text = "";
+                MessageBox.Show("Selecteer eerst een categorie");
             }
 
-            tabPage3.Show();
-
+            
         }
 
         
@@ -496,7 +523,7 @@ namespace ICT4Events
         #region AdminTab
         private void tabAdmin_Enter(object sender, EventArgs e)
         {
-            List<Media> reportedPosts = mediaManager.RequestMediaUploads();
+            List<Media> reportedPosts = mediaManager.RequestMediaUploads(user);
             lbReportedPosts.Items.Clear();
             foreach (Media m in reportedPosts)
             {
@@ -515,6 +542,7 @@ namespace ICT4Events
 
             if (reportedMedia != null)
             {
+                // Vult de preview van de geselecteerde pst
                 gbAdmin.Text = reportedMedia.Title;
                 tbSummaryAdmin.Text = reportedMedia.Title;
                 lbLikesAdmin.Text = "Likes: " + reportedMedia.Likes;
@@ -556,6 +584,7 @@ namespace ICT4Events
 
         private void tbSummaryAdmin_Click(object sender, EventArgs e)
         {
+            // Opent de post in een groter scherm
             if (lbReportedPosts.SelectedItem != null)
             {
                 CommentNewsfeedItem c = new CommentNewsfeedItem(reportedMedia, user);
@@ -565,7 +594,17 @@ namespace ICT4Events
 
         private void btnVerwijder_Click(object sender, EventArgs e)
         {
+            // Verwijdert de geselecteerde post
+            Media media = lbReportedPosts.SelectedItem as Media;
+            if (mediaManager.DeleteMedia(media))
+            {
+                MessageBox.Show("Succesvol verwijdert: " + media.Title);
+            }
 
+            else
+            {
+                MessageBox.Show("Verwijderen van de post is mislukt");
+            }
         }
     }
 }

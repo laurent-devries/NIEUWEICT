@@ -16,8 +16,8 @@ namespace ICT4Events
     {
         private OracleConnection oracleConn;
 
-        private string user = "system";//Wachtwoord van de server
-        private string pw = "Welkom123";//Wachtwoord van de server
+        private string user = "teun";//Wachtwoord van de server
+        private string pw = "schepersdijk";//Wachtwoord van de server
 
         private void Connect()
         {
@@ -38,11 +38,11 @@ namespace ICT4Events
             try
             {
                 Connect();
-                oracleConn.Open();
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = oracleConn;
                 cmd.CommandText = Querry;
                 cmd.CommandType = CommandType.Text;
+                oracleConn.Open();
                 OracleDataReader reader = cmd.ExecuteReader();
                 return reader;
             }
@@ -54,14 +54,6 @@ namespace ICT4Events
             }
 
         }
-
-        //Kijken of hiermee de errors voorkomen worden -- Frank
-        public OracleConnection OracleConnetion()
-        {
-            Connect();
-            return oracleConn;
-        }
-
         public bool InsertOrUpdate(string Querry)
         {
             try
