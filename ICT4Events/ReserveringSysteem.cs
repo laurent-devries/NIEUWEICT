@@ -38,7 +38,6 @@ namespace ICT4Events
             CampingPlace p = cbPlaces.SelectedItem as CampingPlace;
             {
                 gb_gebruikercreatie.Enabled = false;
-                gb_gebruikercreatie.Text = null;
                 DatabaseConnection conn = new DatabaseConnection();
                 string maand;
                 string dag;
@@ -73,6 +72,7 @@ namespace ICT4Events
 
                 conn.InsertOrUpdate(insertUser);
                 MessageBox.Show("Uw account is aangemaakt, deze is nu gereed voor gebruik op het media- en materiaalverhuursysteem. Uw reservering voor het evenement is verzonden.");
+                ClearUserTextboxes();
             }
         }
 
@@ -103,6 +103,20 @@ namespace ICT4Events
             {
                 MessageBox.Show("U heeft te veel mensen geselecteerd voor deze campeerplaats.");
             }
+        }
+
+        private void ClearUserTextboxes()
+        {
+            tb_voornaam_gebruiker.Text = null;
+            tb_achternaam_user.Text = null;
+            tb_email_gebruiker.Text = null;
+            tb_loginname_gebruiker.Text = null;
+            tb_number_user.Text = null;
+            tb_password_gebruiker.Text = null;
+            tb_stad_user.Text = null;
+            tb_straat_user.Text = null;
+            tb_telnr_gebruiker.Text = null;
+            tb_username_gebruiker.Text = null;
         }
     }
 }
