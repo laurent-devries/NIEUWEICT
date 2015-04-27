@@ -52,6 +52,11 @@ namespace ICT4Events
             holder = mediaList;
 
             this.user = user;
+            lblLoginUser.Text = "Ingelogd als: " + user.Username;
+            // Kijkt wat de titel van het event is
+            string eventTitle = eventManager.RequestEventName(user.ID_EventFK);
+            lbEvent.Text = "Event: " + eventTitle;
+            this.Text = eventTitle;
 
             // Kijkt of de user genoeg rechten heeft om de admin page te bekijken
             if (user.Permissionfk != 2)
@@ -59,10 +64,6 @@ namespace ICT4Events
                 // Pagina wordt weggegooit wanneer dit niet het geval is
                 tabAdmin.Dispose();
             }
-
-            // Kijkt wat de titel van het event is
-            this.Text = eventManager.RequestEventName(user.ID_EventFK);
-
             #region Vullen van arrays
             //Vult alle arrays
             viewsArray[0] = lbViews1;
@@ -115,7 +116,6 @@ namespace ICT4Events
             pictureArray[2] = pbImage3;
             pictureArray[3] = pbImage4;
             #endregion
-
 
             // Vult de posts wanneer het programma geopent wordt
             fillPosts(0);
