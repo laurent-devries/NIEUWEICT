@@ -32,7 +32,7 @@ namespace ICT4Events
             }
         }
 
-        
+
         public OracleDataReader SelectFromDatabase(string Querry)
         {
             try
