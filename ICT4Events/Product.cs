@@ -88,9 +88,16 @@ namespace ICT4Events
             this.category = category;
             this.bail = bail;
             this.totalHiredamount = totalHiredamount;
-            this.totalamount = totalamount - totalHiredamount;
+            this.totalamount = totalamount;
         }
         
+
+        public int GetTotaalAmount()
+        {
+            int a = totalamount - totalHiredamount; ;
+            return a;
+        }
+
         public decimal GetProductPrice()
         {
             decimal a = bail + price;

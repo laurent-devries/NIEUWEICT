@@ -146,6 +146,7 @@ namespace ICT4Events
         {
             ProductManager productData = new ProductManager();
             producten = productData.RequestProducts();
+            
             foreach (Product product in producten)
             {
 
@@ -155,9 +156,11 @@ namespace ICT4Events
 
         public void LoadHiredProducts(string RFID)
         {
+            
             listBox1.Items.Clear();
             ProductManager productData = new ProductManager();
             producten = productData.SearchUserProduct(RFID);
+            
             if (producten.Count == 0)
             {
 
@@ -167,11 +170,13 @@ namespace ICT4Events
                 foreach (Product product in producten)
                 {
                     listBox1.Items.Add(product);
+                    
                 }
         }
 
         private void bttnLend_Click(object sender, EventArgs e)
         {
+            
             int Amountvalue;
 
             if (int.TryParse(txtAmount.Text, out Amountvalue))
@@ -208,8 +213,11 @@ namespace ICT4Events
                         MessageBox.Show("Scan eerst een user.");
                         
                     }
+                    
                     string RFID = RFIDtext.Text;
                     refresh(RFID);
+                    productdata.test(product);
+                    
                 }
                 else
                 {
@@ -220,7 +228,7 @@ namespace ICT4Events
             {
                 MessageBox.Show("Vul teminste 1 product in om te lenen");
             }
-
+            
         }
                 
             private void bttnReturn_Click(object sender, EventArgs e)

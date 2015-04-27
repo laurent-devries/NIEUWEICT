@@ -135,12 +135,19 @@ namespace ICT4Events
                  cmd.Dispose();
                  oracleConnection.Dispose();
 
-                 if (hiredAmount < totalAmount)
+                 //if (product.TotalHiredamount == 0)
+                 //{
+                 //    string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+                 //    con.InsertOrUpdate(Query2);
+                 //}
+
+                 if (hiredAmount >= totalAmount)
                  {
                         MessageBox.Show("Aantal producten is niet meer beschikbaar");
                         noUserSelected = false;
                  }
-
+                
+                
 
                  /////////////////////////OUDE CODE MARIO////////////////////////////
                  //DatabaseConnection con = new DatabaseConnection();
@@ -186,19 +193,8 @@ namespace ICT4Events
                          con.InsertOrUpdate(Query5);
                          noUserSelected = false;
 
-                        
-
-                         if (product.Totalamount == 0)
-                         {
-                             string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
-                             con.InsertOrUpdate(Query2);
-                         }
-
                      }
-                    
-
                  }
-                 
              } 
          }
 
@@ -215,7 +211,17 @@ namespace ICT4Events
 
             return true;
         }
-            
+
+        public void test(Product product)
+        {
+            DatabaseConnection con = new DatabaseConnection();
+            if (product.Totalamount <= 0)
+            {
+                string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+                con.InsertOrUpdate(Query2);
+            }
+            else return;
+        }
 
         
      }
