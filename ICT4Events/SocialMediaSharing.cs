@@ -463,6 +463,8 @@ namespace ICT4Events
             {
                 mediaList = holder;
                 swapped = false;
+                int index = cbCategorySort.SelectedIndex;
+                Category category = cbCategorySort.Items[index] as Category;
                 foreach (Media m in mediaList)
                 {
                     if (m.Category.Name == cbCategorySort.Text)
