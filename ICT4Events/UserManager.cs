@@ -124,7 +124,36 @@ namespace ICT4Events
 
             // Returend het aantal
             return user;
+        }
 
+        public bool UpdateUserPresent(string userId, bool goingIn)
+        {
+            try
+            {
+                DatabaseConnection con = new DatabaseConnection();
+                if (goingIn == true)
+                {
+                    string Querry = "UPDATE ICT4_USER SET PresentUser = 'Y' where id_user = '" + userId + "'";
+                    OracleDataReader reader = con.SelectFromDatabase(Querry);
+                    return true;
+                }
+
+                else if (goingIn == false)
+                {
+                    string Querry = "UPDATE ICT4_USER SET PresentUser = 'N' where id_user = '" + userId + "'";
+                    OracleDataReader reader = con.SelectFromDatabase(Querry);
+                    return true;
+                }
+
+                MessageBox.Show("RFID_Tag not in system");
+                return false;
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return false;
+            }
         }
 
 
@@ -151,5 +180,6 @@ namespace ICT4Events
                 return null;
             }
     }
+
     }
 }
