@@ -35,7 +35,6 @@ namespace ICT4Events
                     rfid.Error += new ErrorEventHandler(rfid_Error);
                     rfid.Tag += new TagEventHandler(rfid_Tag);
                     rfid.open();
-                    btnStartScanner.Text = "Herstart scanner";
                 }
                 else
                 {
@@ -73,20 +72,38 @@ namespace ICT4Events
         private void btnStopScanner_Click(object sender, EventArgs e)
         {
             lblScannerToestand.Text = "Scanner is gestopt met scannen";
+            btnStartScanner.Text = "Start scanner";
         }
 
         public void rfid_Tag(object sender, TagEventArgs e)
         {
             scanned = true;
             UserManager dataCollect = new UserManager();
+            EventManager em = new EventManager();
+            Event userEvent;
             user = dataCollect.SearchByRfid(e.Tag);
             if (user == null) // als user leeg is, dan staat de RFID niet in de database.
             {
-                lblNaam.Text = "Faggg";
+                lblNaam.Text = "User not available";
             }
             else
             {
-                 lblNaam.Text = user.First_Name; //miss heb ik niet de juiste LB gebruikt maar dit kun jij veranderen. Werkt wel tooooch..
+                lblNaam.Text = user.First_Name + " " + user.Sur_Name; //miss heb ik niet de juiste LB gebruikt maar dit kun jij veranderen. Werkt wel tooooch..
+                userEvent = em.Request1Event(user.ID_EventFK.ToString());
+                lblEvent.Text = userEvent.Title;
+
+                char inFalse = Convert.ToChar("N");
+                char inTrue = Convert.ToChar("Y");
+
+                if (user.Present == inFalse)
+                {
+                    dataCollect.UpdateUserPresent(user.ID_User.ToString(), true);
+                }
+                else
+                {
+                    dataCollect.UpdateUserPresent(user.ID_User.ToString(), false);
+                }
+                
             }
         }
     }

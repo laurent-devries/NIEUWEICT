@@ -29,5 +29,18 @@ namespace ICT4Events
             }
             return evenementen;
         }
+
+        public Event Request1Event(string eventId)
+        {
+            DatabaseConnection con = new DatabaseConnection();
+            string Querry = "SELECT ID_EVENT, TITLE, DATEICT, STARTDATE, ENDDATE, CAMPINGNAME, LOCATION FROM ICT4_EVENT WHERE ID_EVENT = '"+ eventId + "' ORDER BY ID_EVENT, TITLE, CAMPINGNAME";
+            OracleDataReader reader = con.SelectFromDatabase(Querry);
+            while (reader.Read())
+            {
+                Event event1 = new Event(reader.GetString(1), reader.GetDateTime(3), reader.GetDateTime(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(0));
+                a = event1;
+            }
+            return a;
+        }
     }
 }
