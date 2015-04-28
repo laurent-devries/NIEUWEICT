@@ -44,7 +44,7 @@ namespace ICT4Events
 
                     else
                     {
-                        SocialSharing s = new SocialSharing(user);
+                        SocialMediaSharing s = new SocialMediaSharing(user);
                         this.Close();
                         s.Show();
                     }

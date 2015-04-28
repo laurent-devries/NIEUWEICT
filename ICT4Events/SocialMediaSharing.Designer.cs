@@ -39,6 +39,7 @@
             this.tbSummary1 = new System.Windows.Forms.TextBox();
             this.lbViews1 = new System.Windows.Forms.Label();
             this.lbLikes1 = new System.Windows.Forms.Label();
+            this.pbImage1 = new System.Windows.Forms.PictureBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.tabPosts = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -61,6 +62,7 @@
             this.tbSummary4 = new System.Windows.Forms.TextBox();
             this.lbViews4 = new System.Windows.Forms.Label();
             this.lbLikes4 = new System.Windows.Forms.Label();
+            this.pbImage4 = new System.Windows.Forms.PictureBox();
             this.gbNumber3 = new System.Windows.Forms.GroupBox();
             this.lbDatum3 = new System.Windows.Forms.Label();
             this.lbUploader3 = new System.Windows.Forms.Label();
@@ -72,6 +74,7 @@
             this.tbSummary3 = new System.Windows.Forms.TextBox();
             this.lbViews3 = new System.Windows.Forms.Label();
             this.lbLikes3 = new System.Windows.Forms.Label();
+            this.pbImage3 = new System.Windows.Forms.PictureBox();
             this.gbNumber2 = new System.Windows.Forms.GroupBox();
             this.lbDatum2 = new System.Windows.Forms.Label();
             this.lbUploader2 = new System.Windows.Forms.Label();
@@ -83,6 +86,7 @@
             this.tbSummary2 = new System.Windows.Forms.TextBox();
             this.lbViews2 = new System.Windows.Forms.Label();
             this.lbLikes2 = new System.Windows.Forms.Label();
+            this.pbImage2 = new System.Windows.Forms.PictureBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.tabUpload = new System.Windows.Forms.TabPage();
             this.btnUpload = new System.Windows.Forms.Button();
@@ -98,6 +102,7 @@
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pbPreview = new System.Windows.Forms.PictureBox();
             this.tabAdmin = new System.Windows.Forms.TabPage();
             this.btnVerwijder = new System.Windows.Forms.Button();
             this.gbAdmin = new System.Windows.Forms.GroupBox();
@@ -109,32 +114,27 @@
             this.tbSummaryAdmin = new System.Windows.Forms.TextBox();
             this.lbViewsAdmin = new System.Windows.Forms.Label();
             this.lbLikesAdmin = new System.Windows.Forms.Label();
+            this.pbAdmin = new System.Windows.Forms.PictureBox();
             this.lbReportedPosts = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pbImage4 = new System.Windows.Forms.PictureBox();
-            this.pbImage3 = new System.Windows.Forms.PictureBox();
-            this.pbImage2 = new System.Windows.Forms.PictureBox();
-            this.pbImage1 = new System.Windows.Forms.PictureBox();
-            this.pbPreview = new System.Windows.Forms.PictureBox();
-            this.pbAdmin = new System.Windows.Forms.PictureBox();
             this.lblLoginUser = new System.Windows.Forms.Label();
             this.lbEvent = new System.Windows.Forms.Label();
             this.gbNumber1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage1)).BeginInit();
             this.tabPosts.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.gbNumber4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage4)).BeginInit();
             this.gbNumber3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage3)).BeginInit();
             this.gbNumber2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage2)).BeginInit();
             this.tabUpload.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPreview)).BeginInit();
             this.tabAdmin.SuspendLayout();
             this.gbAdmin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPreview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbNumber1
@@ -275,6 +275,15 @@
             this.lbLikes1.Size = new System.Drawing.Size(50, 15);
             this.lbLikes1.TabIndex = 2;
             this.lbLikes1.Text = "Likes: 0";
+            // 
+            // pbImage1
+            // 
+            this.pbImage1.Location = new System.Drawing.Point(6, 19);
+            this.pbImage1.Name = "pbImage1";
+            this.pbImage1.Size = new System.Drawing.Size(115, 114);
+            this.pbImage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage1.TabIndex = 1;
+            this.pbImage1.TabStop = false;
             // 
             // btnNext
             // 
@@ -537,6 +546,15 @@
             this.lbLikes4.TabIndex = 2;
             this.lbLikes4.Text = "Likes: 0";
             // 
+            // pbImage4
+            // 
+            this.pbImage4.Location = new System.Drawing.Point(6, 19);
+            this.pbImage4.Name = "pbImage4";
+            this.pbImage4.Size = new System.Drawing.Size(115, 114);
+            this.pbImage4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage4.TabIndex = 1;
+            this.pbImage4.TabStop = false;
+            // 
             // gbNumber3
             // 
             this.gbNumber3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
@@ -675,6 +693,15 @@
             this.lbLikes3.Size = new System.Drawing.Size(50, 15);
             this.lbLikes3.TabIndex = 2;
             this.lbLikes3.Text = "Likes: 0";
+            // 
+            // pbImage3
+            // 
+            this.pbImage3.Location = new System.Drawing.Point(6, 19);
+            this.pbImage3.Name = "pbImage3";
+            this.pbImage3.Size = new System.Drawing.Size(115, 114);
+            this.pbImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage3.TabIndex = 1;
+            this.pbImage3.TabStop = false;
             // 
             // gbNumber2
             // 
@@ -815,6 +842,15 @@
             this.lbLikes2.TabIndex = 2;
             this.lbLikes2.Text = "Likes: 0";
             // 
+            // pbImage2
+            // 
+            this.pbImage2.Location = new System.Drawing.Point(6, 19);
+            this.pbImage2.Name = "pbImage2";
+            this.pbImage2.Size = new System.Drawing.Size(115, 114);
+            this.pbImage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage2.TabIndex = 1;
+            this.pbImage2.TabStop = false;
+            // 
             // btnRefresh
             // 
             this.btnRefresh.Location = new System.Drawing.Point(449, 445);
@@ -921,6 +957,7 @@
             // 
             this.tbFilepath.Location = new System.Drawing.Point(163, 179);
             this.tbFilepath.Name = "tbFilepath";
+            this.tbFilepath.ReadOnly = true;
             this.tbFilepath.Size = new System.Drawing.Size(168, 20);
             this.tbFilepath.TabIndex = 5;
             // 
@@ -969,6 +1006,15 @@
             this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Titel";
+            // 
+            // pbPreview
+            // 
+            this.pbPreview.Location = new System.Drawing.Point(436, 60);
+            this.pbPreview.Name = "pbPreview";
+            this.pbPreview.Size = new System.Drawing.Size(282, 300);
+            this.pbPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPreview.TabIndex = 11;
+            this.pbPreview.TabStop = false;
             // 
             // tabAdmin
             // 
@@ -1087,6 +1133,15 @@
             this.lbLikesAdmin.TabIndex = 2;
             this.lbLikesAdmin.Text = "Likes: 0";
             // 
+            // pbAdmin
+            // 
+            this.pbAdmin.Location = new System.Drawing.Point(6, 19);
+            this.pbAdmin.Name = "pbAdmin";
+            this.pbAdmin.Size = new System.Drawing.Size(115, 114);
+            this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAdmin.TabIndex = 1;
+            this.pbAdmin.TabStop = false;
+            // 
             // lbReportedPosts
             // 
             this.lbReportedPosts.BackColor = System.Drawing.Color.White;
@@ -1107,60 +1162,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
-            // 
-            // pbImage4
-            // 
-            this.pbImage4.Location = new System.Drawing.Point(6, 19);
-            this.pbImage4.Name = "pbImage4";
-            this.pbImage4.Size = new System.Drawing.Size(115, 114);
-            this.pbImage4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage4.TabIndex = 1;
-            this.pbImage4.TabStop = false;
-            // 
-            // pbImage3
-            // 
-            this.pbImage3.Location = new System.Drawing.Point(6, 19);
-            this.pbImage3.Name = "pbImage3";
-            this.pbImage3.Size = new System.Drawing.Size(115, 114);
-            this.pbImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage3.TabIndex = 1;
-            this.pbImage3.TabStop = false;
-            // 
-            // pbImage2
-            // 
-            this.pbImage2.Location = new System.Drawing.Point(6, 19);
-            this.pbImage2.Name = "pbImage2";
-            this.pbImage2.Size = new System.Drawing.Size(115, 114);
-            this.pbImage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage2.TabIndex = 1;
-            this.pbImage2.TabStop = false;
-            // 
-            // pbImage1
-            // 
-            this.pbImage1.Location = new System.Drawing.Point(6, 19);
-            this.pbImage1.Name = "pbImage1";
-            this.pbImage1.Size = new System.Drawing.Size(115, 114);
-            this.pbImage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage1.TabIndex = 1;
-            this.pbImage1.TabStop = false;
-            // 
-            // pbPreview
-            // 
-            this.pbPreview.Location = new System.Drawing.Point(436, 60);
-            this.pbPreview.Name = "pbPreview";
-            this.pbPreview.Size = new System.Drawing.Size(282, 300);
-            this.pbPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPreview.TabIndex = 11;
-            this.pbPreview.TabStop = false;
-            // 
-            // pbAdmin
-            // 
-            this.pbAdmin.Location = new System.Drawing.Point(6, 19);
-            this.pbAdmin.Name = "pbAdmin";
-            this.pbAdmin.Size = new System.Drawing.Size(115, 114);
-            this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbAdmin.TabIndex = 1;
-            this.pbAdmin.TabStop = false;
             // 
             // lblLoginUser
             // 
@@ -1200,27 +1201,27 @@
             this.Text = "SocialMediaSharing";
             this.gbNumber1.ResumeLayout(false);
             this.gbNumber1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage1)).EndInit();
             this.tabPosts.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.gbNumber4.ResumeLayout(false);
             this.gbNumber4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage4)).EndInit();
             this.gbNumber3.ResumeLayout(false);
             this.gbNumber3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage3)).EndInit();
             this.gbNumber2.ResumeLayout(false);
             this.gbNumber2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage2)).EndInit();
             this.tabUpload.ResumeLayout(false);
             this.tabUpload.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPreview)).EndInit();
             this.tabAdmin.ResumeLayout(false);
             this.gbAdmin.ResumeLayout(false);
             this.gbAdmin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPreview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
