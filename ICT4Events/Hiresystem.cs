@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Phidgets;         //voor het gebruik van RFID
 using Phidgets.Events;  //voor het gebruik van EVENTS (Attach etc.)
-using Oracle.ManagedDataAccess.Client; 
+using Oracle.ManagedDataAccess.Client;
 
 namespace ICT4Events
 {
     public partial class Hiresystem : Form
     {
         List<Product> producten;
+
         RFID rfid = new RFID(); //RFID object
         private bool scanned = false;
-        List<Media> holder;
+        List<Product> productholder;
         User user;
 
         //load alle producten in de lists
@@ -27,8 +28,9 @@ namespace ICT4Events
             InitializeComponent();
             LoadProducts();
             availableProduct();
+            productholder = producten;
         }
-        
+
         public void bttnEnableRFID_Click(object sender, EventArgs e)
         {
             try
@@ -53,7 +55,7 @@ namespace ICT4Events
             //Als er fout meldingen komen vanuit Phidget vang op en laat messagebox zien
             catch (PhidgetException ex)
             {
-               MessageBox.Show(ex.Description);
+                MessageBox.Show(ex.Description);
             }
             // Als Dll niet toegevoegd is, laat fout melding zien
             catch (DllNotFoundException)
@@ -129,16 +131,16 @@ namespace ICT4Events
             MessageBox.Show(e.Description);
         }
 
-        
+
         // Kijk of er producten aanwezig zijn die gehuurd kan worden
-        private void availableProduct() 
-        { 
-          ProductManager productData = new ProductManager();
+        private void availableProduct()
+        {
+            ProductManager productData = new ProductManager();
             producten = productData.availableProduct();
-            
+
             if (producten.Count == 0)
             {
-             listBoxAvble.Text = "Er zijn geen producten beschikbaar"; 
+                listBoxAvble.Text = "Er zijn geen producten beschikbaar";
             }
             else
 
@@ -153,31 +155,31 @@ namespace ICT4Events
         {
             ProductManager productData = new ProductManager();
             producten = productData.RequestProducts();
-            
+
             foreach (Product product in producten)
             {
 
-                listBox3.Items.Add(product);
+                allProductslist.Items.Add(product);
             }
         }
 
         // Kijk of er producten zijn die de user heeft, zo niet heeft de user geen producten
         public void LoadHiredProducts(string RFID)
         {
-            
-            listBox1.Items.Clear();
+
+            UserProductlist.Items.Clear();
             ProductManager productData = new ProductManager();
             producten = productData.SearchUserProduct(RFID);
-            
+
             if (producten.Count == 0)
             {
 
-                listBox1.Items.Add("Gebruiker heeft geen producten gehuurd");
+                UserProductlist.Items.Add("Gebruiker heeft geen producten gehuurd");
             }
             else
                 foreach (Product product in producten)
                 {
-                    listBox1.Items.Add(product);
+                    UserProductlist.Items.Add(product);
                 }
         }
 
@@ -186,7 +188,7 @@ namespace ICT4Events
         {
 
             int Amountvalue = Convert.ToInt32(numericUpDown1.Value);
-             
+
             {
                 Product product;
                 DateTime now = DateTime.Now;
@@ -197,96 +199,98 @@ namespace ICT4Events
                 }
 
                 else
-                if (listBoxAvble.SelectedItem is Product)
-                {
-                    string maand;
-                    if (dateTimePicker1.Value.Month < 10)
+                    if (listBoxAvble.SelectedItem is Product)
                     {
+                        string maand;
+                        if (dateTimePicker1.Value.Month < 10)
+                        {
 
-                        maand = "0" + Convert.ToString(dateTimePicker1.Value.Month);
+                            maand = "0" + Convert.ToString(dateTimePicker1.Value.Month);
+                        }
+                        else
+                        {
+                            maand = Convert.ToString(dateTimePicker1.Value.Month);
+                        }
+                        string dag;
+                        if (dateTimePicker1.Value.Day < 10)
+                        {
+                            dag = "0" + Convert.ToString(dateTimePicker1.Value.Day);
+                        }
+                        else
+                        {
+                            dag = Convert.ToString(dateTimePicker1.Value.Day);
+                        }
+                        string date = dag + maand + Convert.ToString(dateTimePicker1.Value.Year);
+
+                        product = listBoxAvble.SelectedItem as Product;
+                        ProductManager productdata = new ProductManager();
+                        productdata.InsertBorrow(product, user, date, Amountvalue);
+                        if (productdata.noUserSelected == true)
+                        {
+                            MessageBox.Show("Scan eerst een user.");
+                        }
+                        string RFID = RFIDtext.Text;
+                        // refresh listboxen
+                        refresh(RFID);
                     }
                     else
                     {
-                        maand = Convert.ToString(dateTimePicker1.Value.Month);
+                        MessageBox.Show("Selecteer eerst een product om uit te lenen");
                     }
-                    string dag;
-                    if (dateTimePicker1.Value.Day < 10)
-                    {
-                        dag = "0" + Convert.ToString(dateTimePicker1.Value.Day);
-                    }
-                    else
-                    {
-                        dag = Convert.ToString(dateTimePicker1.Value.Day);
-                    }
-                    string date = dag + maand + Convert.ToString(dateTimePicker1.Value.Year);
-                    
-                    product = listBoxAvble.SelectedItem as Product;
-                    ProductManager productdata = new ProductManager();
-                    productdata.InsertBorrow(product, user, date, Amountvalue);
-                    if (productdata.noUserSelected == true)
-                    {
-                        MessageBox.Show("Scan eerst een user.");
-                    }
-                    string RFID = RFIDtext.Text;
-                    // refresh listboxen
-                    refresh(RFID);
+            }
+
+        }
+        private void bttnReturn_Click(object sender, EventArgs e)
+        {
+            Product product;
+
+            if (UserProductlist.SelectedItem is Product)
+            {
+                product = UserProductlist.SelectedItem as Product;
+                ProductManager productdata = new ProductManager();
+                productdata.deleteBorrow(product, user);
+                string RFID = RFIDtext.Text;
+                refresh(RFID);
+            }
+        }
+
+        public void refresh(string e)
+        {
+            UserProductlist.Items.Clear();
+            allProductslist.Items.Clear();
+            listBoxAvble.Items.Clear();
+            LoadProducts();
+            availableProduct();
+            LoadHiredProducts(e);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            List<Product> swap = new List<Product>();
+            bool swapped = false;
+            producten = productholder;
+
+            foreach (Product p in producten)
+            {
+                string title = SearchTxtHR.Text;
+                if (p.Product_Name.ToUpper().Contains(title.ToUpper()))
+                {
+                    swap.Add(p);
+                    swapped = true;
                 }
+
+                if (swapped)
+                {
+                    producten = swap;
+                   // RefreshData();
+                }
+
                 else
                 {
-                    MessageBox.Show("Selecteer eerst een product om uit te lenen");
+                    producten = new List<Product>();
+                   // RefreshData();
                 }
             }
-                     
         }
-            private void bttnReturn_Click(object sender, EventArgs e)
-            {
-               Product product;
-
-               if (listBox1.SelectedItem is Product)
-               {
-                    product = listBox1.SelectedItem as Product;
-                    ProductManager productdata = new ProductManager();
-                    productdata.deleteBorrow(product, user);
-                    string RFID = RFIDtext.Text;
-                    refresh(RFID);
-               }
-            }
-
-            public void refresh(string e)
-            {
-                listBox1.Items.Clear();
-                listBox3.Items.Clear();
-                listBoxAvble.Items.Clear();
-                LoadProducts();
-                availableProduct();
-                LoadHiredProducts(e);
-            }
-
-            //private void btnSearch_Click(object sender, EventArgs e)
-            //{
-            //    List<Product> swap = new List<Product>();
-            //    bool swapped = false;
-            //    foreach (Product p in productlist)
-            //    {
-            //        string title = tbTitleSort.Text;
-            //        if (p.Title.ToUpper().Contains(title.ToUpper()))
-            //        {
-            //            swap.Add(p);
-            //            swapped = true;
-            //        }
-            //    }
-            //}
-
-            //if (swapped)
-            //{
-            //    mediaList = swap;
-            //    RefreshData();
-            //}
-
-            //else
-            //{
-            //    mediaList = new List<Media>();
-            //    RefreshData();
-            //}
     }
 }

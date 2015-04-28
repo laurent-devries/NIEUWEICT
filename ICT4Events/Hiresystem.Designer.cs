@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.SearchTxtHR = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCityHR = new System.Windows.Forms.Label();
@@ -65,9 +66,9 @@
             this.lblconnectedInfo = new System.Windows.Forms.Label();
             this.lblserialInfo = new System.Windows.Forms.Label();
             this.bttnEnableRFID = new System.Windows.Forms.Button();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.allProductslist = new System.Windows.Forms.ListBox();
             this.bttnLend = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.UserProductlist = new System.Windows.Forms.ListBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.listBoxAvble = new System.Windows.Forms.ListBox();
             this.bttnReturn = new System.Windows.Forms.Button();
@@ -93,7 +94,6 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -114,6 +114,16 @@
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Search item:";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(212, 29);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(97, 22);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // SearchTxtHR
             // 
@@ -462,14 +472,14 @@
             this.bttnEnableRFID.UseVisualStyleBackColor = true;
             this.bttnEnableRFID.Click += new System.EventHandler(this.bttnEnableRFID_Click);
             // 
-            // listBox3
+            // allProductslist
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 16;
-            this.listBox3.Location = new System.Drawing.Point(15, 49);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(452, 548);
-            this.listBox3.TabIndex = 25;
+            this.allProductslist.FormattingEnabled = true;
+            this.allProductslist.ItemHeight = 16;
+            this.allProductslist.Location = new System.Drawing.Point(15, 49);
+            this.allProductslist.Name = "allProductslist";
+            this.allProductslist.Size = new System.Drawing.Size(452, 548);
+            this.allProductslist.TabIndex = 25;
             // 
             // bttnLend
             // 
@@ -481,14 +491,14 @@
             this.bttnLend.UseVisualStyleBackColor = true;
             this.bttnLend.Click += new System.EventHandler(this.bttnLend_Click);
             // 
-            // listBox1
+            // UserProductlist
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(16, 45);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(775, 244);
-            this.listBox1.TabIndex = 37;
+            this.UserProductlist.FormattingEnabled = true;
+            this.UserProductlist.ItemHeight = 16;
+            this.UserProductlist.Location = new System.Drawing.Point(16, 45);
+            this.UserProductlist.Name = "UserProductlist";
+            this.UserProductlist.Size = new System.Drawing.Size(775, 244);
+            this.UserProductlist.TabIndex = 37;
             // 
             // dateTimePicker1
             // 
@@ -675,7 +685,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.listBox3);
+            this.groupBox5.Controls.Add(this.allProductslist);
             this.groupBox5.Controls.Add(this.label8);
             this.groupBox5.Controls.Add(this.label9);
             this.groupBox5.Controls.Add(this.label10);
@@ -724,7 +734,7 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.label16);
-            this.groupBox7.Controls.Add(this.listBox1);
+            this.groupBox7.Controls.Add(this.UserProductlist);
             this.groupBox7.Controls.Add(this.label14);
             this.groupBox7.Controls.Add(this.label30);
             this.groupBox7.Controls.Add(this.label15);
@@ -735,16 +745,6 @@
             this.groupBox7.TabIndex = 58;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Products on user:";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(212, 29);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(97, 22);
-            this.btnSearch.TabIndex = 8;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // Hiresystem
             // 
@@ -804,7 +804,7 @@
         private System.Windows.Forms.Label lblconnectedInfo;
         private System.Windows.Forms.Label lblserialInfo;
         private System.Windows.Forms.Button bttnEnableRFID;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox allProductslist;
         private System.Windows.Forms.Button bttnLend;
         private System.Windows.Forms.Label lblEmailHR;
         private System.Windows.Forms.Label lblCellPhoneNBHR;
@@ -827,7 +827,7 @@
         private System.Windows.Forms.Label lbluserHS;
         private System.Windows.Forms.Label lblCityHR;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox UserProductlist;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ListBox listBoxAvble;
         private System.Windows.Forms.Button bttnReturn;
