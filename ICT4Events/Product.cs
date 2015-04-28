@@ -97,7 +97,7 @@ namespace ICT4Events
         
         public int GetTotaalAmount()
         {
-            int a = totalamount - totalHiredamount; ;
+            int a = totalamount - totalHiredamount;
             return a;
         }
 

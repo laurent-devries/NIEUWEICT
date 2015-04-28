@@ -142,8 +142,16 @@ namespace ICT4Events
                         MessageBox.Show("Aantal producten is niet meer beschikbaar");
                         noUserSelected = false;
                  }
-                
-                 else 
+
+                 int Getamount = product.GetTotaalAmount();
+
+                 if (Getamount < totalAmount) 
+                 {
+                     
+                     MessageBox.Show("Te veel producten opgegeven");
+                 }
+
+                 else
                  {
                      {
                          string Query4 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(user_product_seq.nextval, " + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date(sysdate,'DD-MM-YYYY'), to_date('" + date + "', 'DD-MM-YYYY'), null" + "," + +hireAmount + ")";
@@ -153,7 +161,7 @@ namespace ICT4Events
                          con.InsertOrUpdate(Query5);
                          noUserSelected = false;
 
-                         if (product.Hiredamount == product.Hiredamount)
+                         if (hiredAmount == totalAmount)
                          {
                              string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
                              con.InsertOrUpdate(Query2);
@@ -174,8 +182,8 @@ namespace ICT4Events
             string Query1 = "UPDATE ICT4_PRODUCT SET TotalHiredamount  = TOTALHIREDAMOUNT -" + product.Hiredamount + "WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
             con.InsertOrUpdate(Query1);
 
-            //string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'Y' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
-            //con.InsertOrUpdate(Query2);
+            string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'Y' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+            con.InsertOrUpdate(Query2);
 
             return true;
         }
@@ -184,7 +192,7 @@ namespace ICT4Events
         {
             DatabaseConnection con = new DatabaseConnection();
             
-            if (product.Hiredamount == product.Hiredamount)
+            if (product.Hiredamount == product.TotalHiredamount)
             {
                 string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
                 con.InsertOrUpdate(Query2);
