@@ -45,7 +45,8 @@ namespace ICT4Events
 
             while (reader.Read())
             {
-               payed = Convert.ToString(reader.GetChar(0)); 
+               payed = reader.GetString(0); 
+                //.ToString
             }
             reader.Dispose();
             return payed;
