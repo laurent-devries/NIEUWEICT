@@ -28,9 +28,6 @@ namespace ICT4Events
         {
             Event el = cbEvents.SelectedItem as Event;
             CampingPlaceManager cpManager = new CampingPlaceManager();
-            List<CampingPlace> campingPlaceList = cpManager.RequestFreeCampingPlaces(dtpAankomst.Value, dtpVertrek.Value, el, Convert.ToString(cbSoortPlaats.SelectedValue));
-            cbPlaces.DataSource = campingPlaceList;
-            cbPlaces.Refresh();
             List<string> typelist = cpManager.GetCampingplaceTypes(el);
             cbSoortPlaats.DataSource = typelist;
             cbSoortPlaats.Refresh();
@@ -152,6 +149,15 @@ namespace ICT4Events
                 MessageBox.Show("U heeft een ongeldig emailadress ingevoerd. Probeer het opnieuw.");
                 return false;
             }
+        }
+
+        private void cbSoortPlaats_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Event el = cbEvents.SelectedItem as Event;
+            CampingPlaceManager cpManager = new CampingPlaceManager();
+            List<CampingPlace> campingPlaceList = cpManager.RequestFreeCampingPlaces(dtpAankomst.Value, dtpVertrek.Value, el, Convert.ToString(cbSoortPlaats.SelectedValue));
+            cbPlaces.DataSource = campingPlaceList;
+            cbPlaces.Refresh();
         }
     }
 }

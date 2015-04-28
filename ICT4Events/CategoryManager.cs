@@ -16,7 +16,7 @@ namespace ICT4Events
             List<Category> categoryList = new List<Category>();
 
             DatabaseConnection con = new DatabaseConnection();
-            OracleConnection oracleConnection = con.OracleConnetion();
+            OracleConnection oracleConnection = con.OracleConnection();
             oracleConnection.Open();
 
             string cmdQuery = "SELECT categoryName, id_category FROM ICT4_CATEGORY";

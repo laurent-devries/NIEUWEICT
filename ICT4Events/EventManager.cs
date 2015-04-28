@@ -47,7 +47,7 @@ namespace ICT4Events
         public string RequestEventName(int id)
         {       
             DatabaseConnection con = new DatabaseConnection();
-            OracleConnection oracleConnection = con.OracleConnetion();
+            OracleConnection oracleConnection = con.OracleConnection();
             oracleConnection.Open();
 
             string cmdQuery = "SELECT TITLE FROM ICT4_EVENT WHERE ID_EVENT =" + id;

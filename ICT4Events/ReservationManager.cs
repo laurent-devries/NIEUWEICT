@@ -34,9 +34,23 @@ namespace ICT4Events
             reader.Dispose();
 
             return reservations;
-
-
         }
+
+        public string ReservationPayed(string userId)
+        {
+            DatabaseConnection con = new DatabaseConnection();
+            string Querry = "select r.PAYMENTSTATE FROM ICT4_USER u, ICT4_EVENT e , ICT4_RESERVATION r WHERE e.ID_EVENT = u.ID_EVENTFK and r.ID_RESERVATION = u.ID_RESERVATIONFK and u.ID_USER = '"+ userId +"'";
+            OracleDataReader reader = con.SelectFromDatabase(Querry);
+            string payed = "";
+
+            while (reader.Read())
+            {
+               payed = Convert.ToString(reader.GetChar(0)); 
+            }
+            reader.Dispose();
+            return payed;
+        }
+
         public List<string> RequestReservationsInfo(int event_Id)
         {
             DatabaseConnection conn = new DatabaseConnection();
