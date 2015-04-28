@@ -467,7 +467,7 @@ namespace ICT4Events
                 Category category = cbCategorySort.Items[index] as Category;
                 foreach (Media m in mediaList)
                 {
-                    if (m.Category.Name == cbCategorySort.Text)
+                    if (m.Category.Name == category.Name)
                     {
                         swap.Add(m);
                         swapped = true;
