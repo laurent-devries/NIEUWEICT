@@ -262,7 +262,9 @@ namespace ICT4Events
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             // Laad alle posts opnieuw
+            btnRefresh.Enabled = false;
             mediaList = mediaManager.RequestMediaUploads(user);
+            btnRefresh.Enabled = true;
             RefreshData();
         }
 
@@ -379,10 +381,11 @@ namespace ICT4Events
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             string filePath;
+            tbFilepath.Text = "";
             OpenFileDialog fDialog = new OpenFileDialog();
             fDialog.Title = "Open media";
             // Geeft de file types aan
-            fDialog.Filter = "All files (*.*)|*.*";
+            fDialog.Filter = "BMP|*.bmp|GIF|*.gif|JPG|*.jpg;*.jpeg|PNG|*.png|TIFF|*.tif;*.tiff";
             fDialog.InitialDirectory = Environment.SpecialFolder.MyPictures.ToString();
 
             if (fDialog.ShowDialog() == DialogResult.OK)
