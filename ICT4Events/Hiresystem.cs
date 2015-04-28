@@ -21,6 +21,7 @@ namespace ICT4Events
         
         User user;
 
+        //load alle producten in de lists
         public Hiresystem()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace ICT4Events
             {
                 if (scanned == false)
                 {
+                    //Maak nieuwe events aan voor RFID
                     rfid.Attach += new AttachEventHandler(rfid_Attach);
                     rfid.Detach += new DetachEventHandler(rfid_Detach);
                     rfid.Error += new ErrorEventHandler(rfid_Error);
@@ -48,34 +50,36 @@ namespace ICT4Events
                     rfid.close();
                 }
             }
-
-
+            //Als er fout meldingen komen vanuit Phidget vang op en laat messagebox zien
             catch (PhidgetException ex)
             {
                MessageBox.Show(ex.Description);
             }
-
+            // Als Dll niet toegevoegd is, laat fout melding zien
             catch (DllNotFoundException)
             {
                 MessageBox.Show("Phidget Dll kan niet gevonden worden");
             }
         }
 
+        //kijk of de RFID connected is aan USB en laat port zien
         private void rfid_Attach(object sender, AttachEventArgs e)
         {
             lblconnectedInfo.Text = "Verbonden";
             lblserialInfo.Text = e.Device.SerialNumber.ToString();
 
         }
+
+        //kijk of de RFID connected is aan USB en zet port label op --.
         private void rfid_Detach(object sender, DetachEventArgs e)
         {
             lblconnectedInfo.Text = "Verbinding verbroken";
             lblserialInfo.Text = "--";
         }
 
+        //Haal alle informatie op die de zelfde tag ID heeft als de user en vul alles er mee
         public void rfid_Tag(object sender, TagEventArgs e)
         {
-            
             lblWaiting.Text = "De scan is voltooid";
 
             scanned = true;
@@ -125,23 +129,26 @@ namespace ICT4Events
             MessageBox.Show(e.Description);
         }
 
+        
+        // Kijk of er producten aanwezig zijn die gehuurd kan worden
         private void availableProduct() 
         { 
           ProductManager productData = new ProductManager();
             producten = productData.availableProduct();
-
+            
             if (producten.Count == 0)
             {
              listBoxAvble.Text = "Er zijn geen producten beschikbaar"; 
             }
             else
+
                 foreach (Product product in producten)
                 {
                     listBoxAvble.Items.Add(product);
                 }
         }
 
-
+        // load alle producten en vul ze in de lists
         public void LoadProducts()
         {
             ProductManager productData = new ProductManager();
@@ -154,6 +161,7 @@ namespace ICT4Events
             }
         }
 
+        // Kijk of er producten zijn die de user heeft, zo niet heeft de user geen producten
         public void LoadHiredProducts(string RFID)
         {
             
@@ -170,10 +178,10 @@ namespace ICT4Events
                 foreach (Product product in producten)
                 {
                     listBox1.Items.Add(product);
-                    
                 }
         }
 
+        //producten die op user gezet kan worden
         private void bttnLend_Click(object sender, EventArgs e)
         {
 
@@ -181,6 +189,14 @@ namespace ICT4Events
              
             {
                 Product product;
+                DateTime now = DateTime.Now;
+
+                if (now > dateTimePicker1.Value)
+                {
+                    MessageBox.Show("Vul een geldige datum in");
+                }
+
+                else
                 if (listBoxAvble.SelectedItem is Product)
                 {
                     string maand;
@@ -203,7 +219,7 @@ namespace ICT4Events
                         dag = Convert.ToString(dateTimePicker1.Value.Day);
                     }
                     string date = dag + maand + Convert.ToString(dateTimePicker1.Value.Year);
-
+                    
                     product = listBoxAvble.SelectedItem as Product;
                     ProductManager productdata = new ProductManager();
                     productdata.InsertBorrow(product, user, date, Amountvalue);
@@ -212,10 +228,9 @@ namespace ICT4Events
                         MessageBox.Show("Scan eerst een user.");
                         
                     }
-                    
                     string RFID = RFIDtext.Text;
+                    // refresh listboxen
                     refresh(RFID);
-                    
                 }
                 else
                 {
@@ -246,6 +261,20 @@ namespace ICT4Events
                 LoadProducts();
                 availableProduct();
                 LoadHiredProducts(e);
+            }
+
+            private void btnSearch_Click(object sender, EventArgs e)
+            {
+
+                //foreach (Product p in ProductList)
+                //{
+                //    string title = tbTitleSort.Text;
+                //    if (m.Title.ToUpper().Contains(title.ToUpper()))
+                //    {
+                //        swap.Add(m);
+                //        swapped = true;
+                //    }
+                //}
             }
     }
 }
