@@ -33,7 +33,7 @@ namespace ICT4Events
             List<Tag> tagList = new List<Tag>();
 
             DatabaseConnection con = new DatabaseConnection();
-            OracleConnection oracleConnection = con.OracleConnetion();
+            OracleConnection oracleConnection = con.OracleConnection();
             oracleConnection.Open();
 
             string cmdQuery = "SELECT TAGNAME FROM ICT4_TAG";

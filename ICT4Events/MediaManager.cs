@@ -25,7 +25,7 @@ namespace ICT4Events
             Media media;
 
             DatabaseConnection con = new DatabaseConnection();
-            OracleConnection oracleConnection = con.OracleConnetion();
+            OracleConnection oracleConnection = con.OracleConnection();
             oracleConnection.Open();
 
             string cmdQuery = "SELECT M.TITLE, to_char(M.DATEMEDIA), M.SUMMARYMEDIA,  M.viewMedia, to_char(M.likes), to_char(M.reports), M.FILEPATH, M.id_media, M.ID_USERFK, (SELECT CATEGORYNAME FROM ICT4_CATEGORY CA WHERE CA.ID_CATEGORY = M.ID_CATEGORYFK), (SELECT COUNT(ID_MEDIAFK) FROM ICT4_NOTE N WHERE N.REPORTNOTE = 'Y' AND N.ID_MEDIAFK = M.ID_MEDIA) FROM ICT4_MEDIA M WHERE ID_EVENTFK = " + loginUser.ID_EventFK + "ORDER BY M.ID_MEDIA DESC";
@@ -139,7 +139,7 @@ namespace ICT4Events
             int count = 0;
 
             DatabaseConnection con = new DatabaseConnection();
-            OracleConnection oracleConnection = con.OracleConnetion();
+            OracleConnection oracleConnection = con.OracleConnection();
             oracleConnection.Open();
 
             string cmdQuery = "SELECT COUNT(id_note) FROM ICT4_NOTE WHERE id_mediafk = " + mediaId + " AND LIKENOTE = 'Y'";
@@ -202,7 +202,7 @@ namespace ICT4Events
 
                     // Haalt het ID van de tag op
                     DatabaseConnection conTag = new DatabaseConnection();
-                    OracleConnection oracleConnection = conTag.OracleConnetion();
+                    OracleConnection oracleConnection = conTag.OracleConnection();
                     oracleConnection.Open();
 
                     string cmdQuery = "SELECT id_tag FROM ICT4_TAG WHERE tagname = '" + tags[i] + "'";
@@ -278,7 +278,7 @@ namespace ICT4Events
             List<Tag> tagList = new List<Tag>();
 
             DatabaseConnection con = new DatabaseConnection();
-            OracleConnection oracleConnection = con.OracleConnetion();
+            OracleConnection oracleConnection = con.OracleConnection();
             oracleConnection.Open();
 
             string cmdQuery = "SELECT T.TAGNAME FROM ICT4_MEDIA M, ICT4_TAG T, ICT4_MEDIA_TAG MT WHERE M.ID_MEDIA = MT.ID_MEDIAFK AND MT.ID_TAGFK = T.ID_TAG AND M.ID_MEDIA = " + idMedia;
