@@ -89,8 +89,8 @@ namespace ICT4Events
             else
             {
                 lblNaam.Text = user.First_Name + " " + user.Sur_Name; //miss heb ik niet de juiste LB gebruikt maar dit kun jij veranderen. Werkt wel tooooch..
-                //userEvent = em.Request1Event(user.ID_EventFK.ToString());
-      //          lblEvent.Text = userEvent.Title;
+                userEvent = em.Request1Event(user.ID_EventFK.ToString());
+               lblEvent.Text = userEvent.Title;
 
                 char inFalse = Convert.ToChar("N");
                 char inTrue = Convert.ToChar("Y");
