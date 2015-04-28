@@ -147,7 +147,6 @@ namespace ICT4Events
 
                  if (Getamount < totalAmount) 
                  {
-                     
                      MessageBox.Show("Te veel producten opgegeven");
                  }
 
@@ -163,8 +162,8 @@ namespace ICT4Events
 
                          if (hiredAmount == totalAmount)
                          {
-                             string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
-                             con.InsertOrUpdate(Query2);
+                         string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+                         con.InsertOrUpdate(Query2);
                          }
                      }
                  }
