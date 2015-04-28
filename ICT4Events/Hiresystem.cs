@@ -18,7 +18,7 @@ namespace ICT4Events
         List<Product> producten;
         RFID rfid = new RFID(); //RFID object
         private bool scanned = false;
-        
+        List<Media> holder;
         User user;
 
         //load alle producten in de lists
@@ -226,7 +226,6 @@ namespace ICT4Events
                     if (productdata.noUserSelected == true)
                     {
                         MessageBox.Show("Scan eerst een user.");
-                        
                     }
                     string RFID = RFIDtext.Text;
                     // refresh listboxen
@@ -263,18 +262,31 @@ namespace ICT4Events
                 LoadHiredProducts(e);
             }
 
-            private void btnSearch_Click(object sender, EventArgs e)
-            {
+            //private void btnSearch_Click(object sender, EventArgs e)
+            //{
+            //    List<Product> swap = new List<Product>();
+            //    bool swapped = false;
+            //    foreach (Product p in productlist)
+            //    {
+            //        string title = tbTitleSort.Text;
+            //        if (p.Title.ToUpper().Contains(title.ToUpper()))
+            //        {
+            //            swap.Add(p);
+            //            swapped = true;
+            //        }
+            //    }
+            //}
 
-                //foreach (Product p in ProductList)
-                //{
-                //    string title = tbTitleSort.Text;
-                //    if (m.Title.ToUpper().Contains(title.ToUpper()))
-                //    {
-                //        swap.Add(m);
-                //        swapped = true;
-                //    }
-                //}
-            }
+            //if (swapped)
+            //{
+            //    mediaList = swap;
+            //    RefreshData();
+            //}
+
+            //else
+            //{
+            //    mediaList = new List<Media>();
+            //    RefreshData();
+            //}
     }
 }
