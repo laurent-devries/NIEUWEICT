@@ -111,7 +111,7 @@ namespace ICT4Events
              else
              {
                  DatabaseConnection con = new DatabaseConnection();
-                 OracleConnection oracleConnection = con.OracleConnetion();
+                 OracleConnection oracleConnection = con.OracleConnection();
                  oracleConnection.Open();
 
                  string cmdQuery = "SELECT TOTALAMOUNT, TOTALHIREDAMOUNT FROM ICT4_PRODUCT WHERE ID_PRODUCT = " + product.ID_Product;
