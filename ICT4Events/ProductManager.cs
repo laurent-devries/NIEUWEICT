@@ -78,13 +78,13 @@ namespace ICT4Events
              try
              {
                  DatabaseConnection con = new DatabaseConnection();
-                 string Query = "SELECT P.ID_PRODUCT, P.PRODUCTNAME, UP.HIREDATE, UP.RETURNDATE, P.BAIL, UP.HIREDAMOUNT  FROM ICT4_USER U, ICT4_USER_PRODUCTS UP, ICT4_PRODUCT P where u.ID_USER = UP.ID_USERFK and UP.ID_PRODUCTFK = p.ID_PRODUCT AND UP.RETURNEDDATE IS NULL AND u.rfidtag = " + "'" + rfid + "'"; 
+                 string Query = "SELECT P.ID_PRODUCT, P.PRODUCTNAME, UP.HIREDATE, UP.RETURNDATE, P.BAIL, UP.HIREDAMOUNT, UP.ID_HIRE  FROM ICT4_USER U, ICT4_USER_PRODUCTS UP, ICT4_PRODUCT P where u.ID_USER = UP.ID_USERFK and UP.ID_PRODUCTFK = p.ID_PRODUCT AND UP.RETURNEDDATE IS NULL AND u.rfidtag = " + "'" + rfid + "'"; 
                   
                  OracleDataReader reader = con.SelectFromDatabase(Query);
                  Product product;
                  while (reader.Read())
                  {
-                     product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetDateTime(3), reader.GetDecimal(4), reader.GetInt32(5));
+                     product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetDateTime(3), reader.GetDecimal(4), reader.GetInt32(5), reader.GetInt32(6));
                      productUserList.Add(product);
                  }
                  reader.Dispose();
@@ -134,71 +134,32 @@ namespace ICT4Events
                  reader.Dispose();
                  cmd.Dispose();
                  oracleConnection.Dispose();
+                 
 
-                 if (hiredAmount < totalAmount)
+                 // kijk of er nog voeldoende producten beschikbaar zijn
+                 if (hiredAmount >= totalAmount || hireAmount > totalAmount)
                  {
                         MessageBox.Show("Aantal producten is niet meer beschikbaar");
                         noUserSelected = false;
                  }
-
-
-                 /////////////////////////OUDE CODE MARIO////////////////////////////
-                 //DatabaseConnection con = new DatabaseConnection();
-                 //string Query = "SELECT TOTALAMOUNT, TOTALHIREDAMOUNT FROM ICT4_PRODUCT WHERE ID_PRODUCT = " + product.ID_Product;
-                 //OracleDataReader reader = con.SelectFromDatabase(Query);
-                 //while (reader.Read())
-                 //{
-                 //    Totalhireamount =  (reader.GetInt32(0)); 
-                 //    TotalAmount = (reader.GetInt32(1));
-                 //}
-                 //reader.Dispose();
-
-                 //if (Totalhireamount < TotalAmount)
-                 //{
-                 //    MessageBox.Show("Aantal producten is niet meer beschikbaar");
-                 //    noUserSelected = false;
-                 //}
-                //////////////////////////////////////////////////////////////////////
-
-
-                               
-
-                // if (hireAmount >= TotalAmount)
-                // {
-
-                   //  MessageBox.Show("Te veel producten aantal");
-                     //string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
-                     //con.InsertOrUpdate(Query2);
-
-                     //string Query3 = "UPDATE ICT4_PRODUCT SET TotalHiredamount =+ " + "'" + hireAmount + "'" + "," + "5 WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
-                     //con.InsertOrUpdate(Query3);
-
-               //      noUserSelected = false;
-              //   }
-
+                
                  else 
                  {
                      {
-                         string Query4 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(" + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date(sysdate,'DD-MM-YYYY'), to_date('" + date + "', 'DD-MM-YYYY'), null" + "," + +hireAmount + ")";
+                         string Query4 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(user_product_seq.nextval, " + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date(sysdate,'DD-MM-YYYY'), to_date('" + date + "', 'DD-MM-YYYY'), null" + "," + +hireAmount + ")";
                          con.InsertOrUpdate(Query4);
 
                          string Query5 = "UPDATE ICT4_PRODUCT SET TotalHiredamount  = TOTALHIREDAMOUNT +" + hireAmount + "WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
                          con.InsertOrUpdate(Query5);
                          noUserSelected = false;
 
-                        
-
-                         if (product.Totalamount == 0)
+                         if (product.Hiredamount == product.Hiredamount)
                          {
                              string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
                              con.InsertOrUpdate(Query2);
                          }
-
                      }
-                    
-
                  }
-                 
              } 
          }
 
@@ -207,15 +168,29 @@ namespace ICT4Events
         {
             DatabaseConnection con = new DatabaseConnection();
 
-            string Query = "UPDATE ICT4_USER_PRODUCTS SET returnedDate = to_date(sysdate,'DD-MM-YYYY') WHERE id_userFk = " + "'" + user.ID_User + "'" + " AND id_ProductFk = " + "'" + product.ID_Product + "'" + ""; 
+            string Query = "UPDATE ICT4_USER_PRODUCTS SET returnedDate = to_date(sysdate,'DD-MM-YYYY') WHERE id_userFk = " + "'" + user.ID_User + "'" + " AND id_ProductFk = " + "'" + product.ID_Product + "'" + "" + "AND ID_HIRE = " + product.Idhire; 
             con.InsertOrUpdate(Query);
 
-            string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'Y' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
-            con.InsertOrUpdate(Query2);
+            string Query1 = "UPDATE ICT4_PRODUCT SET TotalHiredamount  = TOTALHIREDAMOUNT -" + product.Hiredamount + "WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+            con.InsertOrUpdate(Query1);
+
+            //string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'Y' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+            //con.InsertOrUpdate(Query2);
 
             return true;
         }
+
+        public void test(Product product)
+        {
+            DatabaseConnection con = new DatabaseConnection();
             
+            if (product.Hiredamount == product.Hiredamount)
+            {
+                string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+                con.InsertOrUpdate(Query2);
+            }
+            else return;
+        }
 
         
      }
