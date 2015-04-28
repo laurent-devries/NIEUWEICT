@@ -64,11 +64,14 @@
             this.lb_naam_gebruiker = new System.Windows.Forms.Label();
             this.tb_voornaam_gebruiker = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cbPersonsAmount = new System.Windows.Forms.ComboBox();
             this.btnEventSettings = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.nudAantal = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cbSoortPlaats = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCampingPlaces)).BeginInit();
             this.gb_gebruikercreatie.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).BeginInit();
             this.SuspendLayout();
             // 
             // pbCampingPlaces
@@ -85,7 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 36);
+            this.label1.Location = new System.Drawing.Point(13, 58);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 17);
@@ -95,7 +98,7 @@
             // lblAankomst
             // 
             this.lblAankomst.AutoSize = true;
-            this.lblAankomst.Location = new System.Drawing.Point(16, 70);
+            this.lblAankomst.Location = new System.Drawing.Point(13, 92);
             this.lblAankomst.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAankomst.Name = "lblAankomst";
             this.lblAankomst.Size = new System.Drawing.Size(74, 17);
@@ -105,7 +108,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 102);
+            this.label2.Location = new System.Drawing.Point(13, 122);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 17);
@@ -115,7 +118,7 @@
             // cbEvents
             // 
             this.cbEvents.FormattingEnabled = true;
-            this.cbEvents.Location = new System.Drawing.Point(151, 36);
+            this.cbEvents.Location = new System.Drawing.Point(151, 55);
             this.cbEvents.Margin = new System.Windows.Forms.Padding(4);
             this.cbEvents.Name = "cbEvents";
             this.cbEvents.Size = new System.Drawing.Size(265, 24);
@@ -124,7 +127,7 @@
             // 
             // dtpAankomst
             // 
-            this.dtpAankomst.Location = new System.Drawing.Point(151, 65);
+            this.dtpAankomst.Location = new System.Drawing.Point(151, 87);
             this.dtpAankomst.Margin = new System.Windows.Forms.Padding(4);
             this.dtpAankomst.Name = "dtpAankomst";
             this.dtpAankomst.Size = new System.Drawing.Size(265, 22);
@@ -132,7 +135,7 @@
             // 
             // dtpVertrek
             // 
-            this.dtpVertrek.Location = new System.Drawing.Point(151, 97);
+            this.dtpVertrek.Location = new System.Drawing.Point(151, 117);
             this.dtpVertrek.Margin = new System.Windows.Forms.Padding(4);
             this.dtpVertrek.Name = "dtpVertrek";
             this.dtpVertrek.Size = new System.Drawing.Size(265, 22);
@@ -141,7 +144,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 128);
+            this.label3.Location = new System.Drawing.Point(13, 181);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 17);
@@ -151,7 +154,7 @@
             // cbPlaces
             // 
             this.cbPlaces.FormattingEnabled = true;
-            this.cbPlaces.Location = new System.Drawing.Point(151, 125);
+            this.cbPlaces.Location = new System.Drawing.Point(151, 178);
             this.cbPlaces.Margin = new System.Windows.Forms.Padding(4);
             this.cbPlaces.Name = "cbPlaces";
             this.cbPlaces.Size = new System.Drawing.Size(265, 24);
@@ -501,34 +504,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 160);
+            this.label7.Location = new System.Drawing.Point(13, 211);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 17);
             this.label7.TabIndex = 10;
             this.label7.Text = "Aantal personen";
             // 
-            // cbPersonsAmount
-            // 
-            this.cbPersonsAmount.FormattingEnabled = true;
-            this.cbPersonsAmount.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8"});
-            this.cbPersonsAmount.Location = new System.Drawing.Point(151, 157);
-            this.cbPersonsAmount.Margin = new System.Windows.Forms.Padding(4);
-            this.cbPersonsAmount.Name = "cbPersonsAmount";
-            this.cbPersonsAmount.Size = new System.Drawing.Size(265, 24);
-            this.cbPersonsAmount.TabIndex = 11;
-            // 
             // btnEventSettings
             // 
-            this.btnEventSettings.Location = new System.Drawing.Point(151, 189);
+            this.btnEventSettings.Location = new System.Drawing.Point(151, 238);
             this.btnEventSettings.Margin = new System.Windows.Forms.Padding(4);
             this.btnEventSettings.Name = "btnEventSettings";
             this.btnEventSettings.Size = new System.Drawing.Size(265, 28);
@@ -546,14 +531,55 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Moet nog een link naar materiaalverhuur";
             // 
+            // nudAantal
+            // 
+            this.nudAantal.Location = new System.Drawing.Point(151, 209);
+            this.nudAantal.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudAantal.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudAantal.Name = "nudAantal";
+            this.nudAantal.Size = new System.Drawing.Size(265, 22);
+            this.nudAantal.TabIndex = 14;
+            this.nudAantal.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(13, 149);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(88, 17);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Soort plaats:";
+            // 
+            // cbSoortPlaats
+            // 
+            this.cbSoortPlaats.FormattingEnabled = true;
+            this.cbSoortPlaats.Location = new System.Drawing.Point(151, 146);
+            this.cbSoortPlaats.Name = "cbSoortPlaats";
+            this.cbSoortPlaats.Size = new System.Drawing.Size(265, 24);
+            this.cbSoortPlaats.TabIndex = 16;
+            // 
             // ReserveringSysteem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1906, 806);
+            this.Controls.Add(this.cbSoortPlaats);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.nudAantal);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnEventSettings);
-            this.Controls.Add(this.cbPersonsAmount);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.gb_gebruikercreatie);
             this.Controls.Add(this.cbPlaces);
@@ -573,6 +599,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbCampingPlaces)).EndInit();
             this.gb_gebruikercreatie.ResumeLayout(false);
             this.gb_gebruikercreatie.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -616,8 +643,10 @@
         private System.Windows.Forms.Label lb_naam_gebruiker;
         private System.Windows.Forms.TextBox tb_voornaam_gebruiker;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbPersonsAmount;
         private System.Windows.Forms.Button btnEventSettings;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown nudAantal;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cbSoortPlaats;
     }
 }
