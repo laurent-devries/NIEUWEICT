@@ -69,9 +69,12 @@
             this.cbSoortPlaats = new System.Windows.Forms.ComboBox();
             this.pbCampingPlaces = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.gb_gebruikercreatie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCampingPlaces)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -567,12 +570,32 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Location = new System.Drawing.Point(1204, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(348, 670);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Materiaalverhuur";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(6, 45);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(336, 116);
+            this.listBox1.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(158, 17);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Beschikbare producten:";
             // 
             // ReserveringSysteem
             // 
@@ -604,6 +627,8 @@
             this.gb_gebruikercreatie.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCampingPlaces)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -652,5 +677,7 @@
         private System.Windows.Forms.ComboBox cbSoortPlaats;
         private System.Windows.Forms.PictureBox pbCampingPlaces;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
