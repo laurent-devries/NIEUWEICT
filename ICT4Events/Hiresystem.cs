@@ -91,8 +91,8 @@ namespace ICT4Events
                 lblBirthDHR.Text = "";
                 lblEmailHR.Text = "";
                 lblCountryHR.Text = "";
-                // lblStreetHR.Text = "";
-                //lblHouseNBHR.Text = "";
+                lblStreetHR.Text = "";
+                lblHouseNBHR.Text = "";
                 lblCityHR.Text = "";
                 lblCellPhoneNBHR.Text = "";
                 lblLoginHR.Text = "";
@@ -108,8 +108,8 @@ namespace ICT4Events
                 lblBirthDHR.Text = Convert.ToString(user.Birth_Date);
                 lblEmailHR.Text = user.Email;
                 lblCountryHR.Text = user.Country;
-                // lblStreetHR.Text = user.Street;
-               // lblHouseNBHR.Text = user.Housenumber;
+                lblStreetHR.Text = user.Street;
+                lblHouseNBHR.Text = user.Housenumber;
                 lblCityHR.Text = user.City;
                 lblCellPhoneNBHR.Text = user.Phone_Number;
                 lblLoginHR.Text = user.Login_Name;
@@ -216,7 +216,6 @@ namespace ICT4Events
                     
                     string RFID = RFIDtext.Text;
                     refresh(RFID);
-                    productdata.test(product);
                     
                 }
                 else
@@ -230,7 +229,6 @@ namespace ICT4Events
             }
             
         }
-                
             private void bttnReturn_Click(object sender, EventArgs e)
             {
                Product product;
@@ -244,6 +242,10 @@ namespace ICT4Events
                     refresh(RFID);
                }
             }
+
+           
+
+
             public void refresh(string e)
             {
                 listBox1.Items.Clear();
