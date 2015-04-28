@@ -460,36 +460,44 @@ namespace ICT4Events
         // Sorteren
         private void btnSort_Click(object sender, EventArgs e)
         {
+            // Maakt een nieuwe lijst om later te verwisselen
             List<Media> swap = new List<Media>();
+            // Wordt aangemaakt om te kijken of de lijsten gewisselt moeten worden
             bool swapped = false;
+
+            // Vult de holder met hoe de lijst er op dit moment uit ziet
+            mediaList = holder;
+
+            // Sorteren op categorie 
             if (rbCategory.Checked)
             {
-                mediaList = holder;
-                swapped = false;
                 int index = cbCategorySort.SelectedIndex;
                 Category category = cbCategorySort.Items[index] as Category;
                 foreach (Media m in mediaList)
                 {
+                    // Kijkt of de categorie namen overeen komen
                     if (m.Category.Name == category.Name)
                     {
+                        // Voegt m toe aan de swap list
                         swap.Add(m);
                         swapped = true;
                     }
                 }
             }
 
+            // Sorteren op tag
             else if (rbTag.Checked)
-            {
-                mediaList = holder;
-                swapped = false;
-       
+            {     
                 foreach (Media m in mediaList)
                 {
+                    // Vult de taglist met alle tags van de media
                     List<Tag> tagList = m.TagList;
                     foreach (Tag t in tagList)
                     {
+                        // Kijkt of de media de gezochte tag bevat
                         if (t.Name == cbTags.Text)
                         {
+                            // Voegt m toe aan de swap list
                             swap.Add(m);
                             swapped = true;
                         }
@@ -497,25 +505,30 @@ namespace ICT4Events
                 }
             }
 
+            // Sorteren op titel
             else if (rbTitle.Checked)
             {
                 foreach (Media m in mediaList)
                 {
                     string title = tbTitleSort.Text;
+                    // Kijkt of de title de string bevat
                     if (m.Title.ToUpper().Contains(title.ToUpper()))
                     {
+                        // Voegt m toe aan de swap list
                         swap.Add(m);
                         swapped = true;
                     }
                 }
             }
 
+            // Wanneer er iets is toegevoegd aan de swap list dan verwisselen de lijsten
             if (swapped)
             {
                 mediaList = swap;
                 RefreshData();
             }
 
+            // Wanneer er niet is verwisselt wordt de lijst leeg gemaakt
             else
             {
                 mediaList = new List<Media>();
