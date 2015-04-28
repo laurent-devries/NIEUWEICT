@@ -58,7 +58,6 @@ namespace ICT4Events
             this.available = available;
             this.totalamount = totalamount;
         }
-
         // De producten die de user gehuurd heeft.
         public Product(int iD_product, string product_name, DateTime hire_date, DateTime return_date, decimal bail, int hiredamount, int idhire)
         {
@@ -71,8 +70,6 @@ namespace ICT4Events
             this.idhire = idhire;
             
         }
-
-        
         public Product(int iD_product, string product_name, decimal bail, decimal price, DateTime hire_date, DateTime return_date)
         {
 
