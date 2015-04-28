@@ -99,7 +99,21 @@ namespace ICT4Events
 
         private void btnBevestigHuur_Click(object sender, EventArgs e)
         {
+            DatabaseConnection con = new DatabaseConnection();
+            string Query = "SELECT * FROM ICT4_USER WHERE ID_USER = " + userid;
+            User user = null;
+            OracleDataReader reader = con.SelectFromDatabase(Query);
+            while (reader.Read())
+            {
+                user = new User(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetString(10), reader.GetString(11), reader.GetString(12), reader.GetString(13), reader.GetString(14), reader.GetString(15), reader.GetString(16), reader.GetString(17), reader.GetChar(18), reader.GetString(19));
+            }
+            reader.Dispose();
 
+            ProductManager productManager = new ProductManager();
+            Product product = lbProducten.SelectedItem as Product;
+            productManager.InsertBorrow(product, user, dtpMatriaalhuur.Value.ToString("dd-MM-yyyy"), Convert.ToInt32(nudAantalhuur.Value));
+            lbGehuurd.Refresh();
+            lbProducten.Refresh();
         }
 
         private void btnBevestigEvent_Click(object sender, EventArgs e)
@@ -112,6 +126,7 @@ namespace ICT4Events
                     if (dtpVertrek.Value > dtpAankomst.Value)
                     {
                         gb_gebruikercreatie.Enabled = true;
+                        gbEvent.Enabled = false;
                     }
                     else
                     {
@@ -184,6 +199,8 @@ namespace ICT4Events
                     ProductManager productManager = new ProductManager();
                     lbProducten.DataSource = productManager.availableProduct();
                     lbGehuurd.DataSource = productManager.GetHiredProducts(userid);
+                    gbEvent.Enabled = false;
+                    gb_gebruikercreatie.Enabled = false;
                 }
             }
         }
