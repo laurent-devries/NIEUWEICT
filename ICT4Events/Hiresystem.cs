@@ -176,10 +176,9 @@ namespace ICT4Events
 
         private void bttnLend_Click(object sender, EventArgs e)
         {
-            
-            int Amountvalue;
 
-            if (int.TryParse(txtAmount.Text, out Amountvalue))
+            int Amountvalue = Convert.ToInt32(numericUpDown1.Value);
+             
             {
                 Product product;
                 if (listBoxAvble.SelectedItem is Product)
@@ -223,11 +222,7 @@ namespace ICT4Events
                     MessageBox.Show("Selecteer eerst een product om uit te lenen");
                 }
             }
-            else
-            {
-                MessageBox.Show("Vul teminste 1 product in om te lenen");
-            }
-            
+                     
         }
             private void bttnReturn_Click(object sender, EventArgs e)
             {
@@ -242,9 +237,6 @@ namespace ICT4Events
                     refresh(RFID);
                }
             }
-
-           
-
 
             public void refresh(string e)
             {
