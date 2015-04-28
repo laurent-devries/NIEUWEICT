@@ -19,9 +19,12 @@ namespace ICT4Events
             InitializeComponent();
             CampingPlaceManager cpManager = new CampingPlaceManager();
             EventManager eventManager = new EventManager();
+            ProductManager productManager = new ProductManager();
             List<Event> eventList = eventManager.RequestEvent();
             cbEvents.DataSource = eventList;
             cbEvents.Refresh();
+            lbProducten.DataSource = productManager.availableProduct();
+            gbVerhuur.Enabled = false;
         }
 
         private void cbEvents_SelectedValueChanged(object sender, EventArgs e)

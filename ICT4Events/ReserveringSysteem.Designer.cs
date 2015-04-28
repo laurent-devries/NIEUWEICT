@@ -67,14 +67,17 @@
             this.nudAantal = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.cbSoortPlaats = new System.Windows.Forms.ComboBox();
-            this.pbCampingPlaces = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.gbVerhuur = new System.Windows.Forms.GroupBox();
+            this.lbProducten = new System.Windows.Forms.ListBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.gb_gebruikercreatie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCampingPlaces)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gbVerhuur.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -554,39 +557,30 @@
             this.cbSoortPlaats.TabIndex = 16;
             this.cbSoortPlaats.SelectedIndexChanged += new System.EventHandler(this.cbSoortPlaats_SelectedIndexChanged);
             // 
-            // pbCampingPlaces
+            // gbVerhuur
             // 
-            this.pbCampingPlaces.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbCampingPlaces.Image = global::ICT4Events.Properties.Resources.Camping_ReeënDal;
-            this.pbCampingPlaces.Location = new System.Drawing.Point(596, 13);
-            this.pbCampingPlaces.Margin = new System.Windows.Forms.Padding(4);
-            this.pbCampingPlaces.Name = "pbCampingPlaces";
-            this.pbCampingPlaces.Size = new System.Drawing.Size(601, 670);
-            this.pbCampingPlaces.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbCampingPlaces.TabIndex = 0;
-            this.pbCampingPlaces.TabStop = false;
+            this.gbVerhuur.Controls.Add(this.label15);
+            this.gbVerhuur.Controls.Add(this.label14);
+            this.gbVerhuur.Controls.Add(this.label13);
+            this.gbVerhuur.Controls.Add(this.label12);
+            this.gbVerhuur.Controls.Add(this.label11);
+            this.gbVerhuur.Controls.Add(this.label8);
+            this.gbVerhuur.Controls.Add(this.lbProducten);
+            this.gbVerhuur.Location = new System.Drawing.Point(774, 12);
+            this.gbVerhuur.Name = "gbVerhuur";
+            this.gbVerhuur.Size = new System.Drawing.Size(548, 670);
+            this.gbVerhuur.TabIndex = 17;
+            this.gbVerhuur.TabStop = false;
+            this.gbVerhuur.Text = "Materiaalverhuur";
             // 
-            // groupBox1
+            // lbProducten
             // 
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Location = new System.Drawing.Point(1204, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(348, 670);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Materiaalverhuur";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(6, 45);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(336, 116);
-            this.listBox1.TabIndex = 0;
+            this.lbProducten.FormattingEnabled = true;
+            this.lbProducten.ItemHeight = 16;
+            this.lbProducten.Location = new System.Drawing.Point(6, 70);
+            this.lbProducten.Name = "lbProducten";
+            this.lbProducten.Size = new System.Drawing.Size(536, 116);
+            this.lbProducten.TabIndex = 0;
             // 
             // label8
             // 
@@ -597,12 +591,57 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Beschikbare producten:";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(70, 46);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 17);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Product:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(187, 46);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 17);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Categorie:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(302, 46);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 17);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Borg:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(364, 46);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(39, 17);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Prijs:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(409, 46);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(133, 17);
+            this.label15.TabIndex = 18;
+            this.label15.Text = "Aantal beschikbaar:";
+            // 
             // ReserveringSysteem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1564, 698);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1336, 698);
+            this.Controls.Add(this.gbVerhuur);
             this.Controls.Add(this.cbSoortPlaats);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.nudAantal);
@@ -617,7 +656,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblAankomst);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pbCampingPlaces);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -626,9 +664,8 @@
             this.gb_gebruikercreatie.ResumeLayout(false);
             this.gb_gebruikercreatie.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCampingPlaces)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbVerhuur.ResumeLayout(false);
+            this.gbVerhuur.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -675,9 +712,13 @@
         private System.Windows.Forms.NumericUpDown nudAantal;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbSoortPlaats;
-        private System.Windows.Forms.PictureBox pbCampingPlaces;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbVerhuur;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbProducten;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }
