@@ -37,10 +37,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbPlaces = new System.Windows.Forms.ComboBox();
             this.gb_gebruikercreatie = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.tb_achternaam_user = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_password_gebruiker = new System.Windows.Forms.TextBox();
-            this.btn_Confirm_user = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tb_loginname_gebruiker = new System.Windows.Forms.TextBox();
@@ -63,21 +63,32 @@
             this.lb_naam_gebruiker = new System.Windows.Forms.Label();
             this.tb_voornaam_gebruiker = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnEventSettings = new System.Windows.Forms.Button();
             this.nudAantal = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.cbSoortPlaats = new System.Windows.Forms.ComboBox();
             this.gbVerhuur = new System.Windows.Forms.GroupBox();
-            this.lbProducten = new System.Windows.Forms.ListBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.lbGehuurd = new System.Windows.Forms.ListBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbProducten = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.gb_gebruikercreatie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).BeginInit();
             this.gbVerhuur.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -152,15 +163,15 @@
             this.cbPlaces.Location = new System.Drawing.Point(151, 178);
             this.cbPlaces.Margin = new System.Windows.Forms.Padding(4);
             this.cbPlaces.Name = "cbPlaces";
-            this.cbPlaces.Size = new System.Drawing.Size(428, 24);
+            this.cbPlaces.Size = new System.Drawing.Size(324, 24);
             this.cbPlaces.TabIndex = 8;
             // 
             // gb_gebruikercreatie
             // 
+            this.gb_gebruikercreatie.Controls.Add(this.button2);
             this.gb_gebruikercreatie.Controls.Add(this.tb_achternaam_user);
             this.gb_gebruikercreatie.Controls.Add(this.label9);
             this.gb_gebruikercreatie.Controls.Add(this.tb_password_gebruiker);
-            this.gb_gebruikercreatie.Controls.Add(this.btn_Confirm_user);
             this.gb_gebruikercreatie.Controls.Add(this.label4);
             this.gb_gebruikercreatie.Controls.Add(this.label5);
             this.gb_gebruikercreatie.Controls.Add(this.tb_loginname_gebruiker);
@@ -192,6 +203,16 @@
             this.gb_gebruikercreatie.TabStop = false;
             this.gb_gebruikercreatie.Text = "Account aanmaken";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(127, 364);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(432, 38);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Bevestig";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnBevestigUser_Click);
+            // 
             // tb_achternaam_user
             // 
             this.tb_achternaam_user.Location = new System.Drawing.Point(367, 54);
@@ -220,17 +241,6 @@
             this.tb_password_gebruiker.Size = new System.Drawing.Size(432, 22);
             this.tb_password_gebruiker.TabIndex = 19;
             this.tb_password_gebruiker.UseSystemPasswordChar = true;
-            // 
-            // btn_Confirm_user
-            // 
-            this.btn_Confirm_user.Location = new System.Drawing.Point(460, 367);
-            this.btn_Confirm_user.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_Confirm_user.Name = "btn_Confirm_user";
-            this.btn_Confirm_user.Size = new System.Drawing.Size(100, 28);
-            this.btn_Confirm_user.TabIndex = 4;
-            this.btn_Confirm_user.Text = "Bevestig";
-            this.btn_Confirm_user.UseVisualStyleBackColor = true;
-            this.btn_Confirm_user.Click += new System.EventHandler(this.btn_Confirm_user_Click);
             // 
             // label4
             // 
@@ -298,6 +308,7 @@
             this.tb_telnr_gebruiker.Name = "tb_telnr_gebruiker";
             this.tb_telnr_gebruiker.Size = new System.Drawing.Size(432, 22);
             this.tb_telnr_gebruiker.TabIndex = 16;
+            this.tb_telnr_gebruiker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_telnr_gebruiker_KeyPress);
             // 
             // lb_addres_stad_gebruiker
             // 
@@ -506,17 +517,6 @@
             this.label7.TabIndex = 10;
             this.label7.Text = "Aantal personen:";
             // 
-            // btnEventSettings
-            // 
-            this.btnEventSettings.Location = new System.Drawing.Point(151, 238);
-            this.btnEventSettings.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEventSettings.Name = "btnEventSettings";
-            this.btnEventSettings.Size = new System.Drawing.Size(265, 28);
-            this.btnEventSettings.TabIndex = 12;
-            this.btnEventSettings.Text = "Bevestig";
-            this.btnEventSettings.UseVisualStyleBackColor = true;
-            this.btnEventSettings.Click += new System.EventHandler(this.button1_Click);
-            // 
             // nudAantal
             // 
             this.nudAantal.Location = new System.Drawing.Point(151, 209);
@@ -559,6 +559,16 @@
             // 
             // gbVerhuur
             // 
+            this.gbVerhuur.Controls.Add(this.label17);
+            this.gbVerhuur.Controls.Add(this.label18);
+            this.gbVerhuur.Controls.Add(this.label19);
+            this.gbVerhuur.Controls.Add(this.label20);
+            this.gbVerhuur.Controls.Add(this.label21);
+            this.gbVerhuur.Controls.Add(this.label22);
+            this.gbVerhuur.Controls.Add(this.lbGehuurd);
+            this.gbVerhuur.Controls.Add(this.numericUpDown1);
+            this.gbVerhuur.Controls.Add(this.label16);
+            this.gbVerhuur.Controls.Add(this.btnConfirm);
             this.gbVerhuur.Controls.Add(this.label15);
             this.gbVerhuur.Controls.Add(this.label14);
             this.gbVerhuur.Controls.Add(this.label13);
@@ -573,59 +583,104 @@
             this.gbVerhuur.TabStop = false;
             this.gbVerhuur.Text = "Materiaalverhuur";
             // 
-            // lbProducten
+            // label17
             // 
-            this.lbProducten.FormattingEnabled = true;
-            this.lbProducten.ItemHeight = 16;
-            this.lbProducten.Location = new System.Drawing.Point(6, 70);
-            this.lbProducten.Name = "lbProducten";
-            this.lbProducten.Size = new System.Drawing.Size(536, 116);
-            this.lbProducten.TabIndex = 0;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(433, 271);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(109, 17);
+            this.label17.TabIndex = 28;
+            this.label17.Text = "Aantal gehuurd:";
             // 
-            // label8
+            // label18
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(158, 17);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Beschikbare producten:";
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(364, 271);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(39, 17);
+            this.label18.TabIndex = 27;
+            this.label18.Text = "Prijs:";
             // 
-            // label11
+            // label19
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(70, 46);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 17);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Product:";
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(302, 271);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(42, 17);
+            this.label19.TabIndex = 26;
+            this.label19.Text = "Borg:";
             // 
-            // label12
+            // label20
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(187, 46);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 17);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Categorie:";
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(187, 271);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(73, 17);
+            this.label20.TabIndex = 25;
+            this.label20.Text = "Categorie:";
             // 
-            // label13
+            // label21
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(302, 46);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 17);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Borg:";
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(70, 271);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(61, 17);
+            this.label21.TabIndex = 24;
+            this.label21.Text = "Product:";
             // 
-            // label14
+            // label22
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(364, 46);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(39, 17);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Prijs:";
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(7, 247);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(144, 17);
+            this.label22.TabIndex = 23;
+            this.label22.Text = "Gehuurde producten:";
+            // 
+            // lbGehuurd
+            // 
+            this.lbGehuurd.FormattingEnabled = true;
+            this.lbGehuurd.ItemHeight = 16;
+            this.lbGehuurd.Location = new System.Drawing.Point(6, 298);
+            this.lbGehuurd.Name = "lbGehuurd";
+            this.lbGehuurd.Size = new System.Drawing.Size(536, 84);
+            this.lbGehuurd.TabIndex = 22;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(98, 196);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 21;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(7, 198);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(52, 17);
+            this.label16.TabIndex = 20;
+            this.label16.Text = "Aantal:";
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Location = new System.Drawing.Point(367, 192);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(175, 28);
+            this.btnConfirm.TabIndex = 19;
+            this.btnConfirm.Text = "Bevestig";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnBevestigHuur_Click);
             // 
             // label15
             // 
@@ -636,16 +691,80 @@
             this.label15.TabIndex = 18;
             this.label15.Text = "Aantal beschikbaar:";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(364, 46);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(39, 17);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Prijs:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(302, 46);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 17);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Borg:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(187, 46);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 17);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Categorie:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(70, 46);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 17);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Product:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(158, 17);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Beschikbare producten:";
+            // 
+            // lbProducten
+            // 
+            this.lbProducten.FormattingEnabled = true;
+            this.lbProducten.ItemHeight = 16;
+            this.lbProducten.Location = new System.Drawing.Point(6, 70);
+            this.lbProducten.Name = "lbProducten";
+            this.lbProducten.Size = new System.Drawing.Size(536, 116);
+            this.lbProducten.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(151, 237);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(265, 38);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Bevestig";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnBevestigEvent_Click);
+            // 
             // ReserveringSysteem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1336, 698);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.gbVerhuur);
             this.Controls.Add(this.cbSoortPlaats);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.nudAantal);
-            this.Controls.Add(this.btnEventSettings);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.gb_gebruikercreatie);
             this.Controls.Add(this.cbPlaces);
@@ -666,6 +785,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).EndInit();
             this.gbVerhuur.ResumeLayout(false);
             this.gbVerhuur.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -685,7 +805,6 @@
         private System.Windows.Forms.TextBox tb_achternaam_user;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tb_password_gebruiker;
-        private System.Windows.Forms.Button btn_Confirm_user;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tb_loginname_gebruiker;
@@ -708,7 +827,6 @@
         private System.Windows.Forms.Label lb_naam_gebruiker;
         private System.Windows.Forms.TextBox tb_voornaam_gebruiker;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnEventSettings;
         private System.Windows.Forms.NumericUpDown nudAantal;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbSoortPlaats;
@@ -720,5 +838,17 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ListBox lbGehuurd;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
