@@ -126,7 +126,7 @@
             // cbEvents
             // 
             this.cbEvents.FormattingEnabled = true;
-            this.cbEvents.Location = new System.Drawing.Point(145, 21);
+            this.cbEvents.Location = new System.Drawing.Point(170, 21);
             this.cbEvents.Margin = new System.Windows.Forms.Padding(4);
             this.cbEvents.Name = "cbEvents";
             this.cbEvents.Size = new System.Drawing.Size(265, 24);
@@ -135,7 +135,7 @@
             // 
             // dtpAankomst
             // 
-            this.dtpAankomst.Location = new System.Drawing.Point(145, 53);
+            this.dtpAankomst.Location = new System.Drawing.Point(170, 53);
             this.dtpAankomst.Margin = new System.Windows.Forms.Padding(4);
             this.dtpAankomst.Name = "dtpAankomst";
             this.dtpAankomst.Size = new System.Drawing.Size(265, 22);
@@ -143,7 +143,7 @@
             // 
             // dtpVertrek
             // 
-            this.dtpVertrek.Location = new System.Drawing.Point(145, 83);
+            this.dtpVertrek.Location = new System.Drawing.Point(170, 83);
             this.dtpVertrek.Margin = new System.Windows.Forms.Padding(4);
             this.dtpVertrek.Name = "dtpVertrek";
             this.dtpVertrek.Size = new System.Drawing.Size(265, 22);
@@ -162,7 +162,7 @@
             // cbPlaces
             // 
             this.cbPlaces.FormattingEnabled = true;
-            this.cbPlaces.Location = new System.Drawing.Point(145, 144);
+            this.cbPlaces.Location = new System.Drawing.Point(170, 144);
             this.cbPlaces.Margin = new System.Windows.Forms.Padding(4);
             this.cbPlaces.Name = "cbPlaces";
             this.cbPlaces.Size = new System.Drawing.Size(324, 24);
@@ -235,12 +235,12 @@
             // 
             // tb_password_gebruiker
             // 
-            this.tb_password_gebruiker.Location = new System.Drawing.Point(127, 335);
+            this.tb_password_gebruiker.Location = new System.Drawing.Point(128, 333);
             this.tb_password_gebruiker.Margin = new System.Windows.Forms.Padding(4);
             this.tb_password_gebruiker.MaxLength = 255;
             this.tb_password_gebruiker.Name = "tb_password_gebruiker";
             this.tb_password_gebruiker.ShortcutsEnabled = false;
-            this.tb_password_gebruiker.Size = new System.Drawing.Size(432, 22);
+            this.tb_password_gebruiker.Size = new System.Drawing.Size(431, 22);
             this.tb_password_gebruiker.TabIndex = 19;
             this.tb_password_gebruiker.UseSystemPasswordChar = true;
             // 
@@ -275,11 +275,11 @@
             // 
             // tb_username_gebruiker
             // 
-            this.tb_username_gebruiker.Location = new System.Drawing.Point(127, 303);
+            this.tb_username_gebruiker.Location = new System.Drawing.Point(128, 303);
             this.tb_username_gebruiker.Margin = new System.Windows.Forms.Padding(4);
             this.tb_username_gebruiker.MaxLength = 255;
             this.tb_username_gebruiker.Name = "tb_username_gebruiker";
-            this.tb_username_gebruiker.Size = new System.Drawing.Size(432, 22);
+            this.tb_username_gebruiker.Size = new System.Drawing.Size(431, 22);
             this.tb_username_gebruiker.TabIndex = 18;
             // 
             // lb_Username_gebruiker
@@ -304,11 +304,11 @@
             // 
             // tb_telnr_gebruiker
             // 
-            this.tb_telnr_gebruiker.Location = new System.Drawing.Point(127, 239);
+            this.tb_telnr_gebruiker.Location = new System.Drawing.Point(128, 239);
             this.tb_telnr_gebruiker.Margin = new System.Windows.Forms.Padding(4);
             this.tb_telnr_gebruiker.MaxLength = 10;
             this.tb_telnr_gebruiker.Name = "tb_telnr_gebruiker";
-            this.tb_telnr_gebruiker.Size = new System.Drawing.Size(432, 22);
+            this.tb_telnr_gebruiker.Size = new System.Drawing.Size(431, 22);
             this.tb_telnr_gebruiker.TabIndex = 16;
             this.tb_telnr_gebruiker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_telnr_gebruiker_KeyPress);
             // 
@@ -324,11 +324,11 @@
             // 
             // tb_stad_user
             // 
-            this.tb_stad_user.Location = new System.Drawing.Point(127, 207);
+            this.tb_stad_user.Location = new System.Drawing.Point(128, 207);
             this.tb_stad_user.Margin = new System.Windows.Forms.Padding(4);
             this.tb_stad_user.MaxLength = 255;
             this.tb_stad_user.Name = "tb_stad_user";
-            this.tb_stad_user.Size = new System.Drawing.Size(238, 22);
+            this.tb_stad_user.Size = new System.Drawing.Size(237, 22);
             this.tb_stad_user.TabIndex = 15;
             // 
             // tb_number_user
@@ -337,7 +337,7 @@
             this.tb_number_user.Margin = new System.Windows.Forms.Padding(4);
             this.tb_number_user.MaxLength = 10;
             this.tb_number_user.Name = "tb_number_user";
-            this.tb_number_user.Size = new System.Drawing.Size(116, 22);
+            this.tb_number_user.Size = new System.Drawing.Size(115, 22);
             this.tb_number_user.TabIndex = 14;
             // 
             // lb_addres_nummer_gebruiker
@@ -521,7 +521,7 @@
             // 
             // nudAantal
             // 
-            this.nudAantal.Location = new System.Drawing.Point(145, 175);
+            this.nudAantal.Location = new System.Drawing.Point(170, 175);
             this.nudAantal.Maximum = new decimal(new int[] {
             20,
             0,
@@ -553,7 +553,7 @@
             // cbSoortPlaats
             // 
             this.cbSoortPlaats.FormattingEnabled = true;
-            this.cbSoortPlaats.Location = new System.Drawing.Point(145, 112);
+            this.cbSoortPlaats.Location = new System.Drawing.Point(170, 112);
             this.cbSoortPlaats.Name = "cbSoortPlaats";
             this.cbSoortPlaats.Size = new System.Drawing.Size(265, 24);
             this.cbSoortPlaats.TabIndex = 4;
@@ -747,7 +747,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(145, 203);
+            this.button1.Location = new System.Drawing.Point(170, 203);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(265, 38);
             this.button1.TabIndex = 7;
