@@ -68,7 +68,6 @@
             this.cbSoortPlaats = new System.Windows.Forms.ComboBox();
             this.gbVerhuur = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -78,7 +77,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -560,7 +558,6 @@
             // gbVerhuur
             // 
             this.gbVerhuur.Controls.Add(this.label17);
-            this.gbVerhuur.Controls.Add(this.label18);
             this.gbVerhuur.Controls.Add(this.label19);
             this.gbVerhuur.Controls.Add(this.label20);
             this.gbVerhuur.Controls.Add(this.label21);
@@ -570,7 +567,6 @@
             this.gbVerhuur.Controls.Add(this.label16);
             this.gbVerhuur.Controls.Add(this.btnConfirm);
             this.gbVerhuur.Controls.Add(this.label15);
-            this.gbVerhuur.Controls.Add(this.label14);
             this.gbVerhuur.Controls.Add(this.label13);
             this.gbVerhuur.Controls.Add(this.label12);
             this.gbVerhuur.Controls.Add(this.label11);
@@ -586,20 +582,11 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(433, 271);
+            this.label17.Location = new System.Drawing.Point(364, 271);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(109, 17);
             this.label17.TabIndex = 28;
             this.label17.Text = "Aantal gehuurd:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(364, 271);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(39, 17);
-            this.label18.TabIndex = 27;
-            this.label18.Text = "Prijs:";
             // 
             // label19
             // 
@@ -685,20 +672,11 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(409, 46);
+            this.label15.Location = new System.Drawing.Point(364, 46);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(133, 17);
             this.label15.TabIndex = 18;
             this.label15.Text = "Aantal beschikbaar:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(364, 46);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(39, 17);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Prijs:";
             // 
             // label13
             // 
@@ -834,12 +812,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox lbProducten;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
