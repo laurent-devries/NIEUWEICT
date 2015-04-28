@@ -105,13 +105,13 @@ namespace ICT4Events
             OracleDataReader reader = con.SelectFromDatabase(Query);
             while (reader.Read())
             {
-                user = new User(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetString(5), reader.GetString(6), reader.GetString(7), reader.GetDate(8), reader.GetString(9), reader.GetString(10), reader.GetString(11), reader.GetString(12), reader.GetString(13), reader.GetString(14), reader.GetString(15), reader.GetString(16), reader.GetString(17), reader.GetString(18), reader.GetChar(19), reader.GetString(20));
+                user = new User(reader.GetInt32(0), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetString(5), reader.GetString(6), reader.GetDateTime(7), reader.GetString(8), reader.GetString(9), reader.GetString(10), reader.GetString(11), reader.GetString(12), reader.GetString(13), reader.GetString(14), reader.GetString(15), reader.GetString(16), reader.GetString(17), reader.GetString(18), reader.GetChar(19), reader.GetString(20));
             }
             reader.Dispose();
 
             ProductManager productManager = new ProductManager();
             Product product = lbProducten.SelectedItem as Product;
-            productManager.InsertBorrow(product, user, );
+            productManager.InsertBorrow(product, user, dtpMatriaalhuur.Value.ToString("dd-MM-yyyy"), Convert.ToInt32(nudAantalhuur.Value));
         }
 
         private void btnBevestigEvent_Click(object sender, EventArgs e)

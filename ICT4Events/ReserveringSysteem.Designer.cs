@@ -73,7 +73,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.lbGehuurd = new System.Windows.Forms.ListBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudAantalhuur = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -83,10 +83,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lbProducten = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.dtpMatriaalhuur = new System.Windows.Forms.DateTimePicker();
+            this.label14 = new System.Windows.Forms.Label();
             this.gb_gebruikercreatie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).BeginInit();
             this.gbVerhuur.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAantalhuur)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -557,13 +559,15 @@
             // 
             // gbVerhuur
             // 
+            this.gbVerhuur.Controls.Add(this.label14);
+            this.gbVerhuur.Controls.Add(this.dtpMatriaalhuur);
             this.gbVerhuur.Controls.Add(this.label17);
             this.gbVerhuur.Controls.Add(this.label19);
             this.gbVerhuur.Controls.Add(this.label20);
             this.gbVerhuur.Controls.Add(this.label21);
             this.gbVerhuur.Controls.Add(this.label22);
             this.gbVerhuur.Controls.Add(this.lbGehuurd);
-            this.gbVerhuur.Controls.Add(this.numericUpDown1);
+            this.gbVerhuur.Controls.Add(this.nudAantalhuur);
             this.gbVerhuur.Controls.Add(this.label16);
             this.gbVerhuur.Controls.Add(this.btnConfirm);
             this.gbVerhuur.Controls.Add(this.label15);
@@ -618,7 +622,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(7, 247);
+            this.label22.Location = new System.Drawing.Point(3, 254);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(144, 17);
             this.label22.TabIndex = 23;
@@ -633,18 +637,18 @@
             this.lbGehuurd.Size = new System.Drawing.Size(536, 84);
             this.lbGehuurd.TabIndex = 22;
             // 
-            // numericUpDown1
+            // nudAantalhuur
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(98, 196);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.nudAantalhuur.Location = new System.Drawing.Point(108, 194);
+            this.nudAantalhuur.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 21;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.nudAantalhuur.Name = "nudAantalhuur";
+            this.nudAantalhuur.Size = new System.Drawing.Size(120, 22);
+            this.nudAantalhuur.TabIndex = 21;
+            this.nudAantalhuur.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -653,7 +657,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 198);
+            this.label16.Location = new System.Drawing.Point(7, 196);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(52, 17);
             this.label16.TabIndex = 20;
@@ -733,6 +737,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnBevestigEvent_Click);
             // 
+            // dtpMatriaalhuur
+            // 
+            this.dtpMatriaalhuur.Location = new System.Drawing.Point(108, 222);
+            this.dtpMatriaalhuur.Name = "dtpMatriaalhuur";
+            this.dtpMatriaalhuur.Size = new System.Drawing.Size(214, 22);
+            this.dtpMatriaalhuur.TabIndex = 29;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(3, 227);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(95, 17);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Datum retour:";
+            // 
             // ReserveringSysteem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -763,7 +783,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).EndInit();
             this.gbVerhuur.ResumeLayout(false);
             this.gbVerhuur.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAantalhuur)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -821,10 +841,12 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ListBox lbGehuurd;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudAantalhuur;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DateTimePicker dtpMatriaalhuur;
     }
 }
