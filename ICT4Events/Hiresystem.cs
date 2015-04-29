@@ -253,11 +253,17 @@ namespace ICT4Events
                 ProductManager productdata = new ProductManager();
                 productdata.deleteBorrow(product, user);
 
-                double dayshired = product.GetTotalHireDate();
-                double bail = Convert.ToDouble(product.Bail);
-                double price = Convert.ToDouble(product.Price) * dayshired;
+                decimal dayshired = (decimal)product.GetTotalHireDate();
+                decimal bail = product.Bail;
+                if (dayshired < 0)
+                {
+                    dayshired = 1;
+                }
 
-                double total = bail + price;
+
+                decimal price = product.Price * dayshired;
+                decimal dayprice = product.Hiredamount * price;
+                decimal total = bail + price + dayprice;
                 MessageBox.Show("is totaal: " + total);
                 
 

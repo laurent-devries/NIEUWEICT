@@ -68,6 +68,20 @@ namespace ICT4Events
             this.hiredamount = hiredamount;
             this.idhire = idhire;
             
+            
+        }
+
+        public Product(int iD_product, string product_name, DateTime hire_date, DateTime return_date, decimal bail, int hiredamount, int idhire, decimal price)
+        {
+            this.iD_product = iD_product;
+            this.product_name = product_name;
+            this.hire_date = hire_date;
+            this.return_date = return_date;
+            this.bail = bail;
+            this.hiredamount = hiredamount;
+            this.idhire = idhire;
+            this.price = price;
+
         }
         public Product(int iD_product, string product_name, decimal bail, decimal price, DateTime hire_date, DateTime return_date)
         {
@@ -100,7 +114,7 @@ namespace ICT4Events
 
         public decimal GetProductPrice()
         {
-            decimal a = bail + price;
+            decimal a = price;
             return a;
             
         }
