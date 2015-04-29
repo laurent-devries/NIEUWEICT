@@ -114,6 +114,7 @@ namespace ICT4Events
             Product product = lbProducten.SelectedItem as Product;
             productManager.InsertBorrow(product, user, dtpMatriaalhuur.Value.ToString("dd-MM-yyyy"), Convert.ToInt32(nudAantalhuur.Value));
             lbGehuurd.DataSource = productManager.GetHiredProducts(user.ID_User);
+            lbProducten.DataSource = productManager.availableProduct();
             lbGehuurd.Refresh();
             lbProducten.Refresh();
         }

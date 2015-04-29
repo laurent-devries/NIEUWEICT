@@ -698,11 +698,11 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(354, 29);
+            this.label15.Location = new System.Drawing.Point(357, 29);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 34);
+            this.label15.Size = new System.Drawing.Size(51, 34);
             this.label15.TabIndex = 18;
-            this.label15.Text = "Aantal \r\nbeschikbaar:";
+            this.label15.Text = "Totaal\r\naantal:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label13
@@ -794,7 +794,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(449, 29);
+            this.label23.Location = new System.Drawing.Point(442, 29);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(69, 34);
             this.label23.TabIndex = 32;
