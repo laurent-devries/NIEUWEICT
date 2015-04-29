@@ -16,7 +16,6 @@ namespace ICT4Events
     
     {
         //Fields
-        IFormatProvider Culture = new System.Globalization.CultureInfo("fr-FR", true);
         
         private int iD_product;
         private string product_name;
@@ -94,7 +93,13 @@ namespace ICT4Events
         
         public int GetTotaalAmount()
         {
-            int a = totalamount - totalHiredamount;
+            int a = totalamount + totalHiredamount;
+            return a;
+        }
+
+        public int GetTotaalAmount2()
+        {
+            int a = totalamount;
             return a;
         }
 
@@ -103,6 +108,11 @@ namespace ICT4Events
             decimal a = bail + price;
             return a;
             
+        }
+
+        public double GetTotalHireDate()
+        {
+            return (hire_date - returned_date).TotalDays;
         }
 
          public override string ToString()

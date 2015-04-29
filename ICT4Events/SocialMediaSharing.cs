@@ -471,18 +471,17 @@ namespace ICT4Events
             // Sorteren op categorie 
             if (rbCategory.Checked)
             {
-                int index = cbCategorySort.SelectedIndex;
-                Category category = cbCategorySort.Items[index] as Category;
-                foreach (Media m in mediaList)
-                {
-                    // Kijkt of de categorie namen overeen komen
-                    if (m.Category.Name == category.Name)
-                    {
-                        // Voegt m toe aan de swap list
-                        swap.Add(m);
-                        swapped = true;
-                    }
-                }
+                 foreach (Media m in mediaList)
+                 {
+                     // Kijkt of de categorie namen overeen komen
+                     if (m.Category.Name == cbCategorySort.Text)
+                     {
+                         // Voegt m toe aan de swap list
+                         swap.Add(m);
+                         swapped = true;
+                     }
+                 }
+                
             }
 
             // Sorteren op tag

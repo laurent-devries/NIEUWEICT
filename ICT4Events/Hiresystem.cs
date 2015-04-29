@@ -192,8 +192,9 @@ namespace ICT4Events
             {
                 Product product;
                 DateTime now = DateTime.Now;
+                now.ToShortDateString();
 
-                if (now > dateTimePicker1.Value)
+                if (dateTimePicker1.Value >= now)
                 {
                     MessageBox.Show("Vul een geldige datum in");
                 }
@@ -230,7 +231,6 @@ namespace ICT4Events
                             MessageBox.Show("Scan eerst een user.");
                         }
                         string RFID = RFIDtext.Text;
-                        // refresh listboxen
                         refresh(RFID);
                     }
                     else
@@ -249,6 +249,15 @@ namespace ICT4Events
                 product = UserProductlist.SelectedItem as Product;
                 ProductManager productdata = new ProductManager();
                 productdata.deleteBorrow(product, user);
+
+                double dayshired = product.GetTotalHireDate();
+                double bail = Convert.ToDouble(product.Bail);
+                double price = Convert.ToDouble(product.Price) * dayshired;
+
+                double total = bail + price;
+                MessageBox.Show("is totaal: " + total);
+                
+
                 string RFID = RFIDtext.Text;
                 refresh(RFID);
             }
@@ -267,30 +276,36 @@ namespace ICT4Events
         private void btnSearch_Click(object sender, EventArgs e)
         {
             List<Product> swap = new List<Product>();
-            bool swapped = false;
             producten = productholder;
-
+            listBoxAvble.Items.Clear();
+           
             foreach (Product p in producten)
             {
+                
+                if (SearchTxtHR.Text == "")
+                {
+                    MessageBox.Show("Vul product naam in");
+                    break; 
+                }
+
                 string title = SearchTxtHR.Text;
-                if (p.Product_Name.ToUpper().Contains(title.ToUpper()))
+                
+                if (p.Product_Name.ToUpper().Contains(title.ToUpper()) && SearchTxtHR.Text != "")
                 {
                     swap.Add(p);
-                    swapped = true;
-                }
-
-                if (swapped)
-                {
-                    producten = swap;
-                   // RefreshData();
-                }
-
-                else
-                {
-                    producten = new List<Product>();
-                   // RefreshData();
+                    listBoxAvble.Items.Add(p);
                 }
             }
+        }
+
+        private void clearbtn_Click(object sender, EventArgs e)
+        {
+            SearchTxtHR.Text = "";
+            UserProductlist.Items.Clear();
+            allProductslist.Items.Clear();
+            listBoxAvble.Items.Clear();
+            LoadProducts();
+            availableProduct();
         }
     }
 }

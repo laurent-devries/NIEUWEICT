@@ -11,6 +11,8 @@ using System.Data;
 
 namespace ICT4Events
 {
+
+    
     class ProductManager
     {
         public bool noUserSelected = false;
@@ -136,16 +138,19 @@ namespace ICT4Events
                  oracleConnection.Dispose();
                  
 
-                 // kijk of er nog voeldoende producten beschikbaar zijn
+                 // kijk of er nog voldoende producten beschikbaar zijn
                  if (hiredAmount >= totalAmount || hireAmount > totalAmount)
                  {
                         MessageBox.Show("Aantal producten is niet meer beschikbaar");
-                        noUserSelected = false;
+                        
                  }
 
+                 
                  int Getamount = product.GetTotaalAmount();
+                 int rekt = product.GetTotaalAmount2();
 
-                 if (Getamount < totalAmount) 
+
+                 if (rekt < Getamount || Getamount == 0)
                  {
                      MessageBox.Show("Te veel producten opgegeven");
                  }
@@ -183,7 +188,7 @@ namespace ICT4Events
 
             string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'Y' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
             con.InsertOrUpdate(Query2);
-
+            
             return true;
         }
 

@@ -94,6 +94,7 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.clearbtn = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -106,20 +107,21 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.clearbtn);
             this.groupBox4.Controls.Add(this.btnSearch);
             this.groupBox4.Controls.Add(this.SearchTxtHR);
             this.groupBox4.Location = new System.Drawing.Point(12, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(344, 67);
+            this.groupBox4.Size = new System.Drawing.Size(376, 100);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Search item:";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(212, 29);
+            this.btnSearch.Location = new System.Drawing.Point(217, 26);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(97, 22);
+            this.btnSearch.Size = new System.Drawing.Size(102, 29);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -127,7 +129,7 @@
             // 
             // SearchTxtHR
             // 
-            this.SearchTxtHR.Location = new System.Drawing.Point(9, 29);
+            this.SearchTxtHR.Location = new System.Drawing.Point(16, 47);
             this.SearchTxtHR.Name = "SearchTxtHR";
             this.SearchTxtHR.Size = new System.Drawing.Size(193, 22);
             this.SearchTxtHR.TabIndex = 7;
@@ -746,6 +748,16 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Products on user:";
             // 
+            // clearbtn
+            // 
+            this.clearbtn.Location = new System.Drawing.Point(217, 58);
+            this.clearbtn.Name = "clearbtn";
+            this.clearbtn.Size = new System.Drawing.Size(102, 29);
+            this.clearbtn.TabIndex = 9;
+            this.clearbtn.Text = "Clear";
+            this.clearbtn.UseVisualStyleBackColor = true;
+            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
+            // 
             // Hiresystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -854,5 +866,6 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button clearbtn;
     }
 }
