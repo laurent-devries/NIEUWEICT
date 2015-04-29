@@ -69,10 +69,10 @@
             this.tabEventManagement = new System.Windows.Forms.TabPage();
             this.Listb_Event_campingplaces = new System.Windows.Forms.ListBox();
             this.gb_add_campingplace = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.nuD_maxpeople = new System.Windows.Forms.NumericUpDown();
+            this.cb_campingtype = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.tb_event_maxpeople = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tb_eventcampingplacenumber = new System.Windows.Forms.TextBox();
             this.cb_event_id_campingplaces = new System.Windows.Forms.ComboBox();
@@ -108,6 +108,7 @@
             this.gb_gebruikercreatie.SuspendLayout();
             this.tabEventManagement.SuspendLayout();
             this.gb_add_campingplace.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nuD_maxpeople)).BeginInit();
             this.gb_mantain_event.SuspendLayout();
             this.tabShowUsers.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -586,10 +587,10 @@
             // 
             // gb_add_campingplace
             // 
-            this.gb_add_campingplace.Controls.Add(this.comboBox1);
+            this.gb_add_campingplace.Controls.Add(this.nuD_maxpeople);
+            this.gb_add_campingplace.Controls.Add(this.cb_campingtype);
             this.gb_add_campingplace.Controls.Add(this.label17);
             this.gb_add_campingplace.Controls.Add(this.label16);
-            this.gb_add_campingplace.Controls.Add(this.tb_event_maxpeople);
             this.gb_add_campingplace.Controls.Add(this.label15);
             this.gb_add_campingplace.Controls.Add(this.tb_eventcampingplacenumber);
             this.gb_add_campingplace.Controls.Add(this.cb_event_id_campingplaces);
@@ -603,19 +604,26 @@
             this.gb_add_campingplace.TabStop = false;
             this.gb_add_campingplace.Text = "Add Campingplaces";
             // 
-            // comboBox1
+            // nuD_maxpeople
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.nuD_maxpeople.Location = new System.Drawing.Point(90, 72);
+            this.nuD_maxpeople.Name = "nuD_maxpeople";
+            this.nuD_maxpeople.Size = new System.Drawing.Size(348, 20);
+            this.nuD_maxpeople.TabIndex = 45;
+            // 
+            // cb_campingtype
+            // 
+            this.cb_campingtype.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_campingtype.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_campingtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_campingtype.FormattingEnabled = true;
+            this.cb_campingtype.Items.AddRange(new object[] {
             "TENT",
             "BUNGALOW"});
-            this.comboBox1.Location = new System.Drawing.Point(90, 96);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(348, 21);
-            this.comboBox1.TabIndex = 44;
+            this.cb_campingtype.Location = new System.Drawing.Point(90, 96);
+            this.cb_campingtype.Name = "cb_campingtype";
+            this.cb_campingtype.Size = new System.Drawing.Size(348, 21);
+            this.cb_campingtype.TabIndex = 44;
             // 
             // label17
             // 
@@ -634,13 +642,6 @@
             this.label16.Size = new System.Drawing.Size(66, 13);
             this.label16.TabIndex = 42;
             this.label16.Text = "Max People:";
-            // 
-            // tb_event_maxpeople
-            // 
-            this.tb_event_maxpeople.Location = new System.Drawing.Point(90, 74);
-            this.tb_event_maxpeople.Name = "tb_event_maxpeople";
-            this.tb_event_maxpeople.Size = new System.Drawing.Size(350, 20);
-            this.tb_event_maxpeople.TabIndex = 41;
             // 
             // label15
             // 
@@ -945,6 +946,7 @@
             this.tabEventManagement.ResumeLayout(false);
             this.gb_add_campingplace.ResumeLayout(false);
             this.gb_add_campingplace.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nuD_maxpeople)).EndInit();
             this.gb_mantain_event.ResumeLayout(false);
             this.gb_mantain_event.PerformLayout();
             this.tabShowUsers.ResumeLayout(false);
@@ -1027,10 +1029,10 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button Btn_deletecampingplace;
         private System.Windows.Forms.Button Btn_addcampingplace;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_campingtype;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox tb_event_maxpeople;
+        private System.Windows.Forms.NumericUpDown nuD_maxpeople;
 
     }
 }
