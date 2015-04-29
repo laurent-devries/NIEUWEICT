@@ -103,10 +103,12 @@ namespace ICT4Events
                 if (user.Present == inFalse)
                 {
                     dataCollect.UpdateUserPresent(user.ID_User.ToString(), true);
+                    lblInOfUitgecheckt.Text = "Ingecheckt";
                 }
                 else
                 {
                     dataCollect.UpdateUserPresent(user.ID_User.ToString(), false);
+                    lblInOfUitgecheckt.Text = "Uitgecheckt";
                 }
                 
             }
