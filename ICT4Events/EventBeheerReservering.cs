@@ -76,6 +76,10 @@ namespace ICT4Events
             Event_End_Date.ResetText();
             Event_Camping_Location.Text = null;
             Event_Camping_Name.Text = null;
+            cb_event_id_campingplaces.Text = null;
+            tb_eventcampingplacenumber.Text = null;
+            nuD_maxpeople.Value = 0;
+            cb_campingtype.Text = null;
         }
         private void btn_show_users_Click_1(object sender, EventArgs e)
         {
@@ -444,7 +448,7 @@ namespace ICT4Events
                 MessageBox.Show("error");
             }
             cB_Reservation_ID_User.Enabled = true;
-       
+
         }
 
         private void btn_verwijder_gebruiker_Click_1(object sender, EventArgs e)
@@ -476,7 +480,7 @@ namespace ICT4Events
 
         private void cb_event_id_campingplaces_TextChanged(object sender, EventArgs e)
         {
-            List<CampingPlace> campingplaatslijst = null; 
+            List<CampingPlace> campingplaatslijst = null;
             CampingPlaceManager mngr = new CampingPlaceManager();
             int event_id;
             int.TryParse(cb_event_id_campingplaces.SelectedItem.ToString(), out event_id);
@@ -496,9 +500,20 @@ namespace ICT4Events
 
         private void Btn_addcampingplace_Click(object sender, EventArgs e)
         {
+
             DatabaseConnection conn = new DatabaseConnection();
-            string querry = "INSERT INTO ICT4_CAMPING_PLACE (ID_CAMPINGPLACE, ID_EVENTFK, PLACENUMBER, MAXPEOPLE, CAMPINGTYPE) VALUES (camping_place_seq.NEXTVAL,"+Convert.ToInt32(cb_event_id_campingplaces.Text)+",)";
-            conn.InsertOrUpdate(querry);
+            string querry = "INSERT INTO ICT4_CAMPING_PLACE (ID_CAMPINGPLACE, ID_EVENTFK, PLACENUMBER, MAXPEOPLE, CAMPINGTYPE) VALUES (camping_place_seq.NEXTVAL," + Convert.ToInt32(cb_event_id_campingplaces.Text) + ",'" + tb_eventcampingplacenumber.Text + "'," + nuD_maxpeople.Value.ToString() + ",'" + cb_campingtype.Text + "')";
+            bool trueorfalse = conn.InsertOrUpdate(querry);
+            if (trueorfalse)
+            {
+                MessageBox.Show("The campingplace has been added to the event!");
+            }
+            else
+            {
+                MessageBox.Show("Somethingg has gone wrong! Make sure you have filled in everything you need!");
+            }
+            lists();
+            userclear();
         }
     }
 }
