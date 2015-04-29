@@ -192,12 +192,12 @@ namespace ICT4Events
             {
                 Product product;
                 DateTime dateNow = DateTime.Now;
-                string date1 = dateTimePicker1.Value.ToShortDateString(); 
-                string date2 = dateNow.ToShortDateString();
-                DateTime date3 = Convert.ToDateTime(date1);
-                DateTime date4 = Convert.ToDateTime(date2);
+                string datePicker = dateTimePicker1.Value.ToShortDateString(); 
+                string dateToday = dateNow.ToShortDateString();
+                DateTime datePickerConvert = Convert.ToDateTime(datePicker);
+                DateTime dateTodayConvert = Convert.ToDateTime(dateToday);
 
-                if ( date3 < date4 )
+                if (datePickerConvert < dateTodayConvert)
                 {
                     MessageBox.Show("Vul een geldige datum in");
                 }

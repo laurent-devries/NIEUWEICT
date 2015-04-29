@@ -30,8 +30,7 @@ namespace ICT4Events
             {
                 if (scanned == false)
                 {
-                    rfid.Attach += new AttachEventHandler(rfid_Attach);
-                    rfid.Detach += new DetachEventHandler(rfid_Detach);
+                    
                     rfid.Error += new ErrorEventHandler(rfid_Error);
                     rfid.Tag += new TagEventHandler(rfid_Tag);
                     rfid.open();
@@ -55,14 +54,7 @@ namespace ICT4Events
             }
         }
 
-        private void rfid_Attach(object sender, AttachEventArgs e)
-        {
-
-        }
-        private void rfid_Detach(object sender, DetachEventArgs e)
-        {
-
-        }
+      
 
         private void rfid_Error(object sender, ErrorEventArgs e)
         {
@@ -73,6 +65,13 @@ namespace ICT4Events
         {
             lblScannerToestand.Text = "Scanner is gestopt met scannen";
             btnStartScanner.Text = "Start scanner";
+            lblEvent.Text = "Event: ";
+            lblHeeftBetaald.Text = "Betaald: ";
+            lblInOfUitgecheckt.Text = "";
+            lblNaam.Text = "Naam: ";
+            lblReservering.Text = "Reservering: ";
+            rfid.close();
+           
         }
 
         public void rfid_Tag(object sender, TagEventArgs e)
