@@ -103,6 +103,8 @@
             this.cb_showusersonevent = new System.Windows.Forms.ComboBox();
             this.btn_show_users = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.cB_Characteristics = new System.Windows.Forms.ComboBox();
             this.tControlEventbeheer.SuspendLayout();
             this.tabUserManagement.SuspendLayout();
             this.gb_gebruikercreatie.SuspendLayout();
@@ -587,6 +589,8 @@
             // 
             // gb_add_campingplace
             // 
+            this.gb_add_campingplace.Controls.Add(this.cB_Characteristics);
+            this.gb_add_campingplace.Controls.Add(this.label18);
             this.gb_add_campingplace.Controls.Add(this.nuD_maxpeople);
             this.gb_add_campingplace.Controls.Add(this.cb_campingtype);
             this.gb_add_campingplace.Controls.Add(this.label17);
@@ -682,7 +686,7 @@
             // 
             // Btn_deletecampingplace
             // 
-            this.Btn_deletecampingplace.Location = new System.Drawing.Point(221, 146);
+            this.Btn_deletecampingplace.Location = new System.Drawing.Point(235, 170);
             this.Btn_deletecampingplace.Name = "Btn_deletecampingplace";
             this.Btn_deletecampingplace.Size = new System.Drawing.Size(87, 23);
             this.Btn_deletecampingplace.TabIndex = 36;
@@ -691,7 +695,7 @@
             // 
             // Btn_addcampingplace
             // 
-            this.Btn_addcampingplace.Location = new System.Drawing.Point(328, 146);
+            this.Btn_addcampingplace.Location = new System.Drawing.Point(328, 170);
             this.Btn_addcampingplace.Name = "Btn_addcampingplace";
             this.Btn_addcampingplace.Size = new System.Drawing.Size(112, 23);
             this.Btn_addcampingplace.TabIndex = 35;
@@ -930,6 +934,32 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Event_ID:";
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(11, 123);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(74, 13);
+            this.label18.TabIndex = 46;
+            this.label18.Text = "Characteristic:";
+            // 
+            // cB_Characteristics
+            // 
+            this.cB_Characteristics.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cB_Characteristics.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cB_Characteristics.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cB_Characteristics.FormattingEnabled = true;
+            this.cB_Characteristics.Items.AddRange(new object[] {
+            "LAWAAI",
+            "COMFORT",
+            "RUSTIG",
+            "KNUS",
+            "HARDEKERN"});
+            this.cB_Characteristics.Location = new System.Drawing.Point(90, 120);
+            this.cB_Characteristics.Name = "cB_Characteristics";
+            this.cB_Characteristics.Size = new System.Drawing.Size(348, 21);
+            this.cB_Characteristics.TabIndex = 47;
+            // 
             // EventBeheerReservering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1033,6 +1063,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.NumericUpDown nuD_maxpeople;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox cB_Characteristics;
 
     }
 }
