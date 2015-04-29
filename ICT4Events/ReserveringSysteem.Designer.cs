@@ -604,29 +604,29 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(364, 271);
+            this.label17.Location = new System.Drawing.Point(402, 271);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(109, 17);
+            this.label17.Size = new System.Drawing.Size(42, 17);
             this.label17.TabIndex = 28;
-            this.label17.Text = "Aantal gehuurd:";
+            this.label17.Text = "Borg:";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(302, 271);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(42, 17);
+            this.label19.Size = new System.Drawing.Size(94, 17);
             this.label19.TabIndex = 26;
-            this.label19.Text = "Borg:";
+            this.label19.Text = "Retourdatum:";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(187, 271);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(73, 17);
+            this.label20.Size = new System.Drawing.Size(82, 17);
             this.label20.TabIndex = 25;
-            this.label20.Text = "Categorie:";
+            this.label20.Text = "Huurdatum:";
             // 
             // label21
             // 
