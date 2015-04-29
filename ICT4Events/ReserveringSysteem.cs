@@ -121,9 +121,9 @@ namespace ICT4Events
         private void btnBevestigEvent_Click(object sender, EventArgs e)
         {
             CampingPlace c = cbPlaces.SelectedItem as CampingPlace;
-            if (c.MaxPeople >= nudAantal.Value)
+            if (cbEvents.SelectedItem != null || cbPlaces.SelectedItem != null)
             {
-                if (cbEvents.SelectedItem != null && cbPlaces.SelectedItem != null)
+                if (c.MaxPeople >= nudAantal.Value)
                 {
                     if (dtpVertrek.Value > dtpAankomst.Value)
                     {
@@ -137,12 +137,12 @@ namespace ICT4Events
                 }
                 else
                 {
-                    MessageBox.Show("Voer eerst alle gegevens in voordat u een account aan kunt maken.");
+                    MessageBox.Show("U heeft te veel mensen geselecteerd voor deze campeerplaats.");
                 }
             }
             else
             {
-                MessageBox.Show("U heeft te veel mensen geselecteerd voor deze campeerplaats.");
+                MessageBox.Show("Voer eerst alle gegevens in voordat u een account aan kunt maken.");
             }
         }
 
