@@ -16,6 +16,8 @@ namespace ICT4Events
     public partial class ReserveringSysteem : Form
     {
         private int userid;
+        private int usersleft;
+        private int idreservation = 0;
         public ReserveringSysteem()
         {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace ICT4Events
             cbEvents.DataSource = eventList;
             cbEvents.Refresh();
             gbVerhuur.Enabled = false;
+            gbUsers.Enabled = false;
         }
 
         private void cbEvents_SelectedValueChanged(object sender, EventArgs e)
@@ -158,6 +161,8 @@ namespace ICT4Events
 
         private void btnBevestigUser_Click(object sender, EventArgs e)
         {
+            usersleft = Convert.ToInt32(nudAantal.Value) - 1;
+            lblAccountsLeft.Text = usersleft.ToString();
             Event a = cbEvents.SelectedItem as Event;
             CampingPlace p = cbPlaces.SelectedItem as CampingPlace;
             {
@@ -187,7 +192,7 @@ namespace ICT4Events
 
                     conn.InsertOrUpdate("insert into ICT4_RESERVATION (ID_RESERVATION, ID_EVENTFK, PAYMENTSTATE) values (RES_SEQ.NEXTVAL, " + a.ID_Event + ", 'N')");
                     OracleDataReader reader = conn.SelectFromDatabase("select MAX(ID_RESERVATION) FROM ICT4_RESERVATION");
-                    int idreservation = 0;
+                    
 
                     while (reader.Read())
                     {
@@ -206,14 +211,19 @@ namespace ICT4Events
                     conn.InsertOrUpdate(insertUser);
                     MessageBox.Show("Uw account is aangemaakt, deze is nu gereed voor gebruik op het media- en materiaalverhuursysteem. Uw reservering voor het evenement is verzonden.");
                     ClearUserTextboxes();
+                    reader.Close();
 
-                    gbVerhuur.Enabled = true;
                     ProductManager productManager = new ProductManager();
                     lbProducten.DataSource = productManager.availableProduct();
                     lbGehuurd.DataSource = productManager.GetHiredProducts(userid);
-                    gbVerhuur.Name = "Materiaalverhuur voor gebruiker nr : " + userid;
+                    gbVerhuur.Text = "Materiaalverhuur voor gebruiker nr : " + userid;
+                    gbVerhuur.Enabled = true;
                     gbEvent.Enabled = false;
                     gb_gebruikercreatie.Enabled = false;
+                    if (usersleft > 0)
+                    {
+                        gbUsers.Enabled = true;
+                    }
                 }
             }
         }
@@ -224,6 +234,24 @@ namespace ICT4Events
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnConfirmExtraAcc_Click(object sender, EventArgs e)
+        {
+            usersleft = usersleft - 1;
+            if (usersleft > 0)
+            {
+                gbUsers.Enabled = true;
+            }
+            else
+            {
+                gbUsers.Enabled = false;
+            }
+            Event a = cbEvents.SelectedItem as Event;
+
+            DatabaseConnection conn = new DatabaseConnection();
+            string insert = "insert into ICT4_USER (ID_USER, ID_EVENTFK, ID_RESERVATIONFK, ID_PERMISSIONFK, LOGINNAME, PASSWORDUSER) VALUES (USER_SEQ.NEXTVAL, " + Convert.ToString(a.ID_Event) + ", " + idreservation + ", 1, '" + tbLoginEx.Text + "', '" + tbPassEx.Text + "'";
+            conn.InsertOrUpdate(insert);
         }
     }
 }

@@ -88,11 +88,20 @@
             this.gbEvent = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.gbUsers = new System.Windows.Forms.GroupBox();
+            this.btnConfirmExtraAcc = new System.Windows.Forms.Button();
+            this.tbLoginEx = new System.Windows.Forms.TextBox();
+            this.tbPassEx = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.lblAccountsLeft = new System.Windows.Forms.Label();
             this.gb_gebruikercreatie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).BeginInit();
             this.gbVerhuur.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantalhuur)).BeginInit();
             this.gbEvent.SuspendLayout();
+            this.gbUsers.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -239,7 +248,7 @@
             // 
             this.tb_password_gebruiker.Location = new System.Drawing.Point(128, 333);
             this.tb_password_gebruiker.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_password_gebruiker.MaxLength = 255;
+            this.tb_password_gebruiker.MaxLength = 20;
             this.tb_password_gebruiker.Name = "tb_password_gebruiker";
             this.tb_password_gebruiker.ShortcutsEnabled = false;
             this.tb_password_gebruiker.Size = new System.Drawing.Size(431, 22);
@@ -270,7 +279,7 @@
             // 
             this.tb_loginname_gebruiker.Location = new System.Drawing.Point(128, 271);
             this.tb_loginname_gebruiker.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_loginname_gebruiker.MaxLength = 17;
+            this.tb_loginname_gebruiker.MaxLength = 15;
             this.tb_loginname_gebruiker.Name = "tb_loginname_gebruiker";
             this.tb_loginname_gebruiker.Size = new System.Drawing.Size(431, 22);
             this.tb_loginname_gebruiker.TabIndex = 17;
@@ -279,7 +288,7 @@
             // 
             this.tb_username_gebruiker.Location = new System.Drawing.Point(128, 303);
             this.tb_username_gebruiker.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_username_gebruiker.MaxLength = 255;
+            this.tb_username_gebruiker.MaxLength = 20;
             this.tb_username_gebruiker.Name = "tb_username_gebruiker";
             this.tb_username_gebruiker.Size = new System.Drawing.Size(431, 22);
             this.tb_username_gebruiker.TabIndex = 18;
@@ -525,7 +534,7 @@
             // 
             this.nudAantal.Location = new System.Drawing.Point(170, 175);
             this.nudAantal.Maximum = new decimal(new int[] {
-            20,
+            12,
             0,
             0,
             0});
@@ -584,7 +593,7 @@
             this.gbVerhuur.Controls.Add(this.lbProducten);
             this.gbVerhuur.Location = new System.Drawing.Point(623, 12);
             this.gbVerhuur.Name = "gbVerhuur";
-            this.gbVerhuur.Size = new System.Drawing.Size(699, 670);
+            this.gbVerhuur.Size = new System.Drawing.Size(699, 420);
             this.gbVerhuur.TabIndex = 17;
             this.gbVerhuur.TabStop = false;
             this.gbVerhuur.Text = "Materiaalverhuur";
@@ -801,11 +810,90 @@
             this.label23.Text = "Aantal \r\nverhuurd:";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // gbUsers
+            // 
+            this.gbUsers.Controls.Add(this.lblAccountsLeft);
+            this.gbUsers.Controls.Add(this.label27);
+            this.gbUsers.Controls.Add(this.label25);
+            this.gbUsers.Controls.Add(this.label24);
+            this.gbUsers.Controls.Add(this.tbPassEx);
+            this.gbUsers.Controls.Add(this.tbLoginEx);
+            this.gbUsers.Controls.Add(this.btnConfirmExtraAcc);
+            this.gbUsers.Location = new System.Drawing.Point(623, 438);
+            this.gbUsers.Name = "gbUsers";
+            this.gbUsers.Size = new System.Drawing.Size(699, 159);
+            this.gbUsers.TabIndex = 20;
+            this.gbUsers.TabStop = false;
+            this.gbUsers.Text = "Extra accounts creëren";
+            // 
+            // btnConfirmExtraAcc
+            // 
+            this.btnConfirmExtraAcc.Location = new System.Drawing.Point(10, 119);
+            this.btnConfirmExtraAcc.Name = "btnConfirmExtraAcc";
+            this.btnConfirmExtraAcc.Size = new System.Drawing.Size(198, 28);
+            this.btnConfirmExtraAcc.TabIndex = 0;
+            this.btnConfirmExtraAcc.Text = "Bevestig";
+            this.btnConfirmExtraAcc.UseVisualStyleBackColor = true;
+            this.btnConfirmExtraAcc.Click += new System.EventHandler(this.btnConfirmExtraAcc_Click);
+            // 
+            // tbLoginEx
+            // 
+            this.tbLoginEx.Location = new System.Drawing.Point(10, 46);
+            this.tbLoginEx.MaxLength = 15;
+            this.tbLoginEx.Name = "tbLoginEx";
+            this.tbLoginEx.Size = new System.Drawing.Size(198, 22);
+            this.tbLoginEx.TabIndex = 1;
+            // 
+            // tbPassEx
+            // 
+            this.tbPassEx.Location = new System.Drawing.Point(10, 91);
+            this.tbPassEx.MaxLength = 20;
+            this.tbPassEx.Name = "tbPassEx";
+            this.tbPassEx.Size = new System.Drawing.Size(198, 22);
+            this.tbPassEx.TabIndex = 2;
+            this.tbPassEx.UseSystemPasswordChar = true;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(7, 26);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(77, 17);
+            this.label24.TabIndex = 3;
+            this.label24.Text = "Inlognaam:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(7, 71);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(90, 17);
+            this.label25.TabIndex = 4;
+            this.label25.Text = "Wachtwoord:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(266, 22);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(168, 17);
+            this.label27.TabIndex = 6;
+            this.label27.Text = "Nog te creëren accounts:";
+            // 
+            // lblAccountsLeft
+            // 
+            this.lblAccountsLeft.AutoSize = true;
+            this.lblAccountsLeft.Location = new System.Drawing.Point(445, 22);
+            this.lblAccountsLeft.Name = "lblAccountsLeft";
+            this.lblAccountsLeft.Size = new System.Drawing.Size(0, 17);
+            this.lblAccountsLeft.TabIndex = 7;
+            // 
             // ReserveringSysteem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1336, 698);
+            this.Controls.Add(this.gbUsers);
             this.Controls.Add(this.gbEvent);
             this.Controls.Add(this.gbVerhuur);
             this.Controls.Add(this.gb_gebruikercreatie);
@@ -822,6 +910,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudAantalhuur)).EndInit();
             this.gbEvent.ResumeLayout(false);
             this.gbEvent.PerformLayout();
+            this.gbUsers.ResumeLayout(false);
+            this.gbUsers.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -888,5 +978,13 @@
         private System.Windows.Forms.GroupBox gbEvent;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.GroupBox gbUsers;
+        private System.Windows.Forms.Label lblAccountsLeft;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox tbPassEx;
+        private System.Windows.Forms.TextBox tbLoginEx;
+        private System.Windows.Forms.Button btnConfirmExtraAcc;
     }
 }
