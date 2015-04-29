@@ -114,6 +114,7 @@ namespace ICT4Events
             Product product = lbProducten.SelectedItem as Product;
             productManager.InsertBorrow(product, user, dtpMatriaalhuur.Value.ToString("dd-MM-yyyy"), Convert.ToInt32(nudAantalhuur.Value));
             lbGehuurd.DataSource = productManager.GetHiredProducts(user.ID_User);
+            lbProducten.DataSource = productManager.availableProduct();
             lbGehuurd.Refresh();
             lbProducten.Refresh();
         }
@@ -121,9 +122,10 @@ namespace ICT4Events
         private void btnBevestigEvent_Click(object sender, EventArgs e)
         {
             CampingPlace c = cbPlaces.SelectedItem as CampingPlace;
-            if (c.MaxPeople >= nudAantal.Value)
+            Event ev = cbEvents.SelectedItem as Event;
+            if (ev != null && c != null)
             {
-                if (cbEvents.SelectedItem != null && cbPlaces.SelectedItem != null)
+                if (c.MaxPeople >= nudAantal.Value)
                 {
                     if (dtpVertrek.Value > dtpAankomst.Value)
                     {
@@ -137,12 +139,12 @@ namespace ICT4Events
                 }
                 else
                 {
-                    MessageBox.Show("Voer eerst alle gegevens in voordat u een account aan kunt maken.");
+                    MessageBox.Show("U heeft te veel mensen geselecteerd voor deze campeerplaats.");
                 }
             }
             else
             {
-                MessageBox.Show("U heeft te veel mensen geselecteerd voor deze campeerplaats.");
+                MessageBox.Show("Voer eerst alle gegevens in voordat u een account aan kunt maken.");
             }
         }
 

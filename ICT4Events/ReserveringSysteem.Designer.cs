@@ -86,6 +86,8 @@
             this.lbProducten = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.gbEvent = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.gb_gebruikercreatie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).BeginInit();
             this.gbVerhuur.SuspendLayout();
@@ -561,6 +563,8 @@
             // 
             // gbVerhuur
             // 
+            this.gbVerhuur.Controls.Add(this.label23);
+            this.gbVerhuur.Controls.Add(this.label18);
             this.gbVerhuur.Controls.Add(this.label14);
             this.gbVerhuur.Controls.Add(this.dtpMatriaalhuur);
             this.gbVerhuur.Controls.Add(this.label17);
@@ -578,9 +582,9 @@
             this.gbVerhuur.Controls.Add(this.label11);
             this.gbVerhuur.Controls.Add(this.label8);
             this.gbVerhuur.Controls.Add(this.lbProducten);
-            this.gbVerhuur.Location = new System.Drawing.Point(774, 12);
+            this.gbVerhuur.Location = new System.Drawing.Point(623, 12);
             this.gbVerhuur.Name = "gbVerhuur";
-            this.gbVerhuur.Size = new System.Drawing.Size(548, 670);
+            this.gbVerhuur.Size = new System.Drawing.Size(699, 670);
             this.gbVerhuur.TabIndex = 17;
             this.gbVerhuur.TabStop = false;
             this.gbVerhuur.Text = "Materiaalverhuur";
@@ -598,7 +602,7 @@
             // 
             this.dtpMatriaalhuur.Location = new System.Drawing.Point(108, 222);
             this.dtpMatriaalhuur.Name = "dtpMatriaalhuur";
-            this.dtpMatriaalhuur.Size = new System.Drawing.Size(214, 22);
+            this.dtpMatriaalhuur.Size = new System.Drawing.Size(236, 22);
             this.dtpMatriaalhuur.TabIndex = 29;
             // 
             // label17
@@ -652,7 +656,7 @@
             this.lbGehuurd.ItemHeight = 16;
             this.lbGehuurd.Location = new System.Drawing.Point(6, 298);
             this.lbGehuurd.Name = "lbGehuurd";
-            this.lbGehuurd.Size = new System.Drawing.Size(536, 116);
+            this.lbGehuurd.Size = new System.Drawing.Size(687, 116);
             this.lbGehuurd.TabIndex = 22;
             // 
             // nudAantalhuur
@@ -683,7 +687,7 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(367, 192);
+            this.btnConfirm.Location = new System.Drawing.Point(518, 194);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(175, 28);
             this.btnConfirm.TabIndex = 19;
@@ -694,11 +698,11 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(364, 29);
+            this.label15.Location = new System.Drawing.Point(357, 29);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 34);
+            this.label15.Size = new System.Drawing.Size(51, 34);
             this.label15.TabIndex = 18;
-            this.label15.Text = "Aantal \r\nbeschikbaar:";
+            this.label15.Text = "Totaal\r\naantal:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label13
@@ -743,7 +747,7 @@
             this.lbProducten.ItemHeight = 16;
             this.lbProducten.Location = new System.Drawing.Point(6, 70);
             this.lbProducten.Name = "lbProducten";
-            this.lbProducten.Size = new System.Drawing.Size(536, 116);
+            this.lbProducten.Size = new System.Drawing.Size(687, 116);
             this.lbProducten.TabIndex = 0;
             // 
             // button1
@@ -777,6 +781,25 @@
             this.gbEvent.TabIndex = 19;
             this.gbEvent.TabStop = false;
             this.gbEvent.Text = "Evenement selecteren";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(553, 271);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(109, 17);
+            this.label18.TabIndex = 31;
+            this.label18.Text = "Aantal gehuurd:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(442, 29);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(69, 34);
+            this.label23.TabIndex = 32;
+            this.label23.Text = "Aantal \r\nverhuurd:";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ReserveringSysteem
             // 
@@ -863,5 +886,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker dtpMatriaalhuur;
         private System.Windows.Forms.GroupBox gbEvent;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label23;
     }
 }
