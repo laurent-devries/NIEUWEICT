@@ -87,6 +87,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.gbEvent = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.gb_gebruikercreatie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).BeginInit();
             this.gbVerhuur.SuspendLayout();
@@ -562,6 +563,7 @@
             // 
             // gbVerhuur
             // 
+            this.gbVerhuur.Controls.Add(this.label23);
             this.gbVerhuur.Controls.Add(this.label18);
             this.gbVerhuur.Controls.Add(this.label14);
             this.gbVerhuur.Controls.Add(this.dtpMatriaalhuur);
@@ -696,7 +698,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(364, 29);
+            this.label15.Location = new System.Drawing.Point(354, 29);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(89, 34);
             this.label15.TabIndex = 18;
@@ -789,6 +791,16 @@
             this.label18.TabIndex = 31;
             this.label18.Text = "Aantal gehuurd:";
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(449, 29);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(69, 34);
+            this.label23.TabIndex = 32;
+            this.label23.Text = "Aantal \r\nverhuurd:";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ReserveringSysteem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -875,5 +887,6 @@
         private System.Windows.Forms.DateTimePicker dtpMatriaalhuur;
         private System.Windows.Forms.GroupBox gbEvent;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label23;
     }
 }
