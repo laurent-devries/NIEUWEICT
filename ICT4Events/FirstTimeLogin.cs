@@ -51,7 +51,7 @@ namespace ICT4Events
 
             catch
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Vul alle velden in");
             }            
         }
     }

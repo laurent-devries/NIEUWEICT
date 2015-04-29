@@ -111,7 +111,7 @@ namespace ICT4Events
                 lblFirstHR.Text = user.First_Name;
                 lblSureNameHR.Text = user.Sur_Name;
                 lblRFIDinfoUser.Text = user.RFID_Tag;
-                lblBirthDHR.Text = Convert.ToString(user.Birth_Date);
+                lblBirthDHR.Text = user.Birth_Date.ToShortDateString();
                 lblEmailHR.Text = user.Email;
                 lblCountryHR.Text = user.Country;
                 lblStreetHR.Text = user.Street;
@@ -191,10 +191,13 @@ namespace ICT4Events
 
             {
                 Product product;
-                DateTime now = DateTime.Now;
-                now.ToShortDateString();
+                DateTime dateNow = DateTime.Now;
+                string datePicker = dateTimePicker1.Value.ToShortDateString(); 
+                string dateToday = dateNow.ToShortDateString();
+                DateTime datePickerConvert = Convert.ToDateTime(datePicker);
+                DateTime dateTodayConvert = Convert.ToDateTime(dateToday);
 
-                if (dateTimePicker1.Value >= now)
+                if (datePickerConvert < dateTodayConvert)
                 {
                     MessageBox.Show("Vul een geldige datum in");
                 }
