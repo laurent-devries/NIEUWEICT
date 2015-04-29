@@ -102,7 +102,7 @@ namespace ICT4Events
 
             try
             {
-                file = new FileStream("C:/Users/Yoeri/Desktop/Logbestand.txt", FileMode.Create, FileAccess.Write);
+                file = new FileStream(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)+"/Logbestand.txt", FileMode.Create, FileAccess.Write);
                 writer = new StreamWriter(file);
                 foreach (string tekst in lb_show_user_on_event.Items)
                 {
