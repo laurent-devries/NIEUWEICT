@@ -144,55 +144,31 @@ namespace ICT4Events
                         MessageBox.Show("Aantal producten is niet meer beschikbaar");
                         
                  }
-
-                 
-                 int Getamount = product.GetTotaalAmount();
-                
-
-
-                 if (hireAmount > Getamount || Getamount == 0)
-                 {
-                     MessageBox.Show("Te veel producten opgegeven");
-                 }
-
                  else
                  {
+                     int Getamount = product.GetTotaalAmount();
+                     int rekt = product.GetTotaalAmount2();
+
+                     if (rekt < Getamount || Getamount == 0)
                      {
-                         DateTime dateNow = DateTime.Now;
+                         MessageBox.Show("Te veel producten opgegeven");
+                     }
 
-                         string maand;
-                         if (dateNow.Month < 10)
+                     else
+                     {
                          {
+                             string Query4 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(user_product_seq.nextval, " + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date(sysdate,'DD-MM-YYYY'), to_date('" + date + "', 'DD-MM-YYYY'), null" + "," + +hireAmount + ")";
+                             con.InsertOrUpdate(Query4);
 
-                             maand = "0" + Convert.ToString(dateNow.Month);
-                         }
-                         else
-                         {
-                             maand = Convert.ToString(dateNow.Month);
-                         }
-                         string dag;
-                         if (dateNow.Day < 10)
-                         {
-                             dag = "0" + Convert.ToString(dateNow.Day);
-                         }
-                         else
-                         {
-                             dag = Convert.ToString(dateNow.Day);
-                         }
+                             string Query5 = "UPDATE ICT4_PRODUCT SET TotalHiredamount  = TOTALHIREDAMOUNT +" + hireAmount + "WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+                             con.InsertOrUpdate(Query5);
+                             noUserSelected = false;
 
-                         string dateFromNow = dag + maand + Convert.ToString(dateNow.Year);
-
-                         string Query4 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(user_product_seq.nextval, " + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date( " + dateFromNow  + ",'DD-MM-YYYY'), to_date('" + date + "', 'DDMMYYYY'), null" + "," + +hireAmount + ")";
-                         con.InsertOrUpdate(Query4);
-
-                         string Query5 = "UPDATE ICT4_PRODUCT SET TotalHiredamount  = TOTALHIREDAMOUNT +" + hireAmount + "WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
-                         con.InsertOrUpdate(Query5);
-                         noUserSelected = false;
-
-                         if (hiredAmount == totalAmount)
-                         {
-                         string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
-                         con.InsertOrUpdate(Query2);
+                             if (hiredAmount == totalAmount)
+                             {
+                                 string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+                                 con.InsertOrUpdate(Query2);
+                             }
                          }
                      }
                  }

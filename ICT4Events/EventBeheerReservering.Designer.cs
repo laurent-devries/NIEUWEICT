@@ -30,8 +30,6 @@
         {
             this.tControlEventbeheer = new System.Windows.Forms.TabControl();
             this.tabUserManagement = new System.Windows.Forms.TabPage();
-            this.tabEventManagement = new System.Windows.Forms.TabPage();
-            this.tabShowUsers = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.btn_changeuser = new System.Windows.Forms.Button();
             this.cB_Event_ID_User = new System.Windows.Forms.ComboBox();
@@ -68,10 +66,19 @@
             this.btn_verwijder_gebruiker = new System.Windows.Forms.Button();
             this.btn_nieuwe_gebruiker = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.btn_delete_event = new System.Windows.Forms.Button();
-            this.btn_change_event = new System.Windows.Forms.Button();
-            this.btn_new_event = new System.Windows.Forms.Button();
-            this.Listb_Events = new System.Windows.Forms.ListBox();
+            this.tabEventManagement = new System.Windows.Forms.TabPage();
+            this.Listb_Event_campingplaces = new System.Windows.Forms.ListBox();
+            this.gb_add_campingplace = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tb_event_maxpeople = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tb_eventcampingplacenumber = new System.Windows.Forms.TextBox();
+            this.cb_event_id_campingplaces = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.Btn_deletecampingplace = new System.Windows.Forms.Button();
+            this.Btn_addcampingplace = new System.Windows.Forms.Button();
             this.gb_mantain_event = new System.Windows.Forms.GroupBox();
             this.btnEventcancel = new System.Windows.Forms.Button();
             this.Event_End_Date = new System.Windows.Forms.DateTimePicker();
@@ -85,6 +92,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_delete_event = new System.Windows.Forms.Button();
+            this.btn_change_event = new System.Windows.Forms.Button();
+            this.btn_new_event = new System.Windows.Forms.Button();
+            this.Listb_Events = new System.Windows.Forms.ListBox();
+            this.tabShowUsers = new System.Windows.Forms.TabPage();
             this.lb_show_user_on_event = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btn_printlistusers = new System.Windows.Forms.Button();
@@ -93,10 +105,11 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tControlEventbeheer.SuspendLayout();
             this.tabUserManagement.SuspendLayout();
-            this.tabEventManagement.SuspendLayout();
-            this.tabShowUsers.SuspendLayout();
             this.gb_gebruikercreatie.SuspendLayout();
+            this.tabEventManagement.SuspendLayout();
+            this.gb_add_campingplace.SuspendLayout();
             this.gb_mantain_event.SuspendLayout();
+            this.tabShowUsers.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,32 +141,6 @@
             this.tabUserManagement.TabIndex = 0;
             this.tabUserManagement.Text = "User Management";
             this.tabUserManagement.UseVisualStyleBackColor = true;
-            // 
-            // tabEventManagement
-            // 
-            this.tabEventManagement.Controls.Add(this.gb_mantain_event);
-            this.tabEventManagement.Controls.Add(this.btn_delete_event);
-            this.tabEventManagement.Controls.Add(this.btn_change_event);
-            this.tabEventManagement.Controls.Add(this.btn_new_event);
-            this.tabEventManagement.Controls.Add(this.Listb_Events);
-            this.tabEventManagement.Location = new System.Drawing.Point(4, 22);
-            this.tabEventManagement.Name = "tabEventManagement";
-            this.tabEventManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEventManagement.Size = new System.Drawing.Size(896, 623);
-            this.tabEventManagement.TabIndex = 1;
-            this.tabEventManagement.Text = "Event Management";
-            this.tabEventManagement.UseVisualStyleBackColor = true;
-            // 
-            // tabShowUsers
-            // 
-            this.tabShowUsers.Controls.Add(this.lb_show_user_on_event);
-            this.tabShowUsers.Controls.Add(this.groupBox5);
-            this.tabShowUsers.Location = new System.Drawing.Point(4, 22);
-            this.tabShowUsers.Name = "tabShowUsers";
-            this.tabShowUsers.Size = new System.Drawing.Size(896, 623);
-            this.tabShowUsers.TabIndex = 2;
-            this.tabShowUsers.Text = "Userlist On Event";
-            this.tabShowUsers.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -572,43 +559,144 @@
             this.label11.TabIndex = 38;
             this.label11.Text = "Event_ID";
             // 
-            // btn_delete_event
+            // tabEventManagement
             // 
-            this.btn_delete_event.Location = new System.Drawing.Point(168, 6);
-            this.btn_delete_event.Name = "btn_delete_event";
-            this.btn_delete_event.Size = new System.Drawing.Size(75, 23);
-            this.btn_delete_event.TabIndex = 14;
-            this.btn_delete_event.Text = "Delete";
-            this.btn_delete_event.UseVisualStyleBackColor = true;
-            this.btn_delete_event.Click += new System.EventHandler(this.btn_delete_event_Click_1);
+            this.tabEventManagement.Controls.Add(this.Listb_Event_campingplaces);
+            this.tabEventManagement.Controls.Add(this.gb_add_campingplace);
+            this.tabEventManagement.Controls.Add(this.gb_mantain_event);
+            this.tabEventManagement.Controls.Add(this.btn_delete_event);
+            this.tabEventManagement.Controls.Add(this.btn_change_event);
+            this.tabEventManagement.Controls.Add(this.btn_new_event);
+            this.tabEventManagement.Controls.Add(this.Listb_Events);
+            this.tabEventManagement.Location = new System.Drawing.Point(4, 22);
+            this.tabEventManagement.Name = "tabEventManagement";
+            this.tabEventManagement.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEventManagement.Size = new System.Drawing.Size(896, 623);
+            this.tabEventManagement.TabIndex = 1;
+            this.tabEventManagement.Text = "Event Management";
+            this.tabEventManagement.UseVisualStyleBackColor = true;
             // 
-            // btn_change_event
+            // Listb_Event_campingplaces
             // 
-            this.btn_change_event.Location = new System.Drawing.Point(87, 6);
-            this.btn_change_event.Name = "btn_change_event";
-            this.btn_change_event.Size = new System.Drawing.Size(75, 23);
-            this.btn_change_event.TabIndex = 13;
-            this.btn_change_event.Text = "Change";
-            this.btn_change_event.UseVisualStyleBackColor = true;
-            this.btn_change_event.Click += new System.EventHandler(this.btn_change_event_Click_1);
+            this.Listb_Event_campingplaces.FormattingEnabled = true;
+            this.Listb_Event_campingplaces.Location = new System.Drawing.Point(444, 39);
+            this.Listb_Event_campingplaces.Name = "Listb_Event_campingplaces";
+            this.Listb_Event_campingplaces.Size = new System.Drawing.Size(446, 368);
+            this.Listb_Event_campingplaces.TabIndex = 17;
             // 
-            // btn_new_event
+            // gb_add_campingplace
             // 
-            this.btn_new_event.Location = new System.Drawing.Point(6, 6);
-            this.btn_new_event.Name = "btn_new_event";
-            this.btn_new_event.Size = new System.Drawing.Size(75, 23);
-            this.btn_new_event.TabIndex = 12;
-            this.btn_new_event.Text = "New";
-            this.btn_new_event.UseVisualStyleBackColor = true;
-            this.btn_new_event.Click += new System.EventHandler(this.btn_new_event_Click_1);
+            this.gb_add_campingplace.Controls.Add(this.comboBox1);
+            this.gb_add_campingplace.Controls.Add(this.label17);
+            this.gb_add_campingplace.Controls.Add(this.label16);
+            this.gb_add_campingplace.Controls.Add(this.tb_event_maxpeople);
+            this.gb_add_campingplace.Controls.Add(this.label15);
+            this.gb_add_campingplace.Controls.Add(this.tb_eventcampingplacenumber);
+            this.gb_add_campingplace.Controls.Add(this.cb_event_id_campingplaces);
+            this.gb_add_campingplace.Controls.Add(this.label14);
+            this.gb_add_campingplace.Controls.Add(this.Btn_deletecampingplace);
+            this.gb_add_campingplace.Controls.Add(this.Btn_addcampingplace);
+            this.gb_add_campingplace.Location = new System.Drawing.Point(444, 418);
+            this.gb_add_campingplace.Name = "gb_add_campingplace";
+            this.gb_add_campingplace.Size = new System.Drawing.Size(446, 199);
+            this.gb_add_campingplace.TabIndex = 16;
+            this.gb_add_campingplace.TabStop = false;
+            this.gb_add_campingplace.Text = "Add Campingplaces";
             // 
-            // Listb_Events
+            // comboBox1
             // 
-            this.Listb_Events.FormattingEnabled = true;
-            this.Listb_Events.Location = new System.Drawing.Point(6, 39);
-            this.Listb_Events.Name = "Listb_Events";
-            this.Listb_Events.Size = new System.Drawing.Size(432, 576);
-            this.Listb_Events.TabIndex = 11;
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "TENT",
+            "BUNGALOW"});
+            this.comboBox1.Location = new System.Drawing.Point(90, 96);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(348, 21);
+            this.comboBox1.TabIndex = 44;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(11, 99);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(75, 13);
+            this.label17.TabIndex = 43;
+            this.label17.Text = "CampingType:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(11, 77);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(66, 13);
+            this.label16.TabIndex = 42;
+            this.label16.Text = "Max People:";
+            // 
+            // tb_event_maxpeople
+            // 
+            this.tb_event_maxpeople.Location = new System.Drawing.Point(90, 74);
+            this.tb_event_maxpeople.Name = "tb_event_maxpeople";
+            this.tb_event_maxpeople.Size = new System.Drawing.Size(350, 20);
+            this.tb_event_maxpeople.TabIndex = 41;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(11, 49);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(72, 13);
+            this.label15.TabIndex = 40;
+            this.label15.Text = "Placenumber:";
+            // 
+            // tb_eventcampingplacenumber
+            // 
+            this.tb_eventcampingplacenumber.Location = new System.Drawing.Point(90, 46);
+            this.tb_eventcampingplacenumber.Name = "tb_eventcampingplacenumber";
+            this.tb_eventcampingplacenumber.Size = new System.Drawing.Size(350, 20);
+            this.tb_eventcampingplacenumber.TabIndex = 39;
+            // 
+            // cb_event_id_campingplaces
+            // 
+            this.cb_event_id_campingplaces.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_event_id_campingplaces.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_event_id_campingplaces.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_event_id_campingplaces.FormattingEnabled = true;
+            this.cb_event_id_campingplaces.Location = new System.Drawing.Point(90, 23);
+            this.cb_event_id_campingplaces.Name = "cb_event_id_campingplaces";
+            this.cb_event_id_campingplaces.Size = new System.Drawing.Size(350, 21);
+            this.cb_event_id_campingplaces.TabIndex = 38;
+            this.cb_event_id_campingplaces.TextChanged += new System.EventHandler(this.cb_event_id_campingplaces_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(11, 26);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 13);
+            this.label14.TabIndex = 37;
+            this.label14.Text = "Event_ID:";
+            // 
+            // Btn_deletecampingplace
+            // 
+            this.Btn_deletecampingplace.Location = new System.Drawing.Point(221, 146);
+            this.Btn_deletecampingplace.Name = "Btn_deletecampingplace";
+            this.Btn_deletecampingplace.Size = new System.Drawing.Size(87, 23);
+            this.Btn_deletecampingplace.TabIndex = 36;
+            this.Btn_deletecampingplace.Text = "Delete";
+            this.Btn_deletecampingplace.UseVisualStyleBackColor = true;
+            // 
+            // Btn_addcampingplace
+            // 
+            this.Btn_addcampingplace.Location = new System.Drawing.Point(328, 146);
+            this.Btn_addcampingplace.Name = "Btn_addcampingplace";
+            this.Btn_addcampingplace.Size = new System.Drawing.Size(112, 23);
+            this.Btn_addcampingplace.TabIndex = 35;
+            this.Btn_addcampingplace.Text = "Add";
+            this.Btn_addcampingplace.UseVisualStyleBackColor = true;
+            this.Btn_addcampingplace.Click += new System.EventHandler(this.Btn_addcampingplace_Click);
             // 
             // gb_mantain_event
             // 
@@ -624,16 +712,16 @@
             this.gb_mantain_event.Controls.Add(this.label6);
             this.gb_mantain_event.Controls.Add(this.label5);
             this.gb_mantain_event.Controls.Add(this.label4);
-            this.gb_mantain_event.Location = new System.Drawing.Point(444, 52);
+            this.gb_mantain_event.Location = new System.Drawing.Point(6, 418);
             this.gb_mantain_event.Name = "gb_mantain_event";
-            this.gb_mantain_event.Size = new System.Drawing.Size(432, 563);
+            this.gb_mantain_event.Size = new System.Drawing.Size(432, 199);
             this.gb_mantain_event.TabIndex = 15;
             this.gb_mantain_event.TabStop = false;
             this.gb_mantain_event.Text = "Event Create / Change";
             // 
             // btnEventcancel
             // 
-            this.btnEventcancel.Location = new System.Drawing.Point(207, 534);
+            this.btnEventcancel.Location = new System.Drawing.Point(201, 146);
             this.btnEventcancel.Name = "btnEventcancel";
             this.btnEventcancel.Size = new System.Drawing.Size(87, 23);
             this.btnEventcancel.TabIndex = 34;
@@ -657,7 +745,7 @@
             // 
             // btn_create_event
             // 
-            this.btn_create_event.Location = new System.Drawing.Point(314, 534);
+            this.btn_create_event.Location = new System.Drawing.Point(308, 146);
             this.btn_create_event.Name = "btn_create_event";
             this.btn_create_event.Size = new System.Drawing.Size(112, 23);
             this.btn_create_event.TabIndex = 10;
@@ -731,6 +819,55 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Event Title:";
             // 
+            // btn_delete_event
+            // 
+            this.btn_delete_event.Location = new System.Drawing.Point(168, 6);
+            this.btn_delete_event.Name = "btn_delete_event";
+            this.btn_delete_event.Size = new System.Drawing.Size(75, 23);
+            this.btn_delete_event.TabIndex = 14;
+            this.btn_delete_event.Text = "Delete";
+            this.btn_delete_event.UseVisualStyleBackColor = true;
+            this.btn_delete_event.Click += new System.EventHandler(this.btn_delete_event_Click_1);
+            // 
+            // btn_change_event
+            // 
+            this.btn_change_event.Location = new System.Drawing.Point(87, 6);
+            this.btn_change_event.Name = "btn_change_event";
+            this.btn_change_event.Size = new System.Drawing.Size(75, 23);
+            this.btn_change_event.TabIndex = 13;
+            this.btn_change_event.Text = "Change";
+            this.btn_change_event.UseVisualStyleBackColor = true;
+            this.btn_change_event.Click += new System.EventHandler(this.btn_change_event_Click_1);
+            // 
+            // btn_new_event
+            // 
+            this.btn_new_event.Location = new System.Drawing.Point(6, 6);
+            this.btn_new_event.Name = "btn_new_event";
+            this.btn_new_event.Size = new System.Drawing.Size(75, 23);
+            this.btn_new_event.TabIndex = 12;
+            this.btn_new_event.Text = "New";
+            this.btn_new_event.UseVisualStyleBackColor = true;
+            this.btn_new_event.Click += new System.EventHandler(this.btn_new_event_Click_1);
+            // 
+            // Listb_Events
+            // 
+            this.Listb_Events.FormattingEnabled = true;
+            this.Listb_Events.Location = new System.Drawing.Point(6, 39);
+            this.Listb_Events.Name = "Listb_Events";
+            this.Listb_Events.Size = new System.Drawing.Size(432, 368);
+            this.Listb_Events.TabIndex = 11;
+            // 
+            // tabShowUsers
+            // 
+            this.tabShowUsers.Controls.Add(this.lb_show_user_on_event);
+            this.tabShowUsers.Controls.Add(this.groupBox5);
+            this.tabShowUsers.Location = new System.Drawing.Point(4, 22);
+            this.tabShowUsers.Name = "tabShowUsers";
+            this.tabShowUsers.Size = new System.Drawing.Size(896, 623);
+            this.tabShowUsers.TabIndex = 2;
+            this.tabShowUsers.Text = "Userlist On Event";
+            this.tabShowUsers.UseVisualStyleBackColor = true;
+            // 
             // lb_show_user_on_event
             // 
             this.lb_show_user_on_event.FormattingEnabled = true;
@@ -803,12 +940,14 @@
             this.tControlEventbeheer.ResumeLayout(false);
             this.tabUserManagement.ResumeLayout(false);
             this.tabUserManagement.PerformLayout();
-            this.tabEventManagement.ResumeLayout(false);
-            this.tabShowUsers.ResumeLayout(false);
             this.gb_gebruikercreatie.ResumeLayout(false);
             this.gb_gebruikercreatie.PerformLayout();
+            this.tabEventManagement.ResumeLayout(false);
+            this.gb_add_campingplace.ResumeLayout(false);
+            this.gb_add_campingplace.PerformLayout();
             this.gb_mantain_event.ResumeLayout(false);
             this.gb_mantain_event.PerformLayout();
+            this.tabShowUsers.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
@@ -880,6 +1019,18 @@
         private System.Windows.Forms.ComboBox cb_showusersonevent;
         private System.Windows.Forms.Button btn_show_users;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ListBox Listb_Event_campingplaces;
+        private System.Windows.Forms.GroupBox gb_add_campingplace;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox tb_eventcampingplacenumber;
+        private System.Windows.Forms.ComboBox cb_event_id_campingplaces;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button Btn_deletecampingplace;
+        private System.Windows.Forms.Button Btn_addcampingplace;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox tb_event_maxpeople;
 
     }
 }

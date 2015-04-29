@@ -35,12 +35,13 @@
             this.btnStopScanner = new System.Windows.Forms.Button();
             this.lblNaam = new System.Windows.Forms.Label();
             this.lblScannerToestand = new System.Windows.Forms.Label();
+            this.lblInOfUitgecheckt = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblHeeftBetaald
             // 
             this.lblHeeftBetaald.AutoSize = true;
-            this.lblHeeftBetaald.Location = new System.Drawing.Point(12, 203);
+            this.lblHeeftBetaald.Location = new System.Drawing.Point(12, 178);
             this.lblHeeftBetaald.Name = "lblHeeftBetaald";
             this.lblHeeftBetaald.Size = new System.Drawing.Size(49, 13);
             this.lblHeeftBetaald.TabIndex = 0;
@@ -50,7 +51,7 @@
             // 
             this.lblReservering.AutoSize = true;
             this.lblReservering.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblReservering.Location = new System.Drawing.Point(40, 127);
+            this.lblReservering.Location = new System.Drawing.Point(41, 116);
             this.lblReservering.Name = "lblReservering";
             this.lblReservering.Size = new System.Drawing.Size(98, 20);
             this.lblReservering.TabIndex = 1;
@@ -59,7 +60,7 @@
             // lblEvent
             // 
             this.lblEvent.AutoSize = true;
-            this.lblEvent.Location = new System.Drawing.Point(12, 168);
+            this.lblEvent.Location = new System.Drawing.Point(12, 153);
             this.lblEvent.Name = "lblEvent";
             this.lblEvent.Size = new System.Drawing.Size(41, 13);
             this.lblEvent.TabIndex = 2;
@@ -104,11 +105,21 @@
             this.lblScannerToestand.TabIndex = 6;
             this.lblScannerToestand.Text = "Scanner is niet aan het scannen";
             // 
+            // lblInOfUitgecheckt
+            // 
+            this.lblInOfUitgecheckt.AutoSize = true;
+            this.lblInOfUitgecheckt.Location = new System.Drawing.Point(81, 220);
+            this.lblInOfUitgecheckt.Name = "lblInOfUitgecheckt";
+            this.lblInOfUitgecheckt.Size = new System.Drawing.Size(20, 13);
+            this.lblInOfUitgecheckt.TabIndex = 7;
+            this.lblInOfUitgecheckt.Text = "\" \"";
+            // 
             // ToegangscontroleSysteem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(220, 261);
+            this.Controls.Add(this.lblInOfUitgecheckt);
             this.Controls.Add(this.lblScannerToestand);
             this.Controls.Add(this.lblNaam);
             this.Controls.Add(this.btnStopScanner);
@@ -132,5 +143,6 @@
         private System.Windows.Forms.Button btnStopScanner;
         private System.Windows.Forms.Label lblNaam;
         private System.Windows.Forms.Label lblScannerToestand;
+        private System.Windows.Forms.Label lblInOfUitgecheckt;
     }
 }
