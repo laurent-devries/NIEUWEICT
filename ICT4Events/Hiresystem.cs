@@ -158,8 +158,8 @@ namespace ICT4Events
 
             foreach (Product product in producten)
             {
-
                 allProductslist.Items.Add(product);
+                AllproductsP2lst.Items.Add(product);
             }
         }
 
@@ -260,11 +260,10 @@ namespace ICT4Events
                     dayshired = 1;
                 }
 
-
                 decimal price = product.Price * dayshired;
                 decimal dayprice = product.Hiredamount * price;
                 decimal total = bail + price + dayprice;
-                MessageBox.Show("is totaal: " + total);
+                MessageBox.Show("Het uit eindelijke bedrag wat er betaald moet worden is: €" + total + ", Hier van is €" + bail + " de borg.");
                 
 
                 string RFID = RFIDtext.Text;
@@ -316,5 +315,62 @@ namespace ICT4Events
             LoadProducts();
             availableProduct();
         }
+
+        private void Hiresystem_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Createbtn_Click(object sender, EventArgs e)
+        {
+            bool goodprice = false;
+            bool goodhire = false;
+            string NaamProduct = NameTxt.Text;
+            int hireprice = -1;
+            int bailprice = -1;
+            int amount = (int)numericUpDownAmount.Value;
+            string category = Convert.ToString("12341234"); //comboBoxCat.ToString();
+            
+            if (string.IsNullOrEmpty(this.BailTxt.Text))
+            {
+                MessageBox.Show("Vul een geldig getal in bij Bail Price");
+            }
+            else if (Int32.TryParse(this.BailTxt.Text, out bailprice))
+            {
+                if (bailprice >= 0 )
+                {
+                    goodprice = true;
+                }
+                else 
+                {
+                    MessageBox.Show("vul een getal groter in als 0");
+                }
+                    
+            }
+            
+            if (string.IsNullOrEmpty(this.BailTxt.Text))
+            {
+                MessageBox.Show("Vul een geldig getal in bij Bail Price");
+            }
+            else if (Int32.TryParse(this.BailTxt.Text, out hireprice))
+            {
+                if (hireprice >= 0)
+                {
+                    goodhire = true;
+                }
+                else
+                {
+                    MessageBox.Show("vul een getal groter in als 0");
+                }
+
+                ProductManager productData = new ProductManager();
+                productData.insertProduct(NaamProduct, amount, category, bailprice, hireprice);
+            }
+            
+
+        }
+
+       
+
     }
 }

@@ -15,7 +15,7 @@ namespace ICT4Events
     class ProductManager
     {
         public bool noUserSelected = false;
-        public int priceproduct;
+       
         //done
         List<Product> productList = new List<Product>();
 
@@ -143,13 +143,9 @@ namespace ICT4Events
                 if (hiredAmount >= totalAmount || hireAmount > totalAmount)
                 {
                     MessageBox.Show("Aantal producten is niet meer beschikbaar");
-
                 }
 
-
                 int Getamount = product.GetTotaalAmount();
-
-
 
                 if (hireAmount > Getamount || Getamount == 0)
                 {
@@ -190,7 +186,7 @@ namespace ICT4Events
                         con.InsertOrUpdate(Query5);
                         noUserSelected = false;
 
-                        if (hiredAmount == totalAmount)
+                        if (hireAmount == Getamount)
                         {
                             string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
                             con.InsertOrUpdate(Query2);
@@ -256,6 +252,19 @@ namespace ICT4Events
                 return null;
             }
         }
+
+
+        public void insertProduct(string NaamProduct, int amount, string category, int bailprice, int hireprice)
+        {
+            DatabaseConnection con = new DatabaseConnection();
+
+            string Query = "INSERT INTO ICT4_PRODUCT (ID_PRODUCT, ID_PRODUCTCATFK, PRODUCTNAME, BAIL, PRICE, Available, totalAmount) VALUES (PROD_SEQ.NEXTVAL, " + category +", " +"'"+ NaamProduct + "'" +", " + bailprice +", " + hireprice +", 'Y', " + hireprice + ")";
+            bool writer = con.InsertOrUpdate(Query);
+            
+        }
+
+        
+
 
     }
 }
