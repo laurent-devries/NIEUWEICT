@@ -121,7 +121,8 @@ namespace ICT4Events
         private void btnBevestigEvent_Click(object sender, EventArgs e)
         {
             CampingPlace c = cbPlaces.SelectedItem as CampingPlace;
-            if (cbEvents.SelectedItem != null || cbPlaces.SelectedItem != null)
+            Event ev = cbEvents.SelectedItem as Event;
+            if (ev != null && c != null)
             {
                 if (c.MaxPeople >= nudAantal.Value)
                 {
