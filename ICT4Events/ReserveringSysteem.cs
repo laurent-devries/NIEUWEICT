@@ -17,7 +17,7 @@ namespace ICT4Events
     {
         private int userid;
         private int usersleft;
-        private int idreservation = 0;
+        private int idreservation;
         public ReserveringSysteem()
         {
             InitializeComponent();
@@ -57,9 +57,6 @@ namespace ICT4Events
         {
             if (tb_email_gebruiker.Text.Contains("@") && tb_email_gebruiker.Text.Contains("."))
             {
-                int parse;
-                if(int.TryParse(tb_telnr_gebruiker.Text, out parse) == true)
-                {
                     if(dtp_geboortedatum_gebruiker.Value < System.DateTime.Now)
                     {
                         if(tb_telnr_gebruiker.Text != "")
@@ -78,18 +75,12 @@ namespace ICT4Events
                         MessageBox.Show("U heeft een ongeldige geboortedatum ingevoerd. Probeer het opniew.");
                         return false;
                     }
-                }
-                else
-                {
-                    MessageBox.Show("U heeft een ongeldig telefoonnummer ingevoerd. Probeer het opnieuw.");
-                    return false;
-                }
-            }
-            else
-            {
-                MessageBox.Show("U heeft een ongeldig emailadress ingevoerd. Probeer het opnieuw.");
+             }  
+             else
+             {
+                MessageBox.Show("U heeft een ongeldig emailadres ingevoerd. Probeer het opnieuw.");
                 return false;
-            }
+             }
         }
 
         private void cbSoortPlaats_SelectedIndexChanged(object sender, EventArgs e)

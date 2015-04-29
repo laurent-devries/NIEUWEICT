@@ -67,6 +67,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbSoortPlaats = new System.Windows.Forms.ComboBox();
             this.gbVerhuur = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dtpMatriaalhuur = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
@@ -86,16 +88,14 @@
             this.lbProducten = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.gbEvent = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.gbUsers = new System.Windows.Forms.GroupBox();
-            this.btnConfirmExtraAcc = new System.Windows.Forms.Button();
-            this.tbLoginEx = new System.Windows.Forms.TextBox();
-            this.tbPassEx = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
             this.lblAccountsLeft = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tbPassEx = new System.Windows.Forms.TextBox();
+            this.tbLoginEx = new System.Windows.Forms.TextBox();
+            this.btnConfirmExtraAcc = new System.Windows.Forms.Button();
             this.gb_gebruikercreatie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).BeginInit();
             this.gbVerhuur.SuspendLayout();
@@ -329,9 +329,9 @@
             this.lb_addres_stad_gebruiker.Location = new System.Drawing.Point(8, 210);
             this.lb_addres_stad_gebruiker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_addres_stad_gebruiker.Name = "lb_addres_stad_gebruiker";
-            this.lb_addres_stad_gebruiker.Size = new System.Drawing.Size(37, 17);
+            this.lb_addres_stad_gebruiker.Size = new System.Drawing.Size(41, 17);
             this.lb_addres_stad_gebruiker.TabIndex = 13;
-            this.lb_addres_stad_gebruiker.Text = "Stad";
+            this.lb_addres_stad_gebruiker.Text = "Stad:";
             // 
             // tb_stad_user
             // 
@@ -359,7 +359,7 @@
             this.lb_addres_nummer_gebruiker.Name = "lb_addres_nummer_gebruiker";
             this.lb_addres_nummer_gebruiker.Size = new System.Drawing.Size(53, 17);
             this.lb_addres_nummer_gebruiker.TabIndex = 10;
-            this.lb_addres_nummer_gebruiker.Text = "Huisnr.";
+            this.lb_addres_nummer_gebruiker.Text = "Huisnr:";
             // 
             // lb_addres_straat_gebruiker
             // 
@@ -367,9 +367,9 @@
             this.lb_addres_straat_gebruiker.Location = new System.Drawing.Point(8, 178);
             this.lb_addres_straat_gebruiker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_addres_straat_gebruiker.Name = "lb_addres_straat_gebruiker";
-            this.lb_addres_straat_gebruiker.Size = new System.Drawing.Size(46, 17);
+            this.lb_addres_straat_gebruiker.Size = new System.Drawing.Size(50, 17);
             this.lb_addres_straat_gebruiker.TabIndex = 9;
-            this.lb_addres_straat_gebruiker.Text = "Straat";
+            this.lb_addres_straat_gebruiker.Text = "Straat:";
             // 
             // tb_straat_user
             // 
@@ -459,9 +459,9 @@
             this.lb_land_gebruiker.Location = new System.Drawing.Point(9, 148);
             this.lb_land_gebruiker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_land_gebruiker.Name = "lb_land_gebruiker";
-            this.lb_land_gebruiker.Size = new System.Drawing.Size(40, 17);
+            this.lb_land_gebruiker.Size = new System.Drawing.Size(44, 17);
             this.lb_land_gebruiker.TabIndex = 6;
-            this.lb_land_gebruiker.Text = "Land";
+            this.lb_land_gebruiker.Text = "Land:";
             // 
             // tb_email_gebruiker
             // 
@@ -597,6 +597,25 @@
             this.gbVerhuur.TabIndex = 17;
             this.gbVerhuur.TabStop = false;
             this.gbVerhuur.Text = "Materiaalverhuur";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(442, 29);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(69, 34);
+            this.label23.TabIndex = 32;
+            this.label23.Text = "Aantal \r\nverhuurd:";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(553, 271);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(109, 17);
+            this.label18.TabIndex = 31;
+            this.label18.Text = "Aantal gehuurd:";
             // 
             // label14
             // 
@@ -791,25 +810,6 @@
             this.gbEvent.TabStop = false;
             this.gbEvent.Text = "Evenement selecteren";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(553, 271);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(109, 17);
-            this.label18.TabIndex = 31;
-            this.label18.Text = "Aantal gehuurd:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(442, 29);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(69, 34);
-            this.label23.TabIndex = 32;
-            this.label23.Text = "Aantal \r\nverhuurd:";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // gbUsers
             // 
             this.gbUsers.Controls.Add(this.lblAccountsLeft);
@@ -826,50 +826,14 @@
             this.gbUsers.TabStop = false;
             this.gbUsers.Text = "Extra accounts creëren";
             // 
-            // btnConfirmExtraAcc
+            // lblAccountsLeft
             // 
-            this.btnConfirmExtraAcc.Location = new System.Drawing.Point(10, 119);
-            this.btnConfirmExtraAcc.Name = "btnConfirmExtraAcc";
-            this.btnConfirmExtraAcc.Size = new System.Drawing.Size(198, 28);
-            this.btnConfirmExtraAcc.TabIndex = 0;
-            this.btnConfirmExtraAcc.Text = "Bevestig";
-            this.btnConfirmExtraAcc.UseVisualStyleBackColor = true;
-            this.btnConfirmExtraAcc.Click += new System.EventHandler(this.btnConfirmExtraAcc_Click);
-            // 
-            // tbLoginEx
-            // 
-            this.tbLoginEx.Location = new System.Drawing.Point(10, 46);
-            this.tbLoginEx.MaxLength = 15;
-            this.tbLoginEx.Name = "tbLoginEx";
-            this.tbLoginEx.Size = new System.Drawing.Size(198, 22);
-            this.tbLoginEx.TabIndex = 1;
-            // 
-            // tbPassEx
-            // 
-            this.tbPassEx.Location = new System.Drawing.Point(10, 91);
-            this.tbPassEx.MaxLength = 20;
-            this.tbPassEx.Name = "tbPassEx";
-            this.tbPassEx.Size = new System.Drawing.Size(198, 22);
-            this.tbPassEx.TabIndex = 2;
-            this.tbPassEx.UseSystemPasswordChar = true;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(7, 26);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(77, 17);
-            this.label24.TabIndex = 3;
-            this.label24.Text = "Inlognaam:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(7, 71);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(90, 17);
-            this.label25.TabIndex = 4;
-            this.label25.Text = "Wachtwoord:";
+            this.lblAccountsLeft.AutoSize = true;
+            this.lblAccountsLeft.Location = new System.Drawing.Point(445, 22);
+            this.lblAccountsLeft.Name = "lblAccountsLeft";
+            this.lblAccountsLeft.Size = new System.Drawing.Size(18, 17);
+            this.lblAccountsLeft.TabIndex = 7;
+            this.lblAccountsLeft.Text = "--";
             // 
             // label27
             // 
@@ -880,13 +844,50 @@
             this.label27.TabIndex = 6;
             this.label27.Text = "Nog te creëren accounts:";
             // 
-            // lblAccountsLeft
+            // label25
             // 
-            this.lblAccountsLeft.AutoSize = true;
-            this.lblAccountsLeft.Location = new System.Drawing.Point(445, 22);
-            this.lblAccountsLeft.Name = "lblAccountsLeft";
-            this.lblAccountsLeft.Size = new System.Drawing.Size(0, 17);
-            this.lblAccountsLeft.TabIndex = 7;
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(7, 71);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(90, 17);
+            this.label25.TabIndex = 4;
+            this.label25.Text = "Wachtwoord:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(7, 26);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(77, 17);
+            this.label24.TabIndex = 3;
+            this.label24.Text = "Inlognaam:";
+            // 
+            // tbPassEx
+            // 
+            this.tbPassEx.Location = new System.Drawing.Point(10, 91);
+            this.tbPassEx.MaxLength = 20;
+            this.tbPassEx.Name = "tbPassEx";
+            this.tbPassEx.Size = new System.Drawing.Size(198, 22);
+            this.tbPassEx.TabIndex = 2;
+            this.tbPassEx.UseSystemPasswordChar = true;
+            // 
+            // tbLoginEx
+            // 
+            this.tbLoginEx.Location = new System.Drawing.Point(10, 46);
+            this.tbLoginEx.MaxLength = 15;
+            this.tbLoginEx.Name = "tbLoginEx";
+            this.tbLoginEx.Size = new System.Drawing.Size(198, 22);
+            this.tbLoginEx.TabIndex = 1;
+            // 
+            // btnConfirmExtraAcc
+            // 
+            this.btnConfirmExtraAcc.Location = new System.Drawing.Point(10, 119);
+            this.btnConfirmExtraAcc.Name = "btnConfirmExtraAcc";
+            this.btnConfirmExtraAcc.Size = new System.Drawing.Size(198, 28);
+            this.btnConfirmExtraAcc.TabIndex = 0;
+            this.btnConfirmExtraAcc.Text = "Bevestig";
+            this.btnConfirmExtraAcc.UseVisualStyleBackColor = true;
+            this.btnConfirmExtraAcc.Click += new System.EventHandler(this.btnConfirmExtraAcc_Click);
             // 
             // ReserveringSysteem
             // 

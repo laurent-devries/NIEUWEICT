@@ -11,8 +11,7 @@ using System.Data;
 
 namespace ICT4Events
 {
-
-
+    
     class ProductManager
     {
         public bool noUserSelected = false;
@@ -248,9 +247,8 @@ namespace ICT4Events
 
             }
 
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show(e.ToString());
                 return null;
             }
         }
