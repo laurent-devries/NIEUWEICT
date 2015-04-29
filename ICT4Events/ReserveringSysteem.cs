@@ -239,19 +239,18 @@ namespace ICT4Events
         private void btnConfirmExtraAcc_Click(object sender, EventArgs e)
         {
             usersleft = usersleft - 1;
-            if (usersleft > 0)
-            {
-                gbUsers.Enabled = true;
-            }
-            else
+            if (usersleft == 0)
             {
                 gbUsers.Enabled = false;
             }
             Event a = cbEvents.SelectedItem as Event;
 
             DatabaseConnection conn = new DatabaseConnection();
-            string insert = "insert into ICT4_USER (ID_USER, ID_EVENTFK, ID_RESERVATIONFK, ID_PERMISSIONFK, LOGINNAME, PASSWORDUSER) VALUES (USER_SEQ.NEXTVAL, " + Convert.ToString(a.ID_Event) + ", " + idreservation + ", 1, '" + tbLoginEx.Text + "', '" + tbPassEx.Text + "'";
+            string insert = "insert into ICT4_USER (ID_USER, ID_EVENTFK, ID_RESERVATIONFK, ID_PERMISSIONFK, LOGINNAME, PASSWORDUSER) VALUES (USER_SEQ.NEXTVAL, " + Convert.ToString(a.ID_Event) + ", " + idreservation + ", 1, '" + tbLoginEx.Text + "', '" + tbPassEx.Text + "')";
             conn.InsertOrUpdate(insert);
+            lblAccountsLeft.Text = usersleft.ToString();
+            tbLoginEx.Text = "";
+            tbPassEx.Text = "";
         }
     }
 }
