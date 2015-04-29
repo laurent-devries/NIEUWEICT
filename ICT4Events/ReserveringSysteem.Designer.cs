@@ -652,7 +652,7 @@
             this.lbGehuurd.ItemHeight = 16;
             this.lbGehuurd.Location = new System.Drawing.Point(6, 298);
             this.lbGehuurd.Name = "lbGehuurd";
-            this.lbGehuurd.Size = new System.Drawing.Size(536, 84);
+            this.lbGehuurd.Size = new System.Drawing.Size(536, 116);
             this.lbGehuurd.TabIndex = 22;
             // 
             // nudAantalhuur
