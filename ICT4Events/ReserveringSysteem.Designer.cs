@@ -604,7 +604,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(402, 271);
+            this.label17.Location = new System.Drawing.Point(196, 271);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(42, 17);
             this.label17.TabIndex = 28;
@@ -613,7 +613,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(302, 271);
+            this.label19.Location = new System.Drawing.Point(438, 271);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(94, 17);
             this.label19.TabIndex = 26;
@@ -622,7 +622,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(187, 271);
+            this.label20.Location = new System.Drawing.Point(323, 271);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(82, 17);
             this.label20.TabIndex = 25;
@@ -694,11 +694,12 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(364, 46);
+            this.label15.Location = new System.Drawing.Point(364, 29);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(133, 17);
+            this.label15.Size = new System.Drawing.Size(89, 34);
             this.label15.TabIndex = 18;
-            this.label15.Text = "Aantal beschikbaar:";
+            this.label15.Text = "Aantal \r\nbeschikbaar:";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label13
             // 
