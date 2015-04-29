@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.SearchTxtHR = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCityHR = new System.Windows.Forms.Label();
@@ -65,9 +66,9 @@
             this.lblconnectedInfo = new System.Windows.Forms.Label();
             this.lblserialInfo = new System.Windows.Forms.Label();
             this.bttnEnableRFID = new System.Windows.Forms.Button();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.allProductslist = new System.Windows.Forms.ListBox();
             this.bttnLend = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.UserProductlist = new System.Windows.Forms.ListBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.listBoxAvble = new System.Windows.Forms.ListBox();
             this.bttnReturn = new System.Windows.Forms.Button();
@@ -78,6 +79,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label33 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -92,30 +94,42 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.clearbtn = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.clearbtn);
+            this.groupBox4.Controls.Add(this.btnSearch);
             this.groupBox4.Controls.Add(this.SearchTxtHR);
             this.groupBox4.Location = new System.Drawing.Point(12, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(326, 91);
+            this.groupBox4.Size = new System.Drawing.Size(376, 100);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Search item:";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(217, 26);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(102, 29);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // SearchTxtHR
             // 
-            this.SearchTxtHR.Location = new System.Drawing.Point(9, 29);
+            this.SearchTxtHR.Location = new System.Drawing.Point(16, 47);
             this.SearchTxtHR.Name = "SearchTxtHR";
             this.SearchTxtHR.Size = new System.Drawing.Size(193, 22);
             this.SearchTxtHR.TabIndex = 7;
@@ -460,14 +474,14 @@
             this.bttnEnableRFID.UseVisualStyleBackColor = true;
             this.bttnEnableRFID.Click += new System.EventHandler(this.bttnEnableRFID_Click);
             // 
-            // listBox3
+            // allProductslist
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 16;
-            this.listBox3.Location = new System.Drawing.Point(15, 49);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(452, 548);
-            this.listBox3.TabIndex = 25;
+            this.allProductslist.FormattingEnabled = true;
+            this.allProductslist.ItemHeight = 16;
+            this.allProductslist.Location = new System.Drawing.Point(15, 49);
+            this.allProductslist.Name = "allProductslist";
+            this.allProductslist.Size = new System.Drawing.Size(452, 548);
+            this.allProductslist.TabIndex = 25;
             // 
             // bttnLend
             // 
@@ -479,14 +493,14 @@
             this.bttnLend.UseVisualStyleBackColor = true;
             this.bttnLend.Click += new System.EventHandler(this.bttnLend_Click);
             // 
-            // listBox1
+            // UserProductlist
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(16, 45);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(775, 244);
-            this.listBox1.TabIndex = 37;
+            this.UserProductlist.FormattingEnabled = true;
+            this.UserProductlist.ItemHeight = 16;
+            this.UserProductlist.Location = new System.Drawing.Point(16, 45);
+            this.UserProductlist.Name = "UserProductlist";
+            this.UserProductlist.Size = new System.Drawing.Size(775, 244);
+            this.UserProductlist.TabIndex = 37;
             // 
             // dateTimePicker1
             // 
@@ -583,6 +597,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Return or Lend Item";
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(11, 61);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDown1.TabIndex = 52;
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -666,7 +687,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.listBox3);
+            this.groupBox5.Controls.Add(this.allProductslist);
             this.groupBox5.Controls.Add(this.label8);
             this.groupBox5.Controls.Add(this.label9);
             this.groupBox5.Controls.Add(this.label10);
@@ -715,7 +736,7 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.label16);
-            this.groupBox7.Controls.Add(this.listBox1);
+            this.groupBox7.Controls.Add(this.UserProductlist);
             this.groupBox7.Controls.Add(this.label14);
             this.groupBox7.Controls.Add(this.label30);
             this.groupBox7.Controls.Add(this.label15);
@@ -727,12 +748,15 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Products on user:";
             // 
-            // numericUpDown1
+            // clearbtn
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(11, 61);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 52;
+            this.clearbtn.Location = new System.Drawing.Point(217, 58);
+            this.clearbtn.Name = "clearbtn";
+            this.clearbtn.Size = new System.Drawing.Size(102, 29);
+            this.clearbtn.TabIndex = 9;
+            this.clearbtn.Text = "Clear";
+            this.clearbtn.UseVisualStyleBackColor = true;
+            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
             // Hiresystem
             // 
@@ -762,13 +786,13 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -792,7 +816,7 @@
         private System.Windows.Forms.Label lblconnectedInfo;
         private System.Windows.Forms.Label lblserialInfo;
         private System.Windows.Forms.Button bttnEnableRFID;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox allProductslist;
         private System.Windows.Forms.Button bttnLend;
         private System.Windows.Forms.Label lblEmailHR;
         private System.Windows.Forms.Label lblCellPhoneNBHR;
@@ -815,7 +839,7 @@
         private System.Windows.Forms.Label lbluserHS;
         private System.Windows.Forms.Label lblCityHR;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox UserProductlist;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ListBox listBoxAvble;
         private System.Windows.Forms.Button bttnReturn;
@@ -841,5 +865,7 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button clearbtn;
     }
 }

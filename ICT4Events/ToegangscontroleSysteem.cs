@@ -81,6 +81,8 @@ namespace ICT4Events
             UserManager dataCollect = new UserManager();
             EventManager em = new EventManager();
             Event userEvent;
+            ReservationManager rm = new ReservationManager();
+
             user = dataCollect.SearchByRfid(e.Tag);
             if (user == null) // als user leeg is, dan staat de RFID niet in de database.
             {
@@ -88,20 +90,25 @@ namespace ICT4Events
             }
             else
             {
-                lblNaam.Text = user.First_Name + " " + user.Sur_Name; //miss heb ik niet de juiste LB gebruikt maar dit kun jij veranderen. Werkt wel tooooch..
+                lblNaam.Text = "Naam: " + user.First_Name + " " + user.Sur_Name; //miss heb ik niet de juiste LB gebruikt maar dit kun jij veranderen. Werkt wel tooooch..
                 userEvent = em.Request1Event(user.ID_EventFK.ToString());
-               lblEvent.Text = userEvent.Title;
-
+                lblEvent.Text = "Event: " + userEvent.Title;
+                
                 char inFalse = Convert.ToChar("N");
                 char inTrue = Convert.ToChar("Y");
+                string payed = rm.ReservationPayed(user.ID_User.ToString());
+                lblHeeftBetaald.Text = "Betaald: " + payed;
+
 
                 if (user.Present == inFalse)
                 {
                     dataCollect.UpdateUserPresent(user.ID_User.ToString(), true);
+                    lblInOfUitgecheckt.Text = "Ingecheckt";
                 }
                 else
                 {
                     dataCollect.UpdateUserPresent(user.ID_User.ToString(), false);
+                    lblInOfUitgecheckt.Text = "Uitgecheckt";
                 }
                 
             }

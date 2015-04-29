@@ -11,6 +11,8 @@ using System.Data;
 
 namespace ICT4Events
 {
+
+    
     class ProductManager
     {
         public bool noUserSelected = false;
@@ -44,7 +46,7 @@ namespace ICT4Events
              try
              {
                  DatabaseConnection con = new DatabaseConnection();
-                 string Query = "SELECT DISTINCT P.ID_PRODUCT, P.PRODUCTNAME, PC.PRODUCTCATEGORY, P.BAIL, P.TOTALAMOUNT, P.TOTALHIREDAMOUNT FROM ICT4_PRODUCT P, ICT4_USER_PRODUCTS UP, ICT4_PRODUCTCATEGORY PC WHERE PC.ID_PRODUCTCAT = P.ID_PRODUCTCATFK AND P.ID_PRODUCT = UP.ID_PRODUCTFK(+) AND P.AVAILABLE = 'Y' ORDER BY P.ID_PRODUCT ";
+                 string Query = "SELECT DISTINCT P.ID_PRODUCT, P.PRODUCTNAME, PC.PRODUCTCATEGORY, P.BAIL, P.TOTALAMOUNT, P.TOTALHIREDAMOUNT FROM ICT4_PRODUCT P, ICT4_USER_PRODUCTS UP, ICT4_PRODUCTCATEGORY PC WHERE PC.ID_PRODUCTCAT = P.ID_PRODUCTCATFK AND P.ID_PRODUCT = UP.ID_PRODUCTFK(+) AND P.AVAILABLE = 'Y' ORDER BY P.ID_PRODUCT";
 
 
                       
@@ -136,14 +138,24 @@ namespace ICT4Events
                  oracleConnection.Dispose();
                  
 
-                 // kijk of er nog voeldoende producten beschikbaar zijn
+                 // kijk of er nog voldoende producten beschikbaar zijn
                  if (hiredAmount >= totalAmount || hireAmount > totalAmount)
                  {
                         MessageBox.Show("Aantal producten is niet meer beschikbaar");
-                        noUserSelected = false;
+                        
                  }
-                
-                 else 
+
+                 
+                 int Getamount = product.GetTotaalAmount();
+                 int rekt = product.GetTotaalAmount2();
+
+
+                 if (rekt < Getamount || Getamount == 0)
+                 {
+                     MessageBox.Show("Te veel producten opgegeven");
+                 }
+
+                 else
                  {
                      {
                          string Query4 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(user_product_seq.nextval, " + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date(sysdate,'DD-MM-YYYY'), to_date('" + date + "', 'DD-MM-YYYY'), null" + "," + +hireAmount + ")";
@@ -153,10 +165,10 @@ namespace ICT4Events
                          con.InsertOrUpdate(Query5);
                          noUserSelected = false;
 
-                         if (product.Hiredamount == product.Hiredamount)
+                         if (hiredAmount == totalAmount)
                          {
-                             string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
-                             con.InsertOrUpdate(Query2);
+                         string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+                         con.InsertOrUpdate(Query2);
                          }
                      }
                  }
@@ -174,9 +186,9 @@ namespace ICT4Events
             string Query1 = "UPDATE ICT4_PRODUCT SET TotalHiredamount  = TOTALHIREDAMOUNT -" + product.Hiredamount + "WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
             con.InsertOrUpdate(Query1);
 
-            //string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'Y' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
-            //con.InsertOrUpdate(Query2);
-
+            string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'Y' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
+            con.InsertOrUpdate(Query2);
+            
             return true;
         }
 
@@ -184,7 +196,7 @@ namespace ICT4Events
         {
             DatabaseConnection con = new DatabaseConnection();
             
-            if (product.Hiredamount == product.Hiredamount)
+            if (product.Hiredamount == product.TotalHiredamount)
             {
                 string Query2 = "UPDATE ICT4_PRODUCT SET AVAILABLE = 'N' WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
                 con.InsertOrUpdate(Query2);
@@ -192,6 +204,34 @@ namespace ICT4Events
             else return;
         }
 
-        
+        public List<Product> GetHiredProducts(int userid)
+        {
+            List<Product> productUserList = new List<Product>();
+
+            try
+            {
+                DatabaseConnection con = new DatabaseConnection();
+                string Query = "SELECT P.ID_PRODUCT, P.PRODUCTNAME, UP.HIREDATE, UP.RETURNDATE, P.BAIL, UP.HIREDAMOUNT, UP.ID_HIRE  FROM ICT4_USER U, ICT4_USER_PRODUCTS UP, ICT4_PRODUCT P where u.ID_USER = UP.ID_USERFK and UP.ID_PRODUCTFK = p.ID_PRODUCT AND UP.ID_USERFK = " + userid;
+
+                OracleDataReader reader = con.SelectFromDatabase(Query);
+                Product product;
+                while (reader.Read())
+                {
+                    product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetDateTime(3), reader.GetDecimal(4), reader.GetInt32(5), reader.GetInt32(6));
+                    productUserList.Add(product);
+                }
+                reader.Dispose();
+
+                return productUserList;
+
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return null;
+            }
+        }
+
      }
 }

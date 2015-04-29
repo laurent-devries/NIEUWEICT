@@ -16,7 +16,6 @@ namespace ICT4Events
     
     {
         //Fields
-        IFormatProvider Culture = new System.Globalization.CultureInfo("fr-FR", true);
         
         private int iD_product;
         private string product_name;
@@ -58,7 +57,6 @@ namespace ICT4Events
             this.available = available;
             this.totalamount = totalamount;
         }
-
         // De producten die de user gehuurd heeft.
         public Product(int iD_product, string product_name, DateTime hire_date, DateTime return_date, decimal bail, int hiredamount, int idhire)
         {
@@ -71,8 +69,6 @@ namespace ICT4Events
             this.idhire = idhire;
             
         }
-
-        
         public Product(int iD_product, string product_name, decimal bail, decimal price, DateTime hire_date, DateTime return_date)
         {
 
@@ -97,7 +93,13 @@ namespace ICT4Events
         
         public int GetTotaalAmount()
         {
-            int a = totalamount - totalHiredamount; ;
+            int a = totalamount + totalHiredamount;
+            return a;
+        }
+
+        public int GetTotaalAmount2()
+        {
+            int a = totalamount;
             return a;
         }
 
@@ -106,6 +108,11 @@ namespace ICT4Events
             decimal a = bail + price;
             return a;
             
+        }
+
+        public double GetTotalHireDate()
+        {
+            return (hire_date - returned_date).TotalDays;
         }
 
          public override string ToString()
