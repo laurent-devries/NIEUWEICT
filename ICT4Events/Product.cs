@@ -24,7 +24,7 @@ namespace ICT4Events
         private string category;
         private DateTime hire_date;
         private DateTime return_date;
-        private DateTime returned_date;
+        private DateTime returned_date = DateTime.Now;
         private string available;
         private int totalamount;
         private int totalHiredamount;
@@ -93,15 +93,10 @@ namespace ICT4Events
         
         public int GetTotaalAmount()
         {
-            int a = totalamount + totalHiredamount;
+            int a = totalamount - totalHiredamount;
             return a;
         }
 
-        public int GetTotaalAmount2()
-        {
-            int a = totalamount;
-            return a;
-        }
 
         public decimal GetProductPrice()
         {

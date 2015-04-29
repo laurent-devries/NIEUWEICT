@@ -147,10 +147,10 @@ namespace ICT4Events
 
                  
                  int Getamount = product.GetTotaalAmount();
-                 int rekt = product.GetTotaalAmount2();
+                
 
 
-                 if (rekt < Getamount || Getamount == 0)
+                 if (hireAmount > Getamount || Getamount == 0)
                  {
                      MessageBox.Show("Te veel producten opgegeven");
                  }
@@ -158,7 +158,31 @@ namespace ICT4Events
                  else
                  {
                      {
-                         string Query4 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(user_product_seq.nextval, " + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date(sysdate,'DD-MM-YYYY'), to_date('" + date + "', 'DD-MM-YYYY'), null" + "," + +hireAmount + ")";
+                         DateTime dateNow = DateTime.Now;
+
+                         string maand;
+                         if (dateNow.Month < 10)
+                         {
+
+                             maand = "0" + Convert.ToString(dateNow.Month);
+                         }
+                         else
+                         {
+                             maand = Convert.ToString(dateNow.Month);
+                         }
+                         string dag;
+                         if (dateNow.Day < 10)
+                         {
+                             dag = "0" + Convert.ToString(dateNow.Day);
+                         }
+                         else
+                         {
+                             dag = Convert.ToString(dateNow.Day);
+                         }
+
+                         string dateFromNow = dag + maand + Convert.ToString(dateNow.Year);
+
+                         string Query4 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(user_product_seq.nextval, " + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date( " + dateFromNow  + ",'DD-MM-YYYY'), to_date('" + date + "', 'DDMMYYYY'), null" + "," + +hireAmount + ")";
                          con.InsertOrUpdate(Query4);
 
                          string Query5 = "UPDATE ICT4_PRODUCT SET TotalHiredamount  = TOTALHIREDAMOUNT +" + hireAmount + "WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
