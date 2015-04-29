@@ -45,10 +45,12 @@ namespace ICT4Events
                 Listb_Events.Items.Clear();
                 cB_Event_ID_User.Items.Clear();
                 cb_showusersonevent.Items.Clear();
+                cb_event_id_campingplaces.Items.Clear();
                 foreach (Event event1 in evenementen)
                 {
                     Listb_Events.Items.Add(event1.ToString());
                     cB_Event_ID_User.Items.Add(event1.ID_Event);
+                    cb_event_id_campingplaces.Items.Add(event1.ID_Event);
                     cb_showusersonevent.Items.Add(event1.ID_Event);
                 }
             }
@@ -470,6 +472,31 @@ namespace ICT4Events
 
             }
             lists();
+        }
+
+        private void cb_event_id_campingplaces_TextChanged(object sender, EventArgs e)
+        {
+            List<CampingPlace> campingplaatslijst = null; 
+            CampingPlaceManager mngr = new CampingPlaceManager();
+            int event_id;
+            int.TryParse(cb_event_id_campingplaces.SelectedItem.ToString(), out event_id);
+            foreach (Event event1 in evenementen)
+            {
+                if (event1.ID_Event == event_id)
+                {
+                    campingplaatslijst = mngr.RequestCampingPlaces(event1);
+                }
+            }
+            Listb_Event_campingplaces.Items.Clear();
+            foreach (CampingPlace plaats in campingplaatslijst)
+            {
+                Listb_Event_campingplaces.Items.Add(plaats.ToString());
+            }
+        }
+
+        private void Btn_addcampingplace_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

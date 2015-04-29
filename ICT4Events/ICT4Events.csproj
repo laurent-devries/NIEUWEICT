@@ -203,12 +203,6 @@
     </Compile>
     <Compile Include="Tag.cs" />
     <Compile Include="TagManager.cs" />
-    <Compile Include="Testform.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Testform.Designer.cs">
-      <DependentUpon>Testform.cs</DependentUpon>
-    </Compile>
     <Compile Include="ToegangscontroleSysteem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,9 +247,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SocialSharing.resx">
       <DependentUpon>SocialSharing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Testform.resx">
-      <DependentUpon>Testform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ToegangscontroleSysteem.resx">
       <DependentUpon>ToegangscontroleSysteem.cs</DependentUpon>
