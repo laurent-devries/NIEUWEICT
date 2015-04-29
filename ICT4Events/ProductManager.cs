@@ -16,6 +16,7 @@ namespace ICT4Events
     class ProductManager
     {
         public bool noUserSelected = false;
+        public int priceproduct;
         //done
         List<Product> productList = new List<Product>();
 
@@ -80,13 +81,13 @@ namespace ICT4Events
             try
             {
                 DatabaseConnection con = new DatabaseConnection();
-                string Query = "SELECT P.ID_PRODUCT, P.PRODUCTNAME, UP.HIREDATE, UP.RETURNDATE, P.BAIL, UP.HIREDAMOUNT, UP.ID_HIRE  FROM ICT4_USER U, ICT4_USER_PRODUCTS UP, ICT4_PRODUCT P where u.ID_USER = UP.ID_USERFK and UP.ID_PRODUCTFK = p.ID_PRODUCT AND UP.RETURNEDDATE IS NULL AND u.rfidtag = " + "'" + rfid + "'";
+                string Query = "SELECT P.ID_PRODUCT, P.PRODUCTNAME, UP.HIREDATE, UP.RETURNDATE, P.BAIL, UP.HIREDAMOUNT, UP.ID_HIRE, P.PRICE FROM ICT4_USER U, ICT4_USER_PRODUCTS UP, ICT4_PRODUCT P where u.ID_USER = UP.ID_USERFK and UP.ID_PRODUCTFK = p.ID_PRODUCT AND UP.RETURNEDDATE IS NULL AND u.rfidtag = " + "'" + rfid + "'";
 
                 OracleDataReader reader = con.SelectFromDatabase(Query);
                 Product product;
                 while (reader.Read())
                 {
-                    product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetDateTime(3), reader.GetDecimal(4), reader.GetInt32(5), reader.GetInt32(6));
+                    product = new Product(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetDateTime(3), reader.GetDecimal(4), reader.GetInt32(5), reader.GetInt32(6), reader.GetDecimal(7));
                     productUserList.Add(product);
                 }
                 reader.Dispose();
@@ -131,6 +132,7 @@ namespace ICT4Events
                 reader.Read();
                 int totalAmount = reader.GetInt32(0);
                 int hiredAmount = reader.GetInt32(1);
+                
 
                 // Opruimen
                 reader.Dispose();
