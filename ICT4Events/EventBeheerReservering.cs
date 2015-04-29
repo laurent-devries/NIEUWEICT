@@ -496,7 +496,9 @@ namespace ICT4Events
 
         private void Btn_addcampingplace_Click(object sender, EventArgs e)
         {
-
+            DatabaseConnection conn = new DatabaseConnection();
+            string querry = "INSERT INTO ICT4_CAMPING_PLACE (ID_CAMPINGPLACE, ID_EVENTFK, PLACENUMBER, MAXPEOPLE, CAMPINGTYPE) VALUES (camping_place_seq.NEXTVAL,"+Convert.ToInt32(cb_event_id_campingplaces.Text)+",)";
+            conn.InsertOrUpdate(querry);
         }
     }
 }
