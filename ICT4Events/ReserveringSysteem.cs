@@ -123,29 +123,37 @@ namespace ICT4Events
         {
             CampingPlace c = cbPlaces.SelectedItem as CampingPlace;
             Event ev = cbEvents.SelectedItem as Event;
-            if (ev != null && c != null)
+            if (cbPlaces.Items.Count != 0)
             {
-                if (c.MaxPeople >= nudAantal.Value)
+                if (ev != null && c != null)
                 {
-                    if (dtpVertrek.Value > dtpAankomst.Value)
+                    if (c.MaxPeople >= nudAantal.Value)
                     {
-                        gb_gebruikercreatie.Enabled = true;
-                        gbEvent.Enabled = false;
+                        if (dtpVertrek.Value > dtpAankomst.Value)
+                        {
+                            gb_gebruikercreatie.Enabled = true;
+                            gbEvent.Enabled = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("De vertrekdatum kan niet voor de aankomst datum liggen. Conterroleer beide datums en probeer het opnieuw.");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("De vertrekdatum kan niet voor de aankomst datum liggen. Conterroleer beide datums en probeer het opnieuw.");
+                        MessageBox.Show("U heeft te veel mensen geselecteerd voor deze campeerplaats.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("U heeft te veel mensen geselecteerd voor deze campeerplaats.");
+                    MessageBox.Show("Voer eerst alle gegevens in voordat u een account aan kunt maken.");
                 }
             }
             else
             {
-                MessageBox.Show("Voer eerst alle gegevens in voordat u een account aan kunt maken.");
+                MessageBox.Show("Er zijn helaas geen plaatsen meer beschikbaar voor dit evenement.");
             }
+            
         }
 
         private void btnBevestigUser_Click(object sender, EventArgs e)
