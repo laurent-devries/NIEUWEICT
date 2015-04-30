@@ -625,18 +625,33 @@ namespace ICT4Events
         private void pbImage1_Click(object sender, EventArgs e)
         {
             string path = "";
+            string postname = "";
             foreach (Media m in mediaList)
             {
                 if (m.Title == gbNumber1.Text)
                 {
                     path = m.File_path;
+                    postname = m.Title;
                     break;
                 }
             }
-            FileInfo info = new FileInfo(path);
-            string filename = Path.GetFileName(path);
-            string destination = Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), filename);
-            info.CopyTo(destination, true);
+
+            try
+            {
+                FileInfo info = new FileInfo(path);
+                string filename = Path.GetFileName(path);
+                string destination = Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), filename);
+                info.CopyTo(destination, true);
+                string ext = Path.GetExtension(path);
+                string newname = Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), postname + ext);
+                System.IO.File.Move(destination, newname);
+                MessageBox.Show("Downloaden succesvol.");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex));
+            }
+
         }
 
         private void tabPosts_SelectedIndexChanged(object sender, EventArgs e)
