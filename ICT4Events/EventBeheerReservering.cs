@@ -484,10 +484,9 @@ namespace ICT4Events
             }
             lists();
         }
-
+        List<CampingPlace> campingplaatslijst = null;
         private void cb_event_id_campingplaces_TextChanged(object sender, EventArgs e)
         {
-            List<CampingPlace> campingplaatslijst = null;
             CampingPlaceManager mngr = new CampingPlaceManager();
             int event_id;
             int.TryParse(cb_event_id_campingplaces.SelectedItem.ToString(), out event_id);
@@ -510,6 +509,8 @@ namespace ICT4Events
 
             DatabaseConnection conn = new DatabaseConnection();
             string querry = "INSERT INTO ICT4_CAMPING_PLACE (ID_CAMPINGPLACE, ID_EVENTFK, PLACENUMBER, MAXPEOPLE, CAMPINGTYPE,plaatsPositie) VALUES (camping_place_seq.NEXTVAL," + Convert.ToInt32(cb_event_id_campingplaces.Text) + ",'" + tb_eventcampingplacenumber.Text + "'," + nuD_maxpeople.Value.ToString() + ",'" + cb_campingtype.Text + "','" + cB_Characteristics.Text + "')";
+
+
             bool trueorfalse = conn.InsertOrUpdate(querry);
             if (trueorfalse)
             {
@@ -522,6 +523,25 @@ namespace ICT4Events
 
             lists();
             userclear();
+        }
+
+        private void Btn_deletecampingplace_Click(object sender, EventArgs e)
+        {
+            CampingPlaceManager mngr = new CampingPlaceManager();
+
+            bool succes = mngr.DeleteCampingPlace(Listb_Event_campingplaces.GetItemText(Listb_Event_campingplaces.SelectedItem));
+            if (succes)
+            {
+                MessageBox.Show("The user has been succesfully deleted!");
+                
+            }
+            else
+            {
+                MessageBox.Show("Something has gone wrong, make sure you have selected the user!");
+
+            }
+
+            lists();
         }
     }
 }
