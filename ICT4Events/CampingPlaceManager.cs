@@ -139,6 +139,7 @@ namespace ICT4Events
                 type.Add(s);
             }
 
+            type.Add("ALL");
             reader.Dispose();
 
             return type;
