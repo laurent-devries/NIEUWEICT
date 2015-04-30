@@ -171,10 +171,10 @@ namespace ICT4Events
                 {
                     endday = Convert.ToString(Event_End_Date.Value.Day);
                 }
-                string querry = "INSERT INTO ICT4_EVENT (ID_EVENT, TITLE, STARTDATE, ENDDATE, CAMPINGNAME, LOCATION) VALUES (EVENT_SEQ.NEXTVAL,'" + Event_Title.Text + "', to_date('" + startday + startmonth + Convert.ToString(Event_Start_Date.Value.Year) + "','DDMMYYYY'), to_date('" + endday + endmonth + Convert.ToString(Event_End_Date.Value.Year) + "','DDMMYYYY'),'" + Event_Camping_Name.Text + "','" + Event_Camping_Location.Text + "')";
+                string querry = "INSERT INTO ICT4_EVENT (ID_EVENT, TITLE, DateICT, STARTDATE, ENDDATE, CAMPINGNAME, LOCATION) VALUES (EVENT_SEQ.NEXTVAL,'" + Event_Title.Text + "', sysdate, to_date('" + startday + startmonth + Convert.ToString(Event_Start_Date.Value.Year) + "','DDMMYYYY'), to_date('" + endday + endmonth + Convert.ToString(Event_End_Date.Value.Year) + "','DDMMYYYY'),'" + Event_Camping_Name.Text + "','" + Event_Camping_Location.Text + "')";
                 if (conn.InsertOrUpdate(querry))
                 {
-                    MessageBox.Show("Everything has gone right!");
+                    MessageBox.Show("The event has been created!");
                 }
                 else
                 {
@@ -231,7 +231,7 @@ namespace ICT4Events
                         bool succes = conn.InsertOrUpdate(querry);
                         if (succes)
                         {
-                            MessageBox.Show("The user has been succesfully updated!");
+                            MessageBox.Show("The event has been succesfully updated!");
                         }
                         else
                         {
@@ -241,10 +241,12 @@ namespace ICT4Events
                     }
                 }
             }
-            btn_nieuwe_gebruiker.Enabled = true;
-            btn_verwijder_gebruiker.Enabled = true;
-            btn_changeuser.Enabled = true;
+            btn_change_event.Enabled = true;
+            btn_create_event.Enabled = true;
+            btn_delete_event.Enabled = true;
+            gb_mantain_event.Enabled = false;
             lists();
+            userclear();
         }
 
         private void btnEventcancel_1(object sender, EventArgs e)
@@ -599,14 +601,9 @@ namespace ICT4Events
                     else
                     {
                         MessageBox.Show("Something has gone wrong, make sure you have selected the campingplace!");
-
                     }
                 }
-
             }
-
-
-
             lists();
         }
     }
