@@ -69,6 +69,8 @@
             this.tabEventManagement = new System.Windows.Forms.TabPage();
             this.Listb_Event_campingplaces = new System.Windows.Forms.ListBox();
             this.gb_add_campingplace = new System.Windows.Forms.GroupBox();
+            this.cB_Characteristics = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.nuD_maxpeople = new System.Windows.Forms.NumericUpDown();
             this.cb_campingtype = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -587,6 +589,8 @@
             // 
             // gb_add_campingplace
             // 
+            this.gb_add_campingplace.Controls.Add(this.cB_Characteristics);
+            this.gb_add_campingplace.Controls.Add(this.label18);
             this.gb_add_campingplace.Controls.Add(this.nuD_maxpeople);
             this.gb_add_campingplace.Controls.Add(this.cb_campingtype);
             this.gb_add_campingplace.Controls.Add(this.label17);
@@ -603,6 +607,32 @@
             this.gb_add_campingplace.TabIndex = 16;
             this.gb_add_campingplace.TabStop = false;
             this.gb_add_campingplace.Text = "Add Campingplaces";
+            // 
+            // cB_Characteristics
+            // 
+            this.cB_Characteristics.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cB_Characteristics.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cB_Characteristics.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cB_Characteristics.FormattingEnabled = true;
+            this.cB_Characteristics.Items.AddRange(new object[] {
+            "LAWAAI",
+            "COMFORT",
+            "RUSTIG",
+            "KNUS",
+            "HARDEKERN"});
+            this.cB_Characteristics.Location = new System.Drawing.Point(90, 120);
+            this.cB_Characteristics.Name = "cB_Characteristics";
+            this.cB_Characteristics.Size = new System.Drawing.Size(348, 21);
+            this.cB_Characteristics.TabIndex = 47;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(11, 123);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(74, 13);
+            this.label18.TabIndex = 46;
+            this.label18.Text = "Characteristic:";
             // 
             // nuD_maxpeople
             // 
@@ -682,16 +712,17 @@
             // 
             // Btn_deletecampingplace
             // 
-            this.Btn_deletecampingplace.Location = new System.Drawing.Point(221, 146);
+            this.Btn_deletecampingplace.Location = new System.Drawing.Point(235, 170);
             this.Btn_deletecampingplace.Name = "Btn_deletecampingplace";
             this.Btn_deletecampingplace.Size = new System.Drawing.Size(87, 23);
             this.Btn_deletecampingplace.TabIndex = 36;
             this.Btn_deletecampingplace.Text = "Delete";
             this.Btn_deletecampingplace.UseVisualStyleBackColor = true;
+            this.Btn_deletecampingplace.Click += new System.EventHandler(this.Btn_deletecampingplace_Click);
             // 
             // Btn_addcampingplace
             // 
-            this.Btn_addcampingplace.Location = new System.Drawing.Point(328, 146);
+            this.Btn_addcampingplace.Location = new System.Drawing.Point(328, 170);
             this.Btn_addcampingplace.Name = "Btn_addcampingplace";
             this.Btn_addcampingplace.Size = new System.Drawing.Size(112, 23);
             this.Btn_addcampingplace.TabIndex = 35;
@@ -937,7 +968,7 @@
             this.ClientSize = new System.Drawing.Size(925, 673);
             this.Controls.Add(this.tControlEventbeheer);
             this.Name = "EventBeheerReservering";
-            this.Text = "Form1";
+            this.Text = "EventBeheerReservering";
             this.tControlEventbeheer.ResumeLayout(false);
             this.tabUserManagement.ResumeLayout(false);
             this.tabUserManagement.PerformLayout();
@@ -1033,6 +1064,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.NumericUpDown nuD_maxpeople;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox cB_Characteristics;
 
     }
 }
