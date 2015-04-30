@@ -130,6 +130,8 @@
     <Compile Include="CampingPlaceManager.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="CategoryManager.cs" />
+    <Compile Include="ProductCategory.cs" />
+    <Compile Include="ProductcCatManager.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="CommentManager.cs" />
     <Compile Include="CommentNewsfeedItem.cs">

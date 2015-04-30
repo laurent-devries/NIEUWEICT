@@ -16,6 +16,7 @@ namespace ICT4Events
     public partial class Hiresystem : Form
     {
         List<Product> producten;
+        List<ProductCategory> productCategoryList;
 
         RFID rfid = new RFID(); //RFID object
         private bool scanned = false;
@@ -29,6 +30,7 @@ namespace ICT4Events
             LoadProducts();
             availableProduct();
             productholder = producten;
+            LoadProductsCategory();
         }
 
         public void bttnEnableRFID_Click(object sender, EventArgs e)
@@ -314,11 +316,18 @@ namespace ICT4Events
             listBoxAvble.Items.Clear();
             LoadProducts();
             availableProduct();
+            LoadProductsCategory();
         }
 
-        private void Hiresystem_Load(object sender, EventArgs e)
+        public void LoadProductsCategory()
         {
+            ProductcCatManager productCatData = new ProductcCatManager();
+            productCategoryList = productCatData.RequestProductCategory();
 
+            foreach (ProductCategory productCategory in productCategoryList)
+            {
+                comboBoxCat.Items.Add(productCategory);
+            }
         }
 
         private void Createbtn_Click(object sender, EventArgs e)
@@ -329,7 +338,7 @@ namespace ICT4Events
             int hireprice = -1;
             int bailprice = -1;
             int amount = (int)numericUpDownAmount.Value;
-            string category = Convert.ToString("12341234"); //comboBoxCat.ToString();
+            string category = comboBoxCat.SelectedText;
             
             if (string.IsNullOrEmpty(this.BailTxt.Text))
             {
@@ -367,10 +376,7 @@ namespace ICT4Events
                 productData.insertProduct(NaamProduct, amount, category, bailprice, hireprice);
             }
             
-
         }
-
        
-
     }
 }
