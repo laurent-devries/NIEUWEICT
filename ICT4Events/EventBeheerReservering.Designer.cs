@@ -759,7 +759,7 @@
             this.btnEventcancel.TabIndex = 34;
             this.btnEventcancel.Text = "Cancel";
             this.btnEventcancel.UseVisualStyleBackColor = true;
-            this.btnEventcancel.Click += new System.EventHandler(this.button1_Click_2);
+            this.btnEventcancel.Click += new System.EventHandler(this.btnEventcancel_1);
             // 
             // Event_End_Date
             // 
