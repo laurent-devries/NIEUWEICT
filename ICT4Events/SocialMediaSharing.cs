@@ -623,5 +623,22 @@ namespace ICT4Events
                 MessageBox.Show("Verwijderen van de post is mislukt");
             }
         }
+
+        private void lbDownload1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string path = "";
+            foreach (Media m in mediaList)
+            {
+                if (m.Title == gbNumber1.Text)
+                {
+                    path = m.File_path;
+                    break;
+                }
+            }
+            FileInfo info = new FileInfo(path);
+            string filename = Path.GetFileName(path);
+            string destination = Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), filename);
+            info.CopyTo(destination, true);
+        }
     }
 }
