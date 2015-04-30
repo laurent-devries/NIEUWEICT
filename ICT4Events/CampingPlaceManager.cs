@@ -135,32 +135,6 @@ namespace ICT4Events
 
         }
 
-        public bool DeleteCampingPlace(string tostringCampingPlaats)
-        {
-            foreach (CampingPlace campingplace in campingPlaceList)
-            {
-                if (campingplace.ToString() == tostringCampingPlaats)
-                {
-                    DatabaseConnection conn = new DatabaseConnection();
-                    string querry = "DELETE FROM ICT4_CAMPING_PLACE WHERE ID_CAMPINGPLACE = " + Convert.ToString(campingplace.IdCampingPlace);
 
-                    bool succes = conn.InsertOrUpdate(querry);
-                    if (succes)
-                    {
-                        MessageBox.Show("The user has been succesfully deleted!");
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Something has gone wrong, make sure you have selected the user!");
-
-                    }
-
-                }
-
-            }
-            return false;
-
-        }
     }
 }

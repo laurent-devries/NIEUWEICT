@@ -16,6 +16,7 @@ namespace ICT4Events
 {
     public partial class EventBeheerReservering : Form
     {
+
         List<Event> evenementen = null;
         List<User> userList = null;
         List<CampingPlace> campingplaatslijst = null;
@@ -50,9 +51,9 @@ namespace ICT4Events
                 foreach (Event event1 in evenementen)
                 {
                     Listb_Events.Items.Add(event1.ToString());
-                    cB_Event_ID_User.Items.Add(event1.ID_Event);
-                    cb_event_id_campingplaces.Items.Add(event1.ID_Event);
-                    cb_showusersonevent.Items.Add(event1.ID_Event);
+                    cB_Event_ID_User.Items.Add(event1.Title);
+                    cb_event_id_campingplaces.Items.Add(event1.Title);
+                    cb_showusersonevent.Items.Add(event1.Title);
                 }
             }
         }
@@ -80,7 +81,7 @@ namespace ICT4Events
             Event_Camping_Name.Text = null;
             cb_event_id_campingplaces.Text = null;
             tb_eventcampingplacenumber.Text = null;
-            nuD_maxpeople.Value = 0;
+            nuD_maxpeople.Value = 1;
             cb_campingtype.Text = null;
         }
         private void btn_show_users_Click_1(object sender, EventArgs e)
@@ -88,7 +89,15 @@ namespace ICT4Events
             // laat alle users zien op een event.
             lb_show_user_on_event.Items.Clear();
             DatabaseConnection conn = new DatabaseConnection();
-            string querry = "select u.ID_USER, u.FIRSTNAME, u.SURNAME, u.PRESENTUSER, r.PAYMENTSTATE FROM ICT4_USER u, ICT4_EVENT e , ICT4_RESERVATION r WHERE e.ID_EVENT = u.ID_EVENTFK and r.ID_RESERVATION = u.ID_RESERVATIONFK and u.ID_EVENTFK = " + cb_showusersonevent.Text;
+            int event_ID = 0;
+            foreach (Event event1 in evenementen)
+            {
+                if (cb_showusersonevent.Text == event1.Title)
+                {
+                    event_ID = event1.ID_Event;
+                }
+            }
+            string querry = "select u.ID_USER, u.FIRSTNAME, u.SURNAME, u.PRESENTUSER, r.PAYMENTSTATE FROM ICT4_USER u, ICT4_EVENT e , ICT4_RESERVATION r WHERE e.ID_EVENT = u.ID_EVENTFK and r.ID_RESERVATION = u.ID_RESERVATIONFK and u.ID_EVENTFK = " + event_ID.ToString();
             OracleDataReader reader = conn.SelectFromDatabase(querry);
             while (reader.Read())
             {
@@ -121,7 +130,7 @@ namespace ICT4Events
         }
 
         private void btn_create_event_Click(object sender, EventArgs e)
-        {           
+        {
             if (btn_create_event.Enabled)
             {
                 // creeërt een event met de meegegeven gegevens
@@ -348,7 +357,32 @@ namespace ICT4Events
                 {
                     dag = Convert.ToString(dtp_geboortedatum_gebruiker.Value.Day);
                 }
-                conn.InsertOrUpdate("INSERT INTO ICT4_USER (id_user,id_eventFK,id_reservationFK,id_permissionFK,firstName,surName,birthDate,email,country,street,houseNumber,city,cellphoneNumber,loginName,userName,passwordUser,profilePic,summaryUser,presentUser) VALUES(USER_SEQ.NEXTVAL," + cB_Event_ID_User.Text + "," + cB_Reservation_ID_User.Text + "," + 1 + ",'" + tb_voornaam_gebruiker.Text + "','" + tb_achternaam_user.Text + "', to_date('" + dag + maand + Convert.ToString(dtp_geboortedatum_gebruiker.Value.Year) + "','DDMMYYYY') ,'" + tb_email_gebruiker.Text + "','" + cb_land_gebruiker.Text + "','" + tb_straat_user.Text + "','" + tb_number_user.Text + "','" + tb_stad_user.Text + "','" + tb_telnr_gebruiker.Text + "','" + tb_loginname_gebruiker.Text + "','" + tb_username_gebruiker.Text + "','" + tb_password_gebruiker.Text + "','C:/','No Summary','N')");
+                int event_ID = 0;
+                foreach (Event event1 in evenementen)
+                {
+                    if (cB_Event_ID_User.Text == event1.Title)
+                    {
+                        event_ID = event1.ID_Event;
+                    }
+                }
+                bool succes = false;
+                if (cB_Reservation_ID_User.Text == "New")
+                {
+                    conn.InsertOrUpdate("INSERT INTO ICT4_USER (id_user,id_eventFK,id_permissionFK,firstName,surName,birthDate,email,country,street,houseNumber,city,cellphoneNumber,loginName,userName,passwordUser,profilePic,summaryUser,presentUser) VALUES(USER_SEQ.NEXTVAL," + event_ID.ToString() + "," + 1 + ",'" + tb_voornaam_gebruiker.Text + "','" + tb_achternaam_user.Text + "', to_date('" + dag + maand + Convert.ToString(dtp_geboortedatum_gebruiker.Value.Year) + "','DDMMYYYY') ,'" + tb_email_gebruiker.Text + "','" + cb_land_gebruiker.Text + "','" + tb_straat_user.Text + "','" + tb_number_user.Text + "','" + tb_stad_user.Text + "','" + tb_telnr_gebruiker.Text + "','" + tb_loginname_gebruiker.Text + "','" + tb_username_gebruiker.Text + "','" + tb_password_gebruiker.Text + "','C:/','No Summary','N')");
+                }
+                else
+                {
+                    succes = conn.InsertOrUpdate("INSERT INTO ICT4_USER (id_user,id_eventFK,id_reservationFK,id_permissionFK,firstName,surName,birthDate,email,country,street,houseNumber,city,cellphoneNumber,loginName,userName,passwordUser,profilePic,summaryUser,presentUser) VALUES(USER_SEQ.NEXTVAL," + event_ID.ToString() + "," + cB_Reservation_ID_User.Text + "," + 1 + ",'" + tb_voornaam_gebruiker.Text + "','" + tb_achternaam_user.Text + "', to_date('" + dag + maand + Convert.ToString(dtp_geboortedatum_gebruiker.Value.Year) + "','DDMMYYYY') ,'" + tb_email_gebruiker.Text + "','" + cb_land_gebruiker.Text + "','" + tb_straat_user.Text + "','" + tb_number_user.Text + "','" + tb_stad_user.Text + "','" + tb_telnr_gebruiker.Text + "','" + tb_loginname_gebruiker.Text + "','" + tb_username_gebruiker.Text + "','" + tb_password_gebruiker.Text + "','C:/','No Summary','N')");
+                }
+
+                if (succes)
+                {
+                    MessageBox.Show("You have created the user");
+                }
+                else
+                {
+                    MessageBox.Show("Something has gone wrong! Make sure you have filled in everything");
+                }
             }
             if (btn_changeuser.Enabled)
             {
@@ -452,6 +486,7 @@ namespace ICT4Events
                 if (succes)
                 {
                     cB_Reservation_ID_User.Items.Clear();
+                    cB_Reservation_ID_User.Items.Add("New");
                     liststring = Reservation.RequestReservationsInfo(eventid);
                     foreach (string tekst in liststring)
                     {
@@ -499,19 +534,18 @@ namespace ICT4Events
             }
             lists();
         }
-        
+
         private void cb_event_id_campingplaces_TextChanged(object sender, EventArgs e)
         {
             CampingPlaceManager mngr = new CampingPlaceManager();
-            int event_id;
-            int.TryParse(cb_event_id_campingplaces.SelectedItem.ToString(), out event_id);
             foreach (Event event1 in evenementen)
             {
-                if (event1.ID_Event == event_id)
+                if (cb_event_id_campingplaces.Text == event1.Title)
                 {
                     campingplaatslijst = mngr.RequestCampingPlaces(event1);
                 }
             }
+
             Listb_Event_campingplaces.Items.Clear();
             foreach (CampingPlace plaats in campingplaatslijst)
             {
@@ -523,7 +557,15 @@ namespace ICT4Events
         {
 
             DatabaseConnection conn = new DatabaseConnection();
-            string querry = "INSERT INTO ICT4_CAMPING_PLACE (ID_CAMPINGPLACE, ID_EVENTFK, PLACENUMBER, MAXPEOPLE, CAMPINGTYPE,plaatsPositie) VALUES (camping_place_seq.NEXTVAL," + Convert.ToInt32(cb_event_id_campingplaces.Text) + ",'" + tb_eventcampingplacenumber.Text + "'," + nuD_maxpeople.Value.ToString() + ",'" + cb_campingtype.Text + "','" + cB_Characteristics.Text + "')";
+            int event_ID = 0;
+            foreach (Event event1 in evenementen)
+            {
+                if (cb_event_id_campingplaces.Text == event1.Title)
+                {
+                    event_ID = event1.ID_Event;
+                }
+            }
+            string querry = "INSERT INTO ICT4_CAMPING_PLACE (ID_CAMPINGPLACE, ID_EVENTFK, PLACENUMBER, MAXPEOPLE, CAMPINGTYPE,plaatsPositie) VALUES (camping_place_seq.NEXTVAL," + event_ID.ToString() + ",'" + tb_eventcampingplacenumber.Text + "'," + nuD_maxpeople.Value.ToString() + ",'" + cb_campingtype.Text + "','" + cB_Characteristics.Text + "')";
 
 
             bool trueorfalse = conn.InsertOrUpdate(querry);
@@ -543,17 +585,29 @@ namespace ICT4Events
         private void Btn_deletecampingplace_Click(object sender, EventArgs e)
         {
             CampingPlaceManager mngr = new CampingPlaceManager();
-            bool succes = mngr.DeleteCampingPlace(Listb_Event_campingplaces.GetItemText(Listb_Event_campingplaces.SelectedItem));
-            if (succes)
+           
+            foreach (CampingPlace campingplace in campingplaatslijst)
             {
-                MessageBox.Show("The user has been succesfully deleted!");
-                
-            }
-            else
-            {
-                MessageBox.Show("Something has gone wrong, make sure you have selected the user!");
+                if (Listb_Event_campingplaces.GetItemText(Listb_Event_campingplaces.SelectedItem) == campingplace.ToString())
+                {
+                    DatabaseConnection conn = new DatabaseConnection();
+                    string querry = "DELETE FROM ICT4_CAMPING_PLACE WHERE ID_CAMPINGPLACE = " + Convert.ToString(campingplace.IdCampingPlace);
+
+                    bool succes = conn.InsertOrUpdate(querry);
+                    if (succes)
+                    {
+                        MessageBox.Show("The campingplace has been succesfully deleted!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something has gone wrong, make sure you have selected the campingplace!");
+
+                    }
+                }
 
             }
+
+
 
             lists();
         }

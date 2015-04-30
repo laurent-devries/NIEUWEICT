@@ -637,9 +637,24 @@
             // nuD_maxpeople
             // 
             this.nuD_maxpeople.Location = new System.Drawing.Point(90, 72);
+            this.nuD_maxpeople.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.nuD_maxpeople.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nuD_maxpeople.Name = "nuD_maxpeople";
             this.nuD_maxpeople.Size = new System.Drawing.Size(348, 20);
             this.nuD_maxpeople.TabIndex = 45;
+            this.nuD_maxpeople.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // cb_campingtype
             // 
