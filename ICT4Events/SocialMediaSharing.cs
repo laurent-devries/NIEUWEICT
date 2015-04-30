@@ -48,6 +48,7 @@ namespace ICT4Events
             categoryManager = new CategoryManager();
             tagManager = new TagManager();
             eventManager = new EventManager();
+
             mediaList = mediaManager.RequestMediaUploads(user);
             holder = mediaList;
 
@@ -117,26 +118,11 @@ namespace ICT4Events
             pictureArray[3] = pbImage4;
             #endregion
 
+            // Vult de comboboxes om te kunnen sorteren
+            RefreshData();
+
             // Vult de posts wanneer het programma geopent wordt
             fillPosts(0);
-
-            // Vult de comboboxes om te kunnen sorteren
-            // Haal de categoryList op
-            List<Category> categoryList = categoryManager.RequestCategories();
-            List<Tag> tagList = tagManager.RequestAllTags();
-            // Voegt alles toe in aan de combobox
-            cbCategorySort.Items.Clear();
-            cbTags.Items.Clear();
-            foreach (Category c in categoryList)
-            {
-                cbCategorySort.Items.Add(c);
-            }
-
-            foreach (Tag t in tagList)
-            {
-                cbTags.Items.Add(t);
-            }
-
 
             
      
@@ -284,6 +270,16 @@ namespace ICT4Events
             {
                 cbCategorySort.Items.Add(c);
             }
+
+            List<Tag> tagList = tagManager.RequestAllTags();
+            cbTags.Items.Clear();
+            foreach (Tag t in tagList)
+            {
+                cbTags.Items.Add(t);
+            }
+
+            mediaList = mediaManager.RequestMediaUploads(user);
+            holder = mediaList;
         }
 
         // Events voor het klikken op een like linkLabel
@@ -444,6 +440,7 @@ namespace ICT4Events
                     tbFilepath.Text = "";
                     tbTags.Text = "";
                     tabPage3.Show();
+                    pbPreview.Image = null;
                 }
             }
 
@@ -640,6 +637,16 @@ namespace ICT4Events
             string filename = Path.GetFileName(path);
             string destination = Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop), filename);
             info.CopyTo(destination, true);
+        }
+
+        private void tabPosts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Refresht de data wanneer de post tab wordt geopent
+            if (tabPosts.SelectedIndex == 0)
+            {
+                RefreshData();
+                fillPosts(0);
+            }
         }
     }
 }

@@ -176,7 +176,6 @@
     </Compile>
     <Compile Include="Media.cs" />
     <Compile Include="MediaManager.cs" />
-    <Compile Include="NewsFeedItem.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Permission.cs" />
     <Compile Include="Product.cs" />
@@ -196,12 +195,6 @@
     </Compile>
     <Compile Include="SocialMediaSharing.Designer.cs">
       <DependentUpon>SocialMediaSharing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SocialSharing.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SocialSharing.Designer.cs">
-      <DependentUpon>SocialSharing.cs</DependentUpon>
     </Compile>
     <Compile Include="Tag.cs" />
     <Compile Include="TagManager.cs" />
@@ -246,9 +239,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SocialMediaSharing.resx">
       <DependentUpon>SocialMediaSharing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SocialSharing.resx">
-      <DependentUpon>SocialSharing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ToegangscontroleSysteem.resx">
       <DependentUpon>ToegangscontroleSysteem.cs</DependentUpon>
