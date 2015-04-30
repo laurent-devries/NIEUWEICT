@@ -335,57 +335,6 @@ namespace ICT4Events
 
         private void Createbtn_Click(object sender, EventArgs e)
         {
-            #region oude code Mario
-            ProductCategory productCatergory;
-            
-            
-            bool goodprice = false;
-            bool goodhire = false;
-            string NaamProduct = NameTxt.Text;
-            int hireprice = -1;
-            int bailprice = -1;
-            int amount = (int)nudAmount.Value;
-
-            
-            
-            
-            
-            if (string.IsNullOrEmpty(this.BailTxt.Text))
-            {
-                MessageBox.Show("Vul een geldig getal in bij Bail Price");
-            }
-            else if (Int32.TryParse(this.BailTxt.Text, out bailprice))
-            {
-                if (bailprice >= 0 )
-                {
-                    goodprice = true;
-                }
-                else 
-                {
-                    MessageBox.Show("vul een getal groter in als 0");
-                }
-                    
-            }
-            
-            if (string.IsNullOrEmpty(this.BailTxt.Text))
-            {
-                MessageBox.Show("Vul een geldig getal in bij Bail Price");
-            }
-            else if (Int32.TryParse(this.BailTxt.Text, out hireprice))
-            {
-                if (hireprice >= 0)
-                {
-                    goodhire = true;
-                }
-                else
-                {
-                    MessageBox.Show("vul een getal groter in als 0");
-                }
-
-                ProductManager productData = new ProductManager();
-                //  productData.insertProduct(NaamProduct, amount, id_cat, bailprice, hireprice);
-            #endregion
-
                 // Maakt de manager aan
                 ProductManager productManager = new ProductManager();
 
@@ -397,11 +346,13 @@ namespace ICT4Events
                     decimal priceDay = nudPriceDay.Value;
                     decimal productAmount = (int)nudAmount.Value;
 
-                    if (comboBoxCat.SelectedIndex < 0 && productCategory != null)
+                    if (productCategory != null)
                     {
                         try
                         {
                             productManager.insertProduct(productName, productAmount, productCategory, priceBail, priceDay);
+                            string RFID = RFIDtext.Text;
+                            refresh(RFID);
                         }
 
                         catch
@@ -415,18 +366,14 @@ namespace ICT4Events
                 {
                     MessageBox.Show("Alle velden moeten ingevuld zijn");
                 }
-
-
-
+                
             }
-            
-        }
-
         private void comboBoxCat_SelectedValueChanged(object sender, EventArgs e)
         {
             // Vult de productCategory met de geselecteerde waarde
             productCategory = comboBoxCat.SelectedItem as ProductCategory;
         }
-       
-    }
+
+     }   
 }
+

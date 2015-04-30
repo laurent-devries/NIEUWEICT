@@ -11,11 +11,11 @@ using System.Data;
 
 namespace ICT4Events
 {
-    
+
     class ProductManager
     {
         public bool noUserSelected = false;
-       
+
         //done
         List<Product> productList = new List<Product>();
 
@@ -131,7 +131,7 @@ namespace ICT4Events
                 reader.Read();
                 int totalAmount = reader.GetInt32(0);
                 int hiredAmount = reader.GetInt32(1);
-                
+
 
                 // Opruimen
                 reader.Dispose();
@@ -258,13 +258,8 @@ namespace ICT4Events
         {
             DatabaseConnection con = new DatabaseConnection();
 
-            string Query = "INSERT INTO ICT4_PRODUCT (ID_PRODUCT, ID_PRODUCTCATFK, PRODUCTNAME, BAIL, PRICE, Available, totalAmount) VALUES (PROD_SEQ.NEXTVAL, " + category +", " +"'"+ NaamProduct + "'" +", " + bailprice +", " + hireprice +", 'Y', " + amount + ")";
+            string Query = "INSERT INTO ICT4_PRODUCT (ID_PRODUCT, ID_PRODUCTCATFK, PRODUCTNAME, BAIL, PRICE, Available, totalAmount) VALUES (PROD_SEQ.NEXTVAL, " + category.Id_productCat + ", " + "'" + NaamProduct + "'" + ", " + bailprice + ", " + hireprice + ", 'Y', " + amount + ")";
             bool writer = con.InsertOrUpdate(Query);
-            
         }
-
-        
-
-
     }
 }
