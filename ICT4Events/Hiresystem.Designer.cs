@@ -119,6 +119,8 @@
             this.bttnReturn = new System.Windows.Forms.Button();
             this.bttnLend = new System.Windows.Forms.Button();
             this.fgfdgdf = new System.Windows.Forms.TabControl();
+            this.label47 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPriceDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBailPrice)).BeginInit();
@@ -133,28 +135,19 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.fgfdgdf.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox8);
             this.tabPage2.Controls.Add(this.label46);
             this.tabPage2.Controls.Add(this.label45);
             this.tabPage2.Controls.Add(this.label44);
             this.tabPage2.Controls.Add(this.label43);
             this.tabPage2.Controls.Add(this.label42);
             this.tabPage2.Controls.Add(this.label41);
-            this.tabPage2.Controls.Add(this.nudPriceDay);
-            this.tabPage2.Controls.Add(this.nudBailPrice);
-            this.tabPage2.Controls.Add(this.nudAmount);
-            this.tabPage2.Controls.Add(this.label40);
-            this.tabPage2.Controls.Add(this.label39);
-            this.tabPage2.Controls.Add(this.comboBoxCat);
-            this.tabPage2.Controls.Add(this.label38);
-            this.tabPage2.Controls.Add(this.label37);
-            this.tabPage2.Controls.Add(this.label36);
-            this.tabPage2.Controls.Add(this.NameTxt);
             this.tabPage2.Controls.Add(this.AllproductsP2lst);
-            this.tabPage2.Controls.Add(this.Createbtn);
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -301,6 +294,7 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.label47);
             this.groupBox7.Controls.Add(this.label16);
             this.groupBox7.Controls.Add(this.UserProductlist);
             this.groupBox7.Controls.Add(this.label14);
@@ -707,6 +701,28 @@
             this.fgfdgdf.Name = "fgfdgdf";
             this.fgfdgdf.SelectedIndex = 0;
             // 
+            // label47
+            // 
+            resources.ApplyResources(this.label47, "label47");
+            this.label47.Name = "label47";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.label36);
+            this.groupBox8.Controls.Add(this.Createbtn);
+            this.groupBox8.Controls.Add(this.NameTxt);
+            this.groupBox8.Controls.Add(this.label37);
+            this.groupBox8.Controls.Add(this.label38);
+            this.groupBox8.Controls.Add(this.comboBoxCat);
+            this.groupBox8.Controls.Add(this.label39);
+            this.groupBox8.Controls.Add(this.nudPriceDay);
+            this.groupBox8.Controls.Add(this.label40);
+            this.groupBox8.Controls.Add(this.nudBailPrice);
+            this.groupBox8.Controls.Add(this.nudAmount);
+            resources.ApplyResources(this.groupBox8, "groupBox8");
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.TabStop = false;
+            // 
             // Hiresystem
             // 
             resources.ApplyResources(this, "$this");
@@ -739,6 +755,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.fgfdgdf.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -835,6 +853,8 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.GroupBox groupBox8;
 
     }
 }
