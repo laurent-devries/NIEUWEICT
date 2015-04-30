@@ -624,7 +624,8 @@ namespace ICT4Events
             }
         }
 
-        private void lbDownload1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void pbImage1_Click(object sender, EventArgs e)
         {
             string path = "";
             foreach (Media m in mediaList)
