@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hiresystem));
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             this.nudPriceDay = new System.Windows.Forms.NumericUpDown();
             this.nudBailPrice = new System.Windows.Forms.NumericUpDown();
             this.nudAmount = new System.Windows.Forms.NumericUpDown();
@@ -92,6 +98,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblWaiting = new System.Windows.Forms.Label();
             this.RFIDtext = new System.Windows.Forms.TextBox();
+            this.bttnEnableRFID = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblserialInfo = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblconnectedInfo = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label34 = new System.Windows.Forms.Label();
             this.allProductslist = new System.Windows.Forms.ListBox();
@@ -100,9 +111,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.lblserialInfo = new System.Windows.Forms.Label();
-            this.bttnEnableRFID = new System.Windows.Forms.Button();
-            this.lblconnectedInfo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label33 = new System.Windows.Forms.Label();
@@ -110,15 +118,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.bttnReturn = new System.Windows.Forms.Button();
             this.bttnLend = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.fgfdgdf = new System.Windows.Forms.TabControl();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPriceDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBailPrice)).BeginInit();
@@ -158,6 +158,36 @@
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label46
+            // 
+            resources.ApplyResources(this.label46, "label46");
+            this.label46.Name = "label46";
+            // 
+            // label45
+            // 
+            resources.ApplyResources(this.label45, "label45");
+            this.label45.Name = "label45";
+            // 
+            // label44
+            // 
+            resources.ApplyResources(this.label44, "label44");
+            this.label44.Name = "label44";
+            // 
+            // label43
+            // 
+            resources.ApplyResources(this.label43, "label43");
+            this.label43.Name = "label43";
+            // 
+            // label42
+            // 
+            resources.ApplyResources(this.label42, "label42");
+            this.label42.Name = "label42";
+            // 
+            // label41
+            // 
+            resources.ApplyResources(this.label41, "label41");
+            this.label41.Name = "label41";
             // 
             // nudPriceDay
             // 
@@ -546,6 +576,33 @@
             resources.ApplyResources(this.RFIDtext, "RFIDtext");
             this.RFIDtext.Name = "RFIDtext";
             // 
+            // bttnEnableRFID
+            // 
+            resources.ApplyResources(this.bttnEnableRFID, "bttnEnableRFID");
+            this.bttnEnableRFID.Name = "bttnEnableRFID";
+            this.bttnEnableRFID.UseVisualStyleBackColor = true;
+            this.bttnEnableRFID.Click += new System.EventHandler(this.bttnEnableRFID_Click);
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // lblserialInfo
+            // 
+            resources.ApplyResources(this.lblserialInfo, "lblserialInfo");
+            this.lblserialInfo.Name = "lblserialInfo";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // lblconnectedInfo
+            // 
+            resources.ApplyResources(this.lblconnectedInfo, "lblconnectedInfo");
+            this.lblconnectedInfo.Name = "lblconnectedInfo";
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.label34);
@@ -596,23 +653,6 @@
             resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
             // 
-            // lblserialInfo
-            // 
-            resources.ApplyResources(this.lblserialInfo, "lblserialInfo");
-            this.lblserialInfo.Name = "lblserialInfo";
-            // 
-            // bttnEnableRFID
-            // 
-            resources.ApplyResources(this.bttnEnableRFID, "bttnEnableRFID");
-            this.bttnEnableRFID.Name = "bttnEnableRFID";
-            this.bttnEnableRFID.UseVisualStyleBackColor = true;
-            this.bttnEnableRFID.Click += new System.EventHandler(this.bttnEnableRFID_Click);
-            // 
-            // lblconnectedInfo
-            // 
-            resources.ApplyResources(this.lblconnectedInfo, "lblconnectedInfo");
-            this.lblconnectedInfo.Name = "lblconnectedInfo";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.numericUpDown1);
@@ -659,16 +699,6 @@
             this.bttnLend.UseVisualStyleBackColor = true;
             this.bttnLend.Click += new System.EventHandler(this.bttnLend_Click);
             // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
             // fgfdgdf
             // 
             this.fgfdgdf.Controls.Add(this.tabPage1);
@@ -676,36 +706,6 @@
             resources.ApplyResources(this.fgfdgdf, "fgfdgdf");
             this.fgfdgdf.Name = "fgfdgdf";
             this.fgfdgdf.SelectedIndex = 0;
-            // 
-            // label41
-            // 
-            resources.ApplyResources(this.label41, "label41");
-            this.label41.Name = "label41";
-            // 
-            // label42
-            // 
-            resources.ApplyResources(this.label42, "label42");
-            this.label42.Name = "label42";
-            // 
-            // label43
-            // 
-            resources.ApplyResources(this.label43, "label43");
-            this.label43.Name = "label43";
-            // 
-            // label44
-            // 
-            resources.ApplyResources(this.label44, "label44");
-            this.label44.Name = "label44";
-            // 
-            // label45
-            // 
-            resources.ApplyResources(this.label45, "label45");
-            this.label45.Name = "label45";
-            // 
-            // label46
-            // 
-            resources.ApplyResources(this.label46, "label46");
-            this.label46.Name = "label46";
             // 
             // Hiresystem
             // 
