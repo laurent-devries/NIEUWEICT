@@ -254,11 +254,11 @@ namespace ICT4Events
         }
 
 
-        public void insertProduct(string NaamProduct, int amount, string category, int bailprice, int hireprice)
+        public void insertProduct(string NaamProduct, int amount, int category, int bailprice, int hireprice)
         {
             DatabaseConnection con = new DatabaseConnection();
 
-            string Query = "INSERT INTO ICT4_PRODUCT (ID_PRODUCT, ID_PRODUCTCATFK, PRODUCTNAME, BAIL, PRICE, Available, totalAmount) VALUES (PROD_SEQ.NEXTVAL, " + category +", " +"'"+ NaamProduct + "'" +", " + bailprice +", " + hireprice +", 'Y', " + hireprice + ")";
+            string Query = "INSERT INTO ICT4_PRODUCT (ID_PRODUCT, ID_PRODUCTCATFK, PRODUCTNAME, BAIL, PRICE, Available, totalAmount) VALUES (PROD_SEQ.NEXTVAL, " + category +", " +"'"+ NaamProduct + "'" +", " + bailprice +", " + hireprice +", 'Y', " + amount + ")";
             bool writer = con.InsertOrUpdate(Query);
             
         }

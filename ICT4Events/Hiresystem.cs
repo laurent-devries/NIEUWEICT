@@ -332,13 +332,19 @@ namespace ICT4Events
 
         private void Createbtn_Click(object sender, EventArgs e)
         {
+            ProductCategory productCatergory;
+            
+            
             bool goodprice = false;
             bool goodhire = false;
             string NaamProduct = NameTxt.Text;
             int hireprice = -1;
             int bailprice = -1;
             int amount = (int)numericUpDownAmount.Value;
-            string category = comboBoxCat.SelectedText;
+
+            
+            
+            
             
             if (string.IsNullOrEmpty(this.BailTxt.Text))
             {
@@ -373,7 +379,7 @@ namespace ICT4Events
                 }
 
                 ProductManager productData = new ProductManager();
-                productData.insertProduct(NaamProduct, amount, category, bailprice, hireprice);
+              //  productData.insertProduct(NaamProduct, amount, id_cat, bailprice, hireprice);
             }
             
         }

@@ -22,7 +22,7 @@ namespace ICT4Events
             this.productnaamCat = productnaamCat;
         }
 
-
+        
         public override string ToString()
         {
             return productnaamCat;
