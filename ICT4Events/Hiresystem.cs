@@ -16,11 +16,15 @@ namespace ICT4Events
     public partial class Hiresystem : Form
     {
         List<Product> producten;
+        List<ProductCategory> productCategoryList;
 
         RFID rfid = new RFID(); //RFID object
         private bool scanned = false;
         List<Product> productholder;
         User user;
+
+        // create tab
+        ProductCategory productCategory;
 
         //load alle producten in de lists
         public Hiresystem()
@@ -29,6 +33,7 @@ namespace ICT4Events
             LoadProducts();
             availableProduct();
             productholder = producten;
+            LoadProductsCategory();
         }
 
         public void bttnEnableRFID_Click(object sender, EventArgs e)
@@ -314,22 +319,36 @@ namespace ICT4Events
             listBoxAvble.Items.Clear();
             LoadProducts();
             availableProduct();
+            LoadProductsCategory();
         }
 
-        private void Hiresystem_Load(object sender, EventArgs e)
+        public void LoadProductsCategory()
         {
+            ProductcCatManager productCatData = new ProductcCatManager();
+            productCategoryList = productCatData.RequestProductCategory();
 
+            foreach (ProductCategory productCategory in productCategoryList)
+            {
+                comboBoxCat.Items.Add(productCategory);
+            }
         }
 
         private void Createbtn_Click(object sender, EventArgs e)
         {
+            #region oude code Mario
+            ProductCategory productCatergory;
+            
+            
             bool goodprice = false;
             bool goodhire = false;
             string NaamProduct = NameTxt.Text;
             int hireprice = -1;
             int bailprice = -1;
-            int amount = (int)numericUpDownAmount.Value;
-            string category = Convert.ToString("12341234"); //comboBoxCat.ToString();
+            int amount = (int)nudAmount.Value;
+
+            
+            
+            
             
             if (string.IsNullOrEmpty(this.BailTxt.Text))
             {
@@ -364,13 +383,50 @@ namespace ICT4Events
                 }
 
                 ProductManager productData = new ProductManager();
-                productData.insertProduct(NaamProduct, amount, category, bailprice, hireprice);
+                //  productData.insertProduct(NaamProduct, amount, id_cat, bailprice, hireprice);
+            #endregion
+
+                // Maakt de manager aan
+                ProductManager productManager = new ProductManager();
+
+                if (NameTxt.Text != "")
+                {
+                    // Vult alle data van een product
+                    string productName = NameTxt.Text;
+                    decimal priceBail = nudBailPrice.Value;
+                    decimal priceDay = nudPriceDay.Value;
+                    decimal productAmount = (int)nudAmount.Value;
+
+                    if (comboBoxCat.SelectedIndex < 0 && productCategory != null)
+                    {
+                        try
+                        {
+                            productManager.insertProduct(productName, productAmount, productCategory, priceBail, priceDay);
+                        }
+
+                        catch
+                        {
+                            MessageBox.Show("Product kan niet toegevoegd worden");
+                        }
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Alle velden moeten ingevuld zijn");
+                }
+
+
+
             }
             
-
         }
 
+        private void comboBoxCat_SelectedValueChanged(object sender, EventArgs e)
+        {
+            // Vult de productCategory met de geselecteerde waarde
+            productCategory = comboBoxCat.SelectedItem as ProductCategory;
+        }
        
-
     }
 }
