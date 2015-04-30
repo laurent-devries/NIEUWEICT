@@ -15,7 +15,7 @@ namespace ICT4Events
 {
     public partial class ToegangscontroleSysteem : Form
     {
-        private bool scanned = false; // ik gebruik dit om eventueel de RFID te resete anders crashed dat schijt ding... niet verder gebruiken :)
+        private bool scanned = false; //wordt gebruikt voor het resetten van de RFID Scanner
         RFID rfid = new RFID();
         User user;
         public ToegangscontroleSysteem()
@@ -23,6 +23,8 @@ namespace ICT4Events
             InitializeComponent();
         }
 
+        //functie voor het starten van de scanner
+        //Wanneer er niet gescand wordt zal er gescand gaan worden
         private void btnStartScanner_Click(object sender, EventArgs e)
         {
             lblScannerToestand.Text = "Scanner is aan het scannen";
@@ -63,6 +65,7 @@ namespace ICT4Events
 
         private void btnStopScanner_Click(object sender, EventArgs e)
         {
+            //reset de labels naar de standaardwaarde;
             lblScannerToestand.Text = "Scanner is gestopt met scannen";
             btnStartScanner.Text = "Start scanner";
             lblEvent.Text = "Event: ";
@@ -70,10 +73,10 @@ namespace ICT4Events
             lblInOfUitgecheckt.Text = "";
             lblNaam.Text = "Naam: ";
             lblReservering.Text = "Reservering: ";
-            rfid.close();
-           
+            rfid.close();           
         }
 
+        //ontvang informatie van de RFID tag
         public void rfid_Tag(object sender, TagEventArgs e)
         {
             scanned = true;
@@ -89,7 +92,7 @@ namespace ICT4Events
             }
             else
             {
-                lblNaam.Text = "Naam: " + user.First_Name + " " + user.Sur_Name; //miss heb ik niet de juiste LB gebruikt maar dit kun jij veranderen. Werkt wel tooooch..
+                lblNaam.Text = "Naam: " + user.First_Name + " " + user.Sur_Name; 
                 userEvent = em.Request1Event(user.ID_EventFK.ToString());
                 lblEvent.Text = "Event: " + userEvent.Title;
                 

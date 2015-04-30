@@ -36,8 +36,11 @@ namespace ICT4Events
             CampingPlaceManager cpManager = new CampingPlaceManager();
             //lijst met plaatsen en plaatstypes wordt gevuld
             cbOptions.DataSource = cpManager.GetOptionTypes(el);
+            cbOptions.Refresh();
+            cbOptions.SelectedItem = null;
             cbSoortPlaats.DataSource = cpManager.GetCampingplaceTypes(el);
             cbSoortPlaats.Refresh();
+            cbSoortPlaats.SelectedItem = null;
         }
 
         private void ClearUserTextboxes()
@@ -96,6 +99,7 @@ namespace ICT4Events
             //lijst met beschikbare plaatsen updaten wanneer een ander evenement geselecteerd wordt
             cbPlaces.DataSource = campingPlaceList;
             cbPlaces.Refresh();
+            cbPlaces.SelectedItem = null;
         }
 
         private void btnBevestigHuur_Click(object sender, EventArgs e)
@@ -166,6 +170,9 @@ namespace ICT4Events
 
         private void btnBevestigUser_Click(object sender, EventArgs e)
         {
+            bool succes1 = false;
+            bool succes2 = false;
+            bool succes3 = false;
             usersleft = Convert.ToInt32(nudAantal.Value) - 1;
             //kijken voor hoeveel mensen er gereserveerd is
             lblAccountsLeft.Text = usersleft.ToString();
@@ -198,7 +205,15 @@ namespace ICT4Events
                     }
 
                     //reservering uploaden naar oracle db
-                    conn.InsertOrUpdate("insert into ICT4_RESERVATION (ID_RESERVATION, ID_EVENTFK, PAYMENTSTATE) values (RES_SEQ.NEXTVAL, " + a.ID_Event + ", 'N')");
+                    if(!conn.InsertOrUpdate("insert into ICT4_RESERVATION (ID_RESERVATION, ID_EVENTFK, PAYMENTSTATE) values (RES_SEQ.NEXTVAL, " + a.ID_Event + ", 'N')"))
+                    {
+                        MessageBox.Show("Er is iets fout gegaan. Probeer het opnieuw.");
+                        succes1 = false;
+                    }
+                    else
+                    {
+                        succes1 = true;
+                    }
                     OracleDataReader reader = conn.SelectFromDatabase("select MAX(ID_RESERVATION) FROM ICT4_RESERVATION");
                     
 
@@ -207,7 +222,15 @@ namespace ICT4Events
                         idreservation = reader.GetInt32(0);
                     }
                     //reservering koppelen aan campingplaats in db
-                    conn.InsertOrUpdate("insert into ICT4_RES_CAMPPLACE (ID_RESERVATIONFK, ID_CAMPINGPLACEFK, STARTDATE, ENDDATE) values (" + idreservation + ", '" + p.IdCampingPlace + "', '" + dtpAankomst.Value.Date.ToString("dd/MM/yyyy") + "', '" + dtpVertrek.Value.Date.ToString("dd/MM/yyyy") + "')");
+                    if(!conn.InsertOrUpdate("insert into ICT4_RES_CAMPPLACE (ID_RESERVATIONFK, ID_CAMPINGPLACEFK, STARTDATE, ENDDATE) values (" + idreservation + ", '" + p.IdCampingPlace + "', '" + dtpAankomst.Value.Date.ToString("dd/MM/yyyy") + "', '" + dtpVertrek.Value.Date.ToString("dd/MM/yyyy") + "')"))
+                    {
+                        MessageBox.Show("Er is iets fout gegaan. Probeer het opnieuw.");
+                        succes2 = false;
+                    }
+                    else
+                    {
+                        succes2 = true;
+                    }
                     string insertUser = "insert into ICT4_USER (ID_USER, ID_EVENTFK, ID_RESERVATIONFK, ID_PERMISSIONFK, FIRSTNAME, SURNAME, BIRTHDATE, EMAIL, COUNTRY, STREET, HOUSENUMBER, CITY, CELLPHONENUMBER, LOGINNAME, USERNAME, PASSWORDUSER, PROFILEPIC, SUMMARYUSER, PRESENTUSER) values (USER_SEQ.NEXTVAL, " + Convert.ToString(a.ID_Event) + ", " + idreservation + ", 1, '" + tb_voornaam_gebruiker.Text + "', '" + tb_achternaam_user.Text + "', '" + dtp_geboortedatum_gebruiker.Value.Date.ToString("dd/MM/yyyy") + "', '" + tb_email_gebruiker.Text + "', '" + cb_land_gebruiker.Text + "', '" + tb_straat_user.Text + "', '" + tb_number_user.Text + "', '" + tb_stad_user.Text + "', '" + tb_telnr_gebruiker.Text + "', '" + tb_loginname_gebruiker.Text + "', '" + tb_username_gebruiker.Text + "', '" + tb_password_gebruiker.Text + "', 'C:/', 'No Summary', 'N')";
 
                     OracleDataReader reader2 = conn.SelectFromDatabase("select MAX(ID_USER) FROM ICT4_USER");
@@ -218,22 +241,34 @@ namespace ICT4Events
                     }
 
                     //user uploaden naar oracle dbb
-                    conn.InsertOrUpdate(insertUser);
-                    MessageBox.Show("Uw account is aangemaakt, deze is nu gereed voor gebruik op het media- en materiaalverhuursysteem. Uw reservering voor het evenement is verzonden.");
-                    ClearUserTextboxes();
-                    reader.Close();
-
-                    ProductManager productManager = new ProductManager();
-                    //cb's met producten laden
-                    lbProducten.DataSource = productManager.availableProduct();
-                    lbGehuurd.DataSource = productManager.GetHiredProducts(userid);
-                    gbVerhuur.Text = "Materiaalverhuur voor gebruiker nr : " + userid;
-                    gbVerhuur.Enabled = true;
-                    gbEvent.Enabled = false;
-                    gb_gebruikercreatie.Enabled = false;
-                    if (usersleft > 0)
+                    if(!conn.InsertOrUpdate(insertUser))
                     {
-                        gbUsers.Enabled = true;
+                        MessageBox.Show("Er is iets fout gegaan. Probeer het opnieuw.");
+                        succes3 = false;
+                    }
+                    else
+                    {
+                        succes3 = true;
+                    }
+
+                    if (succes1 == true && succes2 == true && succes3 == true)
+                    {
+                        MessageBox.Show("Uw account is aangemaakt, deze is nu gereed voor gebruik op het media- en materiaalverhuursysteem. Uw reservering voor het evenement is verzonden.");
+                        ClearUserTextboxes();
+                        reader.Close();
+
+                        ProductManager productManager = new ProductManager();
+                        //cb's met producten laden
+                        lbProducten.DataSource = productManager.availableProduct();
+                        lbGehuurd.DataSource = productManager.GetHiredProducts(userid);
+                        gbVerhuur.Text = "Materiaalverhuur voor gebruiker nr : " + userid;
+                        gbVerhuur.Enabled = true;
+                        gbEvent.Enabled = false;
+                        gb_gebruikercreatie.Enabled = false;
+                        if (usersleft > 0)
+                        {
+                            gbUsers.Enabled = true;
+                        }
                     }
                 }
             }
@@ -265,6 +300,17 @@ namespace ICT4Events
             lblAccountsLeft.Text = usersleft.ToString();
             tbLoginEx.Text = "";
             tbPassEx.Text = "";
+        }
+
+        private void cbOptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Event el = cbEvents.SelectedItem as Event;
+            CampingPlaceManager cpManager = new CampingPlaceManager();
+            List<CampingPlace> campingPlaceList = cpManager.RequestFreeCampingPlaces(dtpAankomst.Value, dtpVertrek.Value, el, Convert.ToString(cbSoortPlaats.SelectedValue), Convert.ToString(cbOptions.SelectedItem));
+            //lijst met beschikbare plaatsen updaten wanneer een ander evenement geselecteerd wordt
+            cbPlaces.DataSource = campingPlaceList;
+            cbPlaces.Refresh();
+            cbPlaces.SelectedItem = null;
         }
     }
 }
