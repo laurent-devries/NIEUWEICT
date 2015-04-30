@@ -478,25 +478,23 @@ namespace ICT4Events
             //verandert gegevens in de combobox
             List<string> liststring = new List<string>();
             gb_gebruikercreatie.Enabled = true;
-            int eventid;
+            int event_ID = 0;
+            foreach (Event event1 in evenementen)
+            {
+                if (cB_Event_ID_User.Text == event1.Title)
+                {
+                    event_ID = event1.ID_Event;
+                }
+            }
             try
             {
-
-                bool succes = int.TryParse(cB_Event_ID_User.Text, out eventid);
-                if (succes)
+                cB_Reservation_ID_User.Items.Clear();
+                cB_Reservation_ID_User.Items.Add("New");
+                liststring = Reservation.RequestReservationsInfo(event_ID);
+                foreach (string tekst in liststring)
                 {
-                    cB_Reservation_ID_User.Items.Clear();
-                    cB_Reservation_ID_User.Items.Add("New");
-                    liststring = Reservation.RequestReservationsInfo(eventid);
-                    foreach (string tekst in liststring)
-                    {
-                        string[] teksten = tekst.Split(':');
-                        cB_Reservation_ID_User.Items.Add(teksten[0]);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Het is niet gelukt om de reservaties op te halen.");
+                    string[] teksten = tekst.Split(':');
+                    cB_Reservation_ID_User.Items.Add(teksten[0]);
                 }
             }
             catch (FormatException)
@@ -585,7 +583,7 @@ namespace ICT4Events
         private void Btn_deletecampingplace_Click(object sender, EventArgs e)
         {
             CampingPlaceManager mngr = new CampingPlaceManager();
-           
+
             foreach (CampingPlace campingplace in campingplaatslijst)
             {
                 if (Listb_Event_campingplaces.GetItemText(Listb_Event_campingplaces.SelectedItem) == campingplace.ToString())
