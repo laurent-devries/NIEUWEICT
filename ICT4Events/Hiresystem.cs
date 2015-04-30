@@ -65,14 +65,14 @@ namespace ICT4Events
             // Als Dll niet toegevoegd is, laat fout melding zien
             catch (DllNotFoundException)
             {
-                MessageBox.Show("Phidget Dll kan niet gevonden worden");
+                MessageBox.Show("Phidget Dll cannot be found ");
             }
         }
 
         //kijk of de RFID connected is aan USB en laat port zien
         private void rfid_Attach(object sender, AttachEventArgs e)
         {
-            lblconnectedInfo.Text = "Verbonden";
+            lblconnectedInfo.Text = "Connected";
             lblserialInfo.Text = e.Device.SerialNumber.ToString();
 
         }
@@ -80,14 +80,14 @@ namespace ICT4Events
         //kijk of de RFID connected is aan USB en zet port label op --.
         private void rfid_Detach(object sender, DetachEventArgs e)
         {
-            lblconnectedInfo.Text = "Verbinding verbroken";
+            lblconnectedInfo.Text = "Disconnected";
             lblserialInfo.Text = "--";
         }
 
         //Haal alle informatie op die de zelfde tag ID heeft als de user en vul alles er mee
         public void rfid_Tag(object sender, TagEventArgs e)
         {
-            lblWaiting.Text = "De scan is voltooid";
+            lblWaiting.Text = "The scan is complete";
 
             scanned = true;
             UserManager dataCollect = new UserManager();
@@ -145,7 +145,7 @@ namespace ICT4Events
 
             if (producten.Count == 0)
             {
-                listBoxAvble.Text = "Er zijn geen producten beschikbaar";
+                listBoxAvble.Text = "There are no products available";
             }
             else
 
@@ -179,7 +179,7 @@ namespace ICT4Events
             if (producten.Count == 0)
             {
 
-                UserProductlist.Items.Add("Gebruiker heeft geen producten gehuurd");
+                UserProductlist.Items.Add("User has hired no products");
             }
             else
                 foreach (Product product in producten)
@@ -204,7 +204,7 @@ namespace ICT4Events
 
                 if (datePickerConvert < dateTodayConvert)
                 {
-                    MessageBox.Show("Vul een geldige datum in");
+                    MessageBox.Show("Please enter a valid date, not a date in the past");
                 }
 
                 else
@@ -236,14 +236,14 @@ namespace ICT4Events
                         productdata.InsertBorrow(product, user, date, Amountvalue);
                         if (productdata.noUserSelected == true)
                         {
-                            MessageBox.Show("Scan eerst een user.");
+                            MessageBox.Show("Scan the user, via the RFID scanner");
                         }
                         string RFID = RFIDtext.Text;
                         refresh(RFID);
                     }
                     else
                     {
-                        MessageBox.Show("Selecteer eerst een product om uit te lenen");
+                        MessageBox.Show("Select first a user, to lend a product to someone");
                     }
             }
 
@@ -259,7 +259,7 @@ namespace ICT4Events
                 productdata.deleteBorrow(product, user);
 
                 decimal dayshired = (decimal)product.GetTotalHireDate();
-                decimal bail = product.Bail;
+                decimal bail = product.Bail * product.Hiredamount;
                 if (dayshired < 0)
                 {
                     dayshired = 1;
@@ -268,7 +268,7 @@ namespace ICT4Events
                 decimal price = product.Price * dayshired;
                 decimal dayprice = product.Hiredamount * price;
                 decimal total = bail + price + dayprice;
-                MessageBox.Show("Het uit eindelijke bedrag wat er betaald moet worden is: €" + total + ", Hier van is €" + bail + " de borg.");
+                MessageBox.Show("The final amount of which is to be paid is: €" + total + ", The bail is €" + bail);
                 
 
                 string RFID = RFIDtext.Text;
@@ -276,16 +276,19 @@ namespace ICT4Events
             }
         }
 
+        //refresh function
         public void refresh(string e)
         {
             UserProductlist.Items.Clear();
             allProductslist.Items.Clear();
+            AllproductsP2lst.Items.Clear();
             listBoxAvble.Items.Clear();
             LoadProducts();
             availableProduct();
             LoadHiredProducts(e);
         }
 
+        //button search
         private void btnSearch_Click(object sender, EventArgs e)
         {
             List<Product> swap = new List<Product>();
@@ -297,7 +300,7 @@ namespace ICT4Events
                 
                 if (SearchTxtHR.Text == "")
                 {
-                    MessageBox.Show("Vul product naam in");
+                    MessageBox.Show("Fill the product name into the textbox");
                     break; 
                 }
 
@@ -311,6 +314,7 @@ namespace ICT4Events
             }
         }
 
+        //button clear from search bar.
         private void clearbtn_Click(object sender, EventArgs e)
         {
             SearchTxtHR.Text = "";
@@ -357,14 +361,14 @@ namespace ICT4Events
 
                         catch
                         {
-                            MessageBox.Show("Product kan niet toegevoegd worden");
+                            MessageBox.Show("Product can not be added");
                         }
                     }
                 }
 
                 else
                 {
-                    MessageBox.Show("Alle velden moeten ingevuld zijn");
+                    MessageBox.Show("All fields must be filled");
                 }
                 
             }
