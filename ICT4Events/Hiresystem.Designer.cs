@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.clearbtn = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.SearchTxtHR = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -94,7 +95,25 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.clearbtn = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Createbtn = new System.Windows.Forms.Button();
+            this.EditPrbtn = new System.Windows.Forms.Button();
+            this.AllproductsP2lst = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.NameTxt = new System.Windows.Forms.TextBox();
+            this.BailTxt = new System.Windows.Forms.TextBox();
+            this.PriceTxt = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.comboBoxCat = new System.Windows.Forms.ComboBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.numericUpDownAmount = new System.Windows.Forms.NumericUpDown();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -103,6 +122,10 @@
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -110,12 +133,22 @@
             this.groupBox4.Controls.Add(this.clearbtn);
             this.groupBox4.Controls.Add(this.btnSearch);
             this.groupBox4.Controls.Add(this.SearchTxtHR);
-            this.groupBox4.Location = new System.Drawing.Point(12, 12);
+            this.groupBox4.Location = new System.Drawing.Point(17, 20);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(376, 100);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Search item:";
+            // 
+            // clearbtn
+            // 
+            this.clearbtn.Location = new System.Drawing.Point(217, 58);
+            this.clearbtn.Name = "clearbtn";
+            this.clearbtn.Size = new System.Drawing.Size(102, 29);
+            this.clearbtn.TabIndex = 9;
+            this.clearbtn.Text = "Clear";
+            this.clearbtn.UseVisualStyleBackColor = true;
+            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
             // btnSearch
             // 
@@ -161,7 +194,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(12, 118);
+            this.groupBox3.Location = new System.Drawing.Point(17, 126);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(376, 301);
             this.groupBox3.TabIndex = 10;
@@ -397,9 +430,9 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.lblWaiting);
             this.groupBox2.Controls.Add(this.RFIDtext);
-            this.groupBox2.Location = new System.Drawing.Point(903, 12);
+            this.groupBox2.Location = new System.Drawing.Point(1059, 20);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(414, 91);
+            this.groupBox2.Size = new System.Drawing.Size(353, 100);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "RFID TAG:";
@@ -407,7 +440,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 39);
+            this.label1.Location = new System.Drawing.Point(6, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 17);
             this.label1.TabIndex = 2;
@@ -423,7 +456,7 @@
             // 
             // RFIDtext
             // 
-            this.RFIDtext.Location = new System.Drawing.Point(108, 39);
+            this.RFIDtext.Location = new System.Drawing.Point(110, 29);
             this.RFIDtext.Name = "RFIDtext";
             this.RFIDtext.Size = new System.Drawing.Size(220, 22);
             this.RFIDtext.TabIndex = 1;
@@ -431,7 +464,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(407, 76);
+            this.label3.Location = new System.Drawing.Point(1418, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 17);
             this.label3.TabIndex = 22;
@@ -440,7 +473,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(407, 59);
+            this.label2.Location = new System.Drawing.Point(1418, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 17);
             this.label2.TabIndex = 21;
@@ -449,7 +482,7 @@
             // lblconnectedInfo
             // 
             this.lblconnectedInfo.AutoSize = true;
-            this.lblconnectedInfo.Location = new System.Drawing.Point(506, 79);
+            this.lblconnectedInfo.Location = new System.Drawing.Point(1517, 104);
             this.lblconnectedInfo.Name = "lblconnectedInfo";
             this.lblconnectedInfo.Size = new System.Drawing.Size(18, 17);
             this.lblconnectedInfo.TabIndex = 20;
@@ -458,7 +491,7 @@
             // lblserialInfo
             // 
             this.lblserialInfo.AutoSize = true;
-            this.lblserialInfo.Location = new System.Drawing.Point(506, 62);
+            this.lblserialInfo.Location = new System.Drawing.Point(1517, 87);
             this.lblserialInfo.Name = "lblserialInfo";
             this.lblserialInfo.Size = new System.Drawing.Size(18, 17);
             this.lblserialInfo.TabIndex = 19;
@@ -466,7 +499,7 @@
             // 
             // bttnEnableRFID
             // 
-            this.bttnEnableRFID.Location = new System.Drawing.Point(410, 12);
+            this.bttnEnableRFID.Location = new System.Drawing.Point(1418, 41);
             this.bttnEnableRFID.Name = "bttnEnableRFID";
             this.bttnEnableRFID.Size = new System.Drawing.Size(124, 34);
             this.bttnEnableRFID.TabIndex = 18;
@@ -480,7 +513,7 @@
             this.allProductslist.ItemHeight = 16;
             this.allProductslist.Location = new System.Drawing.Point(15, 49);
             this.allProductslist.Name = "allProductslist";
-            this.allProductslist.Size = new System.Drawing.Size(452, 548);
+            this.allProductslist.Size = new System.Drawing.Size(468, 548);
             this.allProductslist.TabIndex = 25;
             // 
             // bttnLend
@@ -515,7 +548,7 @@
             this.listBoxAvble.ItemHeight = 16;
             this.listBoxAvble.Location = new System.Drawing.Point(15, 45);
             this.listBoxAvble.Name = "listBoxAvble";
-            this.listBoxAvble.Size = new System.Drawing.Size(580, 244);
+            this.listBoxAvble.Size = new System.Drawing.Size(580, 340);
             this.listBoxAvble.TabIndex = 42;
             // 
             // bttnReturn
@@ -590,7 +623,7 @@
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.bttnReturn);
             this.groupBox1.Controls.Add(this.bttnLend);
-            this.groupBox1.Location = new System.Drawing.Point(815, 436);
+            this.groupBox1.Location = new System.Drawing.Point(834, 453);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(205, 304);
             this.groupBox1.TabIndex = 50;
@@ -687,30 +720,32 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label34);
             this.groupBox5.Controls.Add(this.allProductslist);
             this.groupBox5.Controls.Add(this.label8);
             this.groupBox5.Controls.Add(this.label9);
             this.groupBox5.Controls.Add(this.label10);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Location = new System.Drawing.Point(1040, 118);
+            this.groupBox5.Location = new System.Drawing.Point(1059, 126);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(483, 631);
+            this.groupBox5.Size = new System.Drawing.Size(516, 631);
             this.groupBox5.TabIndex = 60;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "All products:";
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label35);
             this.groupBox6.Controls.Add(this.label32);
             this.groupBox6.Controls.Add(this.label31);
             this.groupBox6.Controls.Add(this.listBoxAvble);
             this.groupBox6.Controls.Add(this.label18);
             this.groupBox6.Controls.Add(this.label19);
             this.groupBox6.Controls.Add(this.label29);
-            this.groupBox6.Location = new System.Drawing.Point(410, 118);
+            this.groupBox6.Location = new System.Drawing.Point(415, 20);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(610, 301);
+            this.groupBox6.Size = new System.Drawing.Size(610, 407);
             this.groupBox6.TabIndex = 61;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Products then can be hired:";
@@ -720,9 +755,9 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(394, 25);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(105, 17);
+            this.label32.Size = new System.Drawing.Size(44, 17);
             this.label32.TabIndex = 63;
-            this.label32.Text = "Total Available:";
+            this.label32.Text = "Total:";
             // 
             // label31
             // 
@@ -741,43 +776,215 @@
             this.groupBox7.Controls.Add(this.label30);
             this.groupBox7.Controls.Add(this.label15);
             this.groupBox7.Controls.Add(this.label17);
-            this.groupBox7.Location = new System.Drawing.Point(12, 436);
+            this.groupBox7.Location = new System.Drawing.Point(17, 453);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(797, 304);
+            this.groupBox7.Size = new System.Drawing.Size(806, 304);
             this.groupBox7.TabIndex = 58;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Products on user:";
             // 
-            // clearbtn
+            // tabControl1
             // 
-            this.clearbtn.Location = new System.Drawing.Point(217, 58);
-            this.clearbtn.Name = "clearbtn";
-            this.clearbtn.Size = new System.Drawing.Size(102, 29);
-            this.clearbtn.TabIndex = 9;
-            this.clearbtn.Text = "Clear";
-            this.clearbtn.UseVisualStyleBackColor = true;
-            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1589, 801);
+            this.tabControl1.TabIndex = 62;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox4);
+            this.tabPage1.Controls.Add(this.groupBox7);
+            this.tabPage1.Controls.Add(this.groupBox3);
+            this.tabPage1.Controls.Add(this.groupBox6);
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.groupBox5);
+            this.tabPage1.Controls.Add(this.lblserialInfo);
+            this.tabPage1.Controls.Add(this.bttnEnableRFID);
+            this.tabPage1.Controls.Add(this.lblconnectedInfo);
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1581, 772);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.numericUpDownAmount);
+            this.tabPage2.Controls.Add(this.label40);
+            this.tabPage2.Controls.Add(this.label39);
+            this.tabPage2.Controls.Add(this.comboBoxCat);
+            this.tabPage2.Controls.Add(this.label38);
+            this.tabPage2.Controls.Add(this.label37);
+            this.tabPage2.Controls.Add(this.label36);
+            this.tabPage2.Controls.Add(this.PriceTxt);
+            this.tabPage2.Controls.Add(this.BailTxt);
+            this.tabPage2.Controls.Add(this.NameTxt);
+            this.tabPage2.Controls.Add(this.listBox2);
+            this.tabPage2.Controls.Add(this.AllproductsP2lst);
+            this.tabPage2.Controls.Add(this.EditPrbtn);
+            this.tabPage2.Controls.Add(this.Createbtn);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1581, 772);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // Createbtn
+            // 
+            this.Createbtn.Location = new System.Drawing.Point(136, 351);
+            this.Createbtn.Name = "Createbtn";
+            this.Createbtn.Size = new System.Drawing.Size(121, 31);
+            this.Createbtn.TabIndex = 0;
+            this.Createbtn.Text = "Create New";
+            this.Createbtn.UseVisualStyleBackColor = true;
+            this.Createbtn.Click += new System.EventHandler(this.Createbtn_Click);
+            // 
+            // EditPrbtn
+            // 
+            this.EditPrbtn.Location = new System.Drawing.Point(137, 445);
+            this.EditPrbtn.Name = "EditPrbtn";
+            this.EditPrbtn.Size = new System.Drawing.Size(120, 31);
+            this.EditPrbtn.TabIndex = 1;
+            this.EditPrbtn.Text = "Edit Product";
+            this.EditPrbtn.UseVisualStyleBackColor = true;
+            // 
+            // AllproductsP2lst
+            // 
+            this.AllproductsP2lst.FormattingEnabled = true;
+            this.AllproductsP2lst.ItemHeight = 16;
+            this.AllproductsP2lst.Location = new System.Drawing.Point(305, 36);
+            this.AllproductsP2lst.Name = "AllproductsP2lst";
+            this.AllproductsP2lst.Size = new System.Drawing.Size(880, 724);
+            this.AllproductsP2lst.TabIndex = 2;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 16;
+            this.listBox2.Location = new System.Drawing.Point(1227, 84);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(329, 676);
+            this.listBox2.TabIndex = 3;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(407, 29);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(44, 17);
+            this.label34.TabIndex = 49;
+            this.label34.Text = "Total:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(460, 25);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(46, 17);
+            this.label35.TabIndex = 64;
+            this.label35.Text = "Hired:";
+            // 
+            // NameTxt
+            // 
+            this.NameTxt.Location = new System.Drawing.Point(136, 129);
+            this.NameTxt.Name = "NameTxt";
+            this.NameTxt.Size = new System.Drawing.Size(121, 22);
+            this.NameTxt.TabIndex = 4;
+            // 
+            // BailTxt
+            // 
+            this.BailTxt.Location = new System.Drawing.Point(136, 171);
+            this.BailTxt.Name = "BailTxt";
+            this.BailTxt.Size = new System.Drawing.Size(121, 22);
+            this.BailTxt.TabIndex = 5;
+            // 
+            // PriceTxt
+            // 
+            this.PriceTxt.Location = new System.Drawing.Point(136, 212);
+            this.PriceTxt.Name = "PriceTxt";
+            this.PriceTxt.Size = new System.Drawing.Size(121, 22);
+            this.PriceTxt.TabIndex = 6;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(21, 134);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(49, 17);
+            this.label36.TabIndex = 7;
+            this.label36.Text = "Naam:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(21, 176);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(71, 17);
+            this.label37.TabIndex = 8;
+            this.label37.Text = "Bail Price:";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(21, 217);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(83, 17);
+            this.label38.TabIndex = 9;
+            this.label38.Text = "Price a day:";
+            // 
+            // comboBoxCat
+            // 
+            this.comboBoxCat.FormattingEnabled = true;
+            this.comboBoxCat.Location = new System.Drawing.Point(136, 258);
+            this.comboBoxCat.Name = "comboBoxCat";
+            this.comboBoxCat.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxCat.TabIndex = 10;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(21, 265);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(69, 17);
+            this.label39.TabIndex = 11;
+            this.label39.Text = "Category:";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(21, 303);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(60, 17);
+            this.label40.TabIndex = 12;
+            this.label40.Text = "Amount:";
+            // 
+            // numericUpDownAmount
+            // 
+            this.numericUpDownAmount.Location = new System.Drawing.Point(136, 297);
+            this.numericUpDownAmount.Name = "numericUpDownAmount";
+            this.numericUpDownAmount.Size = new System.Drawing.Size(120, 22);
+            this.numericUpDownAmount.TabIndex = 13;
             // 
             // Hiresystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(1466, 761);
-            this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblconnectedInfo);
-            this.Controls.Add(this.lblserialInfo);
-            this.Controls.Add(this.bttnEnableRFID);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox4);
+            this.ClientSize = new System.Drawing.Size(1698, 833);
+            this.Controls.Add(this.tabControl1);
             this.Name = "Hiresystem";
             this.Text = "Hiresystem";
+            this.Load += new System.EventHandler(this.Hiresystem_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -793,8 +1000,13 @@
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAmount)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -867,5 +1079,24 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button clearbtn;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox AllproductsP2lst;
+        private System.Windows.Forms.Button EditPrbtn;
+        private System.Windows.Forms.Button Createbtn;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.NumericUpDown numericUpDownAmount;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.ComboBox comboBoxCat;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox PriceTxt;
+        private System.Windows.Forms.TextBox BailTxt;
+        private System.Windows.Forms.TextBox NameTxt;
     }
 }

@@ -136,7 +136,7 @@ namespace ICT4Events
              }
              if (category ==  null)
              {
-                 return iD_product + "\t" + product_name + "\t" + "€" + bail + "\t" + "€" + price + "\t" + available + totalamount; 
+                 return iD_product + "\t" + product_name + "\t" + "€" + bail + "\t" + "€" + price + "\t" + available + "\t" + totalamount; 
              }
              else 
              {

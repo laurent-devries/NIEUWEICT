@@ -102,7 +102,7 @@ namespace ICT4Events
 
             try
             {
-                file = new FileStream(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)+"/Logbestand.txt", FileMode.Create, FileAccess.Write);
+                file = new FileStream(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "/Logbestand.txt", FileMode.Create, FileAccess.Write);
                 writer = new StreamWriter(file);
                 foreach (string tekst in lb_show_user_on_event.Items)
                 {
@@ -161,7 +161,14 @@ namespace ICT4Events
                     endday = Convert.ToString(Event_End_Date.Value.Day);
                 }
                 string querry = "INSERT INTO ICT4_EVENT (ID_EVENT, TITLE, STARTDATE, ENDDATE, CAMPINGNAME, LOCATION) VALUES (EVENT_SEQ.NEXTVAL,'" + Event_Title.Text + "', to_date('" + startday + startmonth + Convert.ToString(Event_Start_Date.Value.Year) + "','DDMMYYYY'), to_date('" + endday + endmonth + Convert.ToString(Event_End_Date.Value.Year) + "','DDMMYYYY'),'" + Event_Camping_Name.Text + "','" + Event_Camping_Location.Text + "')";
-                conn.InsertOrUpdate(querry);
+                if (conn.InsertOrUpdate(querry))
+                {
+                    MessageBox.Show("Everything has gone right!");
+                }
+                else
+                {
+                    MessageBox.Show("Make sure you have filled everything in right! Event Title can't already exist!");
+                }
             }
             if (btn_change_event.Enabled)
             {
@@ -502,7 +509,7 @@ namespace ICT4Events
         {
 
             DatabaseConnection conn = new DatabaseConnection();
-            string querry = "INSERT INTO ICT4_CAMPING_PLACE (ID_CAMPINGPLACE, ID_EVENTFK, PLACENUMBER, MAXPEOPLE, CAMPINGTYPE) VALUES (camping_place_seq.NEXTVAL," + Convert.ToInt32(cb_event_id_campingplaces.Text) + ",'" + tb_eventcampingplacenumber.Text + "'," + nuD_maxpeople.Value.ToString() + ",'" + cb_campingtype.Text + "')";
+            string querry = "INSERT INTO ICT4_CAMPING_PLACE (ID_CAMPINGPLACE, ID_EVENTFK, PLACENUMBER, MAXPEOPLE, CAMPINGTYPE,plaatsPositie) VALUES (camping_place_seq.NEXTVAL," + Convert.ToInt32(cb_event_id_campingplaces.Text) + ",'" + tb_eventcampingplacenumber.Text + "'," + nuD_maxpeople.Value.ToString() + ",'" + cb_campingtype.Text + "','" + cB_Characteristics.Text + "')";
             bool trueorfalse = conn.InsertOrUpdate(querry);
             if (trueorfalse)
             {
@@ -512,6 +519,7 @@ namespace ICT4Events
             {
                 MessageBox.Show("Somethingg has gone wrong! Make sure you have filled in everything you need!");
             }
+
             lists();
             userclear();
         }
