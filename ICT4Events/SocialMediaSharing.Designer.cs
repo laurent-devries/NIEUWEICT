@@ -119,7 +119,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLoginUser = new System.Windows.Forms.Label();
             this.lbEvent = new System.Windows.Forms.Label();
-            this.lbDownload1 = new System.Windows.Forms.LinkLabel();
             this.gbNumber1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage1)).BeginInit();
             this.tabPosts.SuspendLayout();
@@ -141,7 +140,6 @@
             // gbNumber1
             // 
             this.gbNumber1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
-            this.gbNumber1.Controls.Add(this.lbDownload1);
             this.gbNumber1.Controls.Add(this.lbDatum1);
             this.gbNumber1.Controls.Add(this.lbUploader1);
             this.gbNumber1.Controls.Add(this.lbTags1);
@@ -156,9 +154,9 @@
             this.gbNumber1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbNumber1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(138)))), ((int)(((byte)(26)))));
             this.gbNumber1.Location = new System.Drawing.Point(29, 20);
-            this.gbNumber1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbNumber1.Margin = new System.Windows.Forms.Padding(4);
             this.gbNumber1.Name = "gbNumber1";
-            this.gbNumber1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbNumber1.Padding = new System.Windows.Forms.Padding(4);
             this.gbNumber1.Size = new System.Drawing.Size(436, 235);
             this.gbNumber1.TabIndex = 0;
             this.gbNumber1.TabStop = false;
@@ -257,7 +255,7 @@
             this.tbSummary1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tbSummary1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSummary1.Location = new System.Drawing.Point(169, 23);
-            this.tbSummary1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSummary1.Margin = new System.Windows.Forms.Padding(4);
             this.tbSummary1.MaxLength = 255;
             this.tbSummary1.Multiline = true;
             this.tbSummary1.Name = "tbSummary1";
@@ -293,17 +291,18 @@
             // pbImage1
             // 
             this.pbImage1.Location = new System.Drawing.Point(8, 23);
-            this.pbImage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbImage1.Margin = new System.Windows.Forms.Padding(4);
             this.pbImage1.Name = "pbImage1";
             this.pbImage1.Size = new System.Drawing.Size(153, 140);
             this.pbImage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage1.TabIndex = 1;
             this.pbImage1.TabStop = false;
+            this.pbImage1.Click += new System.EventHandler(this.pbImage1_Click);
             // 
             // btnNext
             // 
             this.btnNext.Location = new System.Drawing.Point(848, 548);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 28);
             this.btnNext.TabIndex = 10;
@@ -317,7 +316,7 @@
             this.tabPosts.Controls.Add(this.tabUpload);
             this.tabPosts.Controls.Add(this.tabAdmin);
             this.tabPosts.Location = new System.Drawing.Point(0, 0);
-            this.tabPosts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPosts.Margin = new System.Windows.Forms.Padding(4);
             this.tabPosts.Name = "tabPosts";
             this.tabPosts.SelectedIndex = 0;
             this.tabPosts.Size = new System.Drawing.Size(1013, 618);
@@ -341,9 +340,9 @@
             this.tabPage3.Controls.Add(this.btnNext);
             this.tabPage3.Controls.Add(this.gbNumber1);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(1005, 589);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Posts";
@@ -352,7 +351,7 @@
             // 
             this.rbTitle.AutoSize = true;
             this.rbTitle.Location = new System.Drawing.Point(332, 523);
-            this.rbTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.rbTitle.Name = "rbTitle";
             this.rbTitle.Size = new System.Drawing.Size(56, 21);
             this.rbTitle.TabIndex = 26;
@@ -363,7 +362,7 @@
             // tbTitleSort
             // 
             this.tbTitleSort.Location = new System.Drawing.Point(332, 551);
-            this.tbTitleSort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTitleSort.Margin = new System.Windows.Forms.Padding(4);
             this.tbTitleSort.Name = "tbTitleSort";
             this.tbTitleSort.Size = new System.Drawing.Size(132, 22);
             this.tbTitleSort.TabIndex = 25;
@@ -371,7 +370,7 @@
             // btnSort
             // 
             this.btnSort.Location = new System.Drawing.Point(491, 548);
-            this.btnSort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSort.Margin = new System.Windows.Forms.Padding(4);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(100, 28);
             this.btnSort.TabIndex = 24;
@@ -383,7 +382,7 @@
             // 
             this.cbTags.FormattingEnabled = true;
             this.cbTags.Location = new System.Drawing.Point(180, 551);
-            this.cbTags.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTags.Margin = new System.Windows.Forms.Padding(4);
             this.cbTags.Name = "cbTags";
             this.cbTags.Size = new System.Drawing.Size(141, 24);
             this.cbTags.TabIndex = 23;
@@ -392,7 +391,7 @@
             // 
             this.cbCategorySort.FormattingEnabled = true;
             this.cbCategorySort.Location = new System.Drawing.Point(29, 551);
-            this.cbCategorySort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCategorySort.Margin = new System.Windows.Forms.Padding(4);
             this.cbCategorySort.Name = "cbCategorySort";
             this.cbCategorySort.Size = new System.Drawing.Size(141, 24);
             this.cbCategorySort.TabIndex = 22;
@@ -401,7 +400,7 @@
             // 
             this.rbTag.AutoSize = true;
             this.rbTag.Location = new System.Drawing.Point(180, 523);
-            this.rbTag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbTag.Margin = new System.Windows.Forms.Padding(4);
             this.rbTag.Name = "rbTag";
             this.rbTag.Size = new System.Drawing.Size(54, 21);
             this.rbTag.TabIndex = 20;
@@ -413,7 +412,7 @@
             // 
             this.rbCategory.AutoSize = true;
             this.rbCategory.Location = new System.Drawing.Point(29, 523);
-            this.rbCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbCategory.Margin = new System.Windows.Forms.Padding(4);
             this.rbCategory.Name = "rbCategory";
             this.rbCategory.Size = new System.Drawing.Size(90, 21);
             this.rbCategory.TabIndex = 19;
@@ -425,7 +424,7 @@
             // 
             this.btnBack.Enabled = false;
             this.btnBack.Location = new System.Drawing.Point(740, 548);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(100, 28);
             this.btnBack.TabIndex = 18;
@@ -450,9 +449,9 @@
             this.gbNumber4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbNumber4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(138)))), ((int)(((byte)(26)))));
             this.gbNumber4.Location = new System.Drawing.Point(512, 271);
-            this.gbNumber4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbNumber4.Margin = new System.Windows.Forms.Padding(4);
             this.gbNumber4.Name = "gbNumber4";
-            this.gbNumber4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbNumber4.Padding = new System.Windows.Forms.Padding(4);
             this.gbNumber4.Size = new System.Drawing.Size(436, 238);
             this.gbNumber4.TabIndex = 17;
             this.gbNumber4.TabStop = false;
@@ -551,7 +550,7 @@
             this.tbSummary4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tbSummary4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSummary4.Location = new System.Drawing.Point(169, 23);
-            this.tbSummary4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSummary4.Margin = new System.Windows.Forms.Padding(4);
             this.tbSummary4.MaxLength = 255;
             this.tbSummary4.Multiline = true;
             this.tbSummary4.Name = "tbSummary4";
@@ -587,7 +586,7 @@
             // pbImage4
             // 
             this.pbImage4.Location = new System.Drawing.Point(8, 23);
-            this.pbImage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbImage4.Margin = new System.Windows.Forms.Padding(4);
             this.pbImage4.Name = "pbImage4";
             this.pbImage4.Size = new System.Drawing.Size(153, 140);
             this.pbImage4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -611,9 +610,9 @@
             this.gbNumber3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbNumber3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(138)))), ((int)(((byte)(26)))));
             this.gbNumber3.Location = new System.Drawing.Point(29, 271);
-            this.gbNumber3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbNumber3.Margin = new System.Windows.Forms.Padding(4);
             this.gbNumber3.Name = "gbNumber3";
-            this.gbNumber3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbNumber3.Padding = new System.Windows.Forms.Padding(4);
             this.gbNumber3.Size = new System.Drawing.Size(436, 238);
             this.gbNumber3.TabIndex = 16;
             this.gbNumber3.TabStop = false;
@@ -712,7 +711,7 @@
             this.tbSummary3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tbSummary3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSummary3.Location = new System.Drawing.Point(169, 23);
-            this.tbSummary3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSummary3.Margin = new System.Windows.Forms.Padding(4);
             this.tbSummary3.MaxLength = 255;
             this.tbSummary3.Multiline = true;
             this.tbSummary3.Name = "tbSummary3";
@@ -748,7 +747,7 @@
             // pbImage3
             // 
             this.pbImage3.Location = new System.Drawing.Point(8, 23);
-            this.pbImage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbImage3.Margin = new System.Windows.Forms.Padding(4);
             this.pbImage3.Name = "pbImage3";
             this.pbImage3.Size = new System.Drawing.Size(153, 140);
             this.pbImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -772,9 +771,9 @@
             this.gbNumber2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbNumber2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(138)))), ((int)(((byte)(26)))));
             this.gbNumber2.Location = new System.Drawing.Point(512, 20);
-            this.gbNumber2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbNumber2.Margin = new System.Windows.Forms.Padding(4);
             this.gbNumber2.Name = "gbNumber2";
-            this.gbNumber2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbNumber2.Padding = new System.Windows.Forms.Padding(4);
             this.gbNumber2.Size = new System.Drawing.Size(436, 235);
             this.gbNumber2.TabIndex = 15;
             this.gbNumber2.TabStop = false;
@@ -873,7 +872,7 @@
             this.tbSummary2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tbSummary2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSummary2.Location = new System.Drawing.Point(169, 23);
-            this.tbSummary2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSummary2.Margin = new System.Windows.Forms.Padding(4);
             this.tbSummary2.MaxLength = 255;
             this.tbSummary2.Multiline = true;
             this.tbSummary2.Name = "tbSummary2";
@@ -909,7 +908,7 @@
             // pbImage2
             // 
             this.pbImage2.Location = new System.Drawing.Point(8, 23);
-            this.pbImage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbImage2.Margin = new System.Windows.Forms.Padding(4);
             this.pbImage2.Name = "pbImage2";
             this.pbImage2.Size = new System.Drawing.Size(153, 140);
             this.pbImage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -919,7 +918,7 @@
             // btnRefresh
             // 
             this.btnRefresh.Location = new System.Drawing.Point(599, 548);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(100, 28);
             this.btnRefresh.TabIndex = 13;
@@ -945,9 +944,9 @@
             this.tabUpload.Controls.Add(this.label1);
             this.tabUpload.Controls.Add(this.pbPreview);
             this.tabUpload.Location = new System.Drawing.Point(4, 25);
-            this.tabUpload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabUpload.Margin = new System.Windows.Forms.Padding(4);
             this.tabUpload.Name = "tabUpload";
-            this.tabUpload.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabUpload.Padding = new System.Windows.Forms.Padding(4);
             this.tabUpload.Size = new System.Drawing.Size(1005, 589);
             this.tabUpload.TabIndex = 1;
             this.tabUpload.Text = "Upload";
@@ -956,7 +955,7 @@
             // btnUpload
             // 
             this.btnUpload.Location = new System.Drawing.Point(428, 468);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(121, 33);
             this.btnUpload.TabIndex = 13;
@@ -978,7 +977,7 @@
             // tbTags
             // 
             this.tbTags.Location = new System.Drawing.Point(217, 309);
-            this.tbTags.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTags.Margin = new System.Windows.Forms.Padding(4);
             this.tbTags.MaxLength = 255;
             this.tbTags.Multiline = true;
             this.tbTags.Name = "tbTags";
@@ -1000,7 +999,7 @@
             // 
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(217, 260);
-            this.cbCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(331, 24);
             this.cbCategory.TabIndex = 8;
@@ -1019,7 +1018,7 @@
             // btnBrowse
             // 
             this.btnBrowse.Location = new System.Drawing.Point(449, 220);
-            this.btnBrowse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBrowse.Margin = new System.Windows.Forms.Padding(4);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(100, 25);
             this.btnBrowse.TabIndex = 6;
@@ -1030,7 +1029,7 @@
             // tbFilepath
             // 
             this.tbFilepath.Location = new System.Drawing.Point(217, 220);
-            this.tbFilepath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbFilepath.Margin = new System.Windows.Forms.Padding(4);
             this.tbFilepath.Name = "tbFilepath";
             this.tbFilepath.ReadOnly = true;
             this.tbFilepath.Size = new System.Drawing.Size(223, 22);
@@ -1050,7 +1049,7 @@
             // tbSummary
             // 
             this.tbSummary.Location = new System.Drawing.Point(217, 74);
-            this.tbSummary.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSummary.Margin = new System.Windows.Forms.Padding(4);
             this.tbSummary.MaxLength = 255;
             this.tbSummary.Multiline = true;
             this.tbSummary.Name = "tbSummary";
@@ -1060,7 +1059,7 @@
             // tbTitle
             // 
             this.tbTitle.Location = new System.Drawing.Point(217, 34);
-            this.tbTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(331, 22);
             this.tbTitle.TabIndex = 2;
@@ -1090,7 +1089,7 @@
             // pbPreview
             // 
             this.pbPreview.Location = new System.Drawing.Point(581, 74);
-            this.pbPreview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbPreview.Margin = new System.Windows.Forms.Padding(4);
             this.pbPreview.Name = "pbPreview";
             this.pbPreview.Size = new System.Drawing.Size(376, 369);
             this.pbPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1104,9 +1103,9 @@
             this.tabAdmin.Controls.Add(this.gbAdmin);
             this.tabAdmin.Controls.Add(this.lbReportedPosts);
             this.tabAdmin.Location = new System.Drawing.Point(4, 25);
-            this.tabAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.tabAdmin.Name = "tabAdmin";
-            this.tabAdmin.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabAdmin.Padding = new System.Windows.Forms.Padding(4);
             this.tabAdmin.Size = new System.Drawing.Size(1005, 589);
             this.tabAdmin.TabIndex = 2;
             this.tabAdmin.Text = "Admin";
@@ -1115,7 +1114,7 @@
             // btnVerwijder
             // 
             this.btnVerwijder.Location = new System.Drawing.Point(8, 489);
-            this.btnVerwijder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVerwijder.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerwijder.Name = "btnVerwijder";
             this.btnVerwijder.Size = new System.Drawing.Size(100, 28);
             this.btnVerwijder.TabIndex = 2;
@@ -1135,9 +1134,9 @@
             this.gbAdmin.Controls.Add(this.lbLikesAdmin);
             this.gbAdmin.Controls.Add(this.pbAdmin);
             this.gbAdmin.Location = new System.Drawing.Point(8, 228);
-            this.gbAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.gbAdmin.Name = "gbAdmin";
-            this.gbAdmin.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbAdmin.Padding = new System.Windows.Forms.Padding(4);
             this.gbAdmin.Size = new System.Drawing.Size(436, 235);
             this.gbAdmin.TabIndex = 1;
             this.gbAdmin.TabStop = false;
@@ -1197,7 +1196,7 @@
             // 
             this.tbSummaryAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tbSummaryAdmin.Location = new System.Drawing.Point(169, 23);
-            this.tbSummaryAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSummaryAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.tbSummaryAdmin.MaxLength = 255;
             this.tbSummaryAdmin.Multiline = true;
             this.tbSummaryAdmin.Name = "tbSummaryAdmin";
@@ -1229,7 +1228,7 @@
             // pbAdmin
             // 
             this.pbAdmin.Location = new System.Drawing.Point(8, 23);
-            this.pbAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.pbAdmin.Name = "pbAdmin";
             this.pbAdmin.Size = new System.Drawing.Size(153, 140);
             this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1243,7 +1242,7 @@
             this.lbReportedPosts.FormattingEnabled = true;
             this.lbReportedPosts.ItemHeight = 16;
             this.lbReportedPosts.Location = new System.Drawing.Point(8, 7);
-            this.lbReportedPosts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbReportedPosts.Margin = new System.Windows.Forms.Padding(4);
             this.lbReportedPosts.Name = "lbReportedPosts";
             this.lbReportedPosts.Size = new System.Drawing.Size(949, 210);
             this.lbReportedPosts.TabIndex = 0;
@@ -1253,7 +1252,7 @@
             // 
             this.pictureBox1.Image = global::ICT4Events.Properties.Resources.logo_transparant;
             this.pictureBox1.Location = new System.Drawing.Point(4, 623);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(369, 62);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1284,18 +1283,6 @@
             this.lbEvent.TabIndex = 28;
             this.lbEvent.Text = "Event:";
             // 
-            // lbDownload1
-            // 
-            this.lbDownload1.AutoSize = true;
-            this.lbDownload1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDownload1.Location = new System.Drawing.Point(363, 216);
-            this.lbDownload1.Name = "lbDownload1";
-            this.lbDownload1.Size = new System.Drawing.Size(73, 17);
-            this.lbDownload1.TabIndex = 16;
-            this.lbDownload1.TabStop = true;
-            this.lbDownload1.Text = "Download";
-            this.lbDownload1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbDownload1_LinkClicked);
-            // 
             // SocialMediaSharing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1307,7 +1294,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabPosts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "SocialMediaSharing";
             this.Text = "SocialMediaSharing";
@@ -1432,6 +1419,5 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblLoginUser;
         private System.Windows.Forms.Label lbEvent;
-        private System.Windows.Forms.LinkLabel lbDownload1;
     }
 }
