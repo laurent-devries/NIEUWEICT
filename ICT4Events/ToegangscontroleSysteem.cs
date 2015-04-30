@@ -24,6 +24,7 @@ namespace ICT4Events
         }
 
         //functie voor het starten van de scanner
+        //Wanneer er niet gescand wordt zal er gescand gaan worden
         private void btnStartScanner_Click(object sender, EventArgs e)
         {
             lblScannerToestand.Text = "Scanner is aan het scannen";

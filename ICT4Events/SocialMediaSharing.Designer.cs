@@ -153,11 +153,9 @@
             this.gbNumber1.Controls.Add(this.pbImage1);
             this.gbNumber1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbNumber1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(138)))), ((int)(((byte)(26)))));
-            this.gbNumber1.Location = new System.Drawing.Point(29, 20);
-            this.gbNumber1.Margin = new System.Windows.Forms.Padding(4);
+            this.gbNumber1.Location = new System.Drawing.Point(22, 16);
             this.gbNumber1.Name = "gbNumber1";
-            this.gbNumber1.Padding = new System.Windows.Forms.Padding(4);
-            this.gbNumber1.Size = new System.Drawing.Size(436, 235);
+            this.gbNumber1.Size = new System.Drawing.Size(327, 191);
             this.gbNumber1.TabIndex = 0;
             this.gbNumber1.TabStop = false;
             this.gbNumber1.Text = "Upload title";
@@ -167,10 +165,9 @@
             this.lbDatum1.AutoSize = true;
             this.lbDatum1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDatum1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbDatum1.Location = new System.Drawing.Point(8, 219);
-            this.lbDatum1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDatum1.Location = new System.Drawing.Point(6, 178);
             this.lbDatum1.Name = "lbDatum1";
-            this.lbDatum1.Size = new System.Drawing.Size(52, 17);
+            this.lbDatum1.Size = new System.Drawing.Size(44, 15);
             this.lbDatum1.TabIndex = 15;
             this.lbDatum1.Text = "Datum";
             // 
@@ -179,10 +176,9 @@
             this.lbUploader1.AutoSize = true;
             this.lbUploader1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUploader1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbUploader1.Location = new System.Drawing.Point(8, 193);
-            this.lbUploader1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbUploader1.Location = new System.Drawing.Point(6, 157);
             this.lbUploader1.Name = "lbUploader1";
-            this.lbUploader1.Size = new System.Drawing.Size(66, 17);
+            this.lbUploader1.Size = new System.Drawing.Size(58, 15);
             this.lbUploader1.TabIndex = 14;
             this.lbUploader1.Text = "Uploader";
             // 
@@ -191,10 +187,9 @@
             this.lbTags1.AutoSize = true;
             this.lbTags1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTags1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbTags1.Location = new System.Drawing.Point(169, 193);
-            this.lbTags1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTags1.Location = new System.Drawing.Point(127, 157);
             this.lbTags1.Name = "lbTags1";
-            this.lbTags1.Size = new System.Drawing.Size(43, 17);
+            this.lbTags1.Size = new System.Drawing.Size(37, 15);
             this.lbTags1.TabIndex = 9;
             this.lbTags1.Text = "Tags:";
             // 
@@ -203,10 +198,9 @@
             this.lblCategorie1.AutoSize = true;
             this.lblCategorie1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategorie1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lblCategorie1.Location = new System.Drawing.Point(169, 171);
-            this.lblCategorie1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategorie1.Location = new System.Drawing.Point(127, 139);
             this.lblCategorie1.Name = "lblCategorie1";
-            this.lblCategorie1.Size = new System.Drawing.Size(71, 17);
+            this.lblCategorie1.Size = new System.Drawing.Size(61, 15);
             this.lblCategorie1.TabIndex = 8;
             this.lblCategorie1.Text = "Categorie";
             // 
@@ -214,10 +208,9 @@
             // 
             this.lbReport1.AutoSize = true;
             this.lbReport1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbReport1.Location = new System.Drawing.Point(375, 148);
-            this.lbReport1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbReport1.Location = new System.Drawing.Point(281, 120);
             this.lbReport1.Name = "lbReport1";
-            this.lbReport1.Size = new System.Drawing.Size(52, 17);
+            this.lbReport1.Size = new System.Drawing.Size(44, 15);
             this.lbReport1.TabIndex = 7;
             this.lbReport1.TabStop = true;
             this.lbReport1.Text = "Report";
@@ -227,10 +220,9 @@
             // 
             this.lbLike1.AutoSize = true;
             this.lbLike1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLike1.Location = new System.Drawing.Point(240, 148);
-            this.lbLike1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbLike1.Location = new System.Drawing.Point(180, 120);
             this.lbLike1.Name = "lbLike1";
-            this.lbLike1.Size = new System.Drawing.Size(34, 17);
+            this.lbLike1.Size = new System.Drawing.Size(30, 15);
             this.lbLike1.TabIndex = 6;
             this.lbLike1.TabStop = true;
             this.lbLike1.Text = "Like";
@@ -241,10 +233,9 @@
             this.lbReports1.AutoSize = true;
             this.lbReports1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReports1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbReports1.Location = new System.Drawing.Point(284, 148);
-            this.lbReports1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbReports1.Location = new System.Drawing.Point(213, 120);
             this.lbReports1.Name = "lbReports1";
-            this.lbReports1.Size = new System.Drawing.Size(76, 17);
+            this.lbReports1.Size = new System.Drawing.Size(64, 15);
             this.lbReports1.TabIndex = 5;
             this.lbReports1.Text = "Reports: 0";
             // 
@@ -254,13 +245,12 @@
             this.tbSummary1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSummary1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tbSummary1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSummary1.Location = new System.Drawing.Point(169, 23);
-            this.tbSummary1.Margin = new System.Windows.Forms.Padding(4);
+            this.tbSummary1.Location = new System.Drawing.Point(127, 19);
             this.tbSummary1.MaxLength = 255;
             this.tbSummary1.Multiline = true;
             this.tbSummary1.Name = "tbSummary1";
             this.tbSummary1.ReadOnly = true;
-            this.tbSummary1.Size = new System.Drawing.Size(248, 121);
+            this.tbSummary1.Size = new System.Drawing.Size(186, 98);
             this.tbSummary1.TabIndex = 4;
             this.tbSummary1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbSummary1_MouseClick);
             // 
@@ -269,10 +259,9 @@
             this.lbViews1.AutoSize = true;
             this.lbViews1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbViews1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbViews1.Location = new System.Drawing.Point(8, 171);
-            this.lbViews1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbViews1.Location = new System.Drawing.Point(6, 139);
             this.lbViews1.Name = "lbViews1";
-            this.lbViews1.Size = new System.Drawing.Size(63, 17);
+            this.lbViews1.Size = new System.Drawing.Size(53, 15);
             this.lbViews1.TabIndex = 3;
             this.lbViews1.Text = "Views: 0";
             // 
@@ -281,19 +270,17 @@
             this.lbLikes1.AutoSize = true;
             this.lbLikes1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLikes1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbLikes1.Location = new System.Drawing.Point(169, 148);
-            this.lbLikes1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbLikes1.Location = new System.Drawing.Point(127, 120);
             this.lbLikes1.Name = "lbLikes1";
-            this.lbLikes1.Size = new System.Drawing.Size(58, 17);
+            this.lbLikes1.Size = new System.Drawing.Size(50, 15);
             this.lbLikes1.TabIndex = 2;
             this.lbLikes1.Text = "Likes: 0";
             // 
             // pbImage1
             // 
-            this.pbImage1.Location = new System.Drawing.Point(8, 23);
-            this.pbImage1.Margin = new System.Windows.Forms.Padding(4);
+            this.pbImage1.Location = new System.Drawing.Point(6, 19);
             this.pbImage1.Name = "pbImage1";
-            this.pbImage1.Size = new System.Drawing.Size(153, 140);
+            this.pbImage1.Size = new System.Drawing.Size(115, 114);
             this.pbImage1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage1.TabIndex = 1;
             this.pbImage1.TabStop = false;
@@ -301,10 +288,9 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(848, 548);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNext.Location = new System.Drawing.Point(636, 445);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(100, 28);
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 10;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -316,11 +302,11 @@
             this.tabPosts.Controls.Add(this.tabUpload);
             this.tabPosts.Controls.Add(this.tabAdmin);
             this.tabPosts.Location = new System.Drawing.Point(0, 0);
-            this.tabPosts.Margin = new System.Windows.Forms.Padding(4);
             this.tabPosts.Name = "tabPosts";
             this.tabPosts.SelectedIndex = 0;
-            this.tabPosts.Size = new System.Drawing.Size(1013, 618);
+            this.tabPosts.Size = new System.Drawing.Size(760, 502);
             this.tabPosts.TabIndex = 12;
+            this.tabPosts.SelectedIndexChanged += new System.EventHandler(this.tabPosts_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -339,21 +325,19 @@
             this.tabPage3.Controls.Add(this.btnRefresh);
             this.tabPage3.Controls.Add(this.btnNext);
             this.tabPage3.Controls.Add(this.gbNumber1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(1005, 589);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Size = new System.Drawing.Size(752, 476);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Posts";
             // 
             // rbTitle
             // 
             this.rbTitle.AutoSize = true;
-            this.rbTitle.Location = new System.Drawing.Point(332, 523);
-            this.rbTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.rbTitle.Location = new System.Drawing.Point(249, 425);
             this.rbTitle.Name = "rbTitle";
-            this.rbTitle.Size = new System.Drawing.Size(56, 21);
+            this.rbTitle.Size = new System.Drawing.Size(45, 17);
             this.rbTitle.TabIndex = 26;
             this.rbTitle.TabStop = true;
             this.rbTitle.Text = "Titel";
@@ -361,18 +345,16 @@
             // 
             // tbTitleSort
             // 
-            this.tbTitleSort.Location = new System.Drawing.Point(332, 551);
-            this.tbTitleSort.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTitleSort.Location = new System.Drawing.Point(249, 448);
             this.tbTitleSort.Name = "tbTitleSort";
-            this.tbTitleSort.Size = new System.Drawing.Size(132, 22);
+            this.tbTitleSort.Size = new System.Drawing.Size(100, 20);
             this.tbTitleSort.TabIndex = 25;
             // 
             // btnSort
             // 
-            this.btnSort.Location = new System.Drawing.Point(491, 548);
-            this.btnSort.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSort.Location = new System.Drawing.Point(368, 445);
             this.btnSort.Name = "btnSort";
-            this.btnSort.Size = new System.Drawing.Size(100, 28);
+            this.btnSort.Size = new System.Drawing.Size(75, 23);
             this.btnSort.TabIndex = 24;
             this.btnSort.Text = "Sorteren";
             this.btnSort.UseVisualStyleBackColor = true;
@@ -381,28 +363,25 @@
             // cbTags
             // 
             this.cbTags.FormattingEnabled = true;
-            this.cbTags.Location = new System.Drawing.Point(180, 551);
-            this.cbTags.Margin = new System.Windows.Forms.Padding(4);
+            this.cbTags.Location = new System.Drawing.Point(135, 448);
             this.cbTags.Name = "cbTags";
-            this.cbTags.Size = new System.Drawing.Size(141, 24);
+            this.cbTags.Size = new System.Drawing.Size(107, 21);
             this.cbTags.TabIndex = 23;
             // 
             // cbCategorySort
             // 
             this.cbCategorySort.FormattingEnabled = true;
-            this.cbCategorySort.Location = new System.Drawing.Point(29, 551);
-            this.cbCategorySort.Margin = new System.Windows.Forms.Padding(4);
+            this.cbCategorySort.Location = new System.Drawing.Point(22, 448);
             this.cbCategorySort.Name = "cbCategorySort";
-            this.cbCategorySort.Size = new System.Drawing.Size(141, 24);
+            this.cbCategorySort.Size = new System.Drawing.Size(107, 21);
             this.cbCategorySort.TabIndex = 22;
             // 
             // rbTag
             // 
             this.rbTag.AutoSize = true;
-            this.rbTag.Location = new System.Drawing.Point(180, 523);
-            this.rbTag.Margin = new System.Windows.Forms.Padding(4);
+            this.rbTag.Location = new System.Drawing.Point(135, 425);
             this.rbTag.Name = "rbTag";
-            this.rbTag.Size = new System.Drawing.Size(54, 21);
+            this.rbTag.Size = new System.Drawing.Size(44, 17);
             this.rbTag.TabIndex = 20;
             this.rbTag.TabStop = true;
             this.rbTag.Text = "Tag";
@@ -411,10 +390,9 @@
             // rbCategory
             // 
             this.rbCategory.AutoSize = true;
-            this.rbCategory.Location = new System.Drawing.Point(29, 523);
-            this.rbCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.rbCategory.Location = new System.Drawing.Point(22, 425);
             this.rbCategory.Name = "rbCategory";
-            this.rbCategory.Size = new System.Drawing.Size(90, 21);
+            this.rbCategory.Size = new System.Drawing.Size(70, 17);
             this.rbCategory.TabIndex = 19;
             this.rbCategory.TabStop = true;
             this.rbCategory.Text = "Categorie";
@@ -423,10 +401,9 @@
             // btnBack
             // 
             this.btnBack.Enabled = false;
-            this.btnBack.Location = new System.Drawing.Point(740, 548);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Location = new System.Drawing.Point(555, 445);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(100, 28);
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 18;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -448,11 +425,9 @@
             this.gbNumber4.Controls.Add(this.pbImage4);
             this.gbNumber4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbNumber4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(138)))), ((int)(((byte)(26)))));
-            this.gbNumber4.Location = new System.Drawing.Point(512, 271);
-            this.gbNumber4.Margin = new System.Windows.Forms.Padding(4);
+            this.gbNumber4.Location = new System.Drawing.Point(384, 220);
             this.gbNumber4.Name = "gbNumber4";
-            this.gbNumber4.Padding = new System.Windows.Forms.Padding(4);
-            this.gbNumber4.Size = new System.Drawing.Size(436, 238);
+            this.gbNumber4.Size = new System.Drawing.Size(327, 193);
             this.gbNumber4.TabIndex = 17;
             this.gbNumber4.TabStop = false;
             this.gbNumber4.Text = "Upload title";
@@ -462,10 +437,9 @@
             this.lbDatum4.AutoSize = true;
             this.lbDatum4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDatum4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbDatum4.Location = new System.Drawing.Point(8, 222);
-            this.lbDatum4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDatum4.Location = new System.Drawing.Point(6, 180);
             this.lbDatum4.Name = "lbDatum4";
-            this.lbDatum4.Size = new System.Drawing.Size(52, 17);
+            this.lbDatum4.Size = new System.Drawing.Size(44, 15);
             this.lbDatum4.TabIndex = 17;
             this.lbDatum4.Text = "Datum";
             // 
@@ -474,10 +448,9 @@
             this.lbUploader4.AutoSize = true;
             this.lbUploader4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUploader4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbUploader4.Location = new System.Drawing.Point(8, 193);
-            this.lbUploader4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbUploader4.Location = new System.Drawing.Point(6, 157);
             this.lbUploader4.Name = "lbUploader4";
-            this.lbUploader4.Size = new System.Drawing.Size(66, 17);
+            this.lbUploader4.Size = new System.Drawing.Size(58, 15);
             this.lbUploader4.TabIndex = 14;
             this.lbUploader4.Text = "Uploader";
             // 
@@ -486,10 +459,9 @@
             this.lbTags4.AutoSize = true;
             this.lbTags4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTags4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbTags4.Location = new System.Drawing.Point(169, 193);
-            this.lbTags4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTags4.Location = new System.Drawing.Point(127, 157);
             this.lbTags4.Name = "lbTags4";
-            this.lbTags4.Size = new System.Drawing.Size(43, 17);
+            this.lbTags4.Size = new System.Drawing.Size(37, 15);
             this.lbTags4.TabIndex = 9;
             this.lbTags4.Text = "Tags:";
             // 
@@ -498,10 +470,9 @@
             this.lblCategorie4.AutoSize = true;
             this.lblCategorie4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategorie4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lblCategorie4.Location = new System.Drawing.Point(169, 171);
-            this.lblCategorie4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategorie4.Location = new System.Drawing.Point(127, 139);
             this.lblCategorie4.Name = "lblCategorie4";
-            this.lblCategorie4.Size = new System.Drawing.Size(71, 17);
+            this.lblCategorie4.Size = new System.Drawing.Size(61, 15);
             this.lblCategorie4.TabIndex = 8;
             this.lblCategorie4.Text = "Categorie";
             // 
@@ -509,10 +480,9 @@
             // 
             this.lbReport4.AutoSize = true;
             this.lbReport4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbReport4.Location = new System.Drawing.Point(375, 148);
-            this.lbReport4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbReport4.Location = new System.Drawing.Point(281, 120);
             this.lbReport4.Name = "lbReport4";
-            this.lbReport4.Size = new System.Drawing.Size(52, 17);
+            this.lbReport4.Size = new System.Drawing.Size(44, 15);
             this.lbReport4.TabIndex = 7;
             this.lbReport4.TabStop = true;
             this.lbReport4.Text = "Report";
@@ -522,10 +492,9 @@
             // 
             this.lbLike4.AutoSize = true;
             this.lbLike4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLike4.Location = new System.Drawing.Point(240, 148);
-            this.lbLike4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbLike4.Location = new System.Drawing.Point(180, 120);
             this.lbLike4.Name = "lbLike4";
-            this.lbLike4.Size = new System.Drawing.Size(34, 17);
+            this.lbLike4.Size = new System.Drawing.Size(30, 15);
             this.lbLike4.TabIndex = 6;
             this.lbLike4.TabStop = true;
             this.lbLike4.Text = "Like";
@@ -536,10 +505,9 @@
             this.lbReports4.AutoSize = true;
             this.lbReports4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReports4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbReports4.Location = new System.Drawing.Point(284, 148);
-            this.lbReports4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbReports4.Location = new System.Drawing.Point(213, 120);
             this.lbReports4.Name = "lbReports4";
-            this.lbReports4.Size = new System.Drawing.Size(76, 17);
+            this.lbReports4.Size = new System.Drawing.Size(64, 15);
             this.lbReports4.TabIndex = 5;
             this.lbReports4.Text = "Reports: 0";
             // 
@@ -549,13 +517,12 @@
             this.tbSummary4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSummary4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tbSummary4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSummary4.Location = new System.Drawing.Point(169, 23);
-            this.tbSummary4.Margin = new System.Windows.Forms.Padding(4);
+            this.tbSummary4.Location = new System.Drawing.Point(127, 19);
             this.tbSummary4.MaxLength = 255;
             this.tbSummary4.Multiline = true;
             this.tbSummary4.Name = "tbSummary4";
             this.tbSummary4.ReadOnly = true;
-            this.tbSummary4.Size = new System.Drawing.Size(248, 121);
+            this.tbSummary4.Size = new System.Drawing.Size(186, 98);
             this.tbSummary4.TabIndex = 4;
             this.tbSummary4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbSummary4_MouseClick);
             // 
@@ -564,10 +531,9 @@
             this.lbViews4.AutoSize = true;
             this.lbViews4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbViews4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbViews4.Location = new System.Drawing.Point(8, 171);
-            this.lbViews4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbViews4.Location = new System.Drawing.Point(6, 139);
             this.lbViews4.Name = "lbViews4";
-            this.lbViews4.Size = new System.Drawing.Size(63, 17);
+            this.lbViews4.Size = new System.Drawing.Size(53, 15);
             this.lbViews4.TabIndex = 3;
             this.lbViews4.Text = "Views: 0";
             // 
@@ -576,19 +542,17 @@
             this.lbLikes4.AutoSize = true;
             this.lbLikes4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLikes4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbLikes4.Location = new System.Drawing.Point(169, 148);
-            this.lbLikes4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbLikes4.Location = new System.Drawing.Point(127, 120);
             this.lbLikes4.Name = "lbLikes4";
-            this.lbLikes4.Size = new System.Drawing.Size(58, 17);
+            this.lbLikes4.Size = new System.Drawing.Size(50, 15);
             this.lbLikes4.TabIndex = 2;
             this.lbLikes4.Text = "Likes: 0";
             // 
             // pbImage4
             // 
-            this.pbImage4.Location = new System.Drawing.Point(8, 23);
-            this.pbImage4.Margin = new System.Windows.Forms.Padding(4);
+            this.pbImage4.Location = new System.Drawing.Point(6, 19);
             this.pbImage4.Name = "pbImage4";
-            this.pbImage4.Size = new System.Drawing.Size(153, 140);
+            this.pbImage4.Size = new System.Drawing.Size(115, 114);
             this.pbImage4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage4.TabIndex = 1;
             this.pbImage4.TabStop = false;
@@ -609,11 +573,9 @@
             this.gbNumber3.Controls.Add(this.pbImage3);
             this.gbNumber3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbNumber3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(138)))), ((int)(((byte)(26)))));
-            this.gbNumber3.Location = new System.Drawing.Point(29, 271);
-            this.gbNumber3.Margin = new System.Windows.Forms.Padding(4);
+            this.gbNumber3.Location = new System.Drawing.Point(22, 220);
             this.gbNumber3.Name = "gbNumber3";
-            this.gbNumber3.Padding = new System.Windows.Forms.Padding(4);
-            this.gbNumber3.Size = new System.Drawing.Size(436, 238);
+            this.gbNumber3.Size = new System.Drawing.Size(327, 193);
             this.gbNumber3.TabIndex = 16;
             this.gbNumber3.TabStop = false;
             this.gbNumber3.Text = "Upload title";
@@ -623,10 +585,9 @@
             this.lbDatum3.AutoSize = true;
             this.lbDatum3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDatum3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbDatum3.Location = new System.Drawing.Point(8, 222);
-            this.lbDatum3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDatum3.Location = new System.Drawing.Point(6, 180);
             this.lbDatum3.Name = "lbDatum3";
-            this.lbDatum3.Size = new System.Drawing.Size(52, 17);
+            this.lbDatum3.Size = new System.Drawing.Size(44, 15);
             this.lbDatum3.TabIndex = 16;
             this.lbDatum3.Text = "Datum";
             // 
@@ -635,10 +596,9 @@
             this.lbUploader3.AutoSize = true;
             this.lbUploader3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUploader3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbUploader3.Location = new System.Drawing.Point(8, 193);
-            this.lbUploader3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbUploader3.Location = new System.Drawing.Point(6, 157);
             this.lbUploader3.Name = "lbUploader3";
-            this.lbUploader3.Size = new System.Drawing.Size(66, 17);
+            this.lbUploader3.Size = new System.Drawing.Size(58, 15);
             this.lbUploader3.TabIndex = 14;
             this.lbUploader3.Text = "Uploader";
             // 
@@ -647,10 +607,9 @@
             this.lbTags3.AutoSize = true;
             this.lbTags3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTags3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbTags3.Location = new System.Drawing.Point(169, 193);
-            this.lbTags3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTags3.Location = new System.Drawing.Point(127, 157);
             this.lbTags3.Name = "lbTags3";
-            this.lbTags3.Size = new System.Drawing.Size(43, 17);
+            this.lbTags3.Size = new System.Drawing.Size(37, 15);
             this.lbTags3.TabIndex = 9;
             this.lbTags3.Text = "Tags:";
             // 
@@ -659,10 +618,9 @@
             this.lblCategorie3.AutoSize = true;
             this.lblCategorie3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategorie3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lblCategorie3.Location = new System.Drawing.Point(169, 171);
-            this.lblCategorie3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategorie3.Location = new System.Drawing.Point(127, 139);
             this.lblCategorie3.Name = "lblCategorie3";
-            this.lblCategorie3.Size = new System.Drawing.Size(71, 17);
+            this.lblCategorie3.Size = new System.Drawing.Size(61, 15);
             this.lblCategorie3.TabIndex = 8;
             this.lblCategorie3.Text = "Categorie";
             // 
@@ -670,10 +628,9 @@
             // 
             this.lbReport3.AutoSize = true;
             this.lbReport3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbReport3.Location = new System.Drawing.Point(375, 148);
-            this.lbReport3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbReport3.Location = new System.Drawing.Point(281, 120);
             this.lbReport3.Name = "lbReport3";
-            this.lbReport3.Size = new System.Drawing.Size(52, 17);
+            this.lbReport3.Size = new System.Drawing.Size(44, 15);
             this.lbReport3.TabIndex = 7;
             this.lbReport3.TabStop = true;
             this.lbReport3.Text = "Report";
@@ -683,10 +640,9 @@
             // 
             this.lbLike3.AutoSize = true;
             this.lbLike3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLike3.Location = new System.Drawing.Point(240, 148);
-            this.lbLike3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbLike3.Location = new System.Drawing.Point(180, 120);
             this.lbLike3.Name = "lbLike3";
-            this.lbLike3.Size = new System.Drawing.Size(34, 17);
+            this.lbLike3.Size = new System.Drawing.Size(30, 15);
             this.lbLike3.TabIndex = 6;
             this.lbLike3.TabStop = true;
             this.lbLike3.Text = "Like";
@@ -697,10 +653,9 @@
             this.lbReports3.AutoSize = true;
             this.lbReports3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReports3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbReports3.Location = new System.Drawing.Point(284, 148);
-            this.lbReports3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbReports3.Location = new System.Drawing.Point(213, 120);
             this.lbReports3.Name = "lbReports3";
-            this.lbReports3.Size = new System.Drawing.Size(76, 17);
+            this.lbReports3.Size = new System.Drawing.Size(64, 15);
             this.lbReports3.TabIndex = 5;
             this.lbReports3.Text = "Reports: 0";
             // 
@@ -710,13 +665,12 @@
             this.tbSummary3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSummary3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tbSummary3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSummary3.Location = new System.Drawing.Point(169, 23);
-            this.tbSummary3.Margin = new System.Windows.Forms.Padding(4);
+            this.tbSummary3.Location = new System.Drawing.Point(127, 19);
             this.tbSummary3.MaxLength = 255;
             this.tbSummary3.Multiline = true;
             this.tbSummary3.Name = "tbSummary3";
             this.tbSummary3.ReadOnly = true;
-            this.tbSummary3.Size = new System.Drawing.Size(248, 121);
+            this.tbSummary3.Size = new System.Drawing.Size(186, 98);
             this.tbSummary3.TabIndex = 4;
             this.tbSummary3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbSummary3_MouseClick);
             // 
@@ -725,10 +679,9 @@
             this.lbViews3.AutoSize = true;
             this.lbViews3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbViews3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbViews3.Location = new System.Drawing.Point(8, 171);
-            this.lbViews3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbViews3.Location = new System.Drawing.Point(6, 139);
             this.lbViews3.Name = "lbViews3";
-            this.lbViews3.Size = new System.Drawing.Size(63, 17);
+            this.lbViews3.Size = new System.Drawing.Size(53, 15);
             this.lbViews3.TabIndex = 3;
             this.lbViews3.Text = "Views: 0";
             // 
@@ -737,19 +690,17 @@
             this.lbLikes3.AutoSize = true;
             this.lbLikes3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLikes3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbLikes3.Location = new System.Drawing.Point(169, 148);
-            this.lbLikes3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbLikes3.Location = new System.Drawing.Point(127, 120);
             this.lbLikes3.Name = "lbLikes3";
-            this.lbLikes3.Size = new System.Drawing.Size(58, 17);
+            this.lbLikes3.Size = new System.Drawing.Size(50, 15);
             this.lbLikes3.TabIndex = 2;
             this.lbLikes3.Text = "Likes: 0";
             // 
             // pbImage3
             // 
-            this.pbImage3.Location = new System.Drawing.Point(8, 23);
-            this.pbImage3.Margin = new System.Windows.Forms.Padding(4);
+            this.pbImage3.Location = new System.Drawing.Point(6, 19);
             this.pbImage3.Name = "pbImage3";
-            this.pbImage3.Size = new System.Drawing.Size(153, 140);
+            this.pbImage3.Size = new System.Drawing.Size(115, 114);
             this.pbImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage3.TabIndex = 1;
             this.pbImage3.TabStop = false;
@@ -770,11 +721,9 @@
             this.gbNumber2.Controls.Add(this.pbImage2);
             this.gbNumber2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbNumber2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(138)))), ((int)(((byte)(26)))));
-            this.gbNumber2.Location = new System.Drawing.Point(512, 20);
-            this.gbNumber2.Margin = new System.Windows.Forms.Padding(4);
+            this.gbNumber2.Location = new System.Drawing.Point(384, 16);
             this.gbNumber2.Name = "gbNumber2";
-            this.gbNumber2.Padding = new System.Windows.Forms.Padding(4);
-            this.gbNumber2.Size = new System.Drawing.Size(436, 235);
+            this.gbNumber2.Size = new System.Drawing.Size(327, 191);
             this.gbNumber2.TabIndex = 15;
             this.gbNumber2.TabStop = false;
             this.gbNumber2.Text = "Upload title";
@@ -784,10 +733,9 @@
             this.lbDatum2.AutoSize = true;
             this.lbDatum2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDatum2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbDatum2.Location = new System.Drawing.Point(8, 219);
-            this.lbDatum2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDatum2.Location = new System.Drawing.Point(6, 178);
             this.lbDatum2.Name = "lbDatum2";
-            this.lbDatum2.Size = new System.Drawing.Size(52, 17);
+            this.lbDatum2.Size = new System.Drawing.Size(44, 15);
             this.lbDatum2.TabIndex = 16;
             this.lbDatum2.Text = "Datum";
             // 
@@ -796,10 +744,9 @@
             this.lbUploader2.AutoSize = true;
             this.lbUploader2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUploader2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbUploader2.Location = new System.Drawing.Point(8, 193);
-            this.lbUploader2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbUploader2.Location = new System.Drawing.Point(6, 157);
             this.lbUploader2.Name = "lbUploader2";
-            this.lbUploader2.Size = new System.Drawing.Size(66, 17);
+            this.lbUploader2.Size = new System.Drawing.Size(58, 15);
             this.lbUploader2.TabIndex = 14;
             this.lbUploader2.Text = "Uploader";
             // 
@@ -808,10 +755,9 @@
             this.lbTags2.AutoSize = true;
             this.lbTags2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTags2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbTags2.Location = new System.Drawing.Point(169, 193);
-            this.lbTags2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTags2.Location = new System.Drawing.Point(127, 157);
             this.lbTags2.Name = "lbTags2";
-            this.lbTags2.Size = new System.Drawing.Size(43, 17);
+            this.lbTags2.Size = new System.Drawing.Size(37, 15);
             this.lbTags2.TabIndex = 9;
             this.lbTags2.Text = "Tags:";
             // 
@@ -820,10 +766,9 @@
             this.lblCategorie2.AutoSize = true;
             this.lblCategorie2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategorie2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lblCategorie2.Location = new System.Drawing.Point(169, 171);
-            this.lblCategorie2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategorie2.Location = new System.Drawing.Point(127, 139);
             this.lblCategorie2.Name = "lblCategorie2";
-            this.lblCategorie2.Size = new System.Drawing.Size(71, 17);
+            this.lblCategorie2.Size = new System.Drawing.Size(61, 15);
             this.lblCategorie2.TabIndex = 8;
             this.lblCategorie2.Text = "Categorie";
             // 
@@ -831,10 +776,9 @@
             // 
             this.lbReport2.AutoSize = true;
             this.lbReport2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbReport2.Location = new System.Drawing.Point(375, 148);
-            this.lbReport2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbReport2.Location = new System.Drawing.Point(281, 120);
             this.lbReport2.Name = "lbReport2";
-            this.lbReport2.Size = new System.Drawing.Size(52, 17);
+            this.lbReport2.Size = new System.Drawing.Size(44, 15);
             this.lbReport2.TabIndex = 7;
             this.lbReport2.TabStop = true;
             this.lbReport2.Text = "Report";
@@ -844,10 +788,9 @@
             // 
             this.lbLike2.AutoSize = true;
             this.lbLike2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLike2.Location = new System.Drawing.Point(240, 148);
-            this.lbLike2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbLike2.Location = new System.Drawing.Point(180, 120);
             this.lbLike2.Name = "lbLike2";
-            this.lbLike2.Size = new System.Drawing.Size(34, 17);
+            this.lbLike2.Size = new System.Drawing.Size(30, 15);
             this.lbLike2.TabIndex = 6;
             this.lbLike2.TabStop = true;
             this.lbLike2.Text = "Like";
@@ -858,10 +801,9 @@
             this.lbReports2.AutoSize = true;
             this.lbReports2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbReports2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbReports2.Location = new System.Drawing.Point(284, 148);
-            this.lbReports2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbReports2.Location = new System.Drawing.Point(213, 120);
             this.lbReports2.Name = "lbReports2";
-            this.lbReports2.Size = new System.Drawing.Size(76, 17);
+            this.lbReports2.Size = new System.Drawing.Size(64, 15);
             this.lbReports2.TabIndex = 5;
             this.lbReports2.Text = "Reports: 0";
             // 
@@ -871,13 +813,12 @@
             this.tbSummary2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbSummary2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tbSummary2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSummary2.Location = new System.Drawing.Point(169, 23);
-            this.tbSummary2.Margin = new System.Windows.Forms.Padding(4);
+            this.tbSummary2.Location = new System.Drawing.Point(127, 19);
             this.tbSummary2.MaxLength = 255;
             this.tbSummary2.Multiline = true;
             this.tbSummary2.Name = "tbSummary2";
             this.tbSummary2.ReadOnly = true;
-            this.tbSummary2.Size = new System.Drawing.Size(248, 121);
+            this.tbSummary2.Size = new System.Drawing.Size(186, 98);
             this.tbSummary2.TabIndex = 4;
             this.tbSummary2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbSummary2_MouseClick);
             // 
@@ -886,10 +827,9 @@
             this.lbViews2.AutoSize = true;
             this.lbViews2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbViews2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbViews2.Location = new System.Drawing.Point(8, 171);
-            this.lbViews2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbViews2.Location = new System.Drawing.Point(6, 139);
             this.lbViews2.Name = "lbViews2";
-            this.lbViews2.Size = new System.Drawing.Size(63, 17);
+            this.lbViews2.Size = new System.Drawing.Size(53, 15);
             this.lbViews2.TabIndex = 3;
             this.lbViews2.Text = "Views: 0";
             // 
@@ -898,29 +838,26 @@
             this.lbLikes2.AutoSize = true;
             this.lbLikes2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLikes2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbLikes2.Location = new System.Drawing.Point(169, 148);
-            this.lbLikes2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbLikes2.Location = new System.Drawing.Point(127, 120);
             this.lbLikes2.Name = "lbLikes2";
-            this.lbLikes2.Size = new System.Drawing.Size(58, 17);
+            this.lbLikes2.Size = new System.Drawing.Size(50, 15);
             this.lbLikes2.TabIndex = 2;
             this.lbLikes2.Text = "Likes: 0";
             // 
             // pbImage2
             // 
-            this.pbImage2.Location = new System.Drawing.Point(8, 23);
-            this.pbImage2.Margin = new System.Windows.Forms.Padding(4);
+            this.pbImage2.Location = new System.Drawing.Point(6, 19);
             this.pbImage2.Name = "pbImage2";
-            this.pbImage2.Size = new System.Drawing.Size(153, 140);
+            this.pbImage2.Size = new System.Drawing.Size(115, 114);
             this.pbImage2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage2.TabIndex = 1;
             this.pbImage2.TabStop = false;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(599, 548);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefresh.Location = new System.Drawing.Point(449, 445);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(100, 28);
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 13;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -943,21 +880,19 @@
             this.tabUpload.Controls.Add(this.label2);
             this.tabUpload.Controls.Add(this.label1);
             this.tabUpload.Controls.Add(this.pbPreview);
-            this.tabUpload.Location = new System.Drawing.Point(4, 25);
-            this.tabUpload.Margin = new System.Windows.Forms.Padding(4);
+            this.tabUpload.Location = new System.Drawing.Point(4, 22);
             this.tabUpload.Name = "tabUpload";
-            this.tabUpload.Padding = new System.Windows.Forms.Padding(4);
-            this.tabUpload.Size = new System.Drawing.Size(1005, 589);
+            this.tabUpload.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabUpload.Size = new System.Drawing.Size(752, 476);
             this.tabUpload.TabIndex = 1;
             this.tabUpload.Text = "Upload";
             this.tabUpload.Enter += new System.EventHandler(this.tabPage4_Enter);
             // 
             // btnUpload
             // 
-            this.btnUpload.Location = new System.Drawing.Point(428, 468);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpload.Location = new System.Drawing.Point(321, 380);
             this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(121, 33);
+            this.btnUpload.Size = new System.Drawing.Size(91, 27);
             this.btnUpload.TabIndex = 13;
             this.btnUpload.Text = "Upload";
             this.btnUpload.UseVisualStyleBackColor = true;
@@ -967,60 +902,54 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(576, 34);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(432, 28);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 26);
+            this.label6.Size = new System.Drawing.Size(79, 20);
             this.label6.TabIndex = 12;
             this.label6.Text = "Preview";
             // 
             // tbTags
             // 
-            this.tbTags.Location = new System.Drawing.Point(217, 309);
-            this.tbTags.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTags.Location = new System.Drawing.Point(163, 251);
             this.tbTags.MaxLength = 255;
             this.tbTags.Multiline = true;
             this.tbTags.Name = "tbTags";
-            this.tbTags.Size = new System.Drawing.Size(331, 133);
+            this.tbTags.Size = new System.Drawing.Size(249, 109);
             this.tbTags.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 309);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(6, 251);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 26);
+            this.label5.Size = new System.Drawing.Size(52, 20);
             this.label5.TabIndex = 9;
             this.label5.Text = "Tags";
             // 
             // cbCategory
             // 
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(217, 260);
-            this.cbCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.cbCategory.Location = new System.Drawing.Point(163, 211);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(331, 24);
+            this.cbCategory.Size = new System.Drawing.Size(249, 21);
             this.cbCategory.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 257);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(6, 209);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 26);
+            this.label4.Size = new System.Drawing.Size(97, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Categorie";
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(449, 220);
-            this.btnBrowse.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBrowse.Location = new System.Drawing.Point(337, 179);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(100, 25);
+            this.btnBrowse.Size = new System.Drawing.Size(75, 20);
             this.btnBrowse.TabIndex = 6;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
@@ -1028,50 +957,45 @@
             // 
             // tbFilepath
             // 
-            this.tbFilepath.Location = new System.Drawing.Point(217, 220);
-            this.tbFilepath.Margin = new System.Windows.Forms.Padding(4);
+            this.tbFilepath.Location = new System.Drawing.Point(163, 179);
             this.tbFilepath.Name = "tbFilepath";
             this.tbFilepath.ReadOnly = true;
-            this.tbFilepath.Size = new System.Drawing.Size(223, 22);
+            this.tbFilepath.Size = new System.Drawing.Size(168, 20);
             this.tbFilepath.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 218);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(6, 177);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(182, 26);
+            this.label3.Size = new System.Drawing.Size(151, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Foto toevoegen";
             // 
             // tbSummary
             // 
-            this.tbSummary.Location = new System.Drawing.Point(217, 74);
-            this.tbSummary.Margin = new System.Windows.Forms.Padding(4);
+            this.tbSummary.Location = new System.Drawing.Point(163, 60);
             this.tbSummary.MaxLength = 255;
             this.tbSummary.Multiline = true;
             this.tbSummary.Name = "tbSummary";
-            this.tbSummary.Size = new System.Drawing.Size(331, 133);
+            this.tbSummary.Size = new System.Drawing.Size(249, 109);
             this.tbSummary.TabIndex = 3;
             // 
             // tbTitle
             // 
-            this.tbTitle.Location = new System.Drawing.Point(217, 34);
-            this.tbTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTitle.Location = new System.Drawing.Point(163, 28);
             this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(331, 22);
+            this.tbTitle.Size = new System.Drawing.Size(249, 20);
             this.tbTitle.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 74);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(6, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 26);
+            this.label2.Size = new System.Drawing.Size(120, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Beschrijving";
             // 
@@ -1079,19 +1003,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 34);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(6, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 26);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Titel";
             // 
             // pbPreview
             // 
-            this.pbPreview.Location = new System.Drawing.Point(581, 74);
-            this.pbPreview.Margin = new System.Windows.Forms.Padding(4);
+            this.pbPreview.Location = new System.Drawing.Point(436, 60);
             this.pbPreview.Name = "pbPreview";
-            this.pbPreview.Size = new System.Drawing.Size(376, 369);
+            this.pbPreview.Size = new System.Drawing.Size(282, 300);
             this.pbPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPreview.TabIndex = 11;
             this.pbPreview.TabStop = false;
@@ -1102,21 +1024,19 @@
             this.tabAdmin.Controls.Add(this.btnVerwijder);
             this.tabAdmin.Controls.Add(this.gbAdmin);
             this.tabAdmin.Controls.Add(this.lbReportedPosts);
-            this.tabAdmin.Location = new System.Drawing.Point(4, 25);
-            this.tabAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.tabAdmin.Location = new System.Drawing.Point(4, 22);
             this.tabAdmin.Name = "tabAdmin";
-            this.tabAdmin.Padding = new System.Windows.Forms.Padding(4);
-            this.tabAdmin.Size = new System.Drawing.Size(1005, 589);
+            this.tabAdmin.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabAdmin.Size = new System.Drawing.Size(752, 476);
             this.tabAdmin.TabIndex = 2;
             this.tabAdmin.Text = "Admin";
             this.tabAdmin.Enter += new System.EventHandler(this.tabAdmin_Enter);
             // 
             // btnVerwijder
             // 
-            this.btnVerwijder.Location = new System.Drawing.Point(8, 489);
-            this.btnVerwijder.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVerwijder.Location = new System.Drawing.Point(6, 397);
             this.btnVerwijder.Name = "btnVerwijder";
-            this.btnVerwijder.Size = new System.Drawing.Size(100, 28);
+            this.btnVerwijder.Size = new System.Drawing.Size(75, 23);
             this.btnVerwijder.TabIndex = 2;
             this.btnVerwijder.Text = "Verwijder";
             this.btnVerwijder.UseVisualStyleBackColor = true;
@@ -1133,11 +1053,9 @@
             this.gbAdmin.Controls.Add(this.lbViewsAdmin);
             this.gbAdmin.Controls.Add(this.lbLikesAdmin);
             this.gbAdmin.Controls.Add(this.pbAdmin);
-            this.gbAdmin.Location = new System.Drawing.Point(8, 228);
-            this.gbAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.gbAdmin.Location = new System.Drawing.Point(6, 185);
             this.gbAdmin.Name = "gbAdmin";
-            this.gbAdmin.Padding = new System.Windows.Forms.Padding(4);
-            this.gbAdmin.Size = new System.Drawing.Size(436, 235);
+            this.gbAdmin.Size = new System.Drawing.Size(327, 191);
             this.gbAdmin.TabIndex = 1;
             this.gbAdmin.TabStop = false;
             this.gbAdmin.Text = "Upload title";
@@ -1145,92 +1063,83 @@
             // lbDateAdmin
             // 
             this.lbDateAdmin.AutoSize = true;
-            this.lbDateAdmin.Location = new System.Drawing.Point(8, 219);
-            this.lbDateAdmin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDateAdmin.Location = new System.Drawing.Point(6, 178);
             this.lbDateAdmin.Name = "lbDateAdmin";
-            this.lbDateAdmin.Size = new System.Drawing.Size(49, 17);
+            this.lbDateAdmin.Size = new System.Drawing.Size(38, 13);
             this.lbDateAdmin.TabIndex = 15;
             this.lbDateAdmin.Text = "Datum";
             // 
             // lbUploaderAdmin
             // 
             this.lbUploaderAdmin.AutoSize = true;
-            this.lbUploaderAdmin.Location = new System.Drawing.Point(8, 193);
-            this.lbUploaderAdmin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbUploaderAdmin.Location = new System.Drawing.Point(6, 157);
             this.lbUploaderAdmin.Name = "lbUploaderAdmin";
-            this.lbUploaderAdmin.Size = new System.Drawing.Size(66, 17);
+            this.lbUploaderAdmin.Size = new System.Drawing.Size(50, 13);
             this.lbUploaderAdmin.TabIndex = 14;
             this.lbUploaderAdmin.Text = "Uploader";
             // 
             // lbTagsAdmin
             // 
             this.lbTagsAdmin.AutoSize = true;
-            this.lbTagsAdmin.Location = new System.Drawing.Point(169, 193);
-            this.lbTagsAdmin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTagsAdmin.Location = new System.Drawing.Point(127, 157);
             this.lbTagsAdmin.Name = "lbTagsAdmin";
-            this.lbTagsAdmin.Size = new System.Drawing.Size(44, 17);
+            this.lbTagsAdmin.Size = new System.Drawing.Size(34, 13);
             this.lbTagsAdmin.TabIndex = 9;
             this.lbTagsAdmin.Text = "Tags:";
             // 
             // lbCategorieAdmin
             // 
             this.lbCategorieAdmin.AutoSize = true;
-            this.lbCategorieAdmin.Location = new System.Drawing.Point(169, 171);
-            this.lbCategorieAdmin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbCategorieAdmin.Location = new System.Drawing.Point(127, 139);
             this.lbCategorieAdmin.Name = "lbCategorieAdmin";
-            this.lbCategorieAdmin.Size = new System.Drawing.Size(69, 17);
+            this.lbCategorieAdmin.Size = new System.Drawing.Size(52, 13);
             this.lbCategorieAdmin.TabIndex = 8;
             this.lbCategorieAdmin.Text = "Categorie";
             // 
             // lbReportsAdmin
             // 
             this.lbReportsAdmin.AutoSize = true;
-            this.lbReportsAdmin.Location = new System.Drawing.Point(284, 148);
-            this.lbReportsAdmin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbReportsAdmin.Location = new System.Drawing.Point(213, 120);
             this.lbReportsAdmin.Name = "lbReportsAdmin";
-            this.lbReportsAdmin.Size = new System.Drawing.Size(74, 17);
+            this.lbReportsAdmin.Size = new System.Drawing.Size(56, 13);
             this.lbReportsAdmin.TabIndex = 5;
             this.lbReportsAdmin.Text = "Reports: 0";
             // 
             // tbSummaryAdmin
             // 
             this.tbSummaryAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tbSummaryAdmin.Location = new System.Drawing.Point(169, 23);
-            this.tbSummaryAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.tbSummaryAdmin.Location = new System.Drawing.Point(127, 19);
             this.tbSummaryAdmin.MaxLength = 255;
             this.tbSummaryAdmin.Multiline = true;
             this.tbSummaryAdmin.Name = "tbSummaryAdmin";
             this.tbSummaryAdmin.ReadOnly = true;
-            this.tbSummaryAdmin.Size = new System.Drawing.Size(247, 120);
+            this.tbSummaryAdmin.Size = new System.Drawing.Size(186, 98);
             this.tbSummaryAdmin.TabIndex = 4;
             this.tbSummaryAdmin.Click += new System.EventHandler(this.tbSummaryAdmin_Click);
             // 
             // lbViewsAdmin
             // 
             this.lbViewsAdmin.AutoSize = true;
-            this.lbViewsAdmin.Location = new System.Drawing.Point(8, 171);
-            this.lbViewsAdmin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbViewsAdmin.Location = new System.Drawing.Point(6, 139);
             this.lbViewsAdmin.Name = "lbViewsAdmin";
-            this.lbViewsAdmin.Size = new System.Drawing.Size(60, 17);
+            this.lbViewsAdmin.Size = new System.Drawing.Size(47, 13);
             this.lbViewsAdmin.TabIndex = 3;
             this.lbViewsAdmin.Text = "Views: 0";
             // 
             // lbLikesAdmin
             // 
             this.lbLikesAdmin.AutoSize = true;
-            this.lbLikesAdmin.Location = new System.Drawing.Point(169, 148);
-            this.lbLikesAdmin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbLikesAdmin.Location = new System.Drawing.Point(127, 120);
             this.lbLikesAdmin.Name = "lbLikesAdmin";
-            this.lbLikesAdmin.Size = new System.Drawing.Size(57, 17);
+            this.lbLikesAdmin.Size = new System.Drawing.Size(44, 13);
             this.lbLikesAdmin.TabIndex = 2;
             this.lbLikesAdmin.Text = "Likes: 0";
             // 
             // pbAdmin
             // 
-            this.pbAdmin.Location = new System.Drawing.Point(8, 23);
-            this.pbAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.pbAdmin.Location = new System.Drawing.Point(6, 19);
             this.pbAdmin.Name = "pbAdmin";
-            this.pbAdmin.Size = new System.Drawing.Size(153, 140);
+            this.pbAdmin.Size = new System.Drawing.Size(115, 114);
             this.pbAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAdmin.TabIndex = 1;
             this.pbAdmin.TabStop = false;
@@ -1240,21 +1149,18 @@
             this.lbReportedPosts.BackColor = System.Drawing.Color.White;
             this.lbReportedPosts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbReportedPosts.FormattingEnabled = true;
-            this.lbReportedPosts.ItemHeight = 16;
-            this.lbReportedPosts.Location = new System.Drawing.Point(8, 7);
-            this.lbReportedPosts.Margin = new System.Windows.Forms.Padding(4);
+            this.lbReportedPosts.Location = new System.Drawing.Point(6, 6);
             this.lbReportedPosts.Name = "lbReportedPosts";
-            this.lbReportedPosts.Size = new System.Drawing.Size(949, 210);
+            this.lbReportedPosts.Size = new System.Drawing.Size(712, 171);
             this.lbReportedPosts.TabIndex = 0;
             this.lbReportedPosts.SelectedValueChanged += new System.EventHandler(this.lbReportedPosts_SelectedValueChanged);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ICT4Events.Properties.Resources.logo_transparant;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 623);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 506);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(369, 62);
+            this.pictureBox1.Size = new System.Drawing.Size(277, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
@@ -1264,10 +1170,9 @@
             this.lblLoginUser.AutoSize = true;
             this.lblLoginUser.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoginUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lblLoginUser.Location = new System.Drawing.Point(632, 654);
-            this.lblLoginUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLoginUser.Location = new System.Drawing.Point(474, 531);
             this.lblLoginUser.Name = "lblLoginUser";
-            this.lblLoginUser.Size = new System.Drawing.Size(101, 19);
+            this.lblLoginUser.Size = new System.Drawing.Size(81, 16);
             this.lblLoginUser.TabIndex = 27;
             this.lblLoginUser.Text = "Ingelogd als:";
             // 
@@ -1276,25 +1181,23 @@
             this.lbEvent.AutoSize = true;
             this.lbEvent.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEvent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbEvent.Location = new System.Drawing.Point(632, 624);
-            this.lbEvent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbEvent.Location = new System.Drawing.Point(474, 507);
             this.lbEvent.Name = "lbEvent";
-            this.lbEvent.Size = new System.Drawing.Size(54, 19);
+            this.lbEvent.Size = new System.Drawing.Size(44, 16);
             this.lbEvent.TabIndex = 28;
             this.lbEvent.Text = "Event:";
             // 
             // SocialMediaSharing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1004, 693);
+            this.ClientSize = new System.Drawing.Size(753, 563);
             this.Controls.Add(this.lbEvent);
             this.Controls.Add(this.lblLoginUser);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.tabPosts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "SocialMediaSharing";
             this.Text = "SocialMediaSharing";

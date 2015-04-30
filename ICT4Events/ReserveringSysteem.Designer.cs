@@ -88,6 +88,8 @@
             this.lbProducten = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.gbEvent = new System.Windows.Forms.GroupBox();
+            this.cbOptions = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.gbUsers = new System.Windows.Forms.GroupBox();
             this.lblAccountsLeft = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -96,8 +98,6 @@
             this.tbPassEx = new System.Windows.Forms.TextBox();
             this.tbLoginEx = new System.Windows.Forms.TextBox();
             this.btnConfirmExtraAcc = new System.Windows.Forms.Button();
-            this.cbOptions = new System.Windows.Forms.ComboBox();
-            this.label26 = new System.Windows.Forms.Label();
             this.gb_gebruikercreatie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).BeginInit();
             this.gbVerhuur.SuspendLayout();
@@ -814,6 +814,24 @@
             this.gbEvent.TabStop = false;
             this.gbEvent.Text = "Evenement selecteren";
             // 
+            // cbOptions
+            // 
+            this.cbOptions.FormattingEnabled = true;
+            this.cbOptions.Location = new System.Drawing.Point(170, 144);
+            this.cbOptions.Name = "cbOptions";
+            this.cbOptions.Size = new System.Drawing.Size(265, 24);
+            this.cbOptions.TabIndex = 16;
+            this.cbOptions.SelectedIndexChanged += new System.EventHandler(this.cbOptions_SelectedIndexChanged);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(7, 147);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(86, 17);
+            this.label26.TabIndex = 17;
+            this.label26.Text = "Extra opties:";
+            // 
             // gbUsers
             // 
             this.gbUsers.Controls.Add(this.lblAccountsLeft);
@@ -892,23 +910,6 @@
             this.btnConfirmExtraAcc.Text = "Bevestig";
             this.btnConfirmExtraAcc.UseVisualStyleBackColor = true;
             this.btnConfirmExtraAcc.Click += new System.EventHandler(this.btnConfirmExtraAcc_Click);
-            // 
-            // cbOptions
-            // 
-            this.cbOptions.FormattingEnabled = true;
-            this.cbOptions.Location = new System.Drawing.Point(170, 144);
-            this.cbOptions.Name = "cbOptions";
-            this.cbOptions.Size = new System.Drawing.Size(265, 24);
-            this.cbOptions.TabIndex = 16;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(7, 147);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(86, 17);
-            this.label26.TabIndex = 17;
-            this.label26.Text = "Extra opties:";
             // 
             // ReserveringSysteem
             // 
