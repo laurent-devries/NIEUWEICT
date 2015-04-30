@@ -23,6 +23,9 @@ namespace ICT4Events
         List<Product> productholder;
         User user;
 
+        // create tab
+        ProductCategory productCategory;
+
         //load alle producten in de lists
         public Hiresystem()
         {
@@ -332,6 +335,7 @@ namespace ICT4Events
 
         private void Createbtn_Click(object sender, EventArgs e)
         {
+            #region oude code Mario
             ProductCategory productCatergory;
             
             
@@ -340,7 +344,7 @@ namespace ICT4Events
             string NaamProduct = NameTxt.Text;
             int hireprice = -1;
             int bailprice = -1;
-            int amount = (int)numericUpDownAmount.Value;
+            int amount = (int)nudAmount.Value;
 
             
             
@@ -379,9 +383,49 @@ namespace ICT4Events
                 }
 
                 ProductManager productData = new ProductManager();
-              //  productData.insertProduct(NaamProduct, amount, id_cat, bailprice, hireprice);
+                //  productData.insertProduct(NaamProduct, amount, id_cat, bailprice, hireprice);
+            #endregion
+
+                // Maakt de manager aan
+                ProductManager productManager = new ProductManager();
+
+                if (NameTxt.Text != "")
+                {
+                    // Vult alle data van een product
+                    string productName = NameTxt.Text;
+                    decimal priceBail = nudBailPrice.Value;
+                    decimal priceDay = nudPriceDay.Value;
+                    decimal productAmount = (int)nudAmount.Value;
+
+                    if (comboBoxCat.SelectedIndex < 0 && productCategory != null)
+                    {
+                        try
+                        {
+                            productManager.insertProduct(productName, productAmount, productCategory, priceBail, priceDay);
+                        }
+
+                        catch
+                        {
+                            MessageBox.Show("Product kan niet toegevoegd worden");
+                        }
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Alle velden moeten ingevuld zijn");
+                }
+
+
+
             }
             
+        }
+
+        private void comboBoxCat_SelectedValueChanged(object sender, EventArgs e)
+        {
+            // Vult de productCategory met de geselecteerde waarde
+            productCategory = comboBoxCat.SelectedItem as ProductCategory;
         }
        
     }

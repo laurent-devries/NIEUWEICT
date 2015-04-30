@@ -254,7 +254,7 @@ namespace ICT4Events
         }
 
 
-        public void insertProduct(string NaamProduct, int amount, int category, int bailprice, int hireprice)
+        public void insertProduct(string NaamProduct, decimal amount, ProductCategory category, decimal bailprice, decimal hireprice)
         {
             DatabaseConnection con = new DatabaseConnection();
 
