@@ -46,7 +46,8 @@ namespace ICT4Events
                 conn.InsertOrUpdate(Query);
                 UserManager userManager = new UserManager();
                 User us = userManager.SearchUserById(user.ID_User);
-                SocialSharing s = new SocialSharing(us);
+                SocialMediaSharing s = new SocialMediaSharing(us);
+                s.Show();
             }
 
             catch

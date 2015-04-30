@@ -405,6 +405,7 @@ namespace ICT4Events
             cB_Event_ID_User.Enabled = true;
             btn_changeuser.Enabled = false;
             btn_verwijder_gebruiker.Enabled = false;
+            btnCancel.Enabled = true;
 
         }
 
