@@ -12,7 +12,7 @@ namespace ICT4Events
     class CampingPlaceManager
     {
         List<CampingPlace> campingPlaceList = new List<CampingPlace>();
-        private List<string> type = new List<string>();
+        
 
         public List<CampingPlace> RequestCampingPlaces(Event e)
         {
@@ -32,7 +32,7 @@ namespace ICT4Events
             return campingPlaceList;
         }
 
-        public List<CampingPlace> RequestFreeCampingPlaces(DateTime startDate, DateTime endDate, Event e, string campingtype)
+        public List<CampingPlace> RequestFreeCampingPlaces(DateTime startDate, DateTime endDate, Event e, string campingtype, string options)
         {
             DatabaseConnection con = new DatabaseConnection();
             string startMonth;
@@ -75,7 +75,7 @@ namespace ICT4Events
                 endDay = Convert.ToString(endDate.Day);
             }
 
-            string Querry = "SELECT DISTINCT(CP.ID_CAMPINGPLACE), CP.ID_EVENTFK, CP.PLACENUMBER, CP.MAXPEOPLE, CP.CAMPINGTYPE FROM ICT4_RESERVATION R, ICT4_CAMPING_PLACE CP WHERE CP.ID_CAMPINGPLACE NOT IN (select id_campingplacefk FROM ICT4_RES_CAMPPLACE) AND CP.CAMPINGTYPE = '" + campingtype + "' AND CP.ID_EVENTFK = " + Convert.ToString(e.ID_Event);
+            string Querry = "SELECT DISTINCT(CP.ID_CAMPINGPLACE), CP.ID_EVENTFK, CP.PLACENUMBER, CP.MAXPEOPLE, CP.CAMPINGTYPE FROM ICT4_RESERVATION R, ICT4_CAMPING_PLACE CP WHERE CP.ID_CAMPINGPLACE NOT IN (select id_campingplacefk FROM ICT4_RES_CAMPPLACE) AND CP.CAMPINGTYPE = '" + campingtype + "' AND CP.ID_EVENTFK = " + Convert.ToString(e.ID_Event) + " AND CP.PLAATSPOSITIE = '" + options + "'" ;
             OracleDataReader reader = con.SelectFromDatabase(Querry);
             CampingPlace campingPlace;
             while (reader.Read())
@@ -91,8 +91,27 @@ namespace ICT4Events
 
         public List<string> GetCampingplaceTypes(Event e)
         {
+            List<string> type = new List<string>();
             DatabaseConnection con = new DatabaseConnection();
             string Querry = "SELECT DISTINCT(CP.CAMPINGTYPE) FROM ICT4_CAMPING_PLACE CP WHERE CP.ID_CAMPINGPLACE NOT IN (select id_campingplacefk FROM ICT4_RES_CAMPPLACE) AND CP.ID_EVENTFK = " + Convert.ToString(e.ID_Event); //, CP.CAMPINGTYPE
+            OracleDataReader reader = con.SelectFromDatabase(Querry);
+            while (reader.Read())
+            {
+                string s = (reader.GetString(0));
+                type.Add(s);
+            }
+
+            reader.Dispose();
+
+            return type;
+
+        }
+
+        public List<string> GetOptionTypes(Event e)
+        {
+            List<string> type = new List<string>();
+            DatabaseConnection con = new DatabaseConnection();
+            string Querry = "SELECT DISTINCT(CP.PLAATSPOSITIE) FROM ICT4_CAMPING_PLACE CP WHERE CP.ID_CAMPINGPLACE NOT IN (select id_campingplacefk FROM ICT4_RES_CAMPPLACE) AND CP.ID_EVENTFK = " + Convert.ToString(e.ID_Event);
             OracleDataReader reader = con.SelectFromDatabase(Querry);
             while (reader.Read())
             {

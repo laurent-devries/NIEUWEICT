@@ -23,8 +23,7 @@ namespace ICT4Events
             InitializeComponent();
             CampingPlaceManager cpManager = new CampingPlaceManager();
             EventManager eventManager = new EventManager();
-            List<Event> eventList = eventManager.RequestEvent();
-            cbEvents.DataSource = eventList;
+            cbEvents.DataSource = eventManager.RequestEvent();
             cbEvents.Refresh();
             gbVerhuur.Enabled = false;
             gbUsers.Enabled = false;
@@ -34,8 +33,8 @@ namespace ICT4Events
         {
             Event el = cbEvents.SelectedItem as Event;
             CampingPlaceManager cpManager = new CampingPlaceManager();
-            List<string> typelist = cpManager.GetCampingplaceTypes(el);
-            cbSoortPlaats.DataSource = typelist;
+            cbOptions.DataSource = cpManager.GetOptionTypes(el);
+            cbSoortPlaats.DataSource = cpManager.GetCampingplaceTypes(el);
             cbSoortPlaats.Refresh();
         }
 
@@ -87,7 +86,7 @@ namespace ICT4Events
         {
             Event el = cbEvents.SelectedItem as Event;
             CampingPlaceManager cpManager = new CampingPlaceManager();
-            List<CampingPlace> campingPlaceList = cpManager.RequestFreeCampingPlaces(dtpAankomst.Value, dtpVertrek.Value, el, Convert.ToString(cbSoortPlaats.SelectedValue));
+            List<CampingPlace> campingPlaceList = cpManager.RequestFreeCampingPlaces(dtpAankomst.Value, dtpVertrek.Value, el, Convert.ToString(cbSoortPlaats.SelectedValue), Convert.ToString(cbOptions.SelectedItem));
             cbPlaces.DataSource = campingPlaceList;
             cbPlaces.Refresh();
         }

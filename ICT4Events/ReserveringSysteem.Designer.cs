@@ -96,6 +96,8 @@
             this.tbPassEx = new System.Windows.Forms.TextBox();
             this.tbLoginEx = new System.Windows.Forms.TextBox();
             this.btnConfirmExtraAcc = new System.Windows.Forms.Button();
+            this.cbOptions = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.gb_gebruikercreatie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantal)).BeginInit();
             this.gbVerhuur.SuspendLayout();
@@ -163,7 +165,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 147);
+            this.label3.Location = new System.Drawing.Point(7, 178);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 17);
@@ -173,7 +175,7 @@
             // cbPlaces
             // 
             this.cbPlaces.FormattingEnabled = true;
-            this.cbPlaces.Location = new System.Drawing.Point(170, 144);
+            this.cbPlaces.Location = new System.Drawing.Point(170, 175);
             this.cbPlaces.Margin = new System.Windows.Forms.Padding(4);
             this.cbPlaces.Name = "cbPlaces";
             this.cbPlaces.Size = new System.Drawing.Size(324, 24);
@@ -207,7 +209,7 @@
             this.gb_gebruikercreatie.Controls.Add(this.lb_naam_gebruiker);
             this.gb_gebruikercreatie.Controls.Add(this.tb_voornaam_gebruiker);
             this.gb_gebruikercreatie.Enabled = false;
-            this.gb_gebruikercreatie.Location = new System.Drawing.Point(20, 274);
+            this.gb_gebruikercreatie.Location = new System.Drawing.Point(20, 310);
             this.gb_gebruikercreatie.Margin = new System.Windows.Forms.Padding(4);
             this.gb_gebruikercreatie.Name = "gb_gebruikercreatie";
             this.gb_gebruikercreatie.Padding = new System.Windows.Forms.Padding(4);
@@ -523,7 +525,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 177);
+            this.label7.Location = new System.Drawing.Point(7, 208);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(116, 17);
@@ -532,7 +534,7 @@
             // 
             // nudAantal
             // 
-            this.nudAantal.Location = new System.Drawing.Point(170, 175);
+            this.nudAantal.Location = new System.Drawing.Point(170, 206);
             this.nudAantal.Maximum = new decimal(new int[] {
             12,
             0,
@@ -780,7 +782,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(170, 203);
+            this.button1.Location = new System.Drawing.Point(170, 234);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(265, 38);
             this.button1.TabIndex = 7;
@@ -790,6 +792,8 @@
             // 
             // gbEvent
             // 
+            this.gbEvent.Controls.Add(this.cbOptions);
+            this.gbEvent.Controls.Add(this.label26);
             this.gbEvent.Controls.Add(this.label1);
             this.gbEvent.Controls.Add(this.button1);
             this.gbEvent.Controls.Add(this.lblAankomst);
@@ -805,7 +809,7 @@
             this.gbEvent.Controls.Add(this.cbPlaces);
             this.gbEvent.Location = new System.Drawing.Point(20, 12);
             this.gbEvent.Name = "gbEvent";
-            this.gbEvent.Size = new System.Drawing.Size(568, 255);
+            this.gbEvent.Size = new System.Drawing.Size(568, 291);
             this.gbEvent.TabIndex = 19;
             this.gbEvent.TabStop = false;
             this.gbEvent.Text = "Evenement selecteren";
@@ -889,11 +893,28 @@
             this.btnConfirmExtraAcc.UseVisualStyleBackColor = true;
             this.btnConfirmExtraAcc.Click += new System.EventHandler(this.btnConfirmExtraAcc_Click);
             // 
+            // cbOptions
+            // 
+            this.cbOptions.FormattingEnabled = true;
+            this.cbOptions.Location = new System.Drawing.Point(170, 144);
+            this.cbOptions.Name = "cbOptions";
+            this.cbOptions.Size = new System.Drawing.Size(265, 24);
+            this.cbOptions.TabIndex = 16;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(7, 147);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(86, 17);
+            this.label26.TabIndex = 17;
+            this.label26.Text = "Extra opties:";
+            // 
             // ReserveringSysteem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1336, 698);
+            this.ClientSize = new System.Drawing.Size(1336, 735);
             this.Controls.Add(this.gbUsers);
             this.Controls.Add(this.gbEvent);
             this.Controls.Add(this.gbVerhuur);
@@ -987,5 +1008,7 @@
         private System.Windows.Forms.TextBox tbPassEx;
         private System.Windows.Forms.TextBox tbLoginEx;
         private System.Windows.Forms.Button btnConfirmExtraAcc;
+        private System.Windows.Forms.ComboBox cbOptions;
+        private System.Windows.Forms.Label label26;
     }
 }
