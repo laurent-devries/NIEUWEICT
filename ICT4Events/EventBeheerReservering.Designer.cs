@@ -208,16 +208,16 @@
             this.gb_gebruikercreatie.Controls.Add(this.lb_naam_gebruiker);
             this.gb_gebruikercreatie.Controls.Add(this.tb_voornaam_gebruiker);
             this.gb_gebruikercreatie.Enabled = false;
-            this.gb_gebruikercreatie.Location = new System.Drawing.Point(463, 79);
+            this.gb_gebruikercreatie.Location = new System.Drawing.Point(463, 83);
             this.gb_gebruikercreatie.Name = "gb_gebruikercreatie";
-            this.gb_gebruikercreatie.Size = new System.Drawing.Size(426, 536);
+            this.gb_gebruikercreatie.Size = new System.Drawing.Size(426, 532);
             this.gb_gebruikercreatie.TabIndex = 36;
             this.gb_gebruikercreatie.TabStop = false;
             this.gb_gebruikercreatie.Text = "User Create / Change";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(262, 507);
+            this.btnCancel.Location = new System.Drawing.Point(250, 298);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 53;
@@ -274,7 +274,7 @@
             // 
             // btn_Confirm_user
             // 
-            this.btn_Confirm_user.Location = new System.Drawing.Point(343, 507);
+            this.btn_Confirm_user.Location = new System.Drawing.Point(332, 298);
             this.btn_Confirm_user.Name = "btn_Confirm_user";
             this.btn_Confirm_user.Size = new System.Drawing.Size(75, 23);
             this.btn_Confirm_user.TabIndex = 54;
