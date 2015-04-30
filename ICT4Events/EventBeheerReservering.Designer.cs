@@ -220,7 +220,7 @@
             this.btnCancel.Location = new System.Drawing.Point(262, 507);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 33;
+            this.btnCancel.TabIndex = 53;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
@@ -235,7 +235,7 @@
             this.cB_Reservation_ID_User.Name = "cB_Reservation_ID_User";
             this.cB_Reservation_ID_User.Size = new System.Drawing.Size(324, 21);
             this.cB_Reservation_ID_User.Sorted = true;
-            this.cB_Reservation_ID_User.TabIndex = 32;
+            this.cB_Reservation_ID_User.TabIndex = 40;
             // 
             // label12
             // 
@@ -251,7 +251,7 @@
             this.tb_achternaam_user.Location = new System.Drawing.Point(275, 44);
             this.tb_achternaam_user.Name = "tb_achternaam_user";
             this.tb_achternaam_user.Size = new System.Drawing.Size(145, 20);
-            this.tb_achternaam_user.TabIndex = 27;
+            this.tb_achternaam_user.TabIndex = 42;
             // 
             // label9
             // 
@@ -269,7 +269,7 @@
             this.tb_password_gebruiker.Name = "tb_password_gebruiker";
             this.tb_password_gebruiker.ShortcutsEnabled = false;
             this.tb_password_gebruiker.Size = new System.Drawing.Size(325, 20);
-            this.tb_password_gebruiker.TabIndex = 19;
+            this.tb_password_gebruiker.TabIndex = 52;
             this.tb_password_gebruiker.UseSystemPasswordChar = true;
             // 
             // btn_Confirm_user
@@ -277,7 +277,7 @@
             this.btn_Confirm_user.Location = new System.Drawing.Point(343, 507);
             this.btn_Confirm_user.Name = "btn_Confirm_user";
             this.btn_Confirm_user.Size = new System.Drawing.Size(75, 23);
-            this.btn_Confirm_user.TabIndex = 4;
+            this.btn_Confirm_user.TabIndex = 54;
             this.btn_Confirm_user.Text = "Confirm";
             this.btn_Confirm_user.UseVisualStyleBackColor = true;
             this.btn_Confirm_user.Click += new System.EventHandler(this.btn_Confirm_user_Click);
@@ -306,7 +306,7 @@
             this.tb_loginname_gebruiker.MaxLength = 17;
             this.tb_loginname_gebruiker.Name = "tb_loginname_gebruiker";
             this.tb_loginname_gebruiker.Size = new System.Drawing.Size(324, 20);
-            this.tb_loginname_gebruiker.TabIndex = 17;
+            this.tb_loginname_gebruiker.TabIndex = 50;
             // 
             // tb_username_gebruiker
             // 
@@ -314,7 +314,7 @@
             this.tb_username_gebruiker.MaxLength = 255;
             this.tb_username_gebruiker.Name = "tb_username_gebruiker";
             this.tb_username_gebruiker.Size = new System.Drawing.Size(325, 20);
-            this.tb_username_gebruiker.TabIndex = 18;
+            this.tb_username_gebruiker.TabIndex = 51;
             // 
             // lb_Username_gebruiker
             // 
@@ -340,7 +340,7 @@
             this.tb_telnr_gebruiker.MaxLength = 20;
             this.tb_telnr_gebruiker.Name = "tb_telnr_gebruiker";
             this.tb_telnr_gebruiker.Size = new System.Drawing.Size(325, 20);
-            this.tb_telnr_gebruiker.TabIndex = 16;
+            this.tb_telnr_gebruiker.TabIndex = 49;
             // 
             // lb_addres_stad_gebruiker
             // 
@@ -357,7 +357,7 @@
             this.tb_stad_user.MaxLength = 255;
             this.tb_stad_user.Name = "tb_stad_user";
             this.tb_stad_user.Size = new System.Drawing.Size(178, 20);
-            this.tb_stad_user.TabIndex = 12;
+            this.tb_stad_user.TabIndex = 48;
             // 
             // tb_number_user
             // 
@@ -365,7 +365,7 @@
             this.tb_number_user.MaxLength = 10;
             this.tb_number_user.Name = "tb_number_user";
             this.tb_number_user.Size = new System.Drawing.Size(88, 20);
-            this.tb_number_user.TabIndex = 11;
+            this.tb_number_user.TabIndex = 47;
             // 
             // lb_addres_nummer_gebruiker
             // 
@@ -391,7 +391,7 @@
             this.tb_straat_user.MaxLength = 255;
             this.tb_straat_user.Name = "tb_straat_user";
             this.tb_straat_user.Size = new System.Drawing.Size(179, 20);
-            this.tb_straat_user.TabIndex = 8;
+            this.tb_straat_user.TabIndex = 46;
             // 
             // cb_land_gebruiker
             // 
@@ -463,7 +463,7 @@
             this.cb_land_gebruiker.Name = "cb_land_gebruiker";
             this.cb_land_gebruiker.Size = new System.Drawing.Size(324, 21);
             this.cb_land_gebruiker.Sorted = true;
-            this.cb_land_gebruiker.TabIndex = 7;
+            this.cb_land_gebruiker.TabIndex = 45;
             // 
             // lb_land_gebruiker
             // 
@@ -480,7 +480,7 @@
             this.tb_email_gebruiker.MaxLength = 255;
             this.tb_email_gebruiker.Name = "tb_email_gebruiker";
             this.tb_email_gebruiker.Size = new System.Drawing.Size(324, 20);
-            this.tb_email_gebruiker.TabIndex = 5;
+            this.tb_email_gebruiker.TabIndex = 44;
             // 
             // lb_email_gebruiker
             // 
@@ -496,7 +496,7 @@
             this.dtp_geboortedatum_gebruiker.Location = new System.Drawing.Point(96, 68);
             this.dtp_geboortedatum_gebruiker.Name = "dtp_geboortedatum_gebruiker";
             this.dtp_geboortedatum_gebruiker.Size = new System.Drawing.Size(324, 20);
-            this.dtp_geboortedatum_gebruiker.TabIndex = 3;
+            this.dtp_geboortedatum_gebruiker.TabIndex = 43;
             this.dtp_geboortedatum_gebruiker.Value = new System.DateTime(2015, 4, 17, 9, 46, 0, 0);
             // 
             // lb_geboortedatum_gebruiker
@@ -523,7 +523,7 @@
             this.tb_voornaam_gebruiker.MaxLength = 255;
             this.tb_voornaam_gebruiker.Name = "tb_voornaam_gebruiker";
             this.tb_voornaam_gebruiker.Size = new System.Drawing.Size(100, 20);
-            this.tb_voornaam_gebruiker.TabIndex = 0;
+            this.tb_voornaam_gebruiker.TabIndex = 41;
             // 
             // Listb_gebruikers
             // 
@@ -744,6 +744,7 @@
             this.gb_mantain_event.Controls.Add(this.label6);
             this.gb_mantain_event.Controls.Add(this.label5);
             this.gb_mantain_event.Controls.Add(this.label4);
+            this.gb_mantain_event.Enabled = false;
             this.gb_mantain_event.Location = new System.Drawing.Point(6, 418);
             this.gb_mantain_event.Name = "gb_mantain_event";
             this.gb_mantain_event.Size = new System.Drawing.Size(432, 199);
@@ -759,7 +760,7 @@
             this.btnEventcancel.TabIndex = 34;
             this.btnEventcancel.Text = "Cancel";
             this.btnEventcancel.UseVisualStyleBackColor = true;
-            this.btnEventcancel.Click += new System.EventHandler(this.button1_Click_2);
+            this.btnEventcancel.Click += new System.EventHandler(this.btnEventcancel_1);
             // 
             // Event_End_Date
             // 

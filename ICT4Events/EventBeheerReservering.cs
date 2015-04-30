@@ -18,7 +18,7 @@ namespace ICT4Events
     {
         List<Event> evenementen = null;
         List<User> userList = null;
-        List<Reservation> reservations = null;
+        List<CampingPlace> campingplaatslijst = null;
         EventManager Event = new EventManager();
         UserManager Users = new UserManager();
         ReservationManager Reservation = new ReservationManager();
@@ -29,6 +29,7 @@ namespace ICT4Events
         }
         private void lists()
         {
+            // Refresht alle lijsten en alle benodigdheden
             evenementen = Event.RequestEvent();
             userList = Users.RequestUsers();
 
@@ -57,6 +58,7 @@ namespace ICT4Events
         }
         private void userclear()
         {
+            // cleart alle input knoppen
             cB_Event_ID_User.Text = null;
             cb_land_gebruiker.Text = null;
             tb_voornaam_gebruiker.Text = null;
@@ -83,6 +85,7 @@ namespace ICT4Events
         }
         private void btn_show_users_Click_1(object sender, EventArgs e)
         {
+            // laat alle users zien op een event.
             lb_show_user_on_event.Items.Clear();
             DatabaseConnection conn = new DatabaseConnection();
             string querry = "select u.ID_USER, u.FIRSTNAME, u.SURNAME, u.PRESENTUSER, r.PAYMENTSTATE FROM ICT4_USER u, ICT4_EVENT e , ICT4_RESERVATION r WHERE e.ID_EVENT = u.ID_EVENTFK and r.ID_RESERVATION = u.ID_RESERVATIONFK and u.ID_EVENTFK = " + cb_showusersonevent.Text;
@@ -95,11 +98,9 @@ namespace ICT4Events
 
         private void btn_printlistusers_Click_1(object sender, EventArgs e)
         {
-            // deze button moet een lijst uitprinten van alle users op het event.
-            // deze is nog niet uitgewerkt.
+            // als deze button wordt ingedrukt zal er een lijst op je bureaublad komen te staan.
             FileStream file;
             StreamWriter writer;
-
             try
             {
                 file = new FileStream(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "/Logbestand.txt", FileMode.Create, FileAccess.Write);
@@ -120,9 +121,10 @@ namespace ICT4Events
         }
 
         private void btn_create_event_Click(object sender, EventArgs e)
-        {
+        {           
             if (btn_create_event.Enabled)
             {
+                // creeërt een event met de meegegeven gegevens
                 DatabaseConnection conn = new DatabaseConnection();
                 string startmonth;
                 if (Event_Start_Date.Value.Month < 10)
@@ -172,6 +174,7 @@ namespace ICT4Events
             }
             if (btn_change_event.Enabled)
             {
+                // Verander het event naar de meegegeven gegevens
                 DatabaseConnection conn = new DatabaseConnection();
                 string startmonth;
                 if (Event_Start_Date.Value.Month < 10)
@@ -235,8 +238,9 @@ namespace ICT4Events
             lists();
         }
 
-        private void button1_Click_2(object sender, EventArgs e)
+        private void btnEventcancel_1(object sender, EventArgs e)
         {
+            // Cancelt de actie
             lists();
             userclear();
             btn_new_event.Enabled = true;
@@ -247,6 +251,7 @@ namespace ICT4Events
 
         private void btn_new_event_Click_1(object sender, EventArgs e)
         {
+            // Cancelt de actie
             lists();
             userclear();
             btn_new_event.Enabled = true;
@@ -257,6 +262,7 @@ namespace ICT4Events
 
         private void btn_change_event_Click_1(object sender, EventArgs e)
         {
+            // activeert de functie om een event te kunnen veranderen
             btn_new_event.Enabled = false;
             btn_change_event.Enabled = true;
             btn_delete_event.Enabled = false;
@@ -276,6 +282,7 @@ namespace ICT4Events
 
         private void btn_delete_event_Click_1(object sender, EventArgs e)
         {
+            //activeert de functie om event te kunnen verwijderen
             btn_new_event.Enabled = true;
             btn_change_event.Enabled = true;
             btn_delete_event.Enabled = true;
@@ -298,13 +305,13 @@ namespace ICT4Events
                     }
                     trueorfalse = true;
                 }
-
             }
             lists();
         }
 
         private void btnCancel_Click_1(object sender, EventArgs e)
         {
+            //cancelt de actie
             lists();
             userclear();
             btn_nieuwe_gebruiker.Enabled = true;
@@ -315,11 +322,13 @@ namespace ICT4Events
 
         private void btn_Confirm_user_Click(object sender, EventArgs e)
         {
+
             gb_gebruikercreatie.Enabled = false;
             cB_Event_ID_User.Enabled = false;
 
             if (btn_nieuwe_gebruiker.Enabled)
             {
+                // creëert nieuwe user in de database
                 DatabaseConnection conn = new DatabaseConnection();
                 string maand;
                 if (dtp_geboortedatum_gebruiker.Value.Month < 10)
@@ -343,6 +352,7 @@ namespace ICT4Events
             }
             if (btn_changeuser.Enabled)
             {
+                // verandert een user in de database
                 DatabaseConnection conn = new DatabaseConnection();
                 string maand;
                 if (dtp_geboortedatum_gebruiker.Value.Month < 10)
@@ -391,14 +401,17 @@ namespace ICT4Events
 
         private void btn_nieuwe_gebruiker_Click_1(object sender, EventArgs e)
         {
+            //activeert de functie om een gebruiker aan te maken
             cB_Event_ID_User.Enabled = true;
             btn_changeuser.Enabled = false;
             btn_verwijder_gebruiker.Enabled = false;
+            btnCancel.Enabled = true;
 
         }
 
         private void btn_changeuser_Click(object sender, EventArgs e)
         {
+            //activeert de functie om een gebruiker te veranderen
             gb_gebruikercreatie.Enabled = true;
             cB_Event_ID_User.Enabled = false;
             cB_Reservation_ID_User.Enabled = false;
@@ -428,6 +441,7 @@ namespace ICT4Events
 
         private void cB_Event_ID_User_TextChanged_1(object sender, EventArgs e)
         {
+            //verandert gegevens in de combobox
             List<string> liststring = new List<string>();
             gb_gebruikercreatie.Enabled = true;
             int eventid;
@@ -460,6 +474,7 @@ namespace ICT4Events
 
         private void btn_verwijder_gebruiker_Click_1(object sender, EventArgs e)
         {
+            // verwijdert de geselecteerde gebruiker.
             btn_changeuser.Enabled = true;
             btn_nieuwe_gebruiker.Enabled = true;
             bool trueorfalse = false;
@@ -484,7 +499,7 @@ namespace ICT4Events
             }
             lists();
         }
-        List<CampingPlace> campingplaatslijst = null;
+        
         private void cb_event_id_campingplaces_TextChanged(object sender, EventArgs e)
         {
             CampingPlaceManager mngr = new CampingPlaceManager();
@@ -528,7 +543,6 @@ namespace ICT4Events
         private void Btn_deletecampingplace_Click(object sender, EventArgs e)
         {
             CampingPlaceManager mngr = new CampingPlaceManager();
-
             bool succes = mngr.DeleteCampingPlace(Listb_Event_campingplaces.GetItemText(Listb_Event_campingplaces.SelectedItem));
             if (succes)
             {

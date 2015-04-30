@@ -80,7 +80,7 @@ namespace ICT4Events
 
         public override string ToString()
         {
-            return title;
+            return id_event +"\t" +title;
         }
     }
 }

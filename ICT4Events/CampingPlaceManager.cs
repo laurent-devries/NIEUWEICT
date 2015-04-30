@@ -75,7 +75,16 @@ namespace ICT4Events
                 endDay = Convert.ToString(endDate.Day);
             }
 
-            string Querry = "SELECT DISTINCT(CP.ID_CAMPINGPLACE), CP.ID_EVENTFK, CP.PLACENUMBER, CP.MAXPEOPLE, CP.CAMPINGTYPE FROM ICT4_RESERVATION R, ICT4_CAMPING_PLACE CP WHERE CP.ID_CAMPINGPLACE NOT IN (select id_campingplacefk FROM ICT4_RES_CAMPPLACE) AND CP.CAMPINGTYPE = '" + campingtype + "' AND CP.ID_EVENTFK = " + Convert.ToString(e.ID_Event) + " AND CP.PLAATSPOSITIE = '" + options + "'" ;
+            string Querry = "";
+
+            if (options == "ALL")
+            {
+                Querry = "SELECT DISTINCT(CP.ID_CAMPINGPLACE), CP.ID_EVENTFK, CP.PLACENUMBER, CP.MAXPEOPLE, CP.CAMPINGTYPE FROM ICT4_RESERVATION R, ICT4_CAMPING_PLACE CP WHERE CP.ID_CAMPINGPLACE NOT IN (select id_campingplacefk FROM ICT4_RES_CAMPPLACE) AND CP.CAMPINGTYPE = '" + campingtype + "' AND CP.ID_EVENTFK = " + Convert.ToString(e.ID_Event);
+            }
+            else
+            {
+                Querry = "SELECT DISTINCT(CP.ID_CAMPINGPLACE), CP.ID_EVENTFK, CP.PLACENUMBER, CP.MAXPEOPLE, CP.CAMPINGTYPE FROM ICT4_RESERVATION R, ICT4_CAMPING_PLACE CP WHERE CP.ID_CAMPINGPLACE NOT IN (select id_campingplacefk FROM ICT4_RES_CAMPPLACE) AND CP.CAMPINGTYPE = '" + campingtype + "' AND CP.ID_EVENTFK = " + Convert.ToString(e.ID_Event) + " AND CP.PLAATSPOSITIE = '" + options + "'" ;
+            }
             OracleDataReader reader = con.SelectFromDatabase(Querry);
             CampingPlace campingPlace;
             while (reader.Read())
@@ -101,6 +110,7 @@ namespace ICT4Events
                 type.Add(s);
             }
 
+            type.Add("ALL");
             reader.Dispose();
 
             return type;
