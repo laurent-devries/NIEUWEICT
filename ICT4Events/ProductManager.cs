@@ -177,9 +177,9 @@ namespace ICT4Events
                             dag = Convert.ToString(dateNow.Day);
                         }
 
-                        string dateFromNow = dag + maand + Convert.ToString(dateNow.Year);
+                        string dateFromNow = dag + "-" + maand + "-" + Convert.ToString(dateNow.Year);
 
-                        string Query4 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(user_product_seq.nextval, " + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date( " + dateFromNow + ",'DD-MM-YYYY'), to_date('" + date + "', 'DDMMYYYY'), null" + "," + +hireAmount + ")";
+                        string Query4 = "INSERT INTO ICT4_USER_PRODUCTS VALUES(user_product_seq.nextval, " + "'" + user.ID_User + "'" + "," + "'" + product.ID_Product + "'" + ", to_date( '" + dateFromNow + "','dd-MM-yyyy'), to_date('" + date + "', 'dd-MM-yyyy'), null" + "," + +hireAmount + ")";
                         con.InsertOrUpdate(Query4);
 
                         string Query5 = "UPDATE ICT4_PRODUCT SET TotalHiredamount  = TOTALHIREDAMOUNT +" + hireAmount + "WHERE ID_PRODUCT = " + "'" + product.ID_Product + "'" + "";
