@@ -328,6 +328,7 @@ namespace ICT4Events
 
         public void LoadProductsCategory()
         {
+            comboBoxCat.Items.Clear();
             ProductcCatManager productCatData = new ProductcCatManager();
             productCategoryList = productCatData.RequestProductCategory();
 
@@ -374,6 +375,7 @@ namespace ICT4Events
             }
         private void comboBoxCat_SelectedValueChanged(object sender, EventArgs e)
         {
+            
             // Vult de productCategory met de geselecteerde waarde
             productCategory = comboBoxCat.SelectedItem as ProductCategory;
         }
