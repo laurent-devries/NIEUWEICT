@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hiresystem));
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             this.nudPriceDay = new System.Windows.Forms.NumericUpDown();
             this.nudBailPrice = new System.Windows.Forms.NumericUpDown();
             this.nudAmount = new System.Windows.Forms.NumericUpDown();
@@ -92,6 +98,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblWaiting = new System.Windows.Forms.Label();
             this.RFIDtext = new System.Windows.Forms.TextBox();
+            this.bttnEnableRFID = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblserialInfo = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblconnectedInfo = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label34 = new System.Windows.Forms.Label();
             this.allProductslist = new System.Windows.Forms.ListBox();
@@ -100,9 +111,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.lblserialInfo = new System.Windows.Forms.Label();
-            this.bttnEnableRFID = new System.Windows.Forms.Button();
-            this.lblconnectedInfo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label33 = new System.Windows.Forms.Label();
@@ -110,15 +118,9 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.bttnReturn = new System.Windows.Forms.Button();
             this.bttnLend = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.fgfdgdf = new System.Windows.Forms.TabControl();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPriceDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBailPrice)).BeginInit();
@@ -133,31 +135,52 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.fgfdgdf.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox8);
             this.tabPage2.Controls.Add(this.label46);
             this.tabPage2.Controls.Add(this.label45);
             this.tabPage2.Controls.Add(this.label44);
             this.tabPage2.Controls.Add(this.label43);
             this.tabPage2.Controls.Add(this.label42);
             this.tabPage2.Controls.Add(this.label41);
-            this.tabPage2.Controls.Add(this.nudPriceDay);
-            this.tabPage2.Controls.Add(this.nudBailPrice);
-            this.tabPage2.Controls.Add(this.nudAmount);
-            this.tabPage2.Controls.Add(this.label40);
-            this.tabPage2.Controls.Add(this.label39);
-            this.tabPage2.Controls.Add(this.comboBoxCat);
-            this.tabPage2.Controls.Add(this.label38);
-            this.tabPage2.Controls.Add(this.label37);
-            this.tabPage2.Controls.Add(this.label36);
-            this.tabPage2.Controls.Add(this.NameTxt);
             this.tabPage2.Controls.Add(this.AllproductsP2lst);
-            this.tabPage2.Controls.Add(this.Createbtn);
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label46
+            // 
+            resources.ApplyResources(this.label46, "label46");
+            this.label46.Name = "label46";
+            // 
+            // label45
+            // 
+            resources.ApplyResources(this.label45, "label45");
+            this.label45.Name = "label45";
+            // 
+            // label44
+            // 
+            resources.ApplyResources(this.label44, "label44");
+            this.label44.Name = "label44";
+            // 
+            // label43
+            // 
+            resources.ApplyResources(this.label43, "label43");
+            this.label43.Name = "label43";
+            // 
+            // label42
+            // 
+            resources.ApplyResources(this.label42, "label42");
+            this.label42.Name = "label42";
+            // 
+            // label41
+            // 
+            resources.ApplyResources(this.label41, "label41");
+            this.label41.Name = "label41";
             // 
             // nudPriceDay
             // 
@@ -271,6 +294,7 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.label47);
             this.groupBox7.Controls.Add(this.label16);
             this.groupBox7.Controls.Add(this.UserProductlist);
             this.groupBox7.Controls.Add(this.label14);
@@ -546,6 +570,33 @@
             resources.ApplyResources(this.RFIDtext, "RFIDtext");
             this.RFIDtext.Name = "RFIDtext";
             // 
+            // bttnEnableRFID
+            // 
+            resources.ApplyResources(this.bttnEnableRFID, "bttnEnableRFID");
+            this.bttnEnableRFID.Name = "bttnEnableRFID";
+            this.bttnEnableRFID.UseVisualStyleBackColor = true;
+            this.bttnEnableRFID.Click += new System.EventHandler(this.bttnEnableRFID_Click);
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // lblserialInfo
+            // 
+            resources.ApplyResources(this.lblserialInfo, "lblserialInfo");
+            this.lblserialInfo.Name = "lblserialInfo";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // lblconnectedInfo
+            // 
+            resources.ApplyResources(this.lblconnectedInfo, "lblconnectedInfo");
+            this.lblconnectedInfo.Name = "lblconnectedInfo";
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.label34);
@@ -596,23 +647,6 @@
             resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
             // 
-            // lblserialInfo
-            // 
-            resources.ApplyResources(this.lblserialInfo, "lblserialInfo");
-            this.lblserialInfo.Name = "lblserialInfo";
-            // 
-            // bttnEnableRFID
-            // 
-            resources.ApplyResources(this.bttnEnableRFID, "bttnEnableRFID");
-            this.bttnEnableRFID.Name = "bttnEnableRFID";
-            this.bttnEnableRFID.UseVisualStyleBackColor = true;
-            this.bttnEnableRFID.Click += new System.EventHandler(this.bttnEnableRFID_Click);
-            // 
-            // lblconnectedInfo
-            // 
-            resources.ApplyResources(this.lblconnectedInfo, "lblconnectedInfo");
-            this.lblconnectedInfo.Name = "lblconnectedInfo";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.numericUpDown1);
@@ -659,16 +693,6 @@
             this.bttnLend.UseVisualStyleBackColor = true;
             this.bttnLend.Click += new System.EventHandler(this.bttnLend_Click);
             // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
             // fgfdgdf
             // 
             this.fgfdgdf.Controls.Add(this.tabPage1);
@@ -677,35 +701,27 @@
             this.fgfdgdf.Name = "fgfdgdf";
             this.fgfdgdf.SelectedIndex = 0;
             // 
-            // label41
+            // label47
             // 
-            resources.ApplyResources(this.label41, "label41");
-            this.label41.Name = "label41";
+            resources.ApplyResources(this.label47, "label47");
+            this.label47.Name = "label47";
             // 
-            // label42
+            // groupBox8
             // 
-            resources.ApplyResources(this.label42, "label42");
-            this.label42.Name = "label42";
-            // 
-            // label43
-            // 
-            resources.ApplyResources(this.label43, "label43");
-            this.label43.Name = "label43";
-            // 
-            // label44
-            // 
-            resources.ApplyResources(this.label44, "label44");
-            this.label44.Name = "label44";
-            // 
-            // label45
-            // 
-            resources.ApplyResources(this.label45, "label45");
-            this.label45.Name = "label45";
-            // 
-            // label46
-            // 
-            resources.ApplyResources(this.label46, "label46");
-            this.label46.Name = "label46";
+            this.groupBox8.Controls.Add(this.label36);
+            this.groupBox8.Controls.Add(this.Createbtn);
+            this.groupBox8.Controls.Add(this.NameTxt);
+            this.groupBox8.Controls.Add(this.label37);
+            this.groupBox8.Controls.Add(this.label38);
+            this.groupBox8.Controls.Add(this.comboBoxCat);
+            this.groupBox8.Controls.Add(this.label39);
+            this.groupBox8.Controls.Add(this.nudPriceDay);
+            this.groupBox8.Controls.Add(this.label40);
+            this.groupBox8.Controls.Add(this.nudBailPrice);
+            this.groupBox8.Controls.Add(this.nudAmount);
+            resources.ApplyResources(this.groupBox8, "groupBox8");
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.TabStop = false;
             // 
             // Hiresystem
             // 
@@ -739,6 +755,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.fgfdgdf.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -835,6 +853,8 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.GroupBox groupBox8;
 
     }
 }
