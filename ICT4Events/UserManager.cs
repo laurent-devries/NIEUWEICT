@@ -23,9 +23,13 @@ namespace ICT4Events
             User user;
             while (reader.Read())
             {
-                if (!reader.IsDBNull(19))
+                if (!reader.IsDBNull(19) && !reader.IsDBNull(2))
                 {
                     user = new User(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetString(10), reader.GetString(11), reader.GetString(12), reader.GetString(13), reader.GetString(14), reader.GetString(15), reader.GetString(16), reader.GetString(17), Convert.ToChar(reader.GetString(18)), reader.GetString(19));
+                }
+                else if (!reader.IsDBNull(19) && reader.IsDBNull(2))
+                {
+                    user = new User(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(3), reader.GetString(4), reader.GetString(5), reader.GetDateTime(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetString(10), reader.GetString(11), reader.GetString(12), reader.GetString(13), reader.GetString(14), reader.GetString(15), reader.GetString(16), reader.GetString(17), Convert.ToChar(reader.GetString(18)), reader.GetString(19));
                 }
                 else if(!reader.IsDBNull(2))
                 {

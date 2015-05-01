@@ -123,6 +123,29 @@ namespace ICT4Events
 
 
         }
+        public User(int id_user, int id_event, int permission, string first_name, string sur_name, DateTime birth_date, string email, string country, string street, string housenumber, string city, string phone_number, string loginname, string username, string password, string profile_pic, string summary, char present, string rfid_tag)
+        {
+            this.id_user = id_user;
+            ID_EventFK = id_event;
+            this.permissionFk = permission;
+            this.first_name = first_name;
+            this.sur_name = sur_name;
+            this.birth_date = birth_date;
+            this.email = email;
+            this.country = country;
+            Street = street;
+            Housenumber = housenumber;
+            this.city = city;
+            this.phone_number = phone_number;
+            this.loginname = loginname;
+            this.username = username;
+            this.password = password;
+            this.profile_pic = profile_pic;
+            this.summary = summary;
+            this.present = present;
+            this.rfid_tag = rfid_tag;
+
+        }
 
         public User(int id_user, int id_event, int id_reservation, int permission, string loginname, string password, char present)
         {
