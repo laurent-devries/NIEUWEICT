@@ -30,30 +30,32 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hiresystem));
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.Createbtn = new System.Windows.Forms.Button();
+            this.NameTxt = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.comboBoxCat = new System.Windows.Forms.ComboBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.nudPriceDay = new System.Windows.Forms.NumericUpDown();
+            this.label40 = new System.Windows.Forms.Label();
+            this.nudBailPrice = new System.Windows.Forms.NumericUpDown();
+            this.nudAmount = new System.Windows.Forms.NumericUpDown();
             this.label46 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.nudPriceDay = new System.Windows.Forms.NumericUpDown();
-            this.nudBailPrice = new System.Windows.Forms.NumericUpDown();
-            this.nudAmount = new System.Windows.Forms.NumericUpDown();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.comboBoxCat = new System.Windows.Forms.ComboBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.NameTxt = new System.Windows.Forms.TextBox();
             this.AllproductsP2lst = new System.Windows.Forms.ListBox();
-            this.Createbtn = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.clearbtn = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.SearchTxtHR = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label47 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.UserProductlist = new System.Windows.Forms.ListBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -119,9 +121,8 @@
             this.bttnReturn = new System.Windows.Forms.Button();
             this.bttnLend = new System.Windows.Forms.Button();
             this.fgfdgdf = new System.Windows.Forms.TabControl();
-            this.label47 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.tabPage2.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPriceDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBailPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
@@ -135,7 +136,6 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.fgfdgdf.SuspendLayout();
-            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -151,6 +151,84 @@
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.label36);
+            this.groupBox8.Controls.Add(this.Createbtn);
+            this.groupBox8.Controls.Add(this.NameTxt);
+            this.groupBox8.Controls.Add(this.label37);
+            this.groupBox8.Controls.Add(this.label38);
+            this.groupBox8.Controls.Add(this.comboBoxCat);
+            this.groupBox8.Controls.Add(this.label39);
+            this.groupBox8.Controls.Add(this.nudPriceDay);
+            this.groupBox8.Controls.Add(this.label40);
+            this.groupBox8.Controls.Add(this.nudBailPrice);
+            this.groupBox8.Controls.Add(this.nudAmount);
+            resources.ApplyResources(this.groupBox8, "groupBox8");
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.TabStop = false;
+            // 
+            // label36
+            // 
+            resources.ApplyResources(this.label36, "label36");
+            this.label36.Name = "label36";
+            // 
+            // Createbtn
+            // 
+            resources.ApplyResources(this.Createbtn, "Createbtn");
+            this.Createbtn.Name = "Createbtn";
+            this.Createbtn.UseVisualStyleBackColor = true;
+            this.Createbtn.Click += new System.EventHandler(this.Createbtn_Click);
+            // 
+            // NameTxt
+            // 
+            resources.ApplyResources(this.NameTxt, "NameTxt");
+            this.NameTxt.Name = "NameTxt";
+            // 
+            // label37
+            // 
+            resources.ApplyResources(this.label37, "label37");
+            this.label37.Name = "label37";
+            // 
+            // label38
+            // 
+            resources.ApplyResources(this.label38, "label38");
+            this.label38.Name = "label38";
+            // 
+            // comboBoxCat
+            // 
+            this.comboBoxCat.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBoxCat, "comboBoxCat");
+            this.comboBoxCat.Name = "comboBoxCat";
+            this.comboBoxCat.SelectedValueChanged += new System.EventHandler(this.comboBoxCat_SelectedValueChanged);
+            // 
+            // label39
+            // 
+            resources.ApplyResources(this.label39, "label39");
+            this.label39.Name = "label39";
+            // 
+            // nudPriceDay
+            // 
+            this.nudPriceDay.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudPriceDay, "nudPriceDay");
+            this.nudPriceDay.Name = "nudPriceDay";
+            // 
+            // label40
+            // 
+            resources.ApplyResources(this.label40, "label40");
+            this.label40.Name = "label40";
+            // 
+            // nudBailPrice
+            // 
+            this.nudBailPrice.DecimalPlaces = 2;
+            resources.ApplyResources(this.nudBailPrice, "nudBailPrice");
+            this.nudBailPrice.Name = "nudBailPrice";
+            // 
+            // nudAmount
+            // 
+            resources.ApplyResources(this.nudAmount, "nudAmount");
+            this.nudAmount.Name = "nudAmount";
             // 
             // label46
             // 
@@ -182,72 +260,11 @@
             resources.ApplyResources(this.label41, "label41");
             this.label41.Name = "label41";
             // 
-            // nudPriceDay
-            // 
-            this.nudPriceDay.DecimalPlaces = 2;
-            resources.ApplyResources(this.nudPriceDay, "nudPriceDay");
-            this.nudPriceDay.Name = "nudPriceDay";
-            // 
-            // nudBailPrice
-            // 
-            this.nudBailPrice.DecimalPlaces = 2;
-            resources.ApplyResources(this.nudBailPrice, "nudBailPrice");
-            this.nudBailPrice.Name = "nudBailPrice";
-            // 
-            // nudAmount
-            // 
-            resources.ApplyResources(this.nudAmount, "nudAmount");
-            this.nudAmount.Name = "nudAmount";
-            // 
-            // label40
-            // 
-            resources.ApplyResources(this.label40, "label40");
-            this.label40.Name = "label40";
-            // 
-            // label39
-            // 
-            resources.ApplyResources(this.label39, "label39");
-            this.label39.Name = "label39";
-            // 
-            // comboBoxCat
-            // 
-            this.comboBoxCat.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBoxCat, "comboBoxCat");
-            this.comboBoxCat.Name = "comboBoxCat";
-            this.comboBoxCat.SelectedValueChanged += new System.EventHandler(this.comboBoxCat_SelectedValueChanged);
-            // 
-            // label38
-            // 
-            resources.ApplyResources(this.label38, "label38");
-            this.label38.Name = "label38";
-            // 
-            // label37
-            // 
-            resources.ApplyResources(this.label37, "label37");
-            this.label37.Name = "label37";
-            // 
-            // label36
-            // 
-            resources.ApplyResources(this.label36, "label36");
-            this.label36.Name = "label36";
-            // 
-            // NameTxt
-            // 
-            resources.ApplyResources(this.NameTxt, "NameTxt");
-            this.NameTxt.Name = "NameTxt";
-            // 
             // AllproductsP2lst
             // 
             this.AllproductsP2lst.FormattingEnabled = true;
             resources.ApplyResources(this.AllproductsP2lst, "AllproductsP2lst");
             this.AllproductsP2lst.Name = "AllproductsP2lst";
-            // 
-            // Createbtn
-            // 
-            resources.ApplyResources(this.Createbtn, "Createbtn");
-            this.Createbtn.Name = "Createbtn";
-            this.Createbtn.UseVisualStyleBackColor = true;
-            this.Createbtn.Click += new System.EventHandler(this.Createbtn_Click);
             // 
             // tabPage1
             // 
@@ -304,6 +321,11 @@
             resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.TabStop = false;
+            // 
+            // label47
+            // 
+            resources.ApplyResources(this.label47, "label47");
+            this.label47.Name = "label47";
             // 
             // label16
             // 
@@ -701,28 +723,6 @@
             this.fgfdgdf.Name = "fgfdgdf";
             this.fgfdgdf.SelectedIndex = 0;
             // 
-            // label47
-            // 
-            resources.ApplyResources(this.label47, "label47");
-            this.label47.Name = "label47";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.label36);
-            this.groupBox8.Controls.Add(this.Createbtn);
-            this.groupBox8.Controls.Add(this.NameTxt);
-            this.groupBox8.Controls.Add(this.label37);
-            this.groupBox8.Controls.Add(this.label38);
-            this.groupBox8.Controls.Add(this.comboBoxCat);
-            this.groupBox8.Controls.Add(this.label39);
-            this.groupBox8.Controls.Add(this.nudPriceDay);
-            this.groupBox8.Controls.Add(this.label40);
-            this.groupBox8.Controls.Add(this.nudBailPrice);
-            this.groupBox8.Controls.Add(this.nudAmount);
-            resources.ApplyResources(this.groupBox8, "groupBox8");
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.TabStop = false;
-            // 
             // Hiresystem
             // 
             resources.ApplyResources(this, "$this");
@@ -735,6 +735,8 @@
             this.Name = "Hiresystem";
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPriceDay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBailPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).EndInit();
@@ -755,8 +757,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.fgfdgdf.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }
