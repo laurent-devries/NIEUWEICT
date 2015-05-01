@@ -320,6 +320,7 @@ namespace ICT4Events
             SearchTxtHR.Text = "";
             UserProductlist.Items.Clear();
             allProductslist.Items.Clear();
+            AllproductsP2lst.Items.Clear();
             listBoxAvble.Items.Clear();
             LoadProducts();
             availableProduct();

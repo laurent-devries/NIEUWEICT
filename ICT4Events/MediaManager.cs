@@ -201,7 +201,7 @@ namespace ICT4Events
 
             else
             {
-                Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,SUMMARYMEDIA,VIEWMEDIA,FILEPATH,TYPEMEDIA, ID_USERFK, ID_CATEGORYFK, ID_EVENTFK) VALUES(media_seq.nextval,'" + title + "',' + summaryMedia + ', 0,'" + filePath + "','" + typeMedia + "', " + user.ID_User + ", " + category.Id + " ,  " + user.ID_EventFK + ")";
+                Query = "INSERT INTO ICT4_MEDIA(ID_MEDIA,TITLE,SUMMARYMEDIA,VIEWMEDIA,FILEPATH,TYPEMEDIA, ID_USERFK, ID_CATEGORYFK, ID_EVENTFK) VALUES(media_seq.nextval,'" + title + "',' " + summaryMedia + " ', 0,'" + filePath + "','" + typeMedia + "', " + user.ID_User + ", " + category.Id + " ,  " + user.ID_EventFK + ")";
             }
             bool writer = con.InsertOrUpdate(Query);
             
