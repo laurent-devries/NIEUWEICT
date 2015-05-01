@@ -83,6 +83,7 @@ namespace ICT4Events
             tb_eventcampingplacenumber.Text = null;
             nuD_maxpeople.Value = 1;
             cb_campingtype.Text = null;
+            tB_rfid_user.Text = null;
         }
         private void btn_show_users_Click_1(object sender, EventArgs e)
         {
@@ -478,7 +479,7 @@ namespace ICT4Events
                     tb_telnr_gebruiker.Text = user.Phone_Number;
                     tb_loginname_gebruiker.Text = user.Login_Name;
                     tb_username_gebruiker.Text = user.Username;
-                    tb_password_gebruiker.Text = "Welkom";
+                    tb_password_gebruiker.Text = user.Password;
                 }
             }
         }

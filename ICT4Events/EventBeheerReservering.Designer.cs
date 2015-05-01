@@ -34,6 +34,8 @@
             this.btn_changeuser = new System.Windows.Forms.Button();
             this.cB_Event_ID_User = new System.Windows.Forms.ComboBox();
             this.gb_gebruikercreatie = new System.Windows.Forms.GroupBox();
+            this.tB_rfid_user = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.cB_Reservation_ID_User = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -105,8 +107,6 @@
             this.cb_showusersonevent = new System.Windows.Forms.ComboBox();
             this.btn_show_users = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.tB_rfid_user = new System.Windows.Forms.TextBox();
             this.tControlEventbeheer.SuspendLayout();
             this.tabUserManagement.SuspendLayout();
             this.gb_gebruikercreatie.SuspendLayout();
@@ -219,9 +219,25 @@
             this.gb_gebruikercreatie.TabStop = false;
             this.gb_gebruikercreatie.Text = "User Create / Change";
             // 
+            // tB_rfid_user
+            // 
+            this.tB_rfid_user.Location = new System.Drawing.Point(95, 298);
+            this.tB_rfid_user.Name = "tB_rfid_user";
+            this.tB_rfid_user.Size = new System.Drawing.Size(325, 20);
+            this.tB_rfid_user.TabIndex = 53;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(7, 301);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(50, 13);
+            this.label19.TabIndex = 55;
+            this.label19.Text = "RFID-tag";
+            // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(263, 357);
+            this.btnCancel.Location = new System.Drawing.Point(250, 324);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 53;
@@ -278,7 +294,7 @@
             // 
             // btn_Confirm_user
             // 
-            this.btn_Confirm_user.Location = new System.Drawing.Point(345, 357);
+            this.btn_Confirm_user.Location = new System.Drawing.Point(332, 324);
             this.btn_Confirm_user.Name = "btn_Confirm_user";
             this.btn_Confirm_user.Size = new System.Drawing.Size(75, 23);
             this.btn_Confirm_user.TabIndex = 54;
@@ -980,22 +996,6 @@
             this.label13.Size = new System.Drawing.Size(55, 13);
             this.label13.TabIndex = 0;
             this.label13.Text = "Event_ID:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(7, 301);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(50, 13);
-            this.label19.TabIndex = 55;
-            this.label19.Text = "RFID-tag";
-            // 
-            // tB_rfid_user
-            // 
-            this.tB_rfid_user.Location = new System.Drawing.Point(95, 298);
-            this.tB_rfid_user.Name = "tB_rfid_user";
-            this.tB_rfid_user.Size = new System.Drawing.Size(325, 20);
-            this.tB_rfid_user.TabIndex = 56;
             // 
             // EventBeheerReservering
             // 
