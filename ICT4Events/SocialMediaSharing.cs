@@ -613,18 +613,26 @@ namespace ICT4Events
 
         private void btnVerwijder_Click(object sender, EventArgs e)
         {
-            // Verwijdert de geselecteerde post
-            Media media = lbReportedPosts.SelectedItem as Media;
-            if (mediaManager.DeleteMedia(media))
+            if (lbReportedPosts.SelectedItem != null)
             {
-                MessageBox.Show("Succesvol verwijdert: " + media.Title);
-            }
+                // Verwijdert de geselecteerde post
+                Media media = lbReportedPosts.SelectedItem as Media;
+                if (mediaManager.DeleteMedia(media))
+                {
+                    MessageBox.Show("Succesvol verwijdert: " + media.Title);
+                }
 
+                else
+                {
+                    MessageBox.Show("Verwijderen van de post is mislukt");
+                }
+                GetReportedPosts();
+            }
             else
             {
-                MessageBox.Show("Verwijderen van de post is mislukt");
+                MessageBox.Show("Selecteer eerst een report.");
             }
-            GetReportedPosts();
+
         }
 
 
