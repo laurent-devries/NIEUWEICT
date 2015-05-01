@@ -173,7 +173,7 @@
             this.cB_Event_ID_User.FormattingEnabled = true;
             this.cB_Event_ID_User.Location = new System.Drawing.Point(559, 52);
             this.cB_Event_ID_User.Name = "cB_Event_ID_User";
-            this.cB_Event_ID_User.Size = new System.Drawing.Size(141, 21);
+            this.cB_Event_ID_User.Size = new System.Drawing.Size(324, 21);
             this.cB_Event_ID_User.TabIndex = 39;
             this.cB_Event_ID_User.TextChanged += new System.EventHandler(this.cB_Event_ID_User_TextChanged_1);
             // 
@@ -558,9 +558,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(470, 55);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 13);
+            this.label11.Size = new System.Drawing.Size(35, 13);
             this.label11.TabIndex = 38;
-            this.label11.Text = "Event_ID";
+            this.label11.Text = "Event";
             // 
             // tabEventManagement
             // 

@@ -131,7 +131,7 @@ namespace ICT4Events
 
         private void btn_create_event_Click(object sender, EventArgs e)
         {
-            if (btn_create_event.Enabled)
+            if (btn_new_event.Enabled)
             {
                 // creeërt een event met de meegegeven gegevens
                 DatabaseConnection conn = new DatabaseConnection();
