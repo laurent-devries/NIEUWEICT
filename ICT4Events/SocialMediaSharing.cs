@@ -537,6 +537,13 @@ namespace ICT4Events
         #region AdminTab
         private void tabAdmin_Enter(object sender, EventArgs e)
         {
+            GetReportedPosts();
+        }
+
+        #endregion
+
+        private void GetReportedPosts()
+        {
             List<Media> reportedPosts = mediaManager.RequestMediaUploads(user);
             lbReportedPosts.Items.Clear();
             foreach (Media m in reportedPosts)
@@ -547,8 +554,6 @@ namespace ICT4Events
                 }
             }
         }
-
-        #endregion
 
         private void lbReportedPosts_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -619,6 +624,7 @@ namespace ICT4Events
             {
                 MessageBox.Show("Verwijderen van de post is mislukt");
             }
+            GetReportedPosts();
         }
 
 

@@ -44,7 +44,7 @@ namespace ICT4Events
             try
             {
                 DatabaseConnection con = new DatabaseConnection();
-                string Querry = "SELECT PERMISSIONNAME, PERMISSIONVALUE FROM ICT4_PERMISSION WHERE ID_PERMISSION = '" + u.Permissionfk.ToString() + "'";
+                string Querry = "SELECT PREMISSIONNAME, PERMISSIONVALUE FROM ICT4_PERMISSION WHERE ID_PERMISSION = '" + u.Permissionfk.ToString() + "'";
 
                 OracleDataReader reader = con.SelectFromDatabase(Querry);
                 Permission permission;
