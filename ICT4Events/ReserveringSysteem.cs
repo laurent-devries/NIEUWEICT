@@ -292,21 +292,30 @@ namespace ICT4Events
 
         private void btnConfirmExtraAcc_Click(object sender, EventArgs e)
         {
+
+
+            Event a = cbEvents.SelectedItem as Event;
+            DatabaseConnection conn = new DatabaseConnection();
+
+            string insert = "insert into ICT4_USER (ID_USER, ID_EVENTFK, ID_RESERVATIONFK, ID_PERMISSIONFK, LOGINNAME, PASSWORDUSER) VALUES (USER_SEQ.NEXTVAL, " + Convert.ToString(a.ID_Event) + ", " + idreservation + ", 1, '" + tbLoginEx.Text + "', '" + tbPassEx.Text + "')";
+            //user inserten in db
+            if (conn.InsertOrUpdate(insert))
+            {
+                usersleft = usersleft - 1;
+                lblAccountsLeft.Text = usersleft.ToString();
+                tbLoginEx.Text = "";
+                tbPassEx.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Er is al een gebruiker met deze inlognaam. Probeer het opnieuw.");
+            }
+
             //kijken of de gebruiker nog extra accounts aan moet maken.
-            usersleft = usersleft - 1;
             if (usersleft == 0)
             {
                 gbUsers.Enabled = false;
             }
-            Event a = cbEvents.SelectedItem as Event;
-
-            DatabaseConnection conn = new DatabaseConnection();
-            //user inserten in db
-            string insert = "insert into ICT4_USER (ID_USER, ID_EVENTFK, ID_RESERVATIONFK, ID_PERMISSIONFK, LOGINNAME, PASSWORDUSER) VALUES (USER_SEQ.NEXTVAL, " + Convert.ToString(a.ID_Event) + ", " + idreservation + ", 1, '" + tbLoginEx.Text + "', '" + tbPassEx.Text + "')";
-            conn.InsertOrUpdate(insert);
-            lblAccountsLeft.Text = usersleft.ToString();
-            tbLoginEx.Text = "";
-            tbPassEx.Text = "";
         }
 
         private void cbOptions_SelectedIndexChanged(object sender, EventArgs e)
